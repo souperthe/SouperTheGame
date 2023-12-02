@@ -170,6 +170,12 @@ func _physics_process(_delta):
 		playerthing.visible = true
 	if !is_instance_valid(presobjs.player2):
 		playerthing.visible = false
+	if face:
+		$machch.scale.x = -1
+		$enemych.scale.x = -1
+	if !face:
+		$machch.scale.x = 1
+		$enemych.scale.x = 1
 	if playernumber == 0:
 		if get_tree().current_scene.name == "menu":
 			$HUD/HUD.visible = false
@@ -206,12 +212,8 @@ func get_input_direction() -> float:
 	
 	if direction < 0:
 		animator.flip_h = true
-		$machch.scale.x = -1
-		$enemych.scale.x = -1
 		face = true
 	if direction > 0:
-		$machch.scale.x = 1
-		$enemych.scale.x = 1
 		animator.flip_h = false
 		face = false
 		
