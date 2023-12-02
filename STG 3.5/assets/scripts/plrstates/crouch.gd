@@ -22,17 +22,19 @@ func physics_update(delta: float) -> void:
 	if not is_zero_approx(player.get_input_direction()):
 		#player.velocity.x = lerp(player.velocity.x, player.get_input_direction() * player.speed, player.acceleration * delta)
 		walk()
-	if Input.is_action_just_released(player.input_jump):
-		if player.velocity.y < 1:
-			player.velocity.y = -player.jump_impulse / 1.5
 	player.velocity.y += player.gravity * delta
-	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
+	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
 	if animation_player.animation == ("crouchstart"):
 		if player.animatonframes > 3:
 			animation_player.play("crouchidle")
 	if Input.is_action_just_released(player.input_down):
 		state_machine.transition_to("Idle")
 		animation_player.play("crouchdone")
+	if not player.is_on_floor():
+		state_machine.transition_to("crouchair")
+	if Input.is_action_just_released(player.input_jump):
+		state_machine.transition_to("crouchair", {do_jump = true})
+		animation_player.play("crouchjump")
 #	pass
 
 

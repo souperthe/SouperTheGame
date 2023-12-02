@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=290 format=2]
+[gd_resource type="SpriteFrames" load_steps=299 format=2]
 
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0125.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0114.png" type="Texture" id=2]
@@ -289,6 +289,15 @@
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0339.png" type="Texture" id=287]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0340.png" type="Texture" id=288]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0337.png" type="Texture" id=289]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0349.png" type="Texture" id=290]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0343.png" type="Texture" id=291]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0344.png" type="Texture" id=292]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0345.png" type="Texture" id=293]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0347.png" type="Texture" id=294]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0342.png" type="Texture" id=295]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0348.png" type="Texture" id=296]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0341.png" type="Texture" id=297]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0346.png" type="Texture" id=298]
 
 [resource]
 animations = [ {
@@ -352,9 +361,19 @@ animations = [ {
 "name": "crouchdone",
 "speed": 12.0
 }, {
+"frames": [ ExtResource( 296 ), ExtResource( 290 ) ],
+"loop": true,
+"name": "crouchfall",
+"speed": 12.0
+}, {
 "frames": [ ExtResource( 280 ), ExtResource( 282 ) ],
 "loop": true,
 "name": "crouchidle",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 297 ), ExtResource( 295 ), ExtResource( 291 ), ExtResource( 292 ), ExtResource( 293 ), ExtResource( 298 ), ExtResource( 294 ), ExtResource( 296 ), ExtResource( 290 ), ExtResource( 290 ), ExtResource( 290 ), ExtResource( 290 ) ],
+"loop": false,
+"name": "crouchjump",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 285 ), ExtResource( 284 ), ExtResource( 283 ), ExtResource( 281 ), ExtResource( 281 ), ExtResource( 281 ), ExtResource( 281 ), ExtResource( 281 ), ExtResource( 281 ) ],

@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -64,6 +64,7 @@
 [ext_resource path="res://assets/sound/sfx/sfx_machready.wav" type="AudioStream" id=62]
 [ext_resource path="res://assets/sound/sfx/sfx_gunfire.wav" type="AudioStream" id=63]
 [ext_resource path="res://assets/scripts/plrstates/crouch.gd" type="Script" id=64]
+[ext_resource path="res://assets/scripts/plrstates/crouchair.gd" type="Script" id=65]
 [ext_resource path="res://assets/scripts/plrstates/MachTurn.gd" type="Script" id=69]
 [ext_resource path="res://assets/sound/sfx/sfx_hitwall.wav" type="AudioStream" id=70]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
@@ -450,8 +451,8 @@ color_ramp = SubResource( 33 )
 [node name="animation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "crouchwalk"
-frame = 2
+animation = "crouchfall"
+frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -613,6 +614,10 @@ _animation_player = NodePath("../../animation")
 
 [node name="crouch" type="Node" parent="StateMachine"]
 script = ExtResource( 64 )
+_animation_player = NodePath("../../animation")
+
+[node name="crouchair" type="Node" parent="StateMachine"]
+script = ExtResource( 65 )
 _animation_player = NodePath("../../animation")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -946,7 +951,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 4
+frame = 16
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
