@@ -38,13 +38,21 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	if player.is_on_wall() and not thing:
-		player.velocity.x *= int(-speed / 0.2)
 		player.velocity.x = -600
 		animation_player.play("hardtumble")
 		animation_player.frame = 0
 		animation_player.flip_h = !animation_player.flip_h
 		player.face = !player.face 
 		player.sfxgrapple.play()
+		#player.goofysound()
+		speed = speed / 1.5
+		player.velocity.y = -0
+		#player.hurteffect()
+		#player.velocity.x = -speed
+		if !player.face:
+			player.velocity.x = -speed
+		if player.face:
+			player.velocity.x = speed
 	if thing:
 		#global.camerazoom = lerp(global.camerazoom, 0.5, 2 * delta)
 		player.darkeffect.modulate.a8 = lerp(player.darkeffect.modulate.a8, 280, 2 * delta)

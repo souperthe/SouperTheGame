@@ -42,7 +42,7 @@ func physics_update(delta: float) -> void:
 		player.face = !player.face 
 		player.sfxgrapple.play()
 		player.goofysound()
-		speed = speed / 1.2
+		speed = speed / 1.5
 		player.velocity.y = -0
 		player.hurteffect()
 		#player.velocity.x = -speed
