@@ -64,16 +64,13 @@ limit_left = 0
 limit_top = 0
 limit_right = 7360
 limit_bottom = 540
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="platform" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1024, 478 )
 scale = Vector2( 10, 1 )
 
 [node name="Enemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1344, 384 )
+position = Vector2( 1345, 367 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1344, 160 )
