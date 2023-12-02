@@ -464,5 +464,12 @@ func goofysound():
 	ghost.playsound = true
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
+	
+func hurteffect():
+	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.position = self.position
+	ghost.amount = 500
 
 	

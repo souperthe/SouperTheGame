@@ -153,7 +153,7 @@ position = Vector2( 0, -45 )
 scale = Vector2( 0.56, 0.56 )
 frames = SubResource( 2 )
 animation = "ring"
-frame = 14
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

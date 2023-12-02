@@ -42,8 +42,18 @@ func physics_update(delta: float) -> void:
 		player.face = !player.face 
 		player.sfxgrapple.play()
 		player.goofysound()
-		speed = speed / 1.5
-		player.velocity.x = -speed
+		speed = speed / 1.2
+		player.velocity.y = -0
+		player.hurteffect()
+		#player.velocity.x = -speed
+		if !player.face:
+			player.velocity.x = -speed
+		if player.face:
+			player.velocity.x = speed
+		#if player.velocity.x > 0:
+			#player.velocity.x = speed
+		#if player.velocity.x < 0:
+			#player.velocity.x = -speed
 	if player.animatonframes > 7:
 		player.trail()
 	if player.is_on_floor():

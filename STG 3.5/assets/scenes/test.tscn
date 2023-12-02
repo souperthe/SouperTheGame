@@ -64,7 +64,7 @@ scale = Vector2( 20, 1 )
 position = Vector2( 2464, 64 )
 
 [node name="test" type="Sprite" parent="."]
-position = Vector2( 1120, 32 )
+position = Vector2( 1861, -31 )
 texture = ExtResource( 10 )
 script = ExtResource( 9 )
 
