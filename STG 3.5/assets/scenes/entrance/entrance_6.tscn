@@ -719,3 +719,15 @@ position = Vector2( 960, 160 )
 
 [node name="escapesmallcollectable65" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1024, 128 )
+
+[node name="switchblock13" parent="." instance=ExtResource( 13 )]
+position = Vector2( 64, -1056 )
+
+[node name="switchblock14" parent="." instance=ExtResource( 13 )]
+position = Vector2( 96, -1056 )
+
+[node name="switchblock15" parent="." instance=ExtResource( 13 )]
+position = Vector2( 128, -1056 )
+
+[node name="switchblock16" parent="." instance=ExtResource( 13 )]
+position = Vector2( 160, -1056 )
