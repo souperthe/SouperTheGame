@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/scripts/customborder.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/customborder.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/scripts/topbaroptions.gd" type="Script" id=3]
+[ext_resource path="res://assets/sound/sfx/sfx_menubutton8.wav" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 479.5, 15 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxLine" id=3]
+color = Color( 1, 1, 1, 1 )
+
+[node name="border" type="Control"]
+pause_mode = 2
+physics_interpolation_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ -99.0 ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="options2" type="Control" parent="CanvasLayer"]
+margin_right = 960.0
+margin_bottom = 30.0
+
+[node name="options" type="Control" parent="CanvasLayer"]
+margin_top = -30.0
+margin_right = 960.0
+mouse_filter = 2
+script = ExtResource( 3 )
+
+[node name="mousedetect" type="Area2D" parent="CanvasLayer/options"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/options/mousedetect"]
+position = Vector2( 480.5, 15 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0.282353 )
+
+[node name="Line2D2" type="Line2D" parent="CanvasLayer/options"]
+visible = false
+position = Vector2( 0, -510 )
+points = PoolVector2Array( 0, 540, 960, 540 )
+width = 1.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/options"]
+margin_right = 960.0
+margin_bottom = 30.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/options/HBoxContainer"]
+margin_bottom = 30.0
+
+[node name="WindowName" type="Label" parent="CanvasLayer/options/HBoxContainer"]
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 142.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 2 )
+text = "hello modders"
+
+[node name="buttons" type="HBoxContainer" parent="CanvasLayer/options"]
+margin_right = 960.0
+margin_bottom = 31.0
+input_pass_on_modal_close_click = false
+custom_constants/separation = 15
+alignment = 2
+
+[node name="Minumize" type="Button" parent="CanvasLayer/options/buttons"]
+margin_left = 862.0
+margin_right = 881.0
+margin_bottom = 31.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+shortcut_in_tooltip = false
+action_mode = 0
+enabled_focus_mode = 0
+text = "-"
+flat = true
+icon_align = 1
+
+[node name="Maxiumize" type="Button" parent="CanvasLayer/options/buttons"]
+margin_left = 896.0
+margin_right = 921.0
+margin_bottom = 31.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 2 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "O"
+flat = true
+
+[node name="Close" type="Button" parent="CanvasLayer/options/buttons"]
+margin_left = 936.0
+margin_right = 960.0
+margin_bottom = 31.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+shortcut_in_tooltip = false
+action_mode = 0
+enabled_focus_mode = 0
+text = "X"
+flat = true
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer"]
+points = PoolVector2Array( 0, 0, 960, 0, 960, 540, 0, 540, 0, 0 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="mouse_entered" from="CanvasLayer/options2" to="." method="_on_options2_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/options2" to="." method="_on_options2_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/options" to="." method="_on_options_gui_input"]
+[connection signal="mouse_entered" from="CanvasLayer/options/mousedetect" to="." method="_on_mousedetect_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/options/mousedetect" to="." method="_on_mousedetect_mouse_exited"]
+[connection signal="gui_input" from="CanvasLayer/options/HBoxContainer" to="." method="_on_HBoxContainer_gui_input"]
+[connection signal="gui_input" from="CanvasLayer/options/buttons" to="." method="_on_buttons_gui_input"]
+[connection signal="pressed" from="CanvasLayer/options/buttons/Minumize" to="CanvasLayer/options" method="_on_Minumize_pressed"]
+[connection signal="pressed" from="CanvasLayer/options/buttons/Maxiumize" to="CanvasLayer/options" method="_on_Maxiumize_pressed"]
+[connection signal="pressed" from="CanvasLayer/options/buttons/Close" to="CanvasLayer/options" method="_on_Close_pressed"]

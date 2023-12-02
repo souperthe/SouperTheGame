@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/scripts/circletransition.gd" type="Script" id=1]
+[ext_resource path="res://assets/objects/circletrans.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sound/sfx/sfx_transitionout.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sound/sfx/sfx_transitionin.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/objects/Autoloads/fadetrans.tscn" type="PackedScene" id=5]
+
+[node name="circletransition" type="CanvasLayer"]
+layer = 126
+script = ExtResource( 1 )
+
+[node name="fadetrans" parent="." instance=ExtResource( 5 )]
+
+[node name="circletrans" parent="." instance=ExtResource( 2 )]
+
+[node name="in" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -13.109
+bus = "SFX"
+
+[node name="out" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -13.109
+bus = "SFX"

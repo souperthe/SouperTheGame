@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://import/vox_shurt2.wav-98ad58fd616f696dd2c91592f3a835db.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/vox_shurt2.wav"
+dest_files=[ "res://import/vox_shurt2.wav-98ad58fd616f696dd2c91592f3a835db.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=11025.0
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=1

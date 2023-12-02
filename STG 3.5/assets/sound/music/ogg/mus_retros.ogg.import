@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://import/mus_retros.ogg-3b0e5af26d1cbe8ea4bf8bb5157e92d1.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/music/ogg/mus_retros.ogg"
+dest_files=[ "res://import/mus_retros.ogg-3b0e5af26d1cbe8ea4bf8bb5157e92d1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

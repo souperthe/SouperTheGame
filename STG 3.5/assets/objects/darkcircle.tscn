@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/scripts/darkcircle.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode unshaded;
+ 
+uniform float circle_size : hint_range(0.0, 1.05);
+uniform float screen_width;
+uniform float screen_height;
+ 
+void fragment() {
+	float ratio = screen_width / screen_height;
+	float dist = distance(vec2(0.5, 0.5), vec2(mix(0.5, UV.x, ratio), UV.y));
+	COLOR.a = step(circle_size, dist);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/circle_size = 0.112
+shader_param/screen_width = 3000.0
+shader_param/screen_height = 2000.0
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 1 )
+shader_param/circle_size = 0.094
+shader_param/screen_width = 3000.0
+shader_param/screen_height = 2000.0
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 1 )
+shader_param/circle_size = 0.081
+shader_param/screen_width = 3000.0
+shader_param/screen_height = 2000.0
+
+[node name="darkcircle" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.388235 )
+material = SubResource( 2 )
+margin_left = -1499.0
+margin_top = -1002.0
+margin_right = 1501.0
+margin_bottom = 998.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.345098 )
+material = SubResource( 3 )
+margin_left = -1499.0
+margin_top = -1002.0
+margin_right = 1501.0
+margin_bottom = 998.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.133333 )
+material = SubResource( 4 )
+margin_left = -1499.0
+margin_top = -1002.0
+margin_right = 1501.0
+margin_bottom = 998.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color( 0, 0, 0, 1 )

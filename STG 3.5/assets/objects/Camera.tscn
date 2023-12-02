@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/scripts/camerascript.gd" type="Script" id=1]
+
+[node name="Camera2D" type="Camera2D"]
+offset = Vector2( 0, -5 )
+rotating = true
+current = true
+limit_bottom = -1000000
+smoothing_speed = 55.0
+offset_v = -1.0
+script = ExtResource( 1 )

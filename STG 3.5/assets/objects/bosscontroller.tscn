@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/fonts/comicz.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/scripts/boss.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/HUD/healthicon.png" type="Texture" id=3]
+[ext_resource path="res://assets/scripts/bosscontroller.gd" type="Script" id=4]
+[ext_resource path="res://assets/sound/sfx/sfx_impact2.wav" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 66
+outline_size = 2
+use_filter = true
+extra_spacing_top = 3
+extra_spacing_char = 1
+extra_spacing_space = 1
+font_data = ExtResource( 1 )
+
+[node name="bosscontroller" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="boss" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="player" type="Control" parent="CanvasLayer/boss"]
+margin_left = 113.0
+margin_top = 87.0
+margin_right = 153.0
+margin_bottom = 127.0
+
+[node name="Healthicon" type="Sprite" parent="CanvasLayer/boss/player"]
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 3 )
+
+[node name="playerhealth" type="Label" parent="CanvasLayer/boss/player"]
+margin_left = -152.0
+margin_top = -30.0
+margin_right = 148.0
+margin_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.384314, 0.384314, 0.384314, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+max_lines_visible = 1
+
+[node name="boss" type="Control" parent="CanvasLayer/boss"]
+margin_left = 847.0
+margin_top = 87.0
+margin_right = 887.0
+margin_bottom = 127.0
+
+[node name="Healthicon" type="Sprite" parent="CanvasLayer/boss/boss"]
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 3 )
+flip_h = true
+
+[node name="bosshealth" type="Label" parent="CanvasLayer/boss/boss"]
+margin_left = -152.0
+margin_top = -30.0
+margin_right = 148.0
+margin_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.384314, 0.384314, 0.384314, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+max_lines_visible = 1
+
+[node name="impact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -1.189
+bus = "SFX"

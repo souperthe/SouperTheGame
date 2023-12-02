@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/scripts/debugmenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/sound/sfx/sfx_plrspawn.wav" type="AudioStream" id=3]
+
+[node name="debugmenu" type="CanvasLayer"]
+pause_mode = 2
+layer = 128
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+pause_mode = 2
+margin_top = 448.0
+margin_right = 40.0
+margin_bottom = 488.0
+
+[node name="escapecheck" type="Button" parent="Control"]
+pause_mode = 2
+margin_top = -40.0
+margin_right = 46.0
+margin_bottom = -16.0
+focus_mode = 1
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "panic"
+expand_icon = true
+
+[node name="plrstate" type="Label" parent="Control"]
+pause_mode = 2
+margin_top = 24.0
+margin_right = 40.0
+margin_bottom = 38.0
+
+[node name="plrspos" type="Label" parent="Control"]
+pause_mode = 2
+margin_top = 40.0
+margin_right = 40.0
+margin_bottom = 54.0
+text = "weiner"
+
+[node name="plrsvol" type="Label" parent="Control"]
+pause_mode = 2
+margin_top = 56.0
+margin_right = 40.0
+margin_bottom = 70.0
+text = "willy"
+
+[node name="escapecheck2" type="Button" parent="Control"]
+pause_mode = 2
+margin_top = -72.0
+margin_right = 131.0
+margin_bottom = -48.0
+focus_mode = 1
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "camera smoothing"
+expand_icon = true
+
+[node name="smoothamount" type="TextEdit" parent="Control"]
+pause_mode = 2
+margin_top = -168.0
+margin_right = 40.0
+margin_bottom = -128.0
+hint_tooltip = "enter camera speed here"
+focus_mode = 1
+text = "5"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+virtual_keyboard_enabled = false
+selecting_enabled = false
+
+[node name="escapecheck3" type="Button" parent="Control"]
+pause_mode = 2
+margin_top = -200.0
+margin_right = 131.0
+margin_bottom = -176.0
+focus_mode = 1
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "show collisions"
+expand_icon = true
+
+[node name="gamespeed" type="TextEdit" parent="Control"]
+pause_mode = 2
+margin_top = -256.0
+margin_right = 40.0
+margin_bottom = -208.0
+hint_tooltip = "enter game speed here"
+focus_mode = 1
+text = "1
+"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+virtual_keyboard_enabled = false
+selecting_enabled = false
+
+[node name="fps" type="Label" parent="Control"]
+pause_mode = 2
+margin_top = 72.0
+margin_right = 43.0
+margin_bottom = 86.0
+text = "weiner"
+
+[node name="plranimation" type="Label" parent="Control"]
+pause_mode = 2
+margin_top = 8.0
+margin_right = 40.0
+margin_bottom = 22.0
+text = "willy"
+
+[node name="spawngun" type="Button" parent="Control"]
+pause_mode = 2
+margin_top = -112.0
+margin_right = 131.0
+margin_bottom = -88.0
+focus_mode = 1
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "spawn gun"
+expand_icon = true
+
+[node name="spawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -8.898
+
+[connection signal="pressed" from="Control/escapecheck" to="." method="_on_escapecheck_pressed"]
+[connection signal="pressed" from="Control/escapecheck2" to="." method="_on_escapecheck2_pressed"]
+[connection signal="pressed" from="Control/escapecheck3" to="." method="_on_escapecheck3_pressed"]
+[connection signal="pressed" from="Control/spawngun" to="." method="_on_spawngun_pressed"]

@@ -1,0 +1,70 @@
+extends PlayerState
+
+export (NodePath) var _animation_player
+onready var animation_player:AnimatedSprite = get_node(_animation_player)
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+var jumpheight = 670 * 2
+var thing = false
+var speed = 1050
+
+
+# Called when the node enters the scene tree for the first time.
+func enter(_msg := {}) -> void:
+	thing = false
+	player.hitpartical()
+	music.stopmusic()
+	player.hurtsfx.play()
+	animation_player.play("hardtumble")
+	player.velocity.y = -jumpheight
+	player.darkeffect.modulate.a8 = 0
+	player.darkeffect.visible = true
+	player.candoor = 0
+	player.canhurt = false
+	speed = 1050
+	if player.face:
+		player.velocity.x = -speed
+	if !player.face:
+		player.velocity.x = speed
+	pass # Replace with function body.
+	
+func physics_update(delta: float) -> void:
+	player.candoor = 1
+	player.pmachbox.disabled = true
+	player.machbox.disabled = true
+	player.emachbox.disabled = true
+	player.disabletitlt = false
+	player.velocity.y += player.gravity * delta
+	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
+	if player.is_on_wall() and not thing:
+		player.velocity.x *= int(-speed / 0.2)
+		player.velocity.x = -600
+		animation_player.play("hardtumble")
+		animation_player.frame = 0
+		animation_player.flip_h = !animation_player.flip_h
+		player.face = !player.face 
+		player.sfxgrapple.play()
+	if thing:
+		#global.camerazoom = lerp(global.camerazoom, 0.5, 2 * delta)
+		player.darkeffect.modulate.a8 = lerp(player.darkeffect.modulate.a8, 280, 2 * delta)
+	
+	if player.is_on_floor() and not thing:
+		thing = true
+		player.velocity.y = 0
+		player.velocity.x = 0
+		player.hitpartical()
+		animation_player.play("slipland")
+		player.sfxbump.play()
+		player.hitwall.play()
+		
+func exit() -> void:
+	player.darkeffect.modulate.a8 = 0
+	player.darkeffect.visible = false
+	global.camerazoom = 0
+	
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass

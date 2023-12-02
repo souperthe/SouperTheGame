@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://import/mus_onemustimagine.ogg-9f964ea86c9c2bacce82dfb35d0e909d.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/music/ogg/mus_onemustimagine.ogg"
+dest_files=[ "res://import/mus_onemustimagine.ogg-9f964ea86c9c2bacce82dfb35d0e909d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

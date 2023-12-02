@@ -1,0 +1,76 @@
+extends Area2D
+
+var player
+var wentin = false
+var done = false
+export (String) var targetscene
+var cangoin = false
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+func _process(delta):
+	cangoin = global.panic
+	$Red.rotation_degrees += 2
+	if global.panic:
+		$Red.modulate.a8 = 255
+	if !global.panic:
+		$Red.modulate.a8 = 100
+	if wentin:
+		var amount = 6
+		if not done:
+			player.cutscene()
+			player.position = lerp(player.position, position, amount * delta)
+			player.animator.scale.x = lerp(player.animator.scale.x, 0, amount * delta)
+			player.animator.scale.y = lerp(player.animator.scale.y, 0, amount * delta)
+			player.animator.play("hurt")
+			global.cutscene = true
+			global.camerazoom = lerp(global.camerazoom, 0.6, amount * delta)
+			global.fill.paused = true
+		var t = Timer.new()
+		t.set_wait_time(1)
+		t.set_one_shot(true)
+		self.add_child(t)
+		t.start()
+		yield(t, "timeout")
+		done = true
+		fadein()
+		gotolap()
+	pass
+	
+func gotolap():
+	player.animator.scale = Vector2(player.defaultscale, player.defaultscale)
+	player.exitlapportal()
+	global.room_goto(targetscene, "lap")
+	global.camerazoom = 1
+	global.cutscene = false
+	global.laps += 1
+	global.fill.paused = false
+	global.escaperoom = []
+	
+
+
+func _on_lapportal_body_entered(body):
+	if body is Player:
+		if cangoin:
+			player = body
+			wentin = true
+	pass # Replace with function body.
+	
+func fadein():
+	var weiner = false
+	var t = Timer.new()
+	t.set_wait_time(0.7)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	if not weiner:
+		ct._tin()
+		weiner = true

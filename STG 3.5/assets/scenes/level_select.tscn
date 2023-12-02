@@ -1,0 +1,152 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/scripts/test.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/pattern.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/levelselect.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/menus/finalboss.png" type="Texture" id=4]
+[ext_resource path="res://assets/scripts/level_select.gd" type="Script" id=5]
+[ext_resource path="res://assets/sprites/menus/pointer3.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/menus/pointer2.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/menus/pointer1.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/menus/city.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/menus/snow.png" type="Texture" id=10]
+[ext_resource path="res://assets/scripts/levelselect.gd" type="Script" id=11]
+[ext_resource path="res://assets/sprites/menus/unknown.png" type="Texture" id=12]
+[ext_resource path="res://assets/sound/sfx/sfx_altselect.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/sound/sfx/sfx_comfirm.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/ignore/retros.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/alphabet/E.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/alphabet/I.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/funnyboulder.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/alphabet/B.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/enemys/forkdemon/forkdemon_0017.png" type="Texture" id=21]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "boss",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "brah",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "city",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "entrance",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "finalboss",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "intro",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "retro",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "sissy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "snow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "unknown",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="selection" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="hardmode" type="CheckButton" parent="selection"]
+margin_left = 90.0
+margin_top = 333.0
+margin_right = 166.0
+margin_bottom = 373.0
+
+[node name="levels" type="AnimatedSprite" parent="selection"]
+position = Vector2( 448, 432 )
+scale = Vector2( 0.7, 0.7 )
+z_index = -1
+frames = SubResource( 2 )
+animation = "brah"
+
+[node name="move" type="AudioStreamPlayer" parent="selection"]
+stream = ExtResource( 13 )
+volume_db = -11.991
+bus = "SFX"
+
+[node name="selected" type="AudioStreamPlayer" parent="selection"]
+stream = ExtResource( 14 )
+volume_db = -11.991
+bus = "SFX"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 1 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, 72 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 960, 510 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+margin_right = 960.0
+margin_bottom = 540.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+
+[node name="Levelselect" type="Sprite" parent="."]
+position = Vector2( 472, 176 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+
+[node name="arrow" type="AnimatedSprite" parent="."]
+position = Vector2( 256, 432 )
+scale = Vector2( 0.7, 0.7 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="arrow2" type="AnimatedSprite" parent="."]
+position = Vector2( 632, 432 )
+scale = Vector2( 0.7, 0.7 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+flip_h = true
+
+[node name="door1" parent="." instance=ExtResource( 15 )]
+position = Vector2( -633, 297 )

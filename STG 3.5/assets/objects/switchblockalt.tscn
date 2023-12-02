@@ -1,0 +1,39 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/sprites/animated/panicswitchblock/switchblock0001.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/animated/panicswitchblock/switchblock0002.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/animated/panicswitchblock/switchblock0004.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/animated/panicswitchblock/switchblock0003.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/animated/panicswitchblock/switchblock0005.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/animated/panicswitchblock/switchblock0006.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/animated/panicswitchblock/switchblock0008.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/animated/panicswitchblock/switchblock0007.png" type="Texture" id=8]
+[ext_resource path="res://assets/scripts/switchblockalt.gd" type="Script" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 16 )
+
+[node name="switchblockalt" type="RigidBody2D"]
+collision_layer = 2147485699
+collision_mask = 2147485699
+mode = 1
+script = ExtResource( 9 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.490196 )
+frames = SubResource( 1 )
+frame = 7
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 2 )

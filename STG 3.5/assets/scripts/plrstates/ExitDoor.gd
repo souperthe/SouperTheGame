@@ -1,0 +1,35 @@
+extends PlayerState
+
+
+export (NodePath) var _animation_player
+onready var animation_player:AnimatedSprite = get_node(_animation_player)
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+
+# Called when the node enters the scene tree for the first time.
+func enter(_msg := {}) -> void:
+	animation_player.play("exitdoor")
+	player.velocity.x = 0
+	player.disabletitlt = true
+	
+func physics_update(_delta: float) -> void:
+	footstepsfx()
+	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
+	if player.animatonframes == 11:
+		state_machine.transition_to("Idle")
+		global.combotimer.paused = false
+		player.candoor = 1
+		
+		
+func footstepsfx():
+	#print(sfxnothasplayed)
+	if player.animatonframes == 3 or player.animatonframes == 7:
+		if !player.sfxfoot.playing:
+			player.sfxfoot.play()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass

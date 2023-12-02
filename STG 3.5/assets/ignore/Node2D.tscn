@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0102.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/satan.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/satanbg.png" type="Texture" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Satanbg" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Satan" type="Sprite" parent="."]
+position = Vector2( 676, 332.4 )
+scale = Vector2( 0.56, 0.56 )
+texture = ExtResource( 2 )
+
+[node name="Souperanim0102" type="Sprite" parent="."]
+position = Vector2( 308, 356.4 )
+scale = Vector2( 0.56, 0.56 )
+texture = ExtResource( 1 )

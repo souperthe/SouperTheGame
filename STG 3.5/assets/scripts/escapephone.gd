@@ -1,0 +1,205 @@
+extends Area2D
+
+var overphone
+var player
+var tit = false
+var a = false
+var zoomin = false
+var talkfinsihed = false
+var cutsceneplaying = false
+onready var secondtimer = $brahh
+export (int) var escapetime
+var rang = RandomNumberGenerator.new()
+var random
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+var whiteflash = preload("res://assets/objects/deadthing.tscn")
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$AnimatedSprite.play("ring")
+	$AnimatedSprite.frame = 0
+	#$ring.play()
+	if global.panic:
+		queue_free()
+	pass # Replace with function body.
+
+
+func _process(delta):
+	if $attackdetect.dead == true:
+		if not tit:
+			hurt()
+		if tit:
+			hurt2()
+	if $AnimatedSprite.animation == "ring":
+		if $AnimatedSprite.frame == 10:
+			if !$ring2.playing:
+				$ring2.play()
+	if tit and talkfinsihed and not a:
+		player.animator.play("onphonewtf")
+		a = true
+	if !zoomin:
+		global.camerazoom = lerp(global.camerazoom, 1, 5 * delta)
+	if zoomin:
+		global.camerazoom = lerp(global.camerazoom, 0.5, 2 * delta)
+	if overphone and player.candoor and not tit:
+		if Input.is_action_just_pressed(player.input_up):
+			global.combotimer.paused = true
+			player.makethingnotvisible()
+			cutsceneplaying = true
+			tit = true
+			music.stopmusic()
+			$AnimatedSprite.play("pickedup")
+			$ring2.stop()
+			$ring.stop()
+			$pickip.play()
+			player.cutscene()
+			player.animator.play("onphone")
+			global.cutscene = true
+			zoomin = true
+			cutscene()
+			
+	if cutsceneplaying:
+		if Input.is_action_just_pressed(player.input_attack):
+			cutscene2nowait()
+			
+	pass
+
+
+func _on_escapephone_body_entered(body):
+	if body is Player:
+		player = body
+		overphone = true
+		if not tit:
+			body.makethingvisible()
+	pass # Replace with function body.
+
+
+func _on_escapephone_body_exited(body):
+	if body is Player:
+		overphone = false
+		if not tit:
+			body.makethingnotvisible()
+	pass # Replace with function body.
+	
+func cutscene():
+	var t = Timer.new()
+	t.set_wait_time(2)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	if cutsceneplaying:
+		$talk.play()
+		cutscene2()
+
+	
+func cutscene2():
+	if cutsceneplaying:
+		secondtimer.start()
+	if !cutsceneplaying:
+		secondtimer.stop()
+	yield(secondtimer, "timeout")
+	cutscene2nowait()
+	
+func cutscene2nowait():
+	$AnimatedSprite.play("punch")
+	$AnimatedSprite.flip_h = position.x < player.position.x
+	secondtimer.stop()
+	$talk.stop()
+	global.makeflash()
+	global.panic = true
+	if !global.hardmode:
+		global.fill.wait_time = escapetime
+	if global.hardmode:
+		global.fill.wait_time = escapetime / 2
+	zoomin = false
+	global.cutscene = false
+	player.hardtumble()
+	$hurt1.play()
+	player.hitpartical()
+	player.face = !player.face
+	player.animator.flip_h = !player.animator.flip_h 
+	player.position.x = self.position.x
+	player.velocity.x = -800
+	player.velocity.y = -15
+	createdead2()
+	$impact.play()
+	global.combotimer.paused = false
+	global.addcombo()
+	cutsceneplaying = false
+	
+func breakphone():
+	if not tit:
+		hurt()
+	
+func hurt():
+	global.makeflash()
+	global.panic = true
+	global.fill.wait_time = escapetime
+	createdead1()
+	createdead2()
+	playcock()
+	playcock2()
+	hurteffect()
+	queue_free()
+	
+func hurt2():
+	createdead1()
+	playcock()
+	hurteffect()
+	queue_free()
+	
+	
+func createdead1():
+	var ghost: KinematicBody2D = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y
+	ghost.velocity.y = -900
+	ghost.velocity.x = 100
+	
+	
+func createdead2():
+	var ghost: KinematicBody2D = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y
+	ghost.velocity.y = -1010
+	ghost.velocity.x = 50
+	ghost.spinamount = 15
+	ghost.sprite.texture = load("res://assets/sprites/animated/escapephone/phone.png")
+	
+	
+func playcock():
+	var whiteflash = preload("res://assets/objects/cocking.tscn")
+	var ghost: AudioStreamPlayer2D = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.position = self.position
+	ghost.stream = load("res://assets/sound/sfx/sfx_destorymetal.wav")
+	ghost.play()
+	
+func playcock2():
+	var whiteflash = preload("res://assets/objects/cockingnot3d.tscn")
+	var ghost: AudioStreamPlayer = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.volume_db = -1.189
+	ghost.stream = load("res://assets/sound/sfx/sfx_impact2.wav")
+	ghost.play()
+	
+func hurteffect():
+	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.position = self.position
+	ghost.amount = 500
+	
+	
+
+
+func _on_talk_finished():
+	talkfinsihed = true
+	pass # Replace with function body.

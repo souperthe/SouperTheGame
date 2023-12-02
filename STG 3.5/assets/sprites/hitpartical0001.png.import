@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://import/hitpartical0001.png-e5d23dc5c25de1d5765d51c1761a57a5.s3tc.stex"
+path.etc2="res://import/hitpartical0001.png-e5d23dc5c25de1d5765d51c1761a57a5.etc2.stex"
+path.etc="res://import/hitpartical0001.png-e5d23dc5c25de1d5765d51c1761a57a5.etc.stex"
+path.pvrtc="res://import/hitpartical0001.png-e5d23dc5c25de1d5765d51c1761a57a5.pvrtc.stex"
+metadata={
+"imported_formats": [ "bptc", "s3tc", "etc2", "etc", "pvrtc" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://assets/sprites/hitpartical0001.png"
+dest_files=[ "res://import/hitpartical0001.png-e5d23dc5c25de1d5765d51c1761a57a5.s3tc.stex", "res://import/hitpartical0001.png-e5d23dc5c25de1d5765d51c1761a57a5.etc2.stex", "res://import/hitpartical0001.png-e5d23dc5c25de1d5765d51c1761a57a5.etc.stex", "res://import/hitpartical0001.png-e5d23dc5c25de1d5765d51c1761a57a5.pvrtc.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

@@ -1,0 +1,1208 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/scenedoor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/Lava.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/enemys/testicle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/collectables/smallcollectable.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/Ladders.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/metalblock.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/scenes/entrance/entrancebg2tscn.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/objects/enemys/dummy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/objects/switchblockalt.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/objects/enemys/forkdevil.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/objects/collectables/escapesmallcollectable.tscn" type="PackedScene" id=18]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256, 467 )
+targetdoor = "door2"
+targetscene = "res://assets/scenes/entrance/entrance_8.tscn"
+
+[node name="collide" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 512 )
+scale = Vector2( 12, 1 )
+
+[node name="collide2" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 1, 8 )
+
+[node name="door1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, 480 )
+
+[node name="collide8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -64 )
+scale = Vector2( 12, 1 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 11 )]
+
+[node name="camera" parent="." instance=ExtResource( 4 )]
+position = Vector2( 8032, -1984 )
+limit_left = 0
+limit_top = -2432
+limit_right = 9600
+limit_bottom = 576
+
+[node name="Lava" parent="." instance=ExtResource( 5 )]
+position = Vector2( 32, 864 )
+tile_data = PoolIntArray( -5898215, 0, 0, -5898214, 0, 0, -5898213, 0, 0, -5898212, 0, 0, -5898211, 0, 0, -5898210, 0, 0, -5898209, 0, 0, -5898208, 0, 0, -5898207, 0, 0, -5898206, 0, 0, -5898205, 0, 0, -5898204, 0, 0, -5898203, 0, 0, -5898202, 0, 0, -5898201, 0, 0, -5898200, 0, 0, -5898199, 0, 0, -5898198, 0, 0, -5898197, 0, 0, -5898196, 0, 0, -5898195, 0, 0, -5898194, 0, 0, -5701529, 0, 0, -5701528, 0, 0, -5701527, 0, 0, -5701526, 0, 0, -5701525, 0, 0, -5701524, 0, 0, -5701523, 0, 0, -5701522, 0, 0, -5701521, 0, 0, -5701520, 0, 0, -5701519, 0, 0, -5701518, 0, 0, -5701517, 0, 0, -5701516, 0, 0, -5701515, 0, 0, -5701514, 0, 0, -4456271, 0, 0, -4456270, 0, 0, -4456269, 0, 0, -4456268, 0, 0, -4456267, 0, 0, -4456266, 0, 0, -4456265, 0, 0, -4456264, 0, 0, -3145673, 0, 0, -3145672, 0, 0, -3145671, 0, 0, -3145670, 0, 0, -3145669, 0, 0, -3145668, 0, 0, -3145667, 0, 0, -3145666, 0, 0, -655337, 0, 0, -655336, 0, 0, -655335, 0, 0, -655334, 0, 0, -655333, 0, 0, -655332, 0, 0, -655331, 0, 0, -655330, 0, 0 )
+
+[node name="collide3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1024, -512 )
+scale = Vector2( 1, 17 )
+
+[node name="collide4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 704, 0 )
+scale = Vector2( 1, 5 )
+
+[node name="collide5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 256, -1024 )
+scale = Vector2( 1, 15 )
+
+[node name="platform" parent="." instance=ExtResource( 12 )]
+position = Vector2( 320, -288 )
+scale = Vector2( 7, 1 )
+
+[node name="collide6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, 576 )
+scale = Vector2( 4, 1 )
+
+[node name="smallcollectable" parent="." instance=ExtResource( 8 )]
+position = Vector2( 896, -32 )
+
+[node name="smallcollectable2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 896, 32 )
+
+[node name="smallcollectable3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 896, 96 )
+
+[node name="smallcollectable4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 896, 160 )
+
+[node name="smallcollectable5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 896, 224 )
+
+[node name="smallcollectable6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 896, 288 )
+
+[node name="smallcollectable7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 896, 352 )
+
+[node name="smallcollectable8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 896, 416 )
+
+[node name="smallcollectable9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 896, 480 )
+
+[node name="collide7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 704, -768 )
+scale = Vector2( 1, 5 )
+
+[node name="collide9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, -768 )
+scale = Vector2( 8, 1 )
+
+[node name="collide10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, -576 )
+scale = Vector2( 5, 1 )
+
+[node name="metalblock" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1152, -832 )
+
+[node name="metalblock2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1152, -896 )
+
+[node name="collide11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 320, -1024 )
+scale = Vector2( 14, 1 )
+
+[node name="collide12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1152, -960 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 544, -160 )
+
+[node name="smallcollectable10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, -736 )
+
+[node name="smallcollectable11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, -672 )
+
+[node name="smallcollectable12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, -608 )
+
+[node name="smallcollectable13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, -544 )
+
+[node name="smallcollectable14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, -480 )
+
+[node name="smallcollectable15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, -416 )
+
+[node name="smallcollectable16" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, -352 )
+
+[node name="platform2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 576, -768 )
+scale = Vector2( 2, 1 )
+
+[node name="Ladders" parent="." instance=ExtResource( 9 )]
+position = Vector2( 544, -544 )
+tile_data = PoolIntArray( -3145576, 1, 0, -3080040, 0, 0, -3014504, 0, 0, -2948968, 0, 0, -2883432, 0, 0, -2817896, 0, 0, -2752360, 0, 0, -2686824, 0, 0, -2621288, 0, 0, -2555752, 0, 0, -2490216, 0, 0, -2424680, 0, 0, -2359144, 0, 0, -2293608, 0, 0, -2228072, 0, 0, -2162536, 0, 0, -2097000, 0, 0, -2031464, 0, 0, -1965928, 0, 0, -1900392, 0, 0, -1834856, 0, 0, -1769320, 0, 0, -1703784, 0, 0, -524285, 1, 0, -458749, 0, 0, -393213, 0, 0, -327677, 0, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 327683, 0, 0, 393219, 0, 0, 458755, 0, 0 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1088, -832 )
+
+[node name="smallcollectable17" parent="." instance=ExtResource( 8 )]
+position = Vector2( 736, -800 )
+
+[node name="smallcollectable18" parent="." instance=ExtResource( 8 )]
+position = Vector2( 800, -800 )
+
+[node name="smallcollectable19" parent="." instance=ExtResource( 8 )]
+position = Vector2( 864, -800 )
+
+[node name="smallcollectable20" parent="." instance=ExtResource( 8 )]
+position = Vector2( 928, -800 )
+
+[node name="smallcollectable21" parent="." instance=ExtResource( 8 )]
+position = Vector2( 992, -800 )
+
+[node name="smallcollectable22" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1056, -800 )
+
+[node name="smallcollectable23" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1120, -800 )
+
+[node name="EnemyDummy" parent="." instance=ExtResource( 13 )]
+position = Vector2( 544, 448 )
+
+[node name="collide-slope" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1536, -768 )
+scale = Vector2( -4, 1 )
+
+[node name="collide13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1280, -704 )
+scale = Vector2( 8, 1 )
+
+[node name="Enemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 544, -320 )
+
+[node name="collide-slope2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1280, -960 )
+scale = Vector2( 4, -1 )
+
+[node name="collide14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1216, -1088 )
+scale = Vector2( 8, 1 )
+
+[node name="collide15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1536, -1024 )
+scale = Vector2( 4, 1 )
+
+[node name="collide16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2048, -1792 )
+scale = Vector2( 1, 18 )
+
+[node name="collide17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1792, -640 )
+scale = Vector2( 4, 1 )
+
+[node name="collide18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1728, -1536 )
+scale = Vector2( 1, 8 )
+
+[node name="collide19" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1792, -1536 )
+scale = Vector2( -12, 1 )
+
+[node name="collide20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 832, -1856 )
+scale = Vector2( 20, 1 )
+
+[node name="smallcollectable24" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -768 )
+
+[node name="smallcollectable25" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -832 )
+
+[node name="smallcollectable26" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -896 )
+
+[node name="smallcollectable27" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -960 )
+
+[node name="smallcollectable28" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -1024 )
+
+[node name="smallcollectable29" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -1088 )
+
+[node name="smallcollectable30" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -1152 )
+
+[node name="smallcollectable31" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -1216 )
+
+[node name="smallcollectable32" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -1280 )
+
+[node name="smallcollectable33" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -1344 )
+
+[node name="smallcollectable34" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -1408 )
+
+[node name="smallcollectable35" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -1472 )
+
+[node name="smallcollectable36" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1920, -1536 )
+
+[node name="metalblock3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1216, -1600 )
+
+[node name="metalblock4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1216, -1664 )
+
+[node name="collide21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1216, -1792 )
+scale = Vector2( 1, 2 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1568, -1632 )
+
+[node name="collide-slope3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1024, -1600 )
+scale = Vector2( -4, 1 )
+
+[node name="collide22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 512, -1600 )
+scale = Vector2( 4, 1 )
+
+[node name="collide23" parent="." instance=ExtResource( 2 )]
+position = Vector2( 448, -2304 )
+scale = Vector2( 1, 12 )
+
+[node name="collide24" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, -2048 )
+scale = Vector2( 1, 4 )
+
+[node name="collide25" parent="." instance=ExtResource( 2 )]
+position = Vector2( 448, -2368 )
+scale = Vector2( 33, 1 )
+
+[node name="collide26" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1536, -2048 )
+scale = Vector2( 16, 1 )
+
+[node name="collide27" parent="." instance=ExtResource( 2 )]
+position = Vector2( 832, -1984 )
+scale = Vector2( 12, 1 )
+
+[node name="metalblock5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2080, -2112 )
+
+[node name="metalblock6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2080, -2176 )
+
+[node name="collide28" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2080, -2304 )
+scale = Vector2( 1, 2 )
+
+[node name="collide-slope4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2816, -2048 )
+scale = Vector2( -4, 1 )
+
+[node name="smallcollectable37" parent="." instance=ExtResource( 8 )]
+position = Vector2( 640, -1664 )
+
+[node name="smallcollectable38" parent="." instance=ExtResource( 8 )]
+position = Vector2( 640, -1728 )
+
+[node name="smallcollectable39" parent="." instance=ExtResource( 8 )]
+position = Vector2( 640, -1792 )
+
+[node name="smallcollectable40" parent="." instance=ExtResource( 8 )]
+position = Vector2( 640, -1856 )
+
+[node name="smallcollectable41" parent="." instance=ExtResource( 8 )]
+position = Vector2( 640, -1920 )
+
+[node name="smallcollectable42" parent="." instance=ExtResource( 8 )]
+position = Vector2( 640, -1984 )
+
+[node name="smallcollectable43" parent="." instance=ExtResource( 8 )]
+position = Vector2( 640, -2048 )
+
+[node name="smallcollectable44" parent="." instance=ExtResource( 8 )]
+position = Vector2( 640, -2112 )
+
+[node name="collide29" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1536, -2112 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1792, -2112 )
+
+[node name="collide30" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2816, -1984 )
+scale = Vector2( 8, 1 )
+
+[node name="collide31" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3264, -1920 )
+scale = Vector2( 1, 3 )
+
+[node name="collide32" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3840, -1920 )
+scale = Vector2( 1, 3 )
+
+[node name="collide33" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3840, -1984 )
+scale = Vector2( 8, 1 )
+
+[node name="collide34" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3264, -1888 )
+scale = Vector2( 10, 1 )
+
+[node name="platform3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 3520, -1984 )
+scale = Vector2( 2, 1 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3584, -2016 )
+
+[node name="collide35" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2560, -2432 )
+scale = Vector2( 32, 1 )
+
+[node name="collide36" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2496, -2624 )
+scale = Vector2( 1, 4 )
+
+[node name="smallcollectable45" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2176, -2080 )
+
+[node name="smallcollectable46" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2240, -2080 )
+
+[node name="smallcollectable47" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2304, -2080 )
+
+[node name="smallcollectable48" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2368, -2080 )
+
+[node name="smallcollectable49" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2432, -2080 )
+
+[node name="smallcollectable50" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2496, -2080 )
+
+[node name="smallcollectable51" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2560, -2080 )
+
+[node name="collide-slope5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4352, -2048 )
+scale = Vector2( 4, 1 )
+
+[node name="collide37" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4608, -2048 )
+scale = Vector2( 8, 1 )
+
+[node name="smallcollectable52" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2816, -2016 )
+
+[node name="smallcollectable53" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2880, -2016 )
+
+[node name="smallcollectable54" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2944, -2016 )
+
+[node name="smallcollectable55" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3008, -2016 )
+
+[node name="smallcollectable56" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3072, -2016 )
+
+[node name="smallcollectable57" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3136, -2016 )
+
+[node name="smallcollectable58" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3200, -2016 )
+
+[node name="smallcollectable59" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3264, -2016 )
+
+[node name="smallcollectable60" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3328, -2016 )
+
+[node name="metalblock7" parent="." instance=ExtResource( 10 )]
+position = Vector2( 5024, -2112 )
+
+[node name="metalblock8" parent="." instance=ExtResource( 10 )]
+position = Vector2( 5024, -2176 )
+
+[node name="collide38" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4608, -2368 )
+scale = Vector2( 20, 1 )
+
+[node name="collide39" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5024, -2304 )
+scale = Vector2( 1, 2 )
+
+[node name="smallcollectable61" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3840, -2016 )
+
+[node name="smallcollectable62" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3904, -2016 )
+
+[node name="smallcollectable63" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3968, -2016 )
+
+[node name="smallcollectable64" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4032, -2016 )
+
+[node name="smallcollectable65" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4096, -2016 )
+
+[node name="smallcollectable66" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4160, -2016 )
+
+[node name="smallcollectable67" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4224, -2016 )
+
+[node name="smallcollectable68" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4288, -2016 )
+
+[node name="smallcollectable69" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4352, -2016 )
+
+[node name="smallcollectable70" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4608, -2080 )
+
+[node name="smallcollectable71" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4672, -2080 )
+
+[node name="smallcollectable72" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4736, -2080 )
+
+[node name="smallcollectable73" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4800, -2080 )
+
+[node name="smallcollectable74" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4864, -2080 )
+
+[node name="smallcollectable75" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4928, -2080 )
+
+[node name="smallcollectable76" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4992, -2080 )
+
+[node name="collide40" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5120, -2048 )
+scale = Vector2( 4, 1 )
+
+[node name="collide41" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5312, -1984 )
+scale = Vector2( 1, 10 )
+
+[node name="collide42" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5376, -1344 )
+scale = Vector2( 5, 1 )
+
+[node name="platform4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 5376, -2048 )
+
+[node name="collide43" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5632, -2304 )
+scale = Vector2( 1, 12 )
+
+[node name="collide44" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5696, -1280 )
+scale = Vector2( 4, 1 )
+
+[node name="collide45" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5952, -2048 )
+scale = Vector2( 1, 12 )
+
+[node name="smallcollectable77" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -2048 )
+
+[node name="smallcollectable78" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -1984 )
+
+[node name="smallcollectable79" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -1920 )
+
+[node name="smallcollectable80" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -1856 )
+
+[node name="smallcollectable81" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -1792 )
+
+[node name="smallcollectable82" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -1728 )
+
+[node name="smallcollectable83" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -1664 )
+
+[node name="smallcollectable84" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -1600 )
+
+[node name="smallcollectable85" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -1536 )
+
+[node name="smallcollectable86" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -1472 )
+
+[node name="smallcollectable87" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, -1408 )
+
+[node name="smallcollectable88" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -2048 )
+
+[node name="smallcollectable89" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -1984 )
+
+[node name="smallcollectable90" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -1920 )
+
+[node name="smallcollectable91" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -1856 )
+
+[node name="smallcollectable92" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -1792 )
+
+[node name="smallcollectable93" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -1728 )
+
+[node name="smallcollectable94" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -1664 )
+
+[node name="smallcollectable95" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -1600 )
+
+[node name="smallcollectable96" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -1536 )
+
+[node name="smallcollectable97" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -1472 )
+
+[node name="smallcollectable98" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5824, -1408 )
+
+[node name="switchblockalt" parent="." instance=ExtResource( 14 )]
+position = Vector2( 768, 512 )
+
+[node name="switchblockalt2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 800, 512 )
+
+[node name="switchblockalt3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 832, 512 )
+
+[node name="switchblockalt4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 864, 512 )
+
+[node name="switchblockalt5" parent="." instance=ExtResource( 14 )]
+position = Vector2( 896, 512 )
+
+[node name="switchblockalt6" parent="." instance=ExtResource( 14 )]
+position = Vector2( 928, 512 )
+
+[node name="switchblockalt7" parent="." instance=ExtResource( 14 )]
+position = Vector2( 960, 512 )
+
+[node name="switchblockalt8" parent="." instance=ExtResource( 14 )]
+position = Vector2( 992, 512 )
+
+[node name="switchblockalt9" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1792, -704 )
+
+[node name="switchblockalt10" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1824, -704 )
+
+[node name="switchblockalt11" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1856, -704 )
+
+[node name="switchblockalt12" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1888, -704 )
+
+[node name="switchblockalt13" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1920, -704 )
+
+[node name="switchblockalt14" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1952, -704 )
+
+[node name="switchblockalt15" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1984, -704 )
+
+[node name="switchblockalt16" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2016, -704 )
+
+[node name="switchblockalt17" parent="." instance=ExtResource( 14 )]
+position = Vector2( 896, -2048 )
+
+[node name="switchblockalt18" parent="." instance=ExtResource( 14 )]
+position = Vector2( 928, -2048 )
+
+[node name="switchblockalt19" parent="." instance=ExtResource( 14 )]
+position = Vector2( 960, -2048 )
+
+[node name="switchblockalt20" parent="." instance=ExtResource( 14 )]
+position = Vector2( 992, -2048 )
+
+[node name="switchblockalt21" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1024, -2048 )
+
+[node name="switchblockalt22" parent="." instance=ExtResource( 14 )]
+position = Vector2( 864, -2048 )
+
+[node name="switchblockalt23" parent="." instance=ExtResource( 14 )]
+position = Vector2( 832, -2048 )
+
+[node name="switchblockalt24" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5696, -1344 )
+
+[node name="switchblockalt25" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5728, -1344 )
+
+[node name="switchblockalt26" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5760, -1344 )
+
+[node name="switchblockalt27" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5792, -1344 )
+
+[node name="switchblockalt28" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5824, -1344 )
+
+[node name="switchblockalt29" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5856, -1344 )
+
+[node name="switchblockalt30" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5888, -1344 )
+
+[node name="switchblockalt31" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5920, -1344 )
+
+[node name="collide46" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6016, -2048 )
+scale = Vector2( 6, 1 )
+
+[node name="collide-slope6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 6656, -2048 )
+scale = Vector2( -4, 1 )
+
+[node name="collide47" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5888, -2368 )
+scale = Vector2( 8, 1 )
+
+[node name="collide48" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6656, -1984 )
+scale = Vector2( 8, 1 )
+
+[node name="collide-slope7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 6400, -2240 )
+scale = Vector2( 4, -1 )
+
+[node name="collide49" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6656, -2304 )
+scale = Vector2( 20, 1 )
+
+[node name="smallcollectable99" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5984, -2080 )
+
+[node name="smallcollectable100" parent="." instance=ExtResource( 8 )]
+position = Vector2( 6048, -2080 )
+
+[node name="smallcollectable101" parent="." instance=ExtResource( 8 )]
+position = Vector2( 6112, -2080 )
+
+[node name="smallcollectable102" parent="." instance=ExtResource( 8 )]
+position = Vector2( 6176, -2080 )
+
+[node name="smallcollectable103" parent="." instance=ExtResource( 8 )]
+position = Vector2( 6240, -2080 )
+
+[node name="smallcollectable104" parent="." instance=ExtResource( 8 )]
+position = Vector2( 6304, -2080 )
+
+[node name="smallcollectable105" parent="." instance=ExtResource( 8 )]
+position = Vector2( 6368, -2080 )
+
+[node name="Enemy7" parent="." instance=ExtResource( 15 )]
+position = Vector2( 7072, -2016 )
+
+[node name="collide51" parent="." instance=ExtResource( 2 )]
+position = Vector2( 7168, -1984 )
+scale = Vector2( 4, 1 )
+
+[node name="collide52" parent="." instance=ExtResource( 2 )]
+position = Vector2( 7424, -1984 )
+scale = Vector2( 8, 1 )
+
+[node name="metalblock9" parent="." instance=ExtResource( 10 )]
+position = Vector2( 7680, -2048 )
+
+[node name="metalblock10" parent="." instance=ExtResource( 10 )]
+position = Vector2( 7680, -2112 )
+
+[node name="collide54" parent="." instance=ExtResource( 2 )]
+position = Vector2( 7680, -2240 )
+scale = Vector2( 1, 2 )
+
+[node name="collide-slope8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 8192, -1984 )
+scale = Vector2( -4, 1 )
+
+[node name="collide55" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8192, -1920 )
+scale = Vector2( 8, 1 )
+
+[node name="collide56" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8960, -1856 )
+scale = Vector2( 28, 1 )
+
+[node name="smallcollectable106" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8192, -1952 )
+
+[node name="smallcollectable107" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8256, -1952 )
+
+[node name="smallcollectable108" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8320, -1952 )
+
+[node name="smallcollectable109" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8384, -1952 )
+
+[node name="smallcollectable110" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8448, -1952 )
+
+[node name="smallcollectable111" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8512, -1952 )
+
+[node name="smallcollectable112" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8576, -1952 )
+
+[node name="smallcollectable113" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8640, -1952 )
+
+[node name="smallcollectable114" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8704, -1952 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 8448, -2016 )
+
+[node name="collide-slope9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 8960, -1920 )
+scale = Vector2( -4, 1 )
+
+[node name="smallcollectable115" parent="." instance=ExtResource( 8 )]
+position = Vector2( 8960, -1888 )
+
+[node name="smallcollectable116" parent="." instance=ExtResource( 8 )]
+position = Vector2( 9024, -1888 )
+
+[node name="smallcollectable117" parent="." instance=ExtResource( 8 )]
+position = Vector2( 9088, -1888 )
+
+[node name="smallcollectable118" parent="." instance=ExtResource( 8 )]
+position = Vector2( 9152, -1888 )
+
+[node name="smallcollectable119" parent="." instance=ExtResource( 8 )]
+position = Vector2( 9216, -1888 )
+
+[node name="smallcollectable120" parent="." instance=ExtResource( 8 )]
+position = Vector2( 9280, -1888 )
+
+[node name="smallcollectable121" parent="." instance=ExtResource( 8 )]
+position = Vector2( 9344, -1888 )
+
+[node name="smallcollectable122" parent="." instance=ExtResource( 8 )]
+position = Vector2( 9408, -1888 )
+
+[node name="collide57" parent="." instance=ExtResource( 2 )]
+position = Vector2( 7936, -2368 )
+scale = Vector2( 24, 1 )
+
+[node name="collide58" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9472, -2304 )
+scale = Vector2( 1, 5 )
+
+[node name="metalblock11" parent="." instance=ExtResource( 10 )]
+position = Vector2( 9472, -1920 )
+
+[node name="metalblock12" parent="." instance=ExtResource( 10 )]
+position = Vector2( 9472, -1984 )
+
+[node name="collide59" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9536, -2112 )
+scale = Vector2( 16, 1 )
+
+[node name="door2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 9600, -1888 )
+
+[node name="Hallway" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9728, -2048 )
+scale = Vector2( 2, 6 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/entrance/entrance_10.tscn"
+
+[node name="escapesmallcollectable" parent="." instance=ExtResource( 18 )]
+position = Vector2( 7584, -2016 )
+
+[node name="escapesmallcollectable2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 7520, -2048 )
+
+[node name="escapesmallcollectable3" parent="." instance=ExtResource( 18 )]
+position = Vector2( 7456, -2016 )
+
+[node name="escapesmallcollectable4" parent="." instance=ExtResource( 18 )]
+position = Vector2( 7392, -2048 )
+
+[node name="escapesmallcollectable5" parent="." instance=ExtResource( 18 )]
+position = Vector2( 7328, -2016 )
+
+[node name="escapesmallcollectable6" parent="." instance=ExtResource( 18 )]
+position = Vector2( 7264, -2048 )
+
+[node name="escapesmallcollectable7" parent="." instance=ExtResource( 18 )]
+position = Vector2( 7200, -2016 )
+
+[node name="escapesmallcollectable8" parent="." instance=ExtResource( 18 )]
+position = Vector2( 7136, -2048 )
+
+[node name="escapesmallcollectable9" parent="." instance=ExtResource( 18 )]
+position = Vector2( 7072, -2016 )
+
+[node name="escapesmallcollectable10" parent="." instance=ExtResource( 18 )]
+position = Vector2( 7008, -2048 )
+
+[node name="escapesmallcollectable11" parent="." instance=ExtResource( 18 )]
+position = Vector2( 6944, -2016 )
+
+[node name="escapesmallcollectable12" parent="." instance=ExtResource( 18 )]
+position = Vector2( 6880, -2048 )
+
+[node name="escapesmallcollectable13" parent="." instance=ExtResource( 18 )]
+position = Vector2( 6816, -2016 )
+
+[node name="escapesmallcollectable14" parent="." instance=ExtResource( 18 )]
+position = Vector2( 6752, -2048 )
+
+[node name="escapesmallcollectable15" parent="." instance=ExtResource( 18 )]
+position = Vector2( 6688, -2016 )
+
+[node name="escapesmallcollectable16" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -2016 )
+
+[node name="escapesmallcollectable17" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -2016 )
+
+[node name="escapesmallcollectable18" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -1952 )
+
+[node name="escapesmallcollectable19" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -1952 )
+
+[node name="escapesmallcollectable20" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -1888 )
+
+[node name="escapesmallcollectable21" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -1888 )
+
+[node name="escapesmallcollectable22" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -1824 )
+
+[node name="escapesmallcollectable23" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -1824 )
+
+[node name="escapesmallcollectable24" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -1760 )
+
+[node name="escapesmallcollectable25" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -1760 )
+
+[node name="escapesmallcollectable26" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -1696 )
+
+[node name="escapesmallcollectable27" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -1696 )
+
+[node name="escapesmallcollectable28" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -1632 )
+
+[node name="escapesmallcollectable29" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -1632 )
+
+[node name="escapesmallcollectable30" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -1568 )
+
+[node name="escapesmallcollectable31" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -1568 )
+
+[node name="escapesmallcollectable32" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -1504 )
+
+[node name="escapesmallcollectable33" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -1504 )
+
+[node name="escapesmallcollectable34" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -1440 )
+
+[node name="escapesmallcollectable35" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -1440 )
+
+[node name="escapesmallcollectable36" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5760, -1376 )
+
+[node name="escapesmallcollectable37" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5888, -1376 )
+
+[node name="escapesmallcollectable38" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5312, -2080 )
+
+[node name="escapesmallcollectable39" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5248, -2112 )
+
+[node name="escapesmallcollectable40" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5184, -2080 )
+
+[node name="escapesmallcollectable41" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5120, -2112 )
+
+[node name="escapesmallcollectable42" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3328, -2080 )
+
+[node name="escapesmallcollectable43" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3392, -2144 )
+
+[node name="escapesmallcollectable44" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3456, -2080 )
+
+[node name="escapesmallcollectable45" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3520, -2144 )
+
+[node name="escapesmallcollectable46" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3584, -2080 )
+
+[node name="escapesmallcollectable47" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3648, -2144 )
+
+[node name="escapesmallcollectable48" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3712, -2080 )
+
+[node name="escapesmallcollectable49" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3776, -2144 )
+
+[node name="escapesmallcollectable50" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3840, -2080 )
+
+[node name="escapesmallcollectable51" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3456, -2208 )
+
+[node name="escapesmallcollectable52" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3584, -2208 )
+
+[node name="escapesmallcollectable53" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3712, -2208 )
+
+[node name="escapesmallcollectable54" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2016, -2080 )
+
+[node name="escapesmallcollectable55" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1952, -2112 )
+
+[node name="escapesmallcollectable56" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1888, -2080 )
+
+[node name="escapesmallcollectable57" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1824, -2112 )
+
+[node name="escapesmallcollectable58" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1760, -2080 )
+
+[node name="escapesmallcollectable59" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1696, -2112 )
+
+[node name="escapesmallcollectable60" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1632, -2080 )
+
+[node name="escapesmallcollectable61" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1088, -1568 )
+
+[node name="escapesmallcollectable62" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1152, -1600 )
+
+[node name="escapesmallcollectable63" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1312, -1568 )
+
+[node name="escapesmallcollectable64" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1376, -1600 )
+
+[node name="escapesmallcollectable65" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1440, -1568 )
+
+[node name="escapesmallcollectable66" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1504, -1600 )
+
+[node name="escapesmallcollectable67" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1568, -1568 )
+
+[node name="escapesmallcollectable68" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1632, -1600 )
+
+[node name="escapesmallcollectable69" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1696, -1568 )
+
+[node name="escapesmallcollectable70" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1760, -1600 )
+
+[node name="escapesmallcollectable71" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -1472 )
+
+[node name="escapesmallcollectable72" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -1408 )
+
+[node name="escapesmallcollectable73" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -1344 )
+
+[node name="escapesmallcollectable74" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -1280 )
+
+[node name="escapesmallcollectable75" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -1216 )
+
+[node name="escapesmallcollectable76" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -1152 )
+
+[node name="escapesmallcollectable77" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -1088 )
+
+[node name="escapesmallcollectable78" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -1024 )
+
+[node name="escapesmallcollectable79" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -960 )
+
+[node name="escapesmallcollectable80" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -896 )
+
+[node name="escapesmallcollectable81" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1856, -832 )
+
+[node name="escapesmallcollectable82" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -1472 )
+
+[node name="escapesmallcollectable83" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -1408 )
+
+[node name="escapesmallcollectable84" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -1344 )
+
+[node name="escapesmallcollectable85" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -1280 )
+
+[node name="escapesmallcollectable86" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -1216 )
+
+[node name="escapesmallcollectable87" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -1152 )
+
+[node name="escapesmallcollectable88" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -1088 )
+
+[node name="escapesmallcollectable89" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -1024 )
+
+[node name="escapesmallcollectable90" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -960 )
+
+[node name="escapesmallcollectable91" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -896 )
+
+[node name="escapesmallcollectable92" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1984, -832 )
+
+[node name="escapesmallcollectable93" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1728, -736 )
+
+[node name="escapesmallcollectable94" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1664, -768 )
+
+[node name="escapesmallcollectable95" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1600, -736 )
+
+[node name="escapesmallcollectable96" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1536, -768 )
+
+[node name="escapesmallcollectable97" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, -192 )
+
+[node name="escapesmallcollectable98" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, -128 )
+
+[node name="escapesmallcollectable99" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, -64 )
+
+[node name="escapesmallcollectable100" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, 0 )
+
+[node name="escapesmallcollectable101" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, 64 )
+
+[node name="escapesmallcollectable102" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, 128 )
+
+[node name="escapesmallcollectable103" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, 192 )
+
+[node name="escapesmallcollectable104" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, 256 )
+
+[node name="escapesmallcollectable105" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, 320 )
+
+[node name="escapesmallcollectable106" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, 384 )
+
+[node name="escapesmallcollectable107" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, 448 )
+
+[node name="escapesmallcollectable108" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, -192 )
+
+[node name="escapesmallcollectable109" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, -128 )
+
+[node name="escapesmallcollectable110" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, -64 )
+
+[node name="escapesmallcollectable111" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, 0 )
+
+[node name="escapesmallcollectable112" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, 64 )
+
+[node name="escapesmallcollectable113" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, 128 )
+
+[node name="escapesmallcollectable114" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, 192 )
+
+[node name="escapesmallcollectable115" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, 256 )
+
+[node name="escapesmallcollectable116" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, 320 )
+
+[node name="escapesmallcollectable117" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, 384 )
+
+[node name="escapesmallcollectable118" parent="." instance=ExtResource( 18 )]
+position = Vector2( 960, 448 )

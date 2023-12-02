@@ -1,0 +1,165 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/objects/enemys/testicle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sprites/funnyboulder.png" type="Texture" id=6]
+[ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/FallZone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/sprites/bgs/snow/5.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/bgs/grass/sky.png" type="Texture" id=11]
+[ext_resource path="res://assets/scripts/win.gd" type="Script" id=14]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 0.2
+rough = true
+bounce = 0.2
+absorbent = true
+
+[sub_resource type="CircleShape2D" id=3]
+custom_solver_bias = 1.0
+radius = 132.0
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 21, 656 )
+
+[node name="imagine" type="Node2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="door1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 160, 352 )
+
+[node name="collide" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 384 )
+scale = Vector2( 11.5, 10 )
+
+[node name="hill" parent="." instance=ExtResource( 2 )]
+position = Vector2( 736, -25216 )
+scale = Vector2( 1500, 400 )
+
+[node name="camera" parent="." instance=ExtResource( 5 )]
+position = Vector2( 97728, -25344 )
+limit_left = 0
+limit_right = 99936
+limit_bottom = 896
+
+[node name="tod" type="RigidBody2D" parent="."]
+position = Vector2( 864, 64 )
+rotation = -1.24816
+collision_layer = 3
+collision_mask = 3
+input_pickable = true
+mass = 65535.0
+physics_material_override = SubResource( 2 )
+gravity_scale = 66.83
+can_sleep = false
+linear_velocity = Vector2( -150, 0 )
+applied_force = Vector2( -300, 0 )
+
+[node name="Funnyboulder" type="Sprite" parent="tod"]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tod"]
+scale = Vector2( 1.5, 1.5 )
+shape = SubResource( 3 )
+
+[node name="collide3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -64, -320 )
+scale = Vector2( 1, 50 )
+
+[node name="Area2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( -128, 896 )
+scale = Vector2( 10, 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Trees" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource( 11 )
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_offset = Vector2( 0, -250 )
+
+[node name="sun" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
+texture = ExtResource( 9 )
+centered = false
+
+[node name="Enemy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6912, -1888 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1920, -32 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 12864, -4320 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 21312, -6592 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 29632, -8832 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 38560, -10848 )
+
+[node name="Enemy7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 46432, -12640 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56384, -15360 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 61120, -16352 )
+
+[node name="Enemy10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 63776, -17312 )
+
+[node name="Enemy11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 66176, -17536 )
+
+[node name="Enemy12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 67968, -18272 )
+
+[node name="Enemy13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 70944, -19072 )
+
+[node name="Enemy14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 77440, -20832 )
+
+[node name="Enemy15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 79456, -20832 )
+
+[node name="collide2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 96736, -25216 )
+scale = Vector2( 50, 50 )
+
+[node name="platform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 96864, -26496 )
+rotation = 1.57079
+scale = Vector2( 20, 1 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2( 97024, -25702 )
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 0, -176 )
+shape = SubResource( 4 )
+
+[node name="Enemy16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 85632, -23008 )
+
+[node name="Enemy17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 88960, -23808 )
+
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]

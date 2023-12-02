@@ -1,0 +1,55 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0009.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0001.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0002.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0004.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0005.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0006.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0007.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0010.png" type="Texture" id=8]
+[ext_resource path="res://assets/sound/sfx/sfx_explosion.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0003.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0008.png" type="Texture" id=11]
+[ext_resource path="res://assets/scripts/explosion.gd" type="Script" id=12]
+[ext_resource path="res://assets/objects/hurtblock.tscn" type="PackedScene" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 1 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "explode",
+"speed": 12.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 88.0
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+audio_stream = ExtResource( 9 )
+
+[node name="explosion" type="RigidBody2D"]
+collision_layer = 512
+collision_mask = 512
+mode = 1
+script = ExtResource( 12 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.7, 0.7 )
+frames = SubResource( 1 )
+animation = "explode"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="step" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 3 )
+volume_db = -2.0
+bus = "SFX"
+
+[node name="hurtblock" parent="." instance=ExtResource( 13 )]
+modulate = Color( 1, 1, 1, 0.188235 )
+position = Vector2( -73, -78 )
+scale = Vector2( 4.52, 4.68 )
+
+[connection signal="finished" from="step" to="." method="_on_step_finished"]

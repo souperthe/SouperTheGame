@@ -1,0 +1,498 @@
+[gd_resource type="SpriteFrames" load_steps=239 format=2]
+
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0114.png" type="Texture" id=2]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_fall/spr_pepperman_fall_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_jump/spr_pepperman_jump_0.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0097.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0099.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0108.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0093.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0111.png" type="Texture" id=10]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderstart/spr_pepperman_shoulderstart_6.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0116.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0110.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0107.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0102.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0115.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0106.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0096.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0101.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0104.png" type="Texture" id=22]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_jump/spr_pepperman_jump_2.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0094.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0098.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0100.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0103.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0112.png" type="Texture" id=28]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0113.png" type="Texture" id=29]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_jump/spr_pepperman_jump_3.png" type="Texture" id=30]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0117.png" type="Texture" id=32]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_jump/spr_pepperman_jump_4.png" type="Texture" id=33]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0105.png" type="Texture" id=34]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_jump/spr_pepperman_jump_5.png" type="Texture" id=35]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_jump/spr_pepperman_jump_6.png" type="Texture" id=36]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_jump/spr_pepperman_jump_7.png" type="Texture" id=37]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_jump/spr_pepperman_jump_8.png" type="Texture" id=38]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_fall/spr_pepperman_fall_2.png" type="Texture" id=39]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_jump/spr_pepperman_jump_1.png" type="Texture" id=40]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_0.png" type="Texture" id=41]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_1.png" type="Texture" id=42]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_2.png" type="Texture" id=43]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_3.png" type="Texture" id=44]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_4.png" type="Texture" id=45]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_5.png" type="Texture" id=46]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_6.png" type="Texture" id=48]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_fall/spr_pepperman_fall_0.png" type="Texture" id=49]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_3.png" type="Texture" id=50]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderturn/spr_pepperman_shoulderturn_4.png" type="Texture" id=51]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderturn/spr_pepperman_shoulderturn_6.png" type="Texture" id=53]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundstart/spr_pepperman_groundpoundstart_2.png" type="Texture" id=54]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_6.png" type="Texture" id=55]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderstart/spr_pepperman_shoulderstart_4.png" type="Texture" id=56]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundstart/spr_pepperman_groundpoundstart_3.png" type="Texture" id=57]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundstart/spr_pepperman_groundpoundstart_5.png" type="Texture" id=58]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundland/spr_pepperman_groundpoundland_3.png" type="Texture" id=59]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_3.png" type="Texture" id=60]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_7.png" type="Texture" id=61]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundland/spr_pepperman_groundpoundland_5.png" type="Texture" id=62]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_1.png" type="Texture" id=63]
+[ext_resource path="res://assets/sprites/player_souper/noclip.png" type="Texture" id=64]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderstart/spr_pepperman_shoulderstart_0.png" type="Texture" id=65]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderstart/spr_pepperman_shoulderstart_2.png" type="Texture" id=66]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0189.png" type="Texture" id=67]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0059.png" type="Texture" id=68]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0095.png" type="Texture" id=69]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_walkfront.png" type="Texture" id=70]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0030.png" type="Texture" id=71]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_lookdoor.png" type="Texture" id=72]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderstart/spr_pepperman_shoulderstart_1.png" type="Texture" id=74]
+[ext_resource path="res://assets/sprites/player_souper/placeholder2.png" type="Texture" id=75]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderstart/spr_pepperman_shoulderstart_3.png" type="Texture" id=76]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderstart/spr_pepperman_shoulderstart_5.png" type="Texture" id=77]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0036.png" type="Texture" id=78]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderhurt/spr_pepperman_shoulderhurt_1.png" type="Texture" id=79]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderhurt/spr_pepperman_shoulderhurt_2.png" type="Texture" id=80]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0029.png" type="Texture" id=81]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundland/spr_pepperman_groundpoundland_6.png" type="Texture" id=82]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderhurt/spr_pepperman_shoulderhurt_0.png" type="Texture" id=85]
+[ext_resource path="res://assets/sprites/player_souper/placeholder1.png" type="Texture" id=86]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_7.png" type="Texture" id=87]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_12.png" type="Texture" id=88]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0039.png" type="Texture" id=89]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0034.png" type="Texture" id=90]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_1.png" type="Texture" id=91]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0038.png" type="Texture" id=92]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0033.png" type="Texture" id=93]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0027.png" type="Texture" id=94]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_9.png" type="Texture" id=95]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0031.png" type="Texture" id=96]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0037.png" type="Texture" id=97]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0028.png" type="Texture" id=98]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0045.png" type="Texture" id=99]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_7.png" type="Texture" id=100]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_1.png" type="Texture" id=101]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_14.png" type="Texture" id=102]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundland/spr_pepperman_groundpoundland_2.png" type="Texture" id=103]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_11.png" type="Texture" id=104]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_0.png" type="Texture" id=105]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderhurt/spr_pepperman_shoulderhurt_8.png" type="Texture" id=106]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_5.png" type="Texture" id=107]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_10.png" type="Texture" id=108]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_4.png" type="Texture" id=109]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_2.png" type="Texture" id=110]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderhurt/spr_pepperman_shoulderhurt_3.png" type="Texture" id=111]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderhurt/spr_pepperman_shoulderhurt_4.png" type="Texture" id=112]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_13.png" type="Texture" id=113]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0058.png" type="Texture" id=114]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_15.png" type="Texture" id=115]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0032.png" type="Texture" id=116]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderhurt/spr_pepperman_shoulderhurt_5.png" type="Texture" id=117]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_3.png" type="Texture" id=118]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_5.png" type="Texture" id=119]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_3.png" type="Texture" id=120]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundstart/spr_pepperman_groundpoundstart_4.png" type="Texture" id=121]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_8.png" type="Texture" id=122]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderhurt/spr_pepperman_shoulderhurt_6.png" type="Texture" id=123]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_9.png" type="Texture" id=124]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0060.png" type="Texture" id=125]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderhurt/spr_pepperman_shoulderhurt_7.png" type="Texture" id=126]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_6.png" type="Texture" id=127]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_2.png" type="Texture" id=128]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_sour/spr_pepperman_sour_6.png" type="Texture" id=129]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderturn/spr_pepperman_shoulderturn_2.png" type="Texture" id=130]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_6.png" type="Texture" id=132]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_9.png" type="Texture" id=133]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0035.png" type="Texture" id=134]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0151.png" type="Texture" id=135]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0168.png" type="Texture" id=136]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0158.png" type="Texture" id=137]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0155.png" type="Texture" id=138]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0150.png" type="Texture" id=139]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0148.png" type="Texture" id=140]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0147.png" type="Texture" id=141]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0145.png" type="Texture" id=143]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0171.png" type="Texture" id=144]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0167.png" type="Texture" id=146]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0169.png" type="Texture" id=147]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0157.png" type="Texture" id=148]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0159.png" type="Texture" id=149]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0162.png" type="Texture" id=150]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0173.png" type="Texture" id=151]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0146.png" type="Texture" id=153]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0154.png" type="Texture" id=154]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0144.png" type="Texture" id=155]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0153.png" type="Texture" id=157]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0152.png" type="Texture" id=158]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0163.png" type="Texture" id=159]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0170.png" type="Texture" id=161]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0149.png" type="Texture" id=162]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0160.png" type="Texture" id=163]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0172.png" type="Texture" id=164]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0174.png" type="Texture" id=165]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0176.png" type="Texture" id=166]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0177.png" type="Texture" id=167]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0179.png" type="Texture" id=168]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0175.png" type="Texture" id=169]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0178.png" type="Texture" id=170]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0181.png" type="Texture" id=171]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0180.png" type="Texture" id=172]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0182.png" type="Texture" id=173]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0184.png" type="Texture" id=174]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0183.png" type="Texture" id=175]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0185.png" type="Texture" id=176]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0186.png" type="Texture" id=177]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0188.png" type="Texture" id=178]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0187.png" type="Texture" id=179]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_0.png" type="Texture" id=180]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0195.png" type="Texture" id=181]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0197.png" type="Texture" id=182]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0198.png" type="Texture" id=183]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0196.png" type="Texture" id=184]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0194.png" type="Texture" id=185]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0199.png" type="Texture" id=186]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0193.png" type="Texture" id=187]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0209.png" type="Texture" id=196]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0211.png" type="Texture" id=197]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0214.png" type="Texture" id=198]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0210.png" type="Texture" id=199]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0212.png" type="Texture" id=200]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0213.png" type="Texture" id=201]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0208.png" type="Texture" id=202]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0215.png" type="Texture" id=203]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundland/spr_pepperman_groundpoundland_0.png" type="Texture" id=204]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_4.png" type="Texture" id=205]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundstart/spr_pepperman_groundpoundstart_1.png" type="Texture" id=206]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderturn/spr_pepperman_shoulderturn_7.png" type="Texture" id=207]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_7.png" type="Texture" id=208]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0241.png" type="Texture" id=209]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0242.png" type="Texture" id=210]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0243.png" type="Texture" id=211]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0245.png" type="Texture" id=212]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0244.png" type="Texture" id=213]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0246.png" type="Texture" id=214]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_8.png" type="Texture" id=215]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_4.png" type="Texture" id=216]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_10.png" type="Texture" id=217]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundland/spr_pepperman_groundpoundland_1.png" type="Texture" id=218]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundland/spr_pepperman_groundpoundland_4.png" type="Texture" id=219]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_hurtplayer/spr_pepperman_hurtplayer_0.png" type="Texture" id=220]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_8.png" type="Texture" id=221]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_hurtplayer/spr_pepperman_hurtplayer_2.png" type="Texture" id=222]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_12.png" type="Texture" id=223]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_5.png" type="Texture" id=224]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_9.png" type="Texture" id=225]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0260.png" type="Texture" id=226]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0263.png" type="Texture" id=227]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0265.png" type="Texture" id=228]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0259.png" type="Texture" id=229]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0261.png" type="Texture" id=230]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0268.png" type="Texture" id=231]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0262.png" type="Texture" id=232]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0264.png" type="Texture" id=233]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0267.png" type="Texture" id=234]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0258.png" type="Texture" id=235]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0269.png" type="Texture" id=236]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0266.png" type="Texture" id=237]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_11.png" type="Texture" id=238]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_groundpoundstart/spr_pepperman_groundpoundstart_0.png" type="Texture" id=239]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderturn/spr_pepperman_shoulderturn_0.png" type="Texture" id=240]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_2.png" type="Texture" id=241]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_11.png" type="Texture" id=242]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_hurtplayer/spr_pepperman_hurtplayer_1.png" type="Texture" id=243]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_0.png" type="Texture" id=244]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderturn/spr_pepperman_shoulderturn_1.png" type="Texture" id=245]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_7.png" type="Texture" id=246]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_10.png" type="Texture" id=247]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderturn/spr_pepperman_shoulderturn_5.png" type="Texture" id=248]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderturn/spr_pepperman_shoulderturn_3.png" type="Texture" id=249]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderturn/spr_pepperman_shoulderturn_8.png" type="Texture" id=250]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_8.png" type="Texture" id=251]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_10.png" type="Texture" id=252]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_move/spr_pepperman_move_13.png" type="Texture" id=253]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_5.png" type="Texture" id=254]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_2.png" type="Texture" id=255]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_0.png" type="Texture" id=256]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_4.png" type="Texture" id=257]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_idle/spr_pepperman_idle_8.png" type="Texture" id=258]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_shoulderloop/spr_pepperman_shoulderloop_1.png" type="Texture" id=259]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_10.png" type="Texture" id=260]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_9.png" type="Texture" id=261]
+[ext_resource path="res://assets/ignore/delete before final game/spr_pepperman_rolling/spr_pepperman_rolling_11.png" type="Texture" id=262]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 86 ), ExtResource( 75 ) ],
+"loop": true,
+"name": "placeholder",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 256 ), ExtResource( 91 ), ExtResource( 241 ), ExtResource( 60 ), ExtResource( 257 ), ExtResource( 254 ), ExtResource( 55 ), ExtResource( 61 ), ExtResource( 258 ), ExtResource( 95 ), ExtResource( 247 ), ExtResource( 242 ) ],
+"loop": true,
+"name": "idle",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 235 ), ExtResource( 229 ), ExtResource( 226 ), ExtResource( 230 ), ExtResource( 232 ), ExtResource( 227 ), ExtResource( 233 ), ExtResource( 228 ), ExtResource( 237 ), ExtResource( 234 ), ExtResource( 231 ), ExtResource( 236 ), ExtResource( 236 ), ExtResource( 236 ), ExtResource( 236 ), ExtResource( 236 ), ExtResource( 236 ), ExtResource( 236 ) ],
+"loop": false,
+"name": "brake",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 204 ), ExtResource( 218 ), ExtResource( 103 ), ExtResource( 59 ), ExtResource( 219 ), ExtResource( 62 ), ExtResource( 82 ) ],
+"loop": false,
+"name": "land",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 94 ) ],
+"loop": true,
+"name": "climbidle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 24 ), ExtResource( 69 ), ExtResource( 20 ), ExtResource( 6 ), ExtResource( 25 ), ExtResource( 7 ), ExtResource( 26 ), ExtResource( 21 ), ExtResource( 17 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 34 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "boss_scream",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 121 ), ExtResource( 58 ) ],
+"loop": false,
+"name": "fp_fall",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 202 ), ExtResource( 196 ), ExtResource( 199 ), ExtResource( 197 ), ExtResource( 200 ), ExtResource( 201 ), ExtResource( 198 ), ExtResource( 203 ) ],
+"loop": true,
+"name": "assburn",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 209 ), ExtResource( 210 ), ExtResource( 211 ) ],
+"loop": true,
+"name": "onphone",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 244 ), ExtResource( 63 ), ExtResource( 110 ), ExtResource( 118 ), ExtResource( 205 ), ExtResource( 119 ), ExtResource( 132 ), ExtResource( 208 ), ExtResource( 215 ), ExtResource( 261 ), ExtResource( 260 ), ExtResource( 262 ) ],
+"loop": true,
+"name": "sjump_release",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 204 ), ExtResource( 218 ) ],
+"loop": true,
+"name": "sjump_ready",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 40 ), ExtResource( 23 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 38 ), ExtResource( 38 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "jump",
+"speed": 17.0
+}, {
+"frames": [ ExtResource( 240 ), ExtResource( 245 ), ExtResource( 130 ), ExtResource( 249 ), ExtResource( 51 ), ExtResource( 248 ), ExtResource( 53 ), ExtResource( 207 ), ExtResource( 250 ) ],
+"loop": false,
+"name": "machturn1",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 246 ), ExtResource( 251 ), ExtResource( 133 ), ExtResource( 252 ), ExtResource( 238 ), ExtResource( 223 ), ExtResource( 253 ) ],
+"loop": true,
+"name": "move",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 114 ), ExtResource( 68 ), ExtResource( 125 ) ],
+"loop": false,
+"name": "mach3jump",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 103 ), ExtResource( 218 ), ExtResource( 204 ), ExtResource( 204 ), ExtResource( 204 ), ExtResource( 204 ), ExtResource( 204 ), ExtResource( 204 ), ExtResource( 204 ) ],
+"loop": false,
+"name": "sjump_start",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 180 ), ExtResource( 259 ), ExtResource( 255 ), ExtResource( 50 ), ExtResource( 216 ), ExtResource( 224 ), ExtResource( 127 ), ExtResource( 100 ), ExtResource( 221 ), ExtResource( 225 ), ExtResource( 217 ) ],
+"loop": true,
+"name": "mach2",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 244 ), ExtResource( 63 ), ExtResource( 110 ), ExtResource( 118 ), ExtResource( 205 ), ExtResource( 119 ), ExtResource( 132 ), ExtResource( 208 ), ExtResource( 215 ), ExtResource( 261 ), ExtResource( 260 ), ExtResource( 262 ) ],
+"loop": true,
+"name": "spin2",
+"speed": 28.0
+}, {
+"frames": [ ExtResource( 180 ), ExtResource( 259 ), ExtResource( 255 ), ExtResource( 50 ), ExtResource( 216 ), ExtResource( 224 ), ExtResource( 127 ), ExtResource( 100 ), ExtResource( 221 ), ExtResource( 225 ), ExtResource( 217 ) ],
+"loop": true,
+"name": "mach3",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 49 ), ExtResource( 3 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "fall",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 72 ), ExtResource( 72 ), ExtResource( 72 ), ExtResource( 72 ) ],
+"loop": true,
+"name": "enterdoorfast",
+"speed": 14.0
+}, {
+"frames": [ ExtResource( 64 ) ],
+"loop": true,
+"name": "noclip",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 150 ), ExtResource( 159 ) ],
+"loop": true,
+"name": "grapplewall",
+"speed": 14.0
+}, {
+"frames": [ ExtResource( 220 ), ExtResource( 243 ), ExtResource( 222 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 244 ), ExtResource( 63 ), ExtResource( 110 ), ExtResource( 118 ), ExtResource( 205 ), ExtResource( 119 ), ExtResource( 132 ), ExtResource( 208 ), ExtResource( 215 ), ExtResource( 261 ), ExtResource( 260 ), ExtResource( 262 ), ExtResource( 244 ), ExtResource( 63 ), ExtResource( 110 ), ExtResource( 118 ), ExtResource( 205 ), ExtResource( 119 ), ExtResource( 132 ), ExtResource( 208 ), ExtResource( 215 ), ExtResource( 261 ), ExtResource( 260 ), ExtResource( 262 ) ],
+"loop": true,
+"name": "tumble",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 65 ), ExtResource( 74 ), ExtResource( 66 ), ExtResource( 76 ), ExtResource( 56 ), ExtResource( 77 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "punch",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 89 ), ExtResource( 99 ) ],
+"loop": true,
+"name": "prep2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 134 ), ExtResource( 78 ) ],
+"loop": true,
+"name": "climbdown",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ), ExtResource( 70 ) ],
+"loop": true,
+"name": "exitdoor",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 140 ), ExtResource( 162 ), ExtResource( 139 ), ExtResource( 135 ), ExtResource( 158 ), ExtResource( 157 ), ExtResource( 154 ), ExtResource( 138 ) ],
+"loop": true,
+"name": "spinjump",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 65 ), ExtResource( 74 ), ExtResource( 66 ), ExtResource( 76 ), ExtResource( 56 ), ExtResource( 77 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "kick",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 94 ), ExtResource( 98 ), ExtResource( 81 ), ExtResource( 71 ), ExtResource( 96 ), ExtResource( 116 ), ExtResource( 93 ), ExtResource( 90 ) ],
+"loop": true,
+"name": "climbup",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 169 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 170 ), ExtResource( 168 ) ],
+"loop": true,
+"name": "walkonwall",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 146 ), ExtResource( 136 ) ],
+"loop": true,
+"name": "snowman_idle",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 105 ), ExtResource( 101 ), ExtResource( 128 ), ExtResource( 120 ), ExtResource( 109 ), ExtResource( 107 ), ExtResource( 129 ), ExtResource( 87 ), ExtResource( 122 ), ExtResource( 124 ), ExtResource( 108 ), ExtResource( 104 ), ExtResource( 88 ), ExtResource( 113 ), ExtResource( 102 ), ExtResource( 115 ) ],
+"loop": true,
+"name": "angryidle",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 240 ), ExtResource( 245 ), ExtResource( 130 ), ExtResource( 249 ), ExtResource( 51 ), ExtResource( 248 ), ExtResource( 53 ), ExtResource( 207 ), ExtResource( 250 ) ],
+"loop": false,
+"name": "machturn2",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 187 ), ExtResource( 185 ), ExtResource( 181 ), ExtResource( 184 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 186 ) ],
+"loop": true,
+"name": "hardtumble",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 239 ), ExtResource( 206 ), ExtResource( 54 ), ExtResource( 57 ), ExtResource( 121 ), ExtResource( 58 ) ],
+"loop": false,
+"name": "fp_start",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 85 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 117 ), ExtResource( 123 ), ExtResource( 126 ), ExtResource( 106 ), ExtResource( 85 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 117 ), ExtResource( 123 ), ExtResource( 126 ), ExtResource( 106 ) ],
+"loop": false,
+"name": "bump",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 155 ), ExtResource( 143 ), ExtResource( 153 ), ExtResource( 141 ), ExtResource( 141 ), ExtResource( 141 ), ExtResource( 141 ), ExtResource( 141 ) ],
+"loop": false,
+"name": "sjump_hitceiling",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 65 ), ExtResource( 74 ), ExtResource( 66 ), ExtResource( 76 ), ExtResource( 56 ), ExtResource( 77 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "sjump_cancle",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 204 ), ExtResource( 218 ), ExtResource( 103 ), ExtResource( 59 ), ExtResource( 219 ), ExtResource( 62 ), ExtResource( 82 ) ],
+"loop": false,
+"name": "landwalk",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 148 ), ExtResource( 137 ), ExtResource( 149 ), ExtResource( 163 ), ExtResource( 163 ), ExtResource( 163 ), ExtResource( 163 ), ExtResource( 163 ) ],
+"loop": false,
+"name": "bumpwall",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 147 ), ExtResource( 161 ), ExtResource( 144 ), ExtResource( 164 ), ExtResource( 151 ), ExtResource( 165 ), ExtResource( 151 ), ExtResource( 164 ), ExtResource( 144 ), ExtResource( 161 ) ],
+"loop": true,
+"name": "snowman_move",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 2 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 32 ) ],
+"loop": false,
+"name": "collect",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 172 ), ExtResource( 171 ), ExtResource( 173 ), ExtResource( 175 ), ExtResource( 174 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 177 ), ExtResource( 177 ), ExtResource( 177 ) ],
+"loop": false,
+"name": "slip",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 97 ), ExtResource( 92 ), ExtResource( 89 ) ],
+"loop": false,
+"name": "prep1",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 213 ), ExtResource( 212 ), ExtResource( 214 ) ],
+"loop": true,
+"name": "onphonewtf",
+"speed": 12.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "nothing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 72 ), ExtResource( 72 ), ExtResource( 72 ), ExtResource( 72 ), ExtResource( 72 ), ExtResource( 72 ) ],
+"loop": false,
+"name": "enterdoor",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 179 ), ExtResource( 178 ), ExtResource( 67 ), ExtResource( 67 ), ExtResource( 67 ), ExtResource( 67 ), ExtResource( 67 ), ExtResource( 67 ), ExtResource( 67 ), ExtResource( 67 ), ExtResource( 67 ), ExtResource( 67 ), ExtResource( 67 ) ],
+"loop": false,
+"name": "slipland",
+"speed": 12.0
+} ]

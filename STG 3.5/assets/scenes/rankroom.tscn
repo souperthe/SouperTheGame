@@ -1,0 +1,171 @@
+[gd_scene load_steps=88 format=2]
+
+[ext_resource path="res://assets/scripts/rankcontroller.gd" type="Script" id=1]
+[ext_resource path="res://assets/sound/music/mus_rankdrumroll.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sprites/pattern.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0011.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0008.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0004.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0012.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0002.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0001.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0016.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0005.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0015.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0009.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0020.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0014.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0010.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0017.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0003.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0007.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0013.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0018.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0006.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_test/rank_test_0019.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0015.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0017.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0003.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0008.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0010.png" type="Texture" id=28]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0005.png" type="Texture" id=29]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0011.png" type="Texture" id=30]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0012.png" type="Texture" id=31]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0016.png" type="Texture" id=32]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0004.png" type="Texture" id=33]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0020.png" type="Texture" id=34]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0001.png" type="Texture" id=35]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0013.png" type="Texture" id=36]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0006.png" type="Texture" id=37]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0014.png" type="Texture" id=38]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0007.png" type="Texture" id=39]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0019.png" type="Texture" id=40]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0009.png" type="Texture" id=41]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0018.png" type="Texture" id=42]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_1/rank_1_0002.png" type="Texture" id=43]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0001.png" type="Texture" id=44]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0011.png" type="Texture" id=45]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0019.png" type="Texture" id=46]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0008.png" type="Texture" id=47]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0014.png" type="Texture" id=48]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0007.png" type="Texture" id=49]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0013.png" type="Texture" id=50]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0017.png" type="Texture" id=51]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0012.png" type="Texture" id=52]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0016.png" type="Texture" id=53]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0002.png" type="Texture" id=54]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0005.png" type="Texture" id=55]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0009.png" type="Texture" id=56]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0006.png" type="Texture" id=57]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0003.png" type="Texture" id=58]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0004.png" type="Texture" id=59]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0010.png" type="Texture" id=60]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0018.png" type="Texture" id=61]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0020.png" type="Texture" id=62]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_2/rank_2_0015.png" type="Texture" id=63]
+[ext_resource path="res://assets/sprites/animated/ranks/didntfinsh.png" type="Texture" id=64]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0020.png" type="Texture" id=65]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0015.png" type="Texture" id=66]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0017.png" type="Texture" id=67]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0016.png" type="Texture" id=68]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0018.png" type="Texture" id=69]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0019.png" type="Texture" id=70]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0001.png" type="Texture" id=71]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0003.png" type="Texture" id=72]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0002.png" type="Texture" id=73]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0004.png" type="Texture" id=74]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0005.png" type="Texture" id=75]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0006.png" type="Texture" id=76]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0007.png" type="Texture" id=77]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0008.png" type="Texture" id=78]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0009.png" type="Texture" id=79]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0010.png" type="Texture" id=80]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0011.png" type="Texture" id=81]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0012.png" type="Texture" id=82]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0013.png" type="Texture" id=83]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_3/rank_3_0014.png" type="Texture" id=84]
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform vec2 motion = vec2(0.0);
+uniform float scale = 1.0;
+uniform vec2 offset = vec2(0.0);
+
+void vertex(){
+	UV = (VERTEX + offset + TIME * motion) * TEXTURE_PIXEL_SIZE * (1.0/scale);
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/motion = Vector2( -100, -100 )
+shader_param/scale = 1.0
+shader_param/offset = Vector2( 0, 0 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 35 ), ExtResource( 43 ), ExtResource( 26 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 37 ), ExtResource( 39 ), ExtResource( 27 ), ExtResource( 41 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 24 ), ExtResource( 64 ), ExtResource( 64 ), ExtResource( 64 ), ExtResource( 64 ), ExtResource( 64 ), ExtResource( 64 ), ExtResource( 64 ) ],
+"loop": false,
+"name": "didntfinish",
+"speed": 12.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "nothing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 43 ), ExtResource( 26 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 37 ), ExtResource( 39 ), ExtResource( 27 ), ExtResource( 41 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 24 ), ExtResource( 32 ), ExtResource( 25 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 34 ) ],
+"loop": false,
+"name": "rank1",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 44 ), ExtResource( 54 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 55 ), ExtResource( 57 ), ExtResource( 49 ), ExtResource( 47 ), ExtResource( 56 ), ExtResource( 60 ), ExtResource( 45 ), ExtResource( 52 ), ExtResource( 50 ), ExtResource( 48 ), ExtResource( 63 ), ExtResource( 53 ), ExtResource( 51 ), ExtResource( 61 ), ExtResource( 46 ), ExtResource( 62 ) ],
+"loop": false,
+"name": "rank2",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 71 ), ExtResource( 73 ), ExtResource( 72 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 66 ), ExtResource( 68 ), ExtResource( 67 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 65 ) ],
+"loop": false,
+"name": "rank3",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 18 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 20 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "ranktest",
+"speed": 12.0
+} ]
+
+[node name="rankroom" type="Node2D"]
+
+[node name="rankcontroller" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="rankcontroller"]
+stream = ExtResource( 2 )
+bus = "Music"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="rankcontroller"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="rankcontroller/CanvasLayer"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="rankcontroller/CanvasLayer/ParallaxBackground"]
+
+[node name="ColorRect" type="ColorRect" parent="rankcontroller/CanvasLayer/ParallaxBackground/ParallaxLayer"]
+visible = false
+margin_right = 960.0
+margin_bottom = 540.0
+
+[node name="bg" type="TextureRect" parent="rankcontroller/CanvasLayer/ParallaxBackground/ParallaxLayer"]
+material = SubResource( 7 )
+margin_right = 960.0
+margin_bottom = 540.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+
+[node name="ranks" type="AnimatedSprite" parent="rankcontroller/CanvasLayer"]
+position = Vector2( 480, 270 )
+frames = SubResource( 8 )
+animation = "rank3"
+frame = 19
+playing = true

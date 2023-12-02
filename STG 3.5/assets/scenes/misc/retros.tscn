@@ -1,0 +1,342 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/sprites/retros.png" type="Texture" id=1]
+[ext_resource path="res://assets/objects/escapephone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/scenes/misc/retros.gd" type="Script" id=5]
+[ext_resource path="res://assets/objects/FallZone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/scenedoor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/enemys/testicle.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/exitgate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/objects/enemys/forkdevil.tscn" type="PackedScene" id=12]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="door1" parent="." instance=ExtResource( 8 )]
+position = Vector2( 523, 586 )
+
+[node name="Retros" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+z_index = -12
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 2760.0
+margin_top = 368.0
+margin_right = 2800.0
+margin_bottom = 408.0
+rect_scale = Vector2( 1, 1.48 )
+color = Color( 0.360784, 0.580392, 0.988235, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 3064.0
+margin_top = 376.0
+margin_right = 3104.0
+margin_bottom = 416.0
+rect_scale = Vector2( 1.95894, 1.48 )
+color = Color( 0.360784, 0.580392, 0.988235, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+margin_left = 7832.0
+margin_top = 464.0
+margin_right = 7872.0
+margin_bottom = 504.0
+rect_scale = Vector2( 1.95894, 1.48 )
+color = Color( 0.360784, 0.580392, 0.988235, 1 )
+
+[node name="collide" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 624 )
+scale = Vector2( 51.76, 2 )
+
+[node name="camera" parent="." instance=ExtResource( 4 )]
+position = Vector2( 408, 582 )
+limit_left = 0
+limit_top = 0
+limit_right = 10128
+limit_bottom = 720
+
+[node name="collide2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3408, 624 )
+scale = Vector2( 11.26, 3.96 )
+
+[node name="Area2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( -56, 720 )
+scale = Vector2( 167.234, 0.887712 )
+
+[node name="collide3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 4272, 624 )
+scale = Vector2( 48.016, 2 )
+
+[node name="collide4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7440, 624 )
+scale = Vector2( 43, 2 )
+
+[node name="collide5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1344, 528 )
+scale = Vector2( 1.5, 3 )
+
+[node name="collide6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1824, 480 )
+scale = Vector2( 1.5, 3 )
+
+[node name="collide7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2208, 432 )
+scale = Vector2( 1.5, 3 )
+
+[node name="collide8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2736, 432 )
+scale = Vector2( 1.5, 3 )
+
+[node name="collide9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7824, 528 )
+scale = Vector2( 1.5, 3 )
+
+[node name="collide10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8592, 528 )
+scale = Vector2( 1.5, 3 )
+
+[node name="collide11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7248, 432 )
+scale = Vector2( 1.5, 3 )
+
+[node name="collide12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7152, 528 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7200, 480 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7104, 576 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="collide15" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6432, 576 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide16" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6480, 528 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide17" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6528, 480 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide18" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6576, 432 )
+scale = Vector2( 0.75, 3 )
+
+[node name="collide19" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6864, 576 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide20" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6816, 528 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide21" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6768, 480 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide22" parent="." instance=ExtResource( 3 )]
+position = Vector2( 6720, 432 )
+scale = Vector2( 0.75, 3 )
+
+[node name="collide23" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7584, 576 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide24" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7536, 528 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide25" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7488, 480 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide26" parent="." instance=ExtResource( 3 )]
+position = Vector2( 7440, 432 )
+scale = Vector2( 0.75, 3 )
+
+[node name="collide27" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8736, 528 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide28" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8784, 480 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide29" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8688, 576 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide30" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8880, 384 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide31" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8928, 336 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide32" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8832, 432 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="collide33" parent="." instance=ExtResource( 3 )]
+position = Vector2( 9024, 240 )
+scale = Vector2( 1.5, 6 )
+
+[node name="collide35" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8976, 288 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1631, 523 )
+
+[node name="escapephone" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9816, 624 )
+escapetime = 60
+
+[node name="exitgate" parent="." instance=ExtResource( 10 )]
+position = Vector2( 524, 624 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1981, 563 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2138, 568 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2400, 576 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2641, 572 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 12 )]
+position = Vector2( 3517, 563 )
+
+[node name="Enemy7" parent="." instance=ExtResource( 12 )]
+position = Vector2( 3968, 557 )
+
+[node name="platform" parent="." instance=ExtResource( 11 )]
+position = Vector2( 960, 432 )
+scale = Vector2( 3.75, 1 )
+
+[node name="platform2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 768, 432 )
+scale = Vector2( 0.75, 1 )
+
+[node name="platform3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1056, 240 )
+scale = Vector2( 0.75, 1 )
+
+[node name="Door" parent="." instance=ExtResource( 7 )]
+position = Vector2( 152, 146 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/testA.tscn"
+
+[node name="platform4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, 192 )
+scale = Vector2( 5, 1 )
+
+[node name="collide34" parent="." instance=ExtResource( 3 )]
+position = Vector2( -64, 0 )
+scale = Vector2( 1, 15 )
+
+[node name="collide36" parent="." instance=ExtResource( 3 )]
+position = Vector2( 10128, 0 )
+scale = Vector2( 1, 15 )
+
+[node name="collide37" parent="." instance=ExtResource( 3 )]
+position = Vector2( -64, -64 )
+scale = Vector2( 180, 1 )
+
+[node name="platform5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 3696, 432 )
+scale = Vector2( 2.25, 1 )
+
+[node name="platform6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 3840, 240 )
+scale = Vector2( 6, 1 )
+
+[node name="platform7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4368, 240 )
+scale = Vector2( 3.019, 1 )
+
+[node name="platform8" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4512, 432 )
+scale = Vector2( 0.758219, 1 )
+
+[node name="platform9" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4800, 432 )
+scale = Vector2( 1.5, 1 )
+
+[node name="platform10" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5088, 432 )
+scale = Vector2( 0.75, 1 )
+
+[node name="platform11" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5232, 432 )
+scale = Vector2( 0.75, 1 )
+
+[node name="platform12" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5376, 432 )
+scale = Vector2( 0.75, 1 )
+
+[node name="platform13" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5232, 240 )
+scale = Vector2( 0.75, 1 )
+
+[node name="platform14" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5664, 432 )
+scale = Vector2( 0.75, 1 )
+
+[node name="platform15" parent="." instance=ExtResource( 11 )]
+position = Vector2( 6192, 432 )
+scale = Vector2( 1.5, 1 )
+
+[node name="platform16" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5808, 240 )
+scale = Vector2( 2.25, 1 )
+
+[node name="platform17" parent="." instance=ExtResource( 11 )]
+position = Vector2( 6144, 240 )
+scale = Vector2( 3, 1 )
+
+[node name="platform18" parent="." instance=ExtResource( 11 )]
+position = Vector2( 8064, 432 )
+scale = Vector2( 3, 1 )
+
+[node name="platform19" parent="." instance=ExtResource( 11 )]
+position = Vector2( 9696, 504 )
+scale = Vector2( 3.75, 1 )
+
+[node name="platform20" parent="." instance=ExtResource( 11 )]
+position = Vector2( 9744, 408 )
+scale = Vector2( 2.25, 1 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5064, 592 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5928, 592 )
+
+[node name="Enemy10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 6304, 592 )
+
+[node name="Enemy11" parent="." instance=ExtResource( 12 )]
+position = Vector2( 5568, 568 )
+
+[node name="Enemy12" parent="." instance=ExtResource( 12 )]
+position = Vector2( 8160, 568 )
+
+[node name="Enemy13" parent="." instance=ExtResource( 9 )]
+position = Vector2( 8424, 584 )

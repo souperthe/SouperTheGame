@@ -1,0 +1,107 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/sprites/bgs/grass/foreground.png" type="Texture" id=1]
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/bgs/grass/trees.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/bgs/grass/mountain.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/bgs/grass/clouds.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/bgs/grass/sky.png" type="Texture" id=7]
+[ext_resource path="res://assets/sound/music/ogg/birds.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/sprites/stopsign.png" type="Texture" id=9]
+[ext_resource path="res://assets/objects/enemys/forkdevil.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/scripts/testing/test.gd" type="Script" id=11]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=16]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 11 )
+
+[node name="Stopsign2" type="Sprite" parent="."]
+position = Vector2( 3488, 288 )
+rotation = -0.0799501
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="Stopsign" type="Sprite" parent="."]
+position = Vector2( -32, 288 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 9 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Trees" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, -250 )
+motion_mirroring = Vector2( 960, 0 )
+
+[node name="Trees" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 0.8 )
+motion_mirroring = Vector2( 960, 0 )
+
+[node name="Trees" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.8, 0.9 )
+motion_mirroring = Vector2( 960, 0 )
+
+[node name="Trees" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+visible = false
+motion_mirroring = Vector2( 960, 0 )
+
+[node name="Foreground" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2( 0, -9 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground2/ParallaxLayer"]
+margin_top = 512.0
+margin_right = 960.0
+margin_bottom = 1512.0
+color = Color( 0.313726, 0, 0, 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -16.605
+autoplay = true
+mix_target = 2
+bus = "Music"
+
+[node name="collide2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -85, -796 )
+scale = Vector2( 1, 18.8 )
+
+[node name="collide" parent="." instance=ExtResource( 3 )]
+position = Vector2( -3407, 387 )
+scale = Vector2( 2050, 6.62 )
+
+[node name="camera" parent="." instance=ExtResource( 16 )]
+position = Vector2( 640, 352 )
+limit_bottom = 600
+
+[node name="door1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 358, 352 )
+
+[node name="Enemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1458, 200 )

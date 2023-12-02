@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sprites/doors/door_0001.png" type="Texture" id=1]
+
+[node name="Door1" type="Node" groups=["Doors"]]
+
+[node name="Door0001" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false

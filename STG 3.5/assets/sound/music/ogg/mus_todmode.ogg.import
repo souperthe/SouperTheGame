@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://import/mus_todmode.ogg-5f59bd7c4d4c8cfa0adff9db82bd9514.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/music/ogg/mus_todmode.ogg"
+dest_files=[ "res://import/mus_todmode.ogg-5f59bd7c4d4c8cfa0adff9db82bd9514.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

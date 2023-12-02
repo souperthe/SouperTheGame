@@ -1,0 +1,38 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/sprites/animated/collectablepizza/collectablepizza_0006.png" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/smallcollectable.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/animated/collectablepizza/collectablepizza_0001.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/animated/collectablepizza/collectablepizza_0005.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/animated/collectablepizza/collectablepizza_0002.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/animated/collectablepizza/collectablepizza_0004.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/animated/collectablepizza/collectablepizza_0007.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/animated/collectablepizza/collectablepizza_0008.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/animated/collectablepizza/collectablepizza_0003.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.0
+
+[node name="smallcollectable" type="Area2D"]
+collision_layer = 1073741824
+collision_mask = 1073741824
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+frame = 4
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_smallcollectable_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_smallcollectable_body_entered"]

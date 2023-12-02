@@ -1,0 +1,796 @@
+[gd_scene load_steps=98 format=2]
+
+[ext_resource path="res://assets/tres_files/souper_anims.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
+[ext_resource path="res://assets/scripts/plrstates/fallpound_fall.gd" type="Script" id=3]
+[ext_resource path="res://assets/sound/sfx/sfx_fp_fall.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sprites/cloud.png" type="Texture" id=5]
+[ext_resource path="res://assets/scripts/plrstates/ExitDoor.gd" type="Script" id=6]
+[ext_resource path="res://assets/scripts/plrstates/sjump_hitceiling.gd" type="Script" id=7]
+[ext_resource path="res://assets/sound/sfx/sfx_impact.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/scripts/plrstates/mach_jump.gd" type="Script" id=9]
+[ext_resource path="res://assets/scripts/plrstates/bumpwall.gd" type="Script" id=10]
+[ext_resource path="res://assets/scripts/player.gd" type="Script" id=11]
+[ext_resource path="res://assets/sound/sfx/sfx_step.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/scripts/stateMachine.gd" type="Script" id=13]
+[ext_resource path="res://assets/scripts/plrstates/Idle.gd" type="Script" id=14]
+[ext_resource path="res://assets/scripts/plrstates/Air.gd" type="Script" id=15]
+[ext_resource path="res://assets/scripts/plrstates/Run.gd" type="Script" id=16]
+[ext_resource path="res://assets/sound/sfx/sfx_bump.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/scripts/plrstates/grapple.gd" type="Script" id=18]
+[ext_resource path="res://assets/scripts/sjump_cancle.gd" type="Script" id=19]
+[ext_resource path="res://assets/scripts/plrstates/snowman_idle.gd" type="Script" id=20]
+[ext_resource path="res://assets/scripts/plrstates/congrat.gd" type="Script" id=21]
+[ext_resource path="res://assets/scripts/plrstates/Noclip.gd" type="Script" id=22]
+[ext_resource path="res://assets/sound/sfx/sfx_mach4.wav" type="AudioStream" id=23]
+[ext_resource path="res://assets/scripts/plrstates/peelslip.gd" type="Script" id=24]
+[ext_resource path="res://assets/scripts/plrstates/peelland.gd" type="Script" id=25]
+[ext_resource path="res://assets/sound/sfx/sfx_funny.wav" type="AudioStream" id=26]
+[ext_resource path="res://assets/sprites/player_souper/player2.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/smoke.png" type="Texture" id=28]
+[ext_resource path="res://assets/scripts/tumble.gd" type="Script" id=29]
+[ext_resource path="res://assets/scripts/randompitch.gd" type="Script" id=30]
+[ext_resource path="res://assets/sound/sfx/sfx_transformenter.wav" type="AudioStream" id=31]
+[ext_resource path="res://assets/sound/sfx/sfx_transformexit.wav" type="AudioStream" id=32]
+[ext_resource path="res://assets/scripts/plrstates/peelslipbounce.gd" type="Script" id=33]
+[ext_resource path="res://assets/scripts/plrstates/bumpnew.gd" type="Script" id=34]
+[ext_resource path="res://assets/sound/sfx/sfx_grapple.wav" type="AudioStream" id=35]
+[ext_resource path="res://assets/scripts/plrstates/assburned.gd" type="Script" id=36]
+[ext_resource path="res://assets/scripts/plrstates/Ladder.gd" type="Script" id=37]
+[ext_resource path="res://assets/sound/sfx/sfx_burned.wav" type="AudioStream" id=38]
+[ext_resource path="res://assets/sound/sfx/vox_assburned.wav" type="AudioStream" id=39]
+[ext_resource path="res://assets/sprites/asssmoke.png" type="Texture" id=40]
+[ext_resource path="res://assets/sprites/mach3fire.png" type="Texture" id=41]
+[ext_resource path="res://assets/sound/sfx/sfx_realstep.wav" type="AudioStream" id=42]
+[ext_resource path="res://assets/scripts/plrstates/MachPrep.gd" type="Script" id=48]
+[ext_resource path="res://assets/sound/sfx/sfx_jump.wav" type="AudioStream" id=50]
+[ext_resource path="res://assets/sound/sfx/sfx_machcancle.wav" type="AudioStream" id=56]
+[ext_resource path="res://assets/scripts/plrstates/Hurt.gd" type="Script" id=57]
+[ext_resource path="res://assets/sound/sfx/sfx_hurt.wav" type="AudioStream" id=58]
+[ext_resource path="res://assets/sound/sfx/sfx_mach3.wav" type="AudioStream" id=59]
+[ext_resource path="res://assets/scripts/plrstates/Mach3.gd" type="Script" id=60]
+[ext_resource path="res://assets/sound/sfx/sfx_buildup.wav" type="AudioStream" id=61]
+[ext_resource path="res://assets/sound/sfx/sfx_machready.wav" type="AudioStream" id=62]
+[ext_resource path="res://assets/scripts/plrstates/MachTurn.gd" type="Script" id=69]
+[ext_resource path="res://assets/sound/sfx/sfx_hitwall.wav" type="AudioStream" id=70]
+[ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
+[ext_resource path="res://assets/scripts/plrstates/Nothing.gd" type="Script" id=93]
+[ext_resource path="res://assets/scripts/plrstates/MachClimb.gd" type="Script" id=94]
+[ext_resource path="res://assets/sound/sfx/sfx_swing.wav" type="AudioStream" id=134]
+[ext_resource path="res://assets/scripts/plrstates/Mach2.gd" type="Script" id=135]
+[ext_resource path="res://assets/scripts/plrstates/Attack.gd" type="Script" id=141]
+[ext_resource path="res://assets/scripts/plrstates/sjump_prep.gd" type="Script" id=142]
+[ext_resource path="res://assets/scripts/plrstates/sjump_start.gd" type="Script" id=143]
+[ext_resource path="res://assets/sound/sfx/sfx_sjump_release.wav" type="AudioStream" id=151]
+[ext_resource path="res://assets/sound/sfx/sfx_swish.wav" type="AudioStream" id=152]
+[ext_resource path="res://assets/sprites/hitpartical0002.png" type="Texture" id=155]
+[ext_resource path="res://assets/sprites/hitpartical0001.png" type="Texture" id=156]
+[ext_resource path="res://assets/sprites/hitpartical0003.png" type="Texture" id=157]
+
+[sub_resource type="Curve" id=11]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 11 )
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.00681818 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+lifetime_randomness = 1.0
+flag_disable_z = true
+direction = Vector3( 0, -300, 0 )
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 0, -300, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = 296.47
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 20.0
+angle = 720.0
+angle_random = 1.0
+angle_curve = SubResource( 13 )
+scale = 0.5
+scale_random = 1.0
+scale_curve = SubResource( 15 )
+color_ramp = SubResource( 14 )
+
+[sub_resource type="Curve" id=24]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.997685, 316.636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=25]
+curve = SubResource( 24 )
+
+[sub_resource type="Gradient" id=26]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=27]
+gradient = SubResource( 26 )
+
+[sub_resource type="Curve" id=28]
+min_value = -30.12
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.967593, 0.363454 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=29]
+curve = SubResource( 28 )
+
+[sub_resource type="ParticlesMaterial" id=30]
+trail_divisor = 6
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, -50, 0 )
+initial_velocity = 1.0
+angular_velocity = 402.42
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 1.0
+angle_random = 1.0
+angle_curve = SubResource( 25 )
+scale = 0.5
+scale_random = 0.3
+scale_curve = SubResource( 29 )
+color_ramp = SubResource( 27 )
+
+[sub_resource type="ParticlesMaterial" id=31]
+trail_divisor = 6
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+angular_velocity = 402.42
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 1.0
+angle_random = 1.0
+angle_curve = SubResource( 25 )
+scale = 0.5
+scale_random = 0.3
+scale_curve = SubResource( 29 )
+color_ramp = SubResource( 27 )
+
+[sub_resource type="Shader" id=21]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+
+
+
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=22]
+shader = SubResource( 21 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 2.86727 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "hurt"
+length = 0.5
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("animation:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 1e-05, 1e-05 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 0.411765 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "startmach3"
+tracks/0/type = "value"
+tracks/0/path = NodePath("animation:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ SubResource( 22 ), SubResource( 22 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("animation:material:shader_param/flash_modifier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+custom_solver_bias = 1.0
+extents = Vector2( 13.6018, 45.1507 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 80.2837, 11.4691 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 8.02647, 2.64015 )
+
+[sub_resource type="CapsuleShape2D" id=17]
+radius = 13.5
+height = 83.7143
+
+[sub_resource type="CircleShape2D" id=20]
+radius = 60.6355
+
+[sub_resource type="Gradient" id=33]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=35]
+gradient = SubResource( 33 )
+
+[sub_resource type="Curve" id=34]
+min_value = -30.12
+_data = [ Vector2( 0.00537635, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.935484, -3.38509 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=36]
+curve = SubResource( 34 )
+
+[sub_resource type="ParticlesMaterial" id=37]
+trail_divisor = 7
+emission_shape = 2
+emission_box_extents = Vector3( 10, 1, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 5, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.4
+scale_curve = SubResource( 36 )
+color_ramp = SubResource( 35 )
+
+[sub_resource type="AudioStreamRandomPitch" id=38]
+audio_stream = ExtResource( 42 )
+random_pitch = 1.05
+
+[node name="Player2" type="KinematicBody2D" groups=["Player"]]
+z_index = 2
+input_pickable = true
+collision/safe_margin = 0.5
+script = ExtResource( 11 )
+playernumber = 1
+_animation_player = NodePath("animation")
+
+[node name="hitpart3" type="Particles2D" parent="."]
+amount = 4
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+randomness = 1.0
+fract_delta = false
+local_coords = false
+draw_order = 1
+process_material = SubResource( 10 )
+texture = ExtResource( 157 )
+
+[node name="hitpart2" type="Particles2D" parent="."]
+amount = 4
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+randomness = 1.0
+local_coords = false
+draw_order = 1
+process_material = SubResource( 10 )
+texture = ExtResource( 155 )
+
+[node name="hitpart1" type="Particles2D" parent="."]
+amount = 4
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+randomness = 1.0
+local_coords = false
+draw_order = 1
+process_material = SubResource( 10 )
+texture = ExtResource( 156 )
+
+[node name="runpart" type="Particles2D" parent="."]
+position = Vector2( 0, 43 )
+amount = 15
+lifetime = 2.0
+speed_scale = 2.0
+randomness = 1.0
+fract_delta = false
+local_coords = false
+process_material = SubResource( 30 )
+texture = ExtResource( 28 )
+
+[node name="asspart" type="Particles2D" parent="."]
+position = Vector2( -2, 30 )
+amount = 15
+lifetime = 2.0
+speed_scale = 2.0
+randomness = 1.0
+fract_delta = false
+local_coords = false
+process_material = SubResource( 31 )
+texture = ExtResource( 40 )
+
+[node name="animation" type="AnimatedSprite" parent="."]
+material = SubResource( 22 )
+rotation = 0.00151305
+scale = Vector2( 0.56, 0.56 )
+frames = ExtResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="step" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+bus = "SFX"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 13 )
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 14 )
+_animation_player = NodePath("../../animation")
+_stepsound = NodePath("../../step")
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource( 16 )
+_animation_player = NodePath("../../animation")
+
+[node name="Air" type="Node" parent="StateMachine"]
+script = ExtResource( 15 )
+_animation_player = NodePath("../../animation")
+
+[node name="Noclip" type="Node" parent="StateMachine"]
+script = ExtResource( 22 )
+_animation_player = NodePath("../../animation")
+
+[node name="Ladder" type="Node" parent="StateMachine"]
+script = ExtResource( 37 )
+_animation_player = NodePath("../../animation")
+
+[node name="MachPrep" type="Node" parent="StateMachine"]
+script = ExtResource( 48 )
+_animation_player = NodePath("../../animation")
+
+[node name="Mach3" type="Node" parent="StateMachine"]
+script = ExtResource( 60 )
+_animation_player = NodePath("../../animation")
+
+[node name="MachTurn" type="Node" parent="StateMachine"]
+script = ExtResource( 69 )
+_animation_player = NodePath("../../animation")
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource( 57 )
+_animation_player = NodePath("../../animation")
+
+[node name="EnterDoor" type="Node" parent="StateMachine"]
+script = ExtResource( 78 )
+_animation_player = NodePath("../../animation")
+
+[node name="Nothing" type="Node" parent="StateMachine"]
+script = ExtResource( 93 )
+_animation_player = NodePath("../../animation")
+
+[node name="MachClimb" type="Node" parent="StateMachine"]
+script = ExtResource( 94 )
+_animation_player = NodePath("../../animation")
+
+[node name="Mach2" type="Node" parent="StateMachine"]
+script = ExtResource( 135 )
+_animation_player = NodePath("../../animation")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource( 141 )
+_animation_player = NodePath("../../animation")
+
+[node name="sjump_prep" type="Node" parent="StateMachine"]
+script = ExtResource( 142 )
+_animation_player = NodePath("../../animation")
+
+[node name="sjump_start" type="Node" parent="StateMachine"]
+script = ExtResource( 143 )
+_animation_player = NodePath("../../animation")
+
+[node name="sjump_cancle" type="Node" parent="StateMachine"]
+script = ExtResource( 19 )
+_animation_player = NodePath("../../animation")
+
+[node name="fallpound_start" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
+_animation_player = NodePath("../../animation")
+
+[node name="fallpound_fall" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+_animation_player = NodePath("../../animation")
+
+[node name="ExitDoor" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+_animation_player = NodePath("../../animation")
+
+[node name="sjump_hitceiling" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
+_animation_player = NodePath("../../animation")
+
+[node name="mach_jump" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
+_animation_player = NodePath("../../animation")
+
+[node name="bumpwall" type="Node" parent="StateMachine"]
+script = ExtResource( 10 )
+_animation_player = NodePath("../../animation")
+
+[node name="grapple" type="Node" parent="StateMachine"]
+script = ExtResource( 18 )
+_animation_player = NodePath("../../animation")
+
+[node name="snowman_idle" type="Node" parent="StateMachine"]
+script = ExtResource( 20 )
+_animation_player = NodePath("../../animation")
+
+[node name="congrat" type="Node" parent="StateMachine"]
+script = ExtResource( 21 )
+_animation_player = NodePath("../../animation")
+
+[node name="peelslipbounce" type="Node" parent="StateMachine"]
+script = ExtResource( 33 )
+_animation_player = NodePath("../../animation")
+
+[node name="peelslip" type="Node" parent="StateMachine"]
+script = ExtResource( 24 )
+_animation_player = NodePath("../../animation")
+
+[node name="peelland" type="Node" parent="StateMachine"]
+script = ExtResource( 25 )
+_animation_player = NodePath("../../animation")
+
+[node name="tumble" type="Node" parent="StateMachine"]
+script = ExtResource( 29 )
+_animation_player = NodePath("../../animation")
+
+[node name="bump" type="Node" parent="StateMachine"]
+script = ExtResource( 34 )
+_animation_player = NodePath("../../animation")
+
+[node name="assburned" type="Node" parent="StateMachine"]
+script = ExtResource( 36 )
+_animation_player = NodePath("../../animation")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -4, 44 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 1024
+collide_with_areas = true
+
+[node name="formenter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 31 )
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="formexit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 32 )
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="ladderchecker" type="Area2D" parent="."]
+position = Vector2( -4, 17 )
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladderchecker"]
+position = Vector2( 0, 27.1 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 3 )
+
+[node name="dashtimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 50 )
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="mach4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 23 )
+bus = "SFX"
+
+[node name="mach3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 59 )
+bus = "SFX"
+
+[node name="machprep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 61 )
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="machready" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 62 )
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="turntimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="machcancel" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 56 )
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/hurt = SubResource( 5 )
+anims/startmach3 = SubResource( 23 )
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 58 )
+volume_db = -6.177
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="hitwall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 70 )
+volume_db = -7.866
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="hurtimer" type="Timer" parent="."]
+wait_time = 1.3
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4, 14 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="swing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 134 )
+volume_db = -5.243
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+position = Vector2( -2, 7 )
+scale = Vector2( 0.56, 0.56 )
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+modulate = Color( 0, 1, 0.27451, 1 )
+position = Vector2( -4.30091, 15.0443 )
+scale = Vector2( 0.8, 0.8 )
+shape = SubResource( 4 )
+
+[node name="s_release" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 151 )
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="s_enter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 152 )
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="attackch" type="Area2D" parent="."]
+visible = false
+collision_layer = 128
+collision_mask = 128
+
+[node name="attackcol" type="CollisionShape2D" parent="attackch"]
+modulate = Color( 0.478431, 0, 1, 1 )
+position = Vector2( 3.06258e-06, 12.8454 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="machch" type="Area2D" parent="."]
+visible = false
+collision_layer = 256
+collision_mask = 256
+
+[node name="machcol" type="CollisionShape2D" parent="machch"]
+position = Vector2( -4, 0.999999 )
+scale = Vector2( 5.73104, 17.802 )
+shape = SubResource( 16 )
+disabled = true
+
+[node name="fp_fall" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2( 3.88, 1 )
+stream = ExtResource( 4 )
+volume_db = -6.117
+bus = "SFX"
+
+[node name="enemych" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 8
+
+[node name="attackcol" type="CollisionShape2D" parent="enemych"]
+modulate = Color( 0.478431, 0, 1, 1 )
+position = Vector2( 3.06258e-06, 12.8454 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="machcol" type="CollisionShape2D" parent="enemych"]
+position = Vector2( 0, -3 )
+scale = Vector2( 3.97104, 17.802 )
+shape = SubResource( 16 )
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -4, 14 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 17 )
+
+[node name="poundpart" type="Particles2D" parent="."]
+position = Vector2( 0, 39 )
+amount = 19
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+draw_order = 1
+process_material = SubResource( 10 )
+texture = ExtResource( 5 )
+
+[node name="hitceiling" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -7.866
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="bumpwall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+volume_db = -7.866
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="hallwaydetect" type="Area2D" parent="."]
+visible = false
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hallwaydetect"]
+position = Vector2( -4, 14 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 4 )
+
+[node name="hurtblockdetect" type="Area2D" parent="."]
+visible = false
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtblockdetect"]
+position = Vector2( -4, 14 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="funny" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2( 3.88, 1 )
+stream = ExtResource( 26 )
+volume_db = 1.749
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="collectchec" type="Area2D" parent="."]
+visible = false
+collision_layer = 1073741824
+collision_mask = 1073741824
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collectchec"]
+position = Vector2( -4, 14 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 20 )
+
+[node name="playermach" type="Area2D" parent="."]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="playermachcol" type="CollisionShape2D" parent="playermach"]
+visible = false
+position = Vector2( -4, 10 )
+scale = Vector2( 5.73104, 17.802 )
+shape = SubResource( 16 )
+disabled = true
+
+[node name="grapple" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 35 )
+volume_db = -0.729
+pitch_scale = 0.9
+bus = "SFX"
+
+[node name="lavacheck" type="Area2D" parent="."]
+modulate = Color( 0.0784314, 0.980392, 0, 1 )
+position = Vector2( -4, 17 )
+collision_layer = 4194304
+collision_mask = 4194304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lavacheck"]
+position = Vector2( 0, 27.1 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 3 )
+
+[node name="burn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 38 )
+bus = "SFX"
+
+[node name="burnscream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 39 )
+bus = "SFX"
+script = ExtResource( 30 )
+
+[node name="playernotice" type="Sprite" parent="."]
+modulate = Color( 0.0784314, 0, 1, 1 )
+position = Vector2( 0, -78 )
+scale = Vector2( 0.56, 0.56 )
+texture = ExtResource( 27 )
+
+[node name="mach3part" type="Particles2D" parent="."]
+position = Vector2( 0, 36 )
+scale = Vector2( 0.7, 0.7 )
+amount = 500
+lifetime = 2.0
+randomness = 1.0
+fract_delta = false
+local_coords = false
+process_material = SubResource( 37 )
+texture = ExtResource( 41 )
+
+[node name="realste" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, 44 )
+stream = SubResource( 38 )
+volume_db = -2.0
+bus = "SFX"
+
+[connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
+[connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]
+[connection signal="timeout" from="dashtimer" to="StateMachine/MachPrep" method="_on_dashtimer_timeout"]
+[connection signal="timeout" from="turntimer" to="StateMachine/MachTurn" method="_on_turntimer_timeout"]
+[connection signal="timeout" from="hurtimer" to="StateMachine/Hurt" method="_on_hurtimer_timeout"]
+[connection signal="body_entered" from="machch" to="." method="_on_machch_body_entered"]
+[connection signal="body_entered" from="enemych" to="." method="_on_enemych_body_entered"]
+[connection signal="body_entered" from="hurtblockdetect" to="." method="_on_hurtblockdetect_body_entered"]
+[connection signal="body_entered" from="playermach" to="." method="_on_machch_body_entered"]
+[connection signal="body_entered" from="lavacheck" to="." method="_on_lavacheck_body_entered"]

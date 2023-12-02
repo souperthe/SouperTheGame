@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://import/sfx_menubutton3.wav-532cf2caef452b0498ae4fdae49f2994.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/sfx_menubutton3.wav"
+dest_files=[ "res://import/sfx_menubutton3.wav-532cf2caef452b0498ae4fdae49f2994.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=11025.0
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=1

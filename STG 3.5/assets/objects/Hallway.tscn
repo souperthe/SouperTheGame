@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/sprites/hallway.png" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/Hallway.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[node name="Hallway" type="Area2D"]
+collision_layer = 32768
+collision_mask = 32768
+script = ExtResource( 2 )
+
+[node name="Hallway" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_Hallway_area_entered"]
