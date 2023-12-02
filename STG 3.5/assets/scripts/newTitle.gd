@@ -9,7 +9,7 @@ var maxthings = 3
 var directory = Directory.new();
 var doFileExists = directory.file_exists(global.savepath)
 
-var disablelvlselect
+var disablelvlselect = !OS.is_debug_build()
 var selectmode = false
 var modeelection = 0
 var modedick = false
@@ -31,12 +31,12 @@ func _ready():
 	if disablelvlselect:
 		maxthings = 2
 		$things/levelselect.queue_free()
-	disablelvlselect = !doFileExists
 	music.playtitle()
 	pass # Replace with function body.
 
 
 func _process(_delta):
+	disablelvlselect = !OS.is_debug_build()
 	options()
 	movepointer()
 	if canselect:
