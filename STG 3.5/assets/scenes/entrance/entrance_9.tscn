@@ -845,7 +845,7 @@ position = Vector2( 9536, -2112 )
 scale = Vector2( 16, 1 )
 
 [node name="door2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 9600, -1888 )
+position = Vector2( 9664, -1888 )
 
 [node name="Hallway" parent="." instance=ExtResource( 17 )]
 position = Vector2( 9728, -2048 )
