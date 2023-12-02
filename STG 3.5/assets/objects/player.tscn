@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -50,7 +50,6 @@
 [ext_resource path="res://assets/scripts/plrstates/MachPrep.gd" type="Script" id=48]
 [ext_resource path="res://assets/scripts/plrstates/bossdead.gd" type="Script" id=49]
 [ext_resource path="res://assets/scripts/plrstates/brake.gd" type="Script" id=50]
-[ext_resource path="res://assets/sound/sfx/sfx_brake.wav" type="AudioStream" id=51]
 [ext_resource path="res://assets/sound/sfx/sfx_spinning.wav" type="AudioStream" id=52]
 [ext_resource path="res://assets/scripts/collectchec.gd" type="Script" id=53]
 [ext_resource path="res://assets/tres_files/REALsouoperanimations.tres" type="SpriteFrames" id=54]
@@ -452,7 +451,6 @@ color_ramp = SubResource( 33 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "crouchfall"
-frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -934,12 +932,6 @@ stream = SubResource( 39 )
 volume_db = -4.0
 bus = "SFX"
 
-[node name="brake" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 0, 44 )
-stream = ExtResource( 51 )
-volume_db = -4.0
-bus = "SFX"
-
 [node name="swooshing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 52 )
 volume_db = -6.0
@@ -951,7 +943,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 9
+frame = 20
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

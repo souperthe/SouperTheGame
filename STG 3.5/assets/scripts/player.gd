@@ -92,7 +92,6 @@ onready var sfxgrapple = $grapple
 onready var sfxburn = $burn
 onready var sfxfoot = $realste
 onready var sfxburnscream = $burnscream
-onready var sfxbreak = $brake
 onready var sfxspinng = $swooshing
 onready var collide = $CollisionShape2D2
 onready var upthing = $thing
