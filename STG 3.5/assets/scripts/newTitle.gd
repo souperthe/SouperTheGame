@@ -9,7 +9,7 @@ var maxthings = 3
 var directory = Directory.new();
 var doFileExists = directory.file_exists(global.savepath)
 
-var disablelvlselect = !OS.is_debug_build()
+var disablelvlselect = false
 var selectmode = false
 var modeelection = 0
 var modedick = false
