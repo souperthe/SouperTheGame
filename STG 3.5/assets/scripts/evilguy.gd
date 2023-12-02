@@ -25,8 +25,10 @@ func gotodoor():
 	position.y = -4050
 	yield(get_tree().create_timer(0.008), "timeout")
 	#position = objplayer.position
-	#if get_tree().get_current_scene().is_instance_valid("escapephone") and get_tree().get_current_scene().is_instance_valid("treasure"):
-		#pause = true
+	if get_tree().get_current_scene().get_node("escapephone"):
+		pause = true
+	if get_tree().get_current_scene().get_node("treasure"):
+		pause = true
 	if get_tree().get_current_scene().get_node(global.targetdoor) and not pause:
 		position.x = get_tree().get_current_scene().get_node(global.targetdoor).position.x
 		position.y = get_tree().get_current_scene().get_node(global.targetdoor).position.y
