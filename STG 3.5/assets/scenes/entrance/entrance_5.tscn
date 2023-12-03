@@ -48,9 +48,6 @@ limit_left = -32
 limit_top = 0
 limit_right = 1088
 limit_bottom = 1216
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="collide12" parent="." instance=ExtResource( 3 )]
 position = Vector2( -384, 1152 )
