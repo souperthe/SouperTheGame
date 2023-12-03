@@ -151,6 +151,7 @@ func _on_exitgate_body_exited(body):
 func exitgate():
 	global.restartlevel = global.targetRoom2
 	global.restartdoor = global.targetdoor
+	music.temp = 0
 	if global.hardmode:
 		music.playmusic = false
 		objplayer.gun = true
