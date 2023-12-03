@@ -32,6 +32,7 @@ func playtitle():
 func stopmusic():
 	$Music.stop()
 	$escapemusic.stop()
+	temp = 0
 	
 func playsnow():
 	song = load("res://assets/sound/music/mus_snow.wav")
