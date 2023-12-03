@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/scripts/sillysfx.gd" type="Script" id=1]
 [ext_resource path="res://assets/sound/sfx/sfx_menubutton6.wav" type="AudioStream" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://assets/sound/sfx/sfx_menubutton8.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/sound/sfx/sfx_menubutton4.wav" type="AudioStream" id=11]
 [ext_resource path="res://assets/sound/sfx/sfx_menubutton11.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sound/sfx/sfx_bump.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/sound/sfx/sfx_impact.wav" type="AudioStream" id=14]
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
 audio_stream = ExtResource( 3 )
@@ -108,5 +110,15 @@ bus = "SFX"
 
 [node name="k" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 12 )
+volume_db = -8.0
+bus = "SFX"
+
+[node name="n" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+volume_db = -8.0
+bus = "SFX"
+
+[node name="l" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
 volume_db = -8.0
 bus = "SFX"

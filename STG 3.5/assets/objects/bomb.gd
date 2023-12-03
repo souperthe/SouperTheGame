@@ -19,7 +19,7 @@ func _ready():
 
 func _process(delta):
 	if is_on_floor():
-		velocity.x = lerp(velocity.x, 0, 0.5)
+		velocity.x = lerp(velocity.x, 0, 10 * delta)
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
 

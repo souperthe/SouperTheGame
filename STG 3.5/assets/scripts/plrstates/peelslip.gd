@@ -37,7 +37,7 @@ func physics_update(delta: float) -> void:
 	if player.is_on_wall():
 		player.velocity.x = -600
 		animation_player.play("hardtumble")
-		animation_player.frame = 0
+		animation_player.frame = randi() % 6
 		animation_player.flip_h = !animation_player.flip_h
 		player.face = !player.face 
 		player.sfxgrapple.play()

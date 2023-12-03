@@ -450,7 +450,8 @@ color_ramp = SubResource( 33 )
 [node name="animation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "crouchfall"
+animation = "hardtumble"
+frame = 6
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -943,7 +944,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 20
+frame = 1
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -952,7 +953,7 @@ volume_db = -1.676
 bus = "SFX"
 
 [node name="coyatotime" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]

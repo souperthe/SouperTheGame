@@ -10,37 +10,9 @@
 
 [node name="scary" type="Node2D"]
 
-[node name="escapephone" parent="." instance=ExtResource( 5 )]
-position = Vector2( 832, 480 )
-escapetime = 290
-
-[node name="Door" parent="." instance=ExtResource( 3 )]
-position = Vector2( 128, 433 )
-targetdoor = "door2"
-targetscene = "res://assets/scenes/entrance/entrance_11.tscn"
-
-[node name="collide" parent="." instance=ExtResource( 1 )]
-position = Vector2( -64, 480 )
-scale = Vector2( 17, 1 )
-
-[node name="collide2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -64, -64 )
-scale = Vector2( 17, 1 )
-
-[node name="collide3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -32, 0 )
-scale = Vector2( 1, 8 )
-
-[node name="collide4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 928, 0 )
-scale = Vector2( 1, 8 )
-
-[node name="door1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 128, 448 )
-
 [node name="ColorRect4" type="ColorRect" parent="."]
-margin_left = 928.0
-margin_right = 1888.0
+margin_left = 1824.0
+margin_right = 2784.0
 margin_bottom = 540.0
 color = Color( 0, 0, 0, 1 )
 
@@ -53,21 +25,49 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_top = -544.0
-margin_right = 960.0
+margin_right = 1920.0
 margin_bottom = -4.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_top = 480.0
-margin_right = 960.0
+margin_right = 1920.0
 margin_bottom = 1020.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Line2D" type="Line2D" parent="."]
 position = Vector2( 32, 0 )
-points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 896, 480, 896, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 1792, 480, 1792, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 width = 1.0
 default_color = Color( 1, 1, 1, 1 )
+
+[node name="escapephone" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1648, 480 )
+escapetime = 290
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 128, 433 )
+targetdoor = "door2"
+targetscene = "res://assets/scenes/entrance/entrance_11.tscn"
+
+[node name="collide" parent="." instance=ExtResource( 1 )]
+position = Vector2( -64, 480 )
+scale = Vector2( 32, 1 )
+
+[node name="collide2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -64, -64 )
+scale = Vector2( 32, 1 )
+
+[node name="collide3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -32, 0 )
+scale = Vector2( 1, 8 )
+
+[node name="collide4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1824, 0 )
+scale = Vector2( 1, 8 )
+
+[node name="door1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 128, 448 )
 
 [node name="darkcircle" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4000, 640 )
@@ -89,23 +89,41 @@ color = Color( 0, 0, 0, 1 )
 position = Vector2( -416, 512 )
 limit_left = 0
 limit_top = 0
-limit_right = 960
+limit_right = 1920
 limit_bottom = 540
 
 [node name="lap" parent="." instance=ExtResource( 2 )]
-position = Vector2( 832, 160 )
+position = Vector2( 960, 160 )
 
 [node name="escapesmallcollectable" parent="." instance=ExtResource( 7 )]
-position = Vector2( 352, 448 )
+position = Vector2( 576, 448 )
 
 [node name="escapesmallcollectable2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 416, 416 )
+position = Vector2( 640, 416 )
 
 [node name="escapesmallcollectable3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 480, 448 )
+position = Vector2( 704, 448 )
 
 [node name="escapesmallcollectable4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 544, 416 )
+position = Vector2( 768, 416 )
 
 [node name="escapesmallcollectable5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 608, 448 )
+position = Vector2( 832, 448 )
+
+[node name="escapesmallcollectable6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 960, 448 )
+
+[node name="escapesmallcollectable7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1024, 416 )
+
+[node name="escapesmallcollectable8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1088, 448 )
+
+[node name="escapesmallcollectable9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1152, 416 )
+
+[node name="escapesmallcollectable10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1216, 448 )
+
+[node name="escapesmallcollectable11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 896, 416 )

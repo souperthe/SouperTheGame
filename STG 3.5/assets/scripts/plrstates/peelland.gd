@@ -13,7 +13,7 @@ func enter(_msg := {}) -> void:
 	animation_player.play("slipland")
 	player.sfxbump.play()
 	player.hitwall.play()
-	playfunny()
+	player.hitwall.play()
 	player.velocity.y = 0
 	player.emachbox.disabled = true
 	player.machbox.disabled = true

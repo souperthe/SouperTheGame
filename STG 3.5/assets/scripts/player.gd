@@ -157,11 +157,6 @@ func _ready():
 
 func _physics_process(_delta):
 	#trail()
-	if Input.is_action_just_pressed("penis"):
-		if canpenis:
-			formenter.play()
-			penisman = !penisman
-			penismanswitcher()
 	currentstate = $StateMachine.statename
 	_tilt()
 	animatonframes = $animation.get_frame()

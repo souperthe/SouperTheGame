@@ -140,6 +140,7 @@ func hurt():
 	global.makeflash()
 	global.panic = true
 	global.fill.wait_time = escapetime
+	global.addcombo()
 	createdead1()
 	createdead2()
 	playcock()
@@ -148,6 +149,7 @@ func hurt():
 	queue_free()
 	
 func hurt2():
+	global.addcombo()
 	createdead1()
 	playcock()
 	hurteffect()

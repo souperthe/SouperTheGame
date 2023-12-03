@@ -15,14 +15,10 @@ var snow = load("res://assets/sound/music/ogg/mus_snow.ogg")
 var lap1 = load("res://assets/sound/music/ogg/mus_escapenew.ogg")
 var lap2 = load("res://assets/sound/music/ogg/mus_lapping.ogg")
 var old = load("res://assets/ignore/loop1.mp3")
-var musicvolume = 1
+var musicvolume = 2
 var playmusic = true
+var temp = 0
 
-func makemusicquiet():
-	musicaudio.volume_db = -5
-	
-func makemusicnormal():
-	musicaudio.volume_db = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -78,6 +74,8 @@ func stoppanic():
 func _process(_delta):
 	if playmusic:
 		domusic()
+		if !$Music.stream == null:
+			temp = $Music.get_playback_position( )
 	
 func domusic():
 	if global.panic:
@@ -87,9 +85,7 @@ func domusic():
 				$escapemusic.play()
 	#do stuff
 	if get_tree().current_scene.name == "scary":
-			if !$Music.stream == scary:
-				$Music.stream = scary
-				$Music.play()
+		$Music.stream = null
 	if get_tree().current_scene.name == "oldsouper":
 			if !$Music.stream == old:
 				$Music.stream = old
@@ -102,6 +98,7 @@ func domusic():
 		if !$Music.stream == entrancesong:
 			$Music.stream = entrancesong
 			$Music.play()
+			$Music.seek(float(temp))
 	if get_tree().current_scene.name == "imagine":
 		if !$Music.stream == imaginesong:
 			$Music.stream = imaginesong

@@ -23,7 +23,7 @@ func _ready():
 
 func _process(_delta):
 	rang.randomize()
-	var my_random_number2 = rang.randi_range(1, 11)
+	var my_random_number2 = rang.randi_range(1, 13)
 	random = my_random_number2
 	if playsound == true:
 		sound()
@@ -32,6 +32,10 @@ func _process(_delta):
 func sound():
 	#var my_random_number2 = rang.randi_range(1, 2)
 	#print(my_random_number2)
+	if random == 13:
+		$j.play()
+	if random == 12:
+		$n.play()
 	if random == 11:
 		$k.play()
 	if random == 10:
