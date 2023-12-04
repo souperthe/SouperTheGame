@@ -119,6 +119,18 @@ enabled_focus_mode = 1
 text = "spawn gun"
 expand_icon = true
 
+[node name="spawnboombox" type="Button" parent="Control"]
+pause_mode = 2
+margin_top = -288.0
+margin_right = 131.0
+margin_bottom = -264.0
+hint_tooltip = "GIVE ME THE BOOMBOX.."
+focus_mode = 1
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "spawn boombox"
+expand_icon = true
+
 [node name="spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -8.898
@@ -127,3 +139,4 @@ volume_db = -8.898
 [connection signal="pressed" from="Control/escapecheck2" to="." method="_on_escapecheck2_pressed"]
 [connection signal="pressed" from="Control/escapecheck3" to="." method="_on_escapecheck3_pressed"]
 [connection signal="pressed" from="Control/spawngun" to="." method="_on_spawngun_pressed"]
+[connection signal="pressed" from="Control/spawnboombox" to="." method="_on_spawnboombox_pressed"]

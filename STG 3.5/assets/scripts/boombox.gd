@@ -31,7 +31,9 @@ func _process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if $tune.playing:
 		$AnimationPlayer.play("New Anim")
+		music.musicvolume = -10
 	if !$tune.playing:
+		music.musicvolume = 2
 		$AnimationPlayer.play("New Anim (2)")
 	
 	

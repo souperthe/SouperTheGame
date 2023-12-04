@@ -105,6 +105,7 @@ func room_goto(targetRoom, targetDoor):
 	targetRoom2 = targetRoom
 	objplayer.gototargetdoor()
 	presobjs.player2gototargetdoor()
+	music.musicvolume = 2
 	
 func brah():
 	emit_signal("reset")

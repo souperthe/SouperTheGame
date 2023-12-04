@@ -22,6 +22,7 @@ onready var animator = $AnimatedSprite
 onready var hurtpart = $hurtblock
 var rotatespeed = 0.2
 
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
