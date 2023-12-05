@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=10]
 
-[node name="Node2D" type="Node2D"]
+[node name="tutorial" type="Node2D"]
 script = ExtResource( 5 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
@@ -26,10 +26,10 @@ position = Vector2( 0, 488 )
 scale = Vector2( 53, 0.8 )
 
 [node name="door1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 120, 440 )
+position = Vector2( 352, 456 )
 
 [node name="exitgate" parent="." instance=ExtResource( 4 )]
-position = Vector2( 120, 488 )
+position = Vector2( 352, 488 )
 
 [node name="collide2" parent="." instance=ExtResource( 2 )]
 position = Vector2( -64, -32 )
@@ -106,9 +106,9 @@ fit_content_height = true
 scroll_active = false
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
-margin_left = 192.0
-margin_top = 336.0
-margin_right = 452.0
-margin_bottom = 426.0
+margin_left = 160.0
+margin_top = 192.0
+margin_right = 420.0
+margin_bottom = 282.0
 rect_scale = Vector2( 1.6, 1.6 )
 text = "Welcome to Souper the Game! If you're reading this, you are a dirty whore because this is developer placeholder text. Press arrow keys to move."

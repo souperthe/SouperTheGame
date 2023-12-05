@@ -46,10 +46,12 @@ func _process(delta):
 		$levels.play("boss")
 	if selection == 8:
 		$levels.play("brah")
-	if selection > 8:
+	if selection == 9:
+		$levels.play("unknown")
+	if selection > 9:
 		selection = 0
 	if selection < 0:
-		selection = 8
+		selection = 9
 	if Input.is_action_just_pressed("confirm") and canconfirm:
 		$selected.play()
 		music.stopmusic()
@@ -126,6 +128,14 @@ func _process(delta):
 			global.level = "test"
 			ct._tout()
 			global.room_goto("res://assets/scenes/test.tscn", "door1")
+			objplayer.reset()
+			if presobjs.player2:
+				presobjs.player2.reset()
+			objplayer.defaultdir()
+		if selection == 9:
+			global.level = "test"
+			ct._tout()
+			global.room_goto("res://assets/scenes/tutorial/tutorial_1.tscn", "door1")
 			objplayer.reset()
 			if presobjs.player2:
 				presobjs.player2.reset()

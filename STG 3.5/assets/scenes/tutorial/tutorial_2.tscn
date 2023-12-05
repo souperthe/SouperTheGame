@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/objects/metalblock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/scenes/tutorial/tutorial_1.gd" type="Script" id=5]
+[ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=9]
@@ -37,7 +38,7 @@ scale = Vector2( 51.8, 1 )
 position = Vector2( 3168, 64 )
 scale = Vector2( 1.6, 4 )
 targetdoor = "door1"
-targetscene = "res://assets/scenes/tutorial_3.tscn"
+targetscene = "res://assets/scenes/tutorial/tutorial_3.tscn"
 
 [node name="Hallway2" parent="." instance=ExtResource( 9 )]
 position = Vector2( -64, 320 )
@@ -128,3 +129,6 @@ tab_size = 2
 text = "Hold a direction and press shift whilst superjumping to do a superjump cancel. This can break metal blocks."
 fit_content_height = true
 scroll_active = false
+
+[node name="door2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3099, 165 )
