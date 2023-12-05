@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -213,13 +213,16 @@ extents = Vector2( 13.6018, 45.1507 )
 extents = Vector2( 50, 27.1631 )
 
 [sub_resource type="RectangleShape2D" id=49]
-extents = Vector2( 6.28158, 2.66824 )
+extents = Vector2( 6.28158, 2.19077 )
 
 [sub_resource type="RectangleShape2D" id=50]
-extents = Vector2( 5.55694, 3.11763 )
+extents = Vector2( 5.55694, 3.35636 )
 
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 8.12568, 2.64015 )
+
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 5.55694, 2.86485 )
 
 [sub_resource type="CapsuleShape2D" id=17]
 radius = 13.5
@@ -451,7 +454,7 @@ color_ramp = SubResource( 33 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "hardtumble"
-frame = 5
+frame = 2
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -756,12 +759,13 @@ collision_layer = 256
 collision_mask = 256
 
 [node name="machcol" type="CollisionShape2D" parent="machch"]
-position = Vector2( 40, 0 )
+position = Vector2( 40, -2 )
 scale = Vector2( 5.73104, 17.802 )
 shape = SubResource( 49 )
 disabled = true
 
 [node name="middlemachcol" type="CollisionShape2D" parent="machch"]
+position = Vector2( 0, 4.25001 )
 scale = Vector2( 3.97104, 17.802 )
 shape = SubResource( 50 )
 disabled = true
@@ -790,9 +794,9 @@ shape = SubResource( 16 )
 disabled = true
 
 [node name="middleattack" type="CollisionShape2D" parent="enemych"]
-position = Vector2( 0, 8.50003 )
+position = Vector2( 0, 4.00003 )
 scale = Vector2( 3.97104, 17.802 )
-shape = SubResource( 50 )
+shape = SubResource( 51 )
 disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
@@ -945,7 +949,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 23
+frame = 5
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
