@@ -340,6 +340,7 @@ func reset():
 	global.cutscene = false
 	global.camerazoom = 1
 	music.musicvolume = 2
+	music.temp = 0
 	global.hidehud = false
 	defaultdir()
 

@@ -359,7 +359,7 @@ animations = [ {
 "frames": [ ExtResource( 281 ), ExtResource( 283 ), ExtResource( 284 ), ExtResource( 285 ), ExtResource( 233 ), ExtResource( 233 ), ExtResource( 233 ), ExtResource( 233 ) ],
 "loop": true,
 "name": "crouchdone",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 296 ), ExtResource( 290 ) ],
 "loop": true,
@@ -379,7 +379,7 @@ animations = [ {
 "frames": [ ExtResource( 285 ), ExtResource( 284 ), ExtResource( 283 ), ExtResource( 281 ), ExtResource( 281 ), ExtResource( 281 ), ExtResource( 281 ), ExtResource( 281 ), ExtResource( 281 ) ],
 "loop": false,
 "name": "crouchstart",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 289 ), ExtResource( 286 ), ExtResource( 287 ), ExtResource( 288 ) ],
 "loop": true,

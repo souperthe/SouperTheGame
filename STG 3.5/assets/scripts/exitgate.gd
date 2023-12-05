@@ -66,6 +66,7 @@ func _physics_process(_delta):
 		dick = true
 		
 	if overdoor and enter:
+		music.temp = 0
 		exitgate()
 		enter = false
 	if global.panic and overdoor and player.candoor and doornotentered:
