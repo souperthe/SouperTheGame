@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/exitgate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/scenes/tutorial/tutorial_1.gd" type="Script" id=5]
+[ext_resource path="res://assets/objects/hurtblock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=10]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2( 1, 1 )
+script = ExtResource( 5 )
+
+[node name="camera" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2176, 1854 )
+limit_left = 0
+limit_top = 0
+limit_right = 7360
+limit_bottom = 540
+
+[node name="collide" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 488 )
+scale = Vector2( 53, 0.8 )
+
+[node name="door1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 120, 440 )
+
+[node name="exitgate" parent="." instance=ExtResource( 4 )]
+position = Vector2( 120, 488 )
+
+[node name="collide2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -64, -32 )
+scale = Vector2( 1, 9 )
+
+[node name="collide3" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 43, 1 )
+
+[node name="hurtblock" parent="." instance=ExtResource( 6 )]
+position = Vector2( 960, 456 )
+
+[node name="hurtblock2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 992, 456 )
+
+[node name="hurtblock3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1024, 456 )
+
+[node name="hurtblock4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1056, 456 )
+
+[node name="hurtblock5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2176, 360 )
+scale = Vector2( 1, 4 )
+
+[node name="platform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2208, 360 )
+scale = Vector2( 4.6, 0.8 )
+
+[node name="collide-slope" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2744, 360 )
+scale = Vector2( -3.8, 2 )
+
+[node name="Hallway" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2944, 320 )
+scale = Vector2( 1.6, 5.2 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/tutorial/tutorial_2.tscn"
+
+[node name="collide-slope2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2752, 320 )
+scale = Vector2( 2, -4 )
+
+[node name="collide4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2880, 256 )
+scale = Vector2( 8, 1 )
+
+[node name="platform2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 960, 416 )
+scale = Vector2( 2, 1 )
+
+[node name="door2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2920, 440 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 760.0
+margin_top = 344.0
+margin_right = 836.0
+margin_bottom = 397.0
+rect_scale = Vector2( 2, 1.8 )
+tab_size = 2
+text = "Press Z to jump"
+fit_content_height = true
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 1944.0
+margin_top = 312.0
+margin_right = 2021.0
+margin_bottom = 374.0
+rect_scale = Vector2( 2.2, 1.8 )
+tab_size = 2
+text = "Hold Z to jump higher"
+fit_content_height = true
+scroll_active = false
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+margin_left = 192.0
+margin_top = 336.0
+margin_right = 452.0
+margin_bottom = 426.0
+rect_scale = Vector2( 1.6, 1.6 )
+text = "Welcome to Souper the Game! If you're reading this, you are a dirty whore because this is developer placeholder text. Press arrow keys to move."

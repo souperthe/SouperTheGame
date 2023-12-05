@@ -14,6 +14,7 @@ var scary = load("res://assets/sound/music/ogg/mus_scary.ogg")
 var snow = load("res://assets/sound/music/ogg/mus_snow.ogg")
 var lap1 = load("res://assets/sound/music/ogg/mus_escapenew.ogg")
 var lap2 = load("res://assets/sound/music/ogg/mus_lapping.ogg")
+var tutorialsong = load("res://assets/sound/music/ogg/mus_tut.ogg")
 var old = load("res://assets/ignore/loop1.mp3")
 var musicvolume = 2
 var playmusic = true
@@ -71,6 +72,11 @@ func stoppanic():
 	panicplaying = false
 	$escapemusic.stop()
 	$Music.volume_db = musicvolume
+
+func playtutorial():
+	song = load("res://assets/sound/music/mus_tut.ogg")
+	$Music.stream = song
+	$Music.play()
 	
 func _process(_delta):
 	if playmusic:
@@ -100,6 +106,11 @@ func domusic():
 			$Music.stream = entrancesong
 			$Music.play()
 			$Music.seek(float(temp))
+	if get_tree().current_scene.name == "tutorial":
+		if !$Music.stream == tutorialsong:
+			$Music.stream = tutorialsong
+			$Music.play()
+			$Music.seek(float(temp))		
 	if get_tree().current_scene.name == "imagine":
 		if !$Music.stream == imaginesong:
 			$Music.stream = imaginesong
