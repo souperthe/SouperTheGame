@@ -225,7 +225,7 @@ position = Vector2( 1216, 448 )
 position = Vector2( 1280, 448 )
 
 [node name="smallcollectable4" parent="." instance=ExtResource( 13 )]
-position = Vector2( 1344, 448 )
+position = Vector2( 1344, 446 )
 
 [node name="smallcollectable5" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1408, 448 )

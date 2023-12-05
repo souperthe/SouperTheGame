@@ -12,7 +12,6 @@
 [ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
-scale = Vector2( 1, 1 )
 script = ExtResource( 5 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]

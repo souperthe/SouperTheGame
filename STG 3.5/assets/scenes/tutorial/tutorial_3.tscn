@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/metalblock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/scenes/tutorial/tutorial_1.gd" type="Script" id=5]
+[ext_resource path="res://assets/objects/enemys/testicle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=9]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="camera" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2163, 1908 )
+limit_left = 0
+limit_top = 0
+limit_right = 7360
+limit_bottom = 540
+
+[node name="collide" parent="." instance=ExtResource( 2 )]
+position = Vector2( -64, 488 )
+scale = Vector2( 49, 1 )
+
+[node name="door1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 440 )
+
+[node name="collide2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -64, -32 )
+scale = Vector2( 1, 5.6 )
+
+[node name="collide6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 930, 424 )
+scale = Vector2( 1, 2 )
+
+[node name="collide5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3456, 0 )
+scale = Vector2( 1, 8.625 )
+
+[node name="collide3" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 48, 1 )
+
+[node name="collide4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3072, 0 )
+scale = Vector2( 6, 3 )
+
+[node name="Hallway" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3471, 597 )
+rotation = 1.5708
+scale = Vector2( 1.6, 12.059 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/gaybabyjail.tscn"
+
+[node name="Hallway2" parent="." instance=ExtResource( 9 )]
+position = Vector2( -64, 320 )
+scale = Vector2( -1.4, 5.2 )
+targetdoor = "door2"
+targetscene = "res://assets/scenes/tutorial/tutorial_2.tscn"
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="."]
+margin_left = 399.0
+margin_top = 274.0
+margin_right = 562.0
+margin_bottom = 349.0
+rect_scale = Vector2( 1.95785, 1.8 )
+tab_size = 2
+text = "You will come across oppositions on your journey, press X to attack"
+fit_content_height = true
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 2643.0
+margin_top = 274.036
+margin_right = 2806.0
+margin_bottom = 364.036
+rect_scale = Vector2( 1.95785, 1.8 )
+tab_size = 2
+text = "To dropkick, simply jump and press the down arrow key. Dropkicking can hurt enemies and break metal blocks."
+fit_content_height = true
+scroll_active = false
+
+[node name="collide-slope" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2816, 192 )
+rotation = 3.14159
+scale = Vector2( -4, 2 )
+
+[node name="metalblock" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3072, 488 )
+
+[node name="metalblock2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3136, 488.036 )
+
+[node name="metalblock3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3200, 488.036 )
+
+[node name="metalblock4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3264, 488.036 )
+
+[node name="metalblock5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3328, 488.036 )
+
+[node name="metalblock6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3392, 488.036 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 847, 451 )

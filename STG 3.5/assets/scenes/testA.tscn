@@ -100,9 +100,10 @@ position = Vector2( 4400, 416 )
 
 [node name="banana" parent="." instance=ExtResource( 2 )]
 position = Vector2( 736, 488 )
+painintheass = true
 
 [node name="banana2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 848, 480 )
+position = Vector2( 839, 482 )
 
 [node name="banana3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1008, 384 )

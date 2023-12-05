@@ -10,7 +10,6 @@
 [ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
-scale = Vector2( 1, 1 )
 script = ExtResource( 5 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
@@ -38,7 +37,7 @@ scale = Vector2( 51.8, 1 )
 position = Vector2( 3168, 64 )
 scale = Vector2( 1.6, 4 )
 targetdoor = "door1"
-targetscene = "res://assets/scenes/gaybabyjail.tscn"
+targetscene = "res://assets/scenes/tutorial_3.tscn"
 
 [node name="Hallway2" parent="." instance=ExtResource( 9 )]
 position = Vector2( -64, 320 )
