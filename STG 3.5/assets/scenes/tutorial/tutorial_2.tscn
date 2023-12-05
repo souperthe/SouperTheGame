@@ -71,11 +71,11 @@ position = Vector2( 2080, 64 )
 scale = Vector2( 6.8, 4.4 )
 
 [node name="platform" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1472, 128 )
+position = Vector2( 1472, 192 )
 scale = Vector2( 3, 1 )
 
 [node name="collide6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1664, 128 )
+position = Vector2( 1664, 192 )
 scale = Vector2( 4, 5.8 )
 
 [node name="collide-slope" parent="." instance=ExtResource( 8 )]

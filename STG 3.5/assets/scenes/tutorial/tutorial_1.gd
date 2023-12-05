@@ -10,6 +10,7 @@ extends Node2D
 func _ready():
 	#ct._tout()
 	#music.playtutorial()
+	global.hidehud = true
 	pass
 
 

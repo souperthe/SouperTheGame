@@ -177,10 +177,6 @@ func _physics_process(_delta):
 			velocity.y = 0
 		if !get_tree().current_scene.name == "menu" and !get_tree().current_scene.name == "rankroom":
 			$HUD/HUD.visible = true
-		if global.bosslevel:
-			$HUD/HUD/standard.visible = false
-		if !global.bosslevel:
-			$HUD/HUD/standard.visible = true
 		if get_tree().current_scene.name == "rankroom":
 			$HUD/HUD.visible = false
 	#print(animatonframes)
@@ -344,6 +340,7 @@ func reset():
 	global.cutscene = false
 	global.camerazoom = 1
 	music.musicvolume = 2
+	global.hidehud = false
 	defaultdir()
 
 
@@ -359,6 +356,11 @@ func gototargetdoor():
 	yield(get_tree().create_timer(0.006), "timeout")
 	#print("player sent to ", global.targetdoor)
 	#$StateMachine.transition_to(oldstate)
+	$HUD/HUD/standard.visible = true
+	if global.bosslevel:
+			$HUD/HUD/standard.visible = false
+	if global.hidehud:
+			$HUD/HUD/standard.visible = false
 	if get_tree().get_current_scene().get_node(global.targetdoor):
 		position.x = get_tree().get_current_scene().get_node(global.targetdoor).position.x
 		position.y = get_tree().get_current_scene().get_node(global.targetdoor).position.y - 15
