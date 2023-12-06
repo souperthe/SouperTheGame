@@ -140,6 +140,7 @@ scene=true
 emulate=true
 sdk=true
 VSYNC=false
+grid=false
 
 [input]
 
