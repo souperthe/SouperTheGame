@@ -102,7 +102,7 @@ position = Vector2( 3099, 165 )
 
 [node name="shmick" parent="." instance=ExtResource( 10 )]
 position = Vector2( 448, 416 )
-info = "Press LShift to begin a mach run, hold LShift to charge. This can destroy metal blocks and kill enemies."
+info = "Press LShift while holding a direction to begin a mach run, hold LShift to charge. This can destroy metal blocks and kill enemies."
 
 [node name="shmick2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1344, 416 )
@@ -111,3 +111,7 @@ info = "Hold the up arrow while mach running to start a superjump. Arrow keys to
 [node name="shmick3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2304, 384 )
 info = "Hold a direction and press shift whilst superjumping to do a superjump cancel. This can break metal blocks."
+
+[node name="shmick4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1712, 141 )
+info = "You can change directions during a mach run so long as you are still holding a directional key. Try it now (preferrably as far away from me as possible)"

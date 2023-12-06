@@ -117,3 +117,7 @@ text = "Welcome to Souper the Game! If you're reading this, you are a dirty whor
 [node name="shmick" parent="." instance=ExtResource( 11 )]
 position = Vector2( 606, 438 )
 info = "Welcome to Souper the Game! If you're reading this, you are a dirty whore because this is developer placeholder text. Press arrow keys to move."
+
+[node name="shmick2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1784, 440 )
+info = "You can hold Z to jump higher."
