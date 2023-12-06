@@ -48,12 +48,14 @@ func kill(what):
 	global.addcombo()
 	$AnimationPlayer.play("die")
 	$speech.read("weiner willy fuck")
+	$die.play()
 	velocity.y -= 900
 	velocity.x = what
 	rotatespeed = what / 200 
 	deadsound()
 	
 func _physics_process(delta):
+	$dialog.text = info
 	var my_random_number2 = rang.randi_range(1, 4)
 	random = my_random_number2
 	animator.flip_h = face
@@ -82,8 +84,14 @@ func hurteffect():
 
 
 func _on_playerdetect_body_exited(body):
+	if body is Player:
+		$dialog.active = false
+		$speech.read("")
 	pass # Replace with function body.
 
 
 func _on_playerdetect_body_entered(body):
+	if body is Player and state == idle:
+		$dialog.active = true
+		$speech.read(info)
 	pass # Replace with function body.

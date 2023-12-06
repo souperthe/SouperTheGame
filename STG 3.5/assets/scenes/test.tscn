@@ -102,3 +102,4 @@ position = Vector2( 3407, 65 )
 
 [node name="shmick" parent="." instance=ExtResource( 17 )]
 position = Vector2( 203, -63 )
+info = "MY PENIS IS SO BIG OH MY GOD"

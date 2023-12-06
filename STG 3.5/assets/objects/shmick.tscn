@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/sprites/animated/shmick/friendlyprick_0001.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/animated/shmick/friendlyprick_0002.png" type="Texture" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://addons/VoiceGenerator/VoiceGeneratorAudioStreamPlayer2d.gd" type="Script" id=12]
 [ext_resource path="res://assets/sprites/animated/shmick/friendlyprick_0003.png" type="Texture" id=13]
 [ext_resource path="res://assets/shaders/color_flash.tres" type="Material" id=14]
+[ext_resource path="res://assets/scripts/shmick dialog.gd" type="Script" id=15]
+[ext_resource path="res://assets/fonts/COMIC.TTF" type="DynamicFontData" id=16]
+[ext_resource path="res://assets/sound/sfx/sfx_impdie.wav" type="AudioStream" id=17]
 
 [sub_resource type="AudioStreamRandomPitch" id=3]
 audio_stream = ExtResource( 11 )
@@ -51,6 +54,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 1.0, 0.0 ]
 }
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 1, 1, 1 )
+corner_detail = 1
+shadow_size = 2
+anti_aliasing_size = 0.01
+
+[sub_resource type="DynamicFont" id=6]
+size = 17
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 16 )
+
+[sub_resource type="AudioStreamRandomPitch" id=8]
+audio_stream = ExtResource( 17 )
 
 [node name="shmick" type="KinematicBody2D"]
 collision_layer = 10
@@ -117,6 +137,36 @@ shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/die = SubResource( 5 )
+
+[node name="dialog" type="CanvasLayer" parent="."]
+layer = 126
+script = ExtResource( 15 )
+
+[node name="Control" type="Control" parent="dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="thing" type="Panel" parent="dialog/Control"]
+margin_left = 248.0
+margin_top = 44.0
+margin_right = 708.0
+margin_bottom = 178.0
+custom_styles/panel = SubResource( 7 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="dialog/Control/thing"]
+margin_right = 460.0
+margin_bottom = 134.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[shake rate=20.0 level=5 connected=1]{text}[/shake]"
+text = "{text}"
+scroll_active = false
+custom_effects = [ null ]
+
+[node name="die" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 8 )
+max_distance = 500.0
 
 [connection signal="body_entered" from="playerdetect" to="." method="_on_playerdetect_body_entered"]
 [connection signal="body_exited" from="playerdetect" to="." method="_on_playerdetect_body_exited"]
