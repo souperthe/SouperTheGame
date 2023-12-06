@@ -20,22 +20,22 @@ limit_right = 7360
 limit_bottom = 540
 
 [node name="collide" parent="." instance=ExtResource( 2 )]
-position = Vector2( -64, 488 )
-scale = Vector2( 49, 1 )
+position = Vector2( -96, 480 )
+scale = Vector2( 50, 1 )
 
 [node name="door1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 24, 440 )
 
 [node name="collide2" parent="." instance=ExtResource( 2 )]
 position = Vector2( -64, -32 )
-scale = Vector2( 1, 5.6 )
+scale = Vector2( 1, 5.5 )
 
 [node name="collide6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 695, 424 )
+position = Vector2( 704, 416 )
 scale = Vector2( 1, 2 )
 
 [node name="collide10" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2063, 0 )
+position = Vector2( 2048, 32 )
 scale = Vector2( 1, 2 )
 
 [node name="collide5" parent="." instance=ExtResource( 2 )]
@@ -43,7 +43,7 @@ position = Vector2( 3456, 0 )
 scale = Vector2( 1, 8.625 )
 
 [node name="collide7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3008, 552 )
+position = Vector2( 3008, 544 )
 scale = Vector2( 1, 8.625 )
 
 [node name="collide8" parent="." instance=ExtResource( 2 )]
@@ -110,41 +110,41 @@ rotation = 3.14159
 scale = Vector2( -4, 2 )
 
 [node name="collide9" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1359, 488 )
+position = Vector2( 1344, 480 )
 rotation = 6.28319
 scale = Vector2( 12, -2 )
 
 [node name="collide-slope2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1103, 360 )
+position = Vector2( 1088, 352 )
 rotation = 6.28319
 scale = Vector2( 4, 2 )
 
 [node name="metalblock" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3072, 488 )
+position = Vector2( 3072, 480 )
 
 [node name="metalblock9" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2063, 128 )
+position = Vector2( 2048, 160 )
 
 [node name="metalblock11" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2063, 232 )
+position = Vector2( 2048, 224 )
 
 [node name="metalblock10" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2063, 296 )
+position = Vector2( 2048, 288 )
 
 [node name="metalblock2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3136, 488.036 )
+position = Vector2( 3136, 480 )
 
 [node name="metalblock3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3200, 488.036 )
+position = Vector2( 3200, 480 )
 
 [node name="metalblock4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3264, 488.036 )
+position = Vector2( 3264, 480 )
 
 [node name="metalblock5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3328, 488.036 )
+position = Vector2( 3328, 480 )
 
 [node name="metalblock6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3392, 488.036 )
+position = Vector2( 3392, 480 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 612, 451 )
