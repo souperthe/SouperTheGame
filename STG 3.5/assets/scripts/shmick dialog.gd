@@ -15,8 +15,8 @@ func _ready():
 
 func _process(delta):
 	var thingy = $Control/thing.rect_position.y
-	$Control/thing/RichTextLabel.bbcode_text = str("[shake rate=20.0 level=5 connected=1]", text, "[/shake]")
+	$Control/thing/RichTextLabel.bbcode_text = str("[shake rate=10.0 level=5 connected=1]", text, "[/shake]")
 	if active:
-		$Control/thing.rect_position.y = lerp($Control/thing.rect_position.y, 44, 0.05)
+		$Control/thing.rect_position.y = lerp($Control/thing.rect_position.y, 44, 0.1)
 	if !active:
-		$Control/thing.rect_position.y = lerp($Control/thing.rect_position.y, -164, 0.05)
+		$Control/thing.rect_position.y = lerp($Control/thing.rect_position.y, -164, 0.1)

@@ -159,7 +159,7 @@ margin_bottom = 134.0
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_fonts/normal_font = SubResource( 6 )
 bbcode_enabled = true
-bbcode_text = "[shake rate=20.0 level=5 connected=1]{text}[/shake]"
+bbcode_text = "[shake rate=10.0 level=5 connected=0]{text}[/shake]"
 text = "{text}"
 scroll_active = false
 custom_effects = [ null ]
