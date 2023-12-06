@@ -13,7 +13,7 @@
 script = ExtResource( 5 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2163, 1908 )
+position = Vector2( 2341, 1953 )
 limit_left = 0
 limit_top = 0
 limit_right = 7360
@@ -31,14 +31,27 @@ position = Vector2( -64, -32 )
 scale = Vector2( 1, 5.6 )
 
 [node name="collide6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 930, 424 )
+position = Vector2( 695, 424 )
+scale = Vector2( 1, 2 )
+
+[node name="collide10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2063, 0 )
 scale = Vector2( 1, 2 )
 
 [node name="collide5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3456, 0 )
 scale = Vector2( 1, 8.625 )
 
+[node name="collide7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3008, 552 )
+scale = Vector2( 1, 8.625 )
+
+[node name="collide8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3456, 552 )
+scale = Vector2( 1, 8.625 )
+
 [node name="collide3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -87, 0 )
 scale = Vector2( 48, 1 )
 
 [node name="collide4" parent="." instance=ExtResource( 2 )]
@@ -46,7 +59,7 @@ position = Vector2( 3072, 0 )
 scale = Vector2( 6, 3 )
 
 [node name="Hallway" parent="." instance=ExtResource( 9 )]
-position = Vector2( 3471, 597 )
+position = Vector2( 3456, 593 )
 rotation = 1.5708
 scale = Vector2( 1.6, 12.059 )
 targetdoor = "door1"
@@ -59,13 +72,24 @@ targetdoor = "door2"
 targetscene = "res://assets/scenes/tutorial/tutorial_2.tscn"
 
 [node name="RichTextLabel1" type="RichTextLabel" parent="."]
-margin_left = 399.0
-margin_top = 274.0
-margin_right = 562.0
-margin_bottom = 349.0
+margin_left = 298.0
+margin_top = 242.0
+margin_right = 461.0
+margin_bottom = 317.0
 rect_scale = Vector2( 1.95785, 1.8 )
 tab_size = 2
 text = "You will come across oppositions on your journey, press X to attack"
+fit_content_height = true
+scroll_active = false
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+margin_left = 1412.0
+margin_top = 147.0
+margin_right = 1575.0
+margin_bottom = 250.0
+rect_scale = Vector2( 1.95785, 1.8 )
+tab_size = 2
+text = "Instead of mach running, you can also dropkick to break blocks or hurt enemies. To activate it, either double tap x or tap x whilst running."
 fit_content_height = true
 scroll_active = false
 
@@ -76,7 +100,7 @@ margin_right = 2806.0
 margin_bottom = 364.036
 rect_scale = Vector2( 1.95785, 1.8 )
 tab_size = 2
-text = "To dropkick, simply jump and press the down arrow key. Dropkicking can hurt enemies and break metal blocks."
+text = "To groundpound, simply jump and press the down arrow key. Dropkicking can hurt enemies and break metal blocks."
 fit_content_height = true
 scroll_active = false
 
@@ -85,8 +109,27 @@ position = Vector2( 2816, 192 )
 rotation = 3.14159
 scale = Vector2( -4, 2 )
 
+[node name="collide9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1359, 488 )
+rotation = 6.28319
+scale = Vector2( 12, -2 )
+
+[node name="collide-slope2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1103, 360 )
+rotation = 6.28319
+scale = Vector2( 4, 2 )
+
 [node name="metalblock" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3072, 488 )
+
+[node name="metalblock9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2063, 128 )
+
+[node name="metalblock11" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2063, 232 )
+
+[node name="metalblock10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2063, 296 )
 
 [node name="metalblock2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3136, 488.036 )
@@ -104,4 +147,4 @@ position = Vector2( 3328, 488.036 )
 position = Vector2( 3392, 488.036 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 847, 451 )
+position = Vector2( 612, 451 )
