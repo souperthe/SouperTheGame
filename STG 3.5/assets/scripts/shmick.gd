@@ -69,6 +69,7 @@ func _physics_process(delta):
 			$AnimatedSprite.rotation_degrees += rotatespeed
 			$CollisionShape2D.disabled = true
 			$AnimatedSprite.play("die")
+			$speech.read("")
 			
 func hurteffect():
 	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")

@@ -148,9 +148,9 @@ anchor_bottom = 1.0
 
 [node name="thing" type="Panel" parent="dialog/Control"]
 margin_left = 248.0
-margin_top = 44.0
+margin_top = -204.0
 margin_right = 708.0
-margin_bottom = 178.0
+margin_bottom = -70.0
 custom_styles/panel = SubResource( 7 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="dialog/Control/thing"]
