@@ -38,7 +38,7 @@ animations = [ {
 extents = Vector2( 10, 26.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 64, 32 )
+extents = Vector2( 104, 32 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "die"
@@ -145,6 +145,9 @@ script = ExtResource( 15 )
 [node name="Control" type="Control" parent="dialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="thing" type="Panel" parent="dialog/Control"]
 margin_left = 248.0
@@ -152,6 +155,9 @@ margin_top = -204.0
 margin_right = 708.0
 margin_bottom = -70.0
 custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="RichTextLabel" type="RichTextLabel" parent="dialog/Control/thing"]
 margin_right = 460.0
@@ -163,6 +169,9 @@ bbcode_text = "[shake rate=10.0 level=5 connected=0]{text}[/shake]"
 text = "{text}"
 scroll_active = false
 custom_effects = [ null ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="die" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 8 )

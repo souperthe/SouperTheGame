@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/objects/metalblock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/scenes/tutorial/tutorial_1.gd" type="Script" id=5]
 [ext_resource path="res://assets/objects/enemys/testicle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/shmick.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=9]
 
@@ -13,32 +14,45 @@
 script = ExtResource( 5 )
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2163, 1908 )
+position = Vector2( 1856, 320 )
 limit_left = 0
 limit_top = 0
-limit_right = 7360
+limit_right = 3520
 limit_bottom = 540
 
 [node name="collide" parent="." instance=ExtResource( 2 )]
-position = Vector2( -64, 488 )
-scale = Vector2( 49, 1 )
+position = Vector2( -96, 480 )
+scale = Vector2( 49.5, 1 )
 
 [node name="door1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 24, 440 )
 
 [node name="collide2" parent="." instance=ExtResource( 2 )]
 position = Vector2( -64, -32 )
-scale = Vector2( 1, 5.6 )
+scale = Vector2( 1, 5.5 )
 
 [node name="collide6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 930, 424 )
+position = Vector2( 704, 416 )
+scale = Vector2( 1, 2 )
+
+[node name="collide10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2048, 32 )
 scale = Vector2( 1, 2 )
 
 [node name="collide5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3456, 0 )
 scale = Vector2( 1, 8.625 )
 
+[node name="collide7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3008, 544 )
+scale = Vector2( 1, 8.625 )
+
+[node name="collide8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3456, 552 )
+scale = Vector2( 1, 8.625 )
+
 [node name="collide3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -87, 0 )
 scale = Vector2( 48, 1 )
 
 [node name="collide4" parent="." instance=ExtResource( 2 )]
@@ -46,7 +60,7 @@ position = Vector2( 3072, 0 )
 scale = Vector2( 6, 3 )
 
 [node name="Hallway" parent="." instance=ExtResource( 9 )]
-position = Vector2( 3471, 597 )
+position = Vector2( 3456, 593 )
 rotation = 1.5708
 scale = Vector2( 1.6, 12.059 )
 targetdoor = "door1"
@@ -58,50 +72,59 @@ scale = Vector2( -1.4, 5.2 )
 targetdoor = "door2"
 targetscene = "res://assets/scenes/tutorial/tutorial_2.tscn"
 
-[node name="RichTextLabel1" type="RichTextLabel" parent="."]
-margin_left = 399.0
-margin_top = 274.0
-margin_right = 562.0
-margin_bottom = 349.0
-rect_scale = Vector2( 1.95785, 1.8 )
-tab_size = 2
-text = "You will come across oppositions on your journey, press X to attack"
-fit_content_height = true
-scroll_active = false
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
-margin_left = 2643.0
-margin_top = 274.036
-margin_right = 2806.0
-margin_bottom = 364.036
-rect_scale = Vector2( 1.95785, 1.8 )
-tab_size = 2
-text = "To dropkick, simply jump and press the down arrow key. Dropkicking can hurt enemies and break metal blocks."
-fit_content_height = true
-scroll_active = false
-
 [node name="collide-slope" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2816, 192 )
 rotation = 3.14159
 scale = Vector2( -4, 2 )
 
+[node name="collide9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1344, 480 )
+rotation = 6.28319
+scale = Vector2( 12, -2 )
+
+[node name="collide-slope2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1088, 352 )
+rotation = 6.28319
+scale = Vector2( 4, 2 )
+
 [node name="metalblock" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3072, 488 )
+position = Vector2( 3072, 480 )
+
+[node name="metalblock9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2048, 160 )
+
+[node name="metalblock11" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2048, 224 )
+
+[node name="metalblock10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2048, 288 )
 
 [node name="metalblock2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3136, 488.036 )
+position = Vector2( 3136, 480 )
 
 [node name="metalblock3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3200, 488.036 )
+position = Vector2( 3200, 480 )
 
 [node name="metalblock4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3264, 488.036 )
+position = Vector2( 3264, 480 )
 
 [node name="metalblock5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3328, 488.036 )
+position = Vector2( 3328, 480 )
 
 [node name="metalblock6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3392, 488.036 )
+position = Vector2( 3392, 480 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 847, 451 )
+position = Vector2( 672, 416 )
+
+[node name="shmick" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2816, 416 )
+info = "To groundpound, simply jump and press the down arrow key. Dropkicking can hurt enemies and break metal blocks."
+
+[node name="shmick2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1664, 288 )
+info = "Instead of mach running, you can also dropkick to break blocks or hurt enemies. To activate it, either double tap x or tap x whilst running."
+
+[node name="shmick3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 384, 416 )
+info = "You will come across oppositions on your journey, press X to attack"

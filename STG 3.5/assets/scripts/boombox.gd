@@ -32,7 +32,6 @@ func _process(delta):
 	if $tune.playing:
 		$AnimationPlayer.play("New Anim")
 		music.musicvolume = -10
-		$VoiceGeneratorAudioStreamPlayer.read("cfhasvbfdhajwfgvjhawfsc")
 	if !$tune.playing:
 		music.musicvolume = 2
 		$AnimationPlayer.play("New Anim (2)")
