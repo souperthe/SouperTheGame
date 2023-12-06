@@ -29,6 +29,7 @@ audio_stream = ExtResource( 3 )
 random_pitch = 1.02
 
 [node name="treasure" type="Area2D"]
+z_index = 2
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]

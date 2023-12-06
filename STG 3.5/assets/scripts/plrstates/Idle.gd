@@ -11,6 +11,10 @@ func enter(_msg := {}) -> void:
 	player.pmachbox.disabled = true
 	player.machbox.disabled = true
 	player.emachbox.disabled = true
+	player.machbox.disabled = true
+	player.emachbox.disabled = true
+	player.mmachbox.disabled = true
+	player.mattackbox.disabled = true
 	player.disabletitlt = false
 	player.canhurt = true
 	

@@ -454,7 +454,7 @@ color_ramp = SubResource( 33 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "hardtumble"
-frame = 5
+frame = 3
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -645,7 +645,7 @@ collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ladderchecker"]
-position = Vector2( 0, 27.1 )
+position = Vector2( 0, 30.1 )
 scale = Vector2( 0.56, 0.56 )
 shape = SubResource( 3 )
 

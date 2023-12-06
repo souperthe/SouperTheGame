@@ -56,6 +56,8 @@ func kill(what):
 	
 func _physics_process(delta):
 	$dialog.text = info
+	if global.panic:
+		info = "GET OUT RIGHT NOW!!!!!"
 	var my_random_number2 = rang.randi_range(1, 4)
 	random = my_random_number2
 	animator.flip_h = face

@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/sound/sfx/sfx_elevatorclose.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 20 )
+extents = Vector2( 42, 20 )
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
 audio_stream = ExtResource( 4 )
