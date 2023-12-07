@@ -53,6 +53,7 @@ func collect():
 	player.idle()
 	global.addscore(650)
 	global.combotimer.paused = false
+	global.resetcombo()
 	global.collectablesroom.append(global.targetRoom2 + name)
 	global.treasure = true
 	queue_free()
