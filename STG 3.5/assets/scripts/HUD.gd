@@ -17,3 +17,4 @@ func _process(delta):
 		modulate.a8 = lerp(modulate.a8, 0, 7 * delta)
 	if !global.cutscene:
 		modulate.a8 = lerp(modulate.a8, 255, 7 * delta)
+		#$Tween.interpolate_property(self, "modulate:a", modulate.a8, 0.0, 0.3, 0, 1)

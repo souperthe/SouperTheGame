@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/scenes/misc/partytest.gd" type="Script" id=3]
+[ext_resource path="res://addons/discord_game_sdk/example/lobby/lobby.tscn" type="PackedScene" id=4]
+
+[node name="partytest" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="collide" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 480 )
+scale = Vector2( 15, 1 )
+
+[node name="door1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, 384 )
+
+[node name="collide2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -64, 0 )
+scale = Vector2( 1, 8 )
+
+[node name="collide3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 960, 0 )
+scale = Vector2( 1, 8 )
+
+[node name="collide4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -64 )
+scale = Vector2( 15, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 127
+
+[node name="game" parent="CanvasLayer" instance=ExtResource( 4 )]
+margin_top = 64.0
+margin_bottom = -176.0

@@ -64,19 +64,43 @@ func movepointer():
 	var pointer = $Pointerglove
 	var distance = -45
 	var distancey = 31.5
+	var colored = Color8(255,0,0)
+	var uncolored = Color8(255,255,255)
 	pointer.visible = canselect
 	pointer.position = lerp(pointer.position, gotopos, 0.4)
 	if selection == 0:
 		gotopos = Vector2($things/play.rect_position.x + distance, $things/play.rect_position.y + distancey)
+		$things/play.modulate = colored
+		$things/settings.modulate = uncolored
+		$things/quit.modulate = uncolored
+		$things/levelselect.modulate = uncolored
 	if selection == 1:
 		gotopos = Vector2($things/settings.rect_position.x + distance + 15, $things/settings.rect_position.y + distancey)
+		$things/play.modulate = uncolored
+		$things/settings.modulate = colored
+		$things/quit.modulate = uncolored
+		$things/levelselect.modulate = uncolored
 	if selection == 2:
 		gotopos = Vector2($things/quit.rect_position.x + distance + 25, $things/quit.rect_position.y + distancey)
+		$things/play.modulate = uncolored
+		$things/settings.modulate = uncolored
+		$things/quit.modulate = colored
+		$things/levelselect.modulate = uncolored
 	if selection == 3:
 		gotopos = Vector2($things/levelselect.rect_position.x + distance - 15, $things/levelselect.rect_position.y + distancey)
+		$things/play.modulate = uncolored
+		$things/settings.modulate = uncolored
+		$things/quit.modulate = uncolored
+		$things/levelselect.modulate = colored
 	
 func options():
+	var colored = Color8(255,0,0)
+	var uncolored = Color8(255,255,255)
 	if selection == 0:
+		$things/play.modulate = colored
+		$things/settings.modulate = uncolored
+		$things/quit.modulate = uncolored
+		$things/levelselect.modulate = uncolored
 		if Input.is_action_just_pressed("confirm"):
 			if canselect:
 				if !doFileExists:
@@ -85,6 +109,10 @@ func options():
 					$sillysfx.sound()
 					selectmode = true
 	if selection == 1:
+		$things/play.modulate = uncolored
+		$things/settings.modulate = colored
+		$things/quit.modulate = uncolored
+		$things/levelselect.modulate = uncolored
 		if Input.is_action_just_pressed("confirm"):
 			if canselect:
 				$sillysfx.sound()
@@ -112,9 +140,17 @@ func options():
 				settings = false
 				canselect = true
 	if selection == 2:
+		$things/play.modulate = uncolored
+		$things/settings.modulate = uncolored
+		$things/quit.modulate = colored
+		$things/levelselect.modulate = uncolored
 		if Input.is_action_just_pressed("confirm"):
 			get_tree().quit()
 	if selection == 3:
+		$things/play.modulate = uncolored
+		$things/settings.modulate = uncolored
+		$things/quit.modulate = uncolored
+		$things/levelselect.modulate = colored
 		if Input.is_action_just_pressed("confirm"):
 			startlvlselect()
 			

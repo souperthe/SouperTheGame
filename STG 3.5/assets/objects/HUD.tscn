@@ -539,7 +539,7 @@ position = Vector2( -52, 407 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 7
+frame = 12
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -578,7 +578,6 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 1
 playing = true
 offset = Vector2( 497, -410 )
 
@@ -669,5 +668,7 @@ anims/panic = SubResource( 31 )
 anims/escapedone = SubResource( 34 )
 anims/escapestart = SubResource( 19 )
 anims/reset = SubResource( 20 )
+
+[node name="Tween" type="Tween" parent="HUD"]
 
 [connection signal="frame_changed" from="HUD/standard/Score/ranks" to="HUD/standard/Score" method="_on_ranks_frame_changed"]

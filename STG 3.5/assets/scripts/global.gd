@@ -41,6 +41,7 @@ var escapeexited = false
 var camera
 var windowtitle = "Souper The Game"
 var hidehud = false
+var hidehudtween = false
 
 var whiteflash = preload("res://assets/objects/flash.tscn")
 var SaveManager = ConfigFile.new()
