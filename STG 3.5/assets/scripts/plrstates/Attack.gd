@@ -11,7 +11,6 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
-	player.trail()
 	player.attackbox.disabled = false
 	player.eattackbox.disabled = false
 	var my_random_number = rng.randi_range(0.0, 1.0)
@@ -24,6 +23,7 @@ func enter(_msg := {}) -> void:
 	
 	
 func physics_update(delta: float) -> void:
+	player.trail()
 	if player.is_on_wall():
 		state_machine.transition_to("bump")
 	if !player.face:

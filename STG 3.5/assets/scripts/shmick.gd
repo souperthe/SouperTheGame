@@ -48,7 +48,6 @@ func kill(what):
 	global.addcombo()
 	$AnimationPlayer.play("die")
 	$speech.read("weiner willy fuck")
-	$die.play()
 	velocity.y -= 900
 	velocity.x = what
 	rotatespeed = what / 200 
