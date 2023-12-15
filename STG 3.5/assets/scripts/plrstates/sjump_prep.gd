@@ -24,13 +24,13 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_pressed(player.input_left):
 		player.velocity.x = -225
 		if player.is_on_floor():
-			player.velocity.y = -player.jump_impulse / 4
+			player.velocity.y = -player.jump_impulse / 3
 #			if !player.sfxfoot.playing:
 #				player.sfxfoot.play()
 	if Input.is_action_pressed(player.input_right):
 		player.velocity.x = 225
 		if player.is_on_floor():
-			player.velocity.y = -player.jump_impulse / 4
+			player.velocity.y = -player.jump_impulse / 3
 #			if !player.sfxfoot.playing:
 #				player.sfxfoot.play()
 	if not Input.is_action_pressed(player.input_up) and ready == 1:
