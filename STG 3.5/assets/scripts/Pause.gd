@@ -155,10 +155,10 @@ func restartlevel():
 	if presobjs.player2:
 		presobjs.player2.reset()
 	$AnimationPlayer.play("reset")
-	paused = !paused
-	self.visible = !self.visible
+	paused = false
+	self.visible = false
 	canselect = true
-	get_tree().paused = !get_tree().paused
+	get_tree().paused = false
 	$song.stop()
 	ct._treset()
 	music.musicaudio.play()

@@ -159,6 +159,10 @@ func _physics_process(_delta):
 	#trail()
 	currentstate = $StateMachine.statename
 	_tilt()
+	if currentstate == "bossdead":
+		$PauseLayer/deadtext.visible = true
+	if !currentstate == "bossdead":
+		$PauseLayer/deadtext.visible = false
 	animatonframes = $animation.get_frame()
 	if is_instance_valid(presobjs.player2):
 		playerthing.visible = true
@@ -194,6 +198,9 @@ func _tilt():
 	else:
 		animator.rotation = 0
 		#self.rotation = 0
+		
+func restartlevel():
+	$PauseLayer/Pause.restartlevel()
 
 
 

@@ -37,6 +37,8 @@ func physics_update(delta: float) -> void:
 	player.disabletitlt = false
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
+	if Input.is_action_just_pressed(player.input_attack):
+			player.restartlevel()
 	if player.is_on_wall() and not thing:
 		player.velocity.x = -600
 		animation_player.play("hardtumble")

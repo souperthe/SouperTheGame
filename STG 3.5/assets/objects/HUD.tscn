@@ -539,7 +539,7 @@ position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 11
+frame = 8
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]

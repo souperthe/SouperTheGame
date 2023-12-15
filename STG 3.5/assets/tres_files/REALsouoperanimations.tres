@@ -531,7 +531,7 @@ animations = [ {
 "name": "placeholder",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 74 ), ExtResource( 73 ), ExtResource( 83 ) ],
+"frames": [ ExtResource( 74 ), ExtResource( 73 ), ExtResource( 83 ), ExtResource( 83 ) ],
 "loop": false,
 "name": "prep1",
 "speed": 2.0

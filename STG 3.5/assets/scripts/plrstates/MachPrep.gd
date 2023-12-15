@@ -32,7 +32,7 @@ func physics_update(delta: float) -> void:
 		
 	#if timer.timeout():
 		#state_machine.transition_to("Noclip")
-	if player.animatonframes == 2 and !sound_has_played:
+	if player.animatonframes > 1 and !sound_has_played:
 		animation_player.play("prep2")
 		player.change.play()
 		sound_has_played = true

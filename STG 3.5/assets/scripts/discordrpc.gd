@@ -17,7 +17,10 @@ func update_activity() -> void:
 		if global.hidehud:
 			activity.set_state("The most epic game of all time..")
 		if !global.hidehud:
-			activity.set_state(str("Rank: ", global.rank, ",", "  Score: ", global.score, ", ", "Combo: ", global.combo))
+			if global.bosslevel:
+				activity.set_state(str("Health: ", objplayer.bosshealth))
+			if !global.bosslevel:
+				activity.set_state(str("Rank: ", global.rank, ",", "  Score: ", global.score, ", ", "Combo: ", global.combo))
 
 	var assets = activity.get_assets()
 	assets.set_large_image("big")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -50,6 +50,7 @@
 [ext_resource path="res://assets/scripts/plrstates/MachPrep.gd" type="Script" id=48]
 [ext_resource path="res://assets/scripts/plrstates/bossdead.gd" type="Script" id=49]
 [ext_resource path="res://assets/scripts/plrstates/brake.gd" type="Script" id=50]
+[ext_resource path="res://assets/fonts/COMIC.TTF" type="DynamicFontData" id=51]
 [ext_resource path="res://assets/sound/sfx/sfx_spinning.wav" type="AudioStream" id=52]
 [ext_resource path="res://assets/scripts/collectchec.gd" type="Script" id=53]
 [ext_resource path="res://assets/tres_files/REALsouoperanimations.tres" type="SpriteFrames" id=54]
@@ -64,6 +65,7 @@
 [ext_resource path="res://assets/sound/sfx/sfx_gunfire.wav" type="AudioStream" id=63]
 [ext_resource path="res://assets/scripts/plrstates/crouch.gd" type="Script" id=64]
 [ext_resource path="res://assets/scripts/plrstates/crouchair.gd" type="Script" id=65]
+[ext_resource path="res://assets/fonts/new_dynamicfont2.tres" type="DynamicFont" id=66]
 [ext_resource path="res://assets/scripts/plrstates/MachTurn.gd" type="Script" id=69]
 [ext_resource path="res://assets/sound/sfx/sfx_hitwall.wav" type="AudioStream" id=70]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
@@ -102,6 +104,14 @@ void fragment() {
 shader = SubResource( 44 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/flash_modifier = 0.0
+
+[sub_resource type="DynamicFont" id=52]
+size = 37
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 51 )
 
 [sub_resource type="Curve" id=11]
 min_value = -360.0
@@ -290,6 +300,23 @@ visible = false
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 layer = 127
 
+[node name="deadtext" type="RichTextLabel" parent="PauseLayer"]
+margin_left = 316.0
+margin_top = 437.0
+margin_right = 656.0
+margin_bottom = 491.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color_shadow = Color( 0.462745, 0.462745, 0.462745, 0 )
+custom_fonts/bold_font = ExtResource( 66 )
+custom_fonts/normal_font = SubResource( 52 )
+bbcode_enabled = true
+bbcode_text = "[center][shake rate=15.0 level=15 connected=0]Press X to restart[/shake][/center]"
+text = "Press X to restart"
+fit_content_height = true
+
 [node name="Pause" parent="PauseLayer" instance=ExtResource( 150 )]
 
 [node name="HUD" parent="." instance=ExtResource( 88 )]
@@ -453,8 +480,8 @@ color_ramp = SubResource( 33 )
 [node name="animation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "hardtumble"
-frame = 5
+animation = "prep1"
+frame = 3
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -949,7 +976,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 13
+frame = 6
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
