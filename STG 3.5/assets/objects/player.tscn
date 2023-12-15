@@ -223,7 +223,7 @@ extents = Vector2( 13.6018, 45.1507 )
 extents = Vector2( 50, 27.1631 )
 
 [sub_resource type="RectangleShape2D" id=49]
-extents = Vector2( 6.28158, 2.19077 )
+extents = Vector2( 7.41576, 2.19077 )
 
 [sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 5.55694, 3.35636 )
@@ -786,7 +786,7 @@ collision_layer = 256
 collision_mask = 256
 
 [node name="machcol" type="CollisionShape2D" parent="machch"]
-position = Vector2( 40, -2 )
+position = Vector2( 46.5, -2 )
 scale = Vector2( 5.73104, 17.802 )
 shape = SubResource( 49 )
 disabled = true
@@ -976,7 +976,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 6
+frame = 10
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

@@ -12,7 +12,6 @@ func enter(_msg := {}) -> void:
 	animation_player.play("grapplewall")
 	player.sfxgrapple.play()
 	player.mach3.stop()
-	player.velocity.y = 0
 	player.velocity.x = 0
 	player.machbox.disabled = true
 	player.emachbox.disabled = true
@@ -28,6 +27,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Idle")
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	player.velocity.y += 400 * delta
+	player.velocity.y = lerp(player.velocity.y , 0, player.air_friction * delta)
 	if Input.is_action_just_pressed(player.input_jump):
 		dojump()
 	
