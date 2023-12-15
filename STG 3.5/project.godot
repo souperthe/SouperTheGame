@@ -245,6 +245,7 @@ emulate=true
 sdk=true
 VSYNC=false
 grid=false
+data=false
 
 [input]
 

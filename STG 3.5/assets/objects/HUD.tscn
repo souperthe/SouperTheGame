@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panic_0002.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panic_0001.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/HUD/comboborder.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/HUD/rank_4.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/HUD/ranknew_1.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_mach30002.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_mach30001.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/HUD/tvhud.png" type="Texture" id=8]
@@ -73,11 +73,11 @@
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_assburning_0001.png" type="Texture" id=71]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_assburning_0002.png" type="Texture" id=72]
 [ext_resource path="res://assets/scripts/HUD.gd" type="Script" id=73]
-[ext_resource path="res://assets/sprites/HUD/rank_5.png" type="Texture" id=74]
-[ext_resource path="res://assets/sprites/HUD/rank_2.png" type="Texture" id=75]
-[ext_resource path="res://assets/sprites/HUD/rank_3.png" type="Texture" id=76]
-[ext_resource path="res://assets/sprites/HUD/rank_1.png" type="Texture" id=77]
-[ext_resource path="res://assets/sprites/HUD/rank_6.png" type="Texture" id=78]
+[ext_resource path="res://assets/sprites/HUD/ranknew_2.png" type="Texture" id=74]
+[ext_resource path="res://assets/sprites/HUD/ranknew_3.png" type="Texture" id=75]
+[ext_resource path="res://assets/sprites/HUD/ranknew_5.png" type="Texture" id=76]
+[ext_resource path="res://assets/sprites/HUD/ranknew_6.png" type="Texture" id=77]
+[ext_resource path="res://assets/sprites/HUD/ranknew_4.png" type="Texture" id=78]
 
 [sub_resource type="StyleBoxFlat" id=30]
 bg_color = Color( 0, 0, 0, 1 )
@@ -215,7 +215,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=33]
 animations = [ {
-"frames": [ ExtResource( 77 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 5 ), ExtResource( 74 ), ExtResource( 78 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 78 ), ExtResource( 76 ), ExtResource( 77 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -474,9 +474,9 @@ texture = ExtResource( 4 )
 
 [node name="Score" type="Control" parent="HUD/standard"]
 margin_left = 100.0
-margin_top = 89.0
+margin_top = 85.0
 margin_right = 100.0
-margin_bottom = 89.0
+margin_bottom = 85.0
 script = ExtResource( 54 )
 
 [node name="bg" type="TextureRect" parent="HUD/standard/Score"]
@@ -535,15 +535,15 @@ text = "123123123"
 scroll_active = false
 
 [node name="key" type="AnimatedSprite" parent="HUD/standard/Score"]
-position = Vector2( -52, 407 )
+position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 12
+frame = 11
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
-position = Vector2( 155, -35 )
+position = Vector2( 158, -20 )
 frames = SubResource( 33 )
 
 [node name="HonestReaction" type="Control" parent="HUD/standard"]
@@ -578,6 +578,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
+frame = 2
 playing = true
 offset = Vector2( 497, -410 )
 

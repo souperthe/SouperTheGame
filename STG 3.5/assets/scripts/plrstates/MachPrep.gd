@@ -12,13 +12,12 @@ func enter(_msg := {}) -> void:
 	player.machprep.play()
 	player.candoor = 0
 	sound_has_played = false
-	player.velocity.x = 0
 	player.velocity.y = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func physics_update(delta: float) -> void:
-	player.velocity.x = lerp(0, player.get_input_direction(), 0)
+	player.velocity.x = lerp(player.velocity.x, 0, player.air_friction * delta)
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
 	player.velocity.y += player.gravity * delta
 	if player.cango and sound_has_played:

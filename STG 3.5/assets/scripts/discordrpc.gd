@@ -3,6 +3,7 @@ extends Node
 func _process(delta):
 	update_activity()
 
+
 func update_activity() -> void:
 	var activity = Discord.Activity.new()
 	activity.set_type(Discord.ActivityType.Playing)

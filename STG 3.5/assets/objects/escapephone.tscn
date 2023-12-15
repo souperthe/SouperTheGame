@@ -153,7 +153,7 @@ position = Vector2( 0, -45 )
 scale = Vector2( 0.56, 0.56 )
 frames = SubResource( 2 )
 animation = "ring"
-frame = 16
+frame = 18
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -204,9 +204,8 @@ script = ExtResource( 40 )
 [node name="ring2" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 0, -41 )
 stream = ExtResource( 109 )
-volume_db = 1.0
-max_distance = 1000.0
-attenuation = 2.54912
+volume_db = -10.976
+max_distance = 1190.0
 bus = "SFX"
 
 [node name="attackdetect" type="KinematicBody2D" parent="."]
