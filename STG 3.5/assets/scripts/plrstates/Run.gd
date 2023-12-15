@@ -11,7 +11,7 @@ var sfxnothasplayed = true
 
 func enter(_msg := {}) -> void:
 	player.candoor = 1
-	player.canhurt = true
+	#player.canhurt = true
 	pass
 	
 

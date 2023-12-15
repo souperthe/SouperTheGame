@@ -157,6 +157,10 @@ func _ready():
 
 func _physics_process(_delta):
 	#trail()
+	if $iframes.time_left > 0:
+		$AnimationPlayer.play("hurt")
+	if !$iframes.time_left > 0:
+		$AnimationPlayer.play("reset")
 	currentstate = $StateMachine.statename
 	_tilt()
 	if currentstate == "bossdead":
@@ -241,6 +245,8 @@ func hurtplayer():
 		if !global.bosslevel:
 			if !global.score == 0:
 				global.score -= 5
+			canhurt = false
+			$iframes.start()
 			$StateMachine.transition_to("Hurt")
 		
 		
@@ -478,3 +484,8 @@ func hurteffect():
 	ghost.amount = 500
 
 	
+
+
+func _on_iframes_timeout():
+	canhurt = true
+	pass # Replace with function body.

@@ -16,9 +16,9 @@ func enter(_msg := {}) -> void:
 	player.machbox.disabled = true
 	player.emachbox.disabled = true
 	if !player.face:
-		player.velocity.x = player.speedrun2
+		player.velocity.x = player.speedrun2 * 5
 	if player.face:
-		player.velocity.x = -player.speedrun2
+		player.velocity.x = -player.speedrun2 * 5
 	
 func physics_update(delta: float) -> void:
 	if player.is_on_floor():
@@ -26,7 +26,7 @@ func physics_update(delta: float) -> void:
 	if !player.is_on_wall():
 		state_machine.transition_to("Idle")
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
-	player.velocity.y += 400 * delta
+	#player.velocity.y += 200 * delta
 	player.velocity.y = lerp(player.velocity.y , 0, player.air_friction * delta)
 	if Input.is_action_just_pressed(player.input_jump):
 		dojump()

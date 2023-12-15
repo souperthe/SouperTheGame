@@ -10,7 +10,10 @@ func update_activity() -> void:
 	if get_tree().current_scene.name == "menu":
 		activity.set_details("In the Menus")
 	if !get_tree().current_scene.name == "menu":
-		activity.set_details("In a level")
+		if global.hardmode:
+			activity.set_details("In a level with Tod mode.")
+		if !global.hardmode:
+			activity.set_details("In a level with standard.")
 	if get_tree().current_scene.name == "menu":
 		activity.set_state("The most epic game of all time..")
 	if !get_tree().current_scene.name == "menu":

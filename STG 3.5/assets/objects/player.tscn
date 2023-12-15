@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=112 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -158,10 +158,37 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 0.5 ),
-"transitions": PoolRealArray( 1e-05, 1e-05 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 0.411765 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 0.462745 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 0.462745 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=53]
+resource_name = "reset"
+tracks/0/type = "value"
+tracks/0/path = NodePath("animation:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("animation:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -480,8 +507,8 @@ color_ramp = SubResource( 33 )
 [node name="animation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "prep1"
-frame = 3
+animation = "hurt"
+frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -715,6 +742,7 @@ script = ExtResource( 30 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/hurt = SubResource( 5 )
+anims/reset = SubResource( 53 )
 anims/startmach3 = SubResource( 23 )
 
 [node name="hurt" type="AudioStreamPlayer2D" parent="."]
@@ -730,7 +758,7 @@ bus = "SFX"
 script = ExtResource( 30 )
 
 [node name="hurtimer" type="Timer" parent="."]
-wait_time = 1.3
+wait_time = 0.6
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -976,7 +1004,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 10
+frame = 24
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -986,6 +1014,10 @@ bus = "SFX"
 
 [node name="coyatotime" type="Timer" parent="."]
 wait_time = 0.2
+one_shot = true
+
+[node name="iframes" type="Timer" parent="."]
+wait_time = 1.5
 one_shot = true
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
@@ -998,3 +1030,4 @@ one_shot = true
 [connection signal="body_entered" from="hurtblockdetect" to="." method="_on_hurtblockdetect_body_entered"]
 [connection signal="body_entered" from="playermach" to="." method="_on_machch_body_entered"]
 [connection signal="body_entered" from="lavacheck" to="." method="_on_lavacheck_body_entered"]
+[connection signal="timeout" from="iframes" to="." method="_on_iframes_timeout"]

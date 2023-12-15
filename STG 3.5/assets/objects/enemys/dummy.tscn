@@ -29,10 +29,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14.5, 27 )
+extents = Vector2( 14.5, 61.5 )
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 23.0
+[sub_resource type="CapsuleShape2D" id=26]
+height = 92.0
 
 [sub_resource type="Animation" id=18]
 resource_name = "hurt"
@@ -74,6 +74,7 @@ animation = "idle"
 frame = 1
 
 [node name="collison" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -34.5 )
 shape = SubResource( 2 )
 
 [node name="hitcheck" type="Area2D" parent="."]
@@ -82,7 +83,8 @@ collision_mask = 128
 
 [node name="check" type="CollisionShape2D" parent="hitcheck"]
 modulate = Color( 0.360784, 1, 0, 1 )
-shape = SubResource( 3 )
+position = Vector2( 0, -32 )
+shape = SubResource( 26 )
 
 [node name="hurt1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )

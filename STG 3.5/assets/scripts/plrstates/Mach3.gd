@@ -5,6 +5,8 @@ onready var animation_player:AnimatedSprite = get_node(_animation_player)
 
 var speed = 1050
 var started = false
+var canjump = true
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -47,14 +49,18 @@ func physics_update(delta: float) -> void:
 	speed += 4
 	player.trail()
 	player.velocity.y += player.gravity * delta
+	var was_on_floor = player.is_on_floor()
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
+	var just_left_ledge = was_on_floor and not player.is_on_floor() and player.velocity.y >= 0
+	if just_left_ledge:
+		player.cayatotime.start()
 	if !player.face and player.is_on_floor():
 		if Input.is_action_pressed(player.input_left):
 			state_machine.transition_to("MachTurn", {two = true})
 	if player.face and player.is_on_floor():
 		if Input.is_action_pressed(player.input_right):
 			state_machine.transition_to("MachTurn", {two = true})
-	if player.is_on_floor() and Input.is_action_just_pressed(player.input_jump):
+	if canjump and Input.is_action_just_pressed(player.input_jump):
 		state_machine.transition_to("mach_jump", {do_jump = true})
 	if player.is_on_wall():
 		state_machine.transition_to("Hurt")

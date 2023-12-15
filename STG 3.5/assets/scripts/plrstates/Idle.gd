@@ -16,7 +16,7 @@ func enter(_msg := {}) -> void:
 	player.mmachbox.disabled = true
 	player.mattackbox.disabled = true
 	player.disabletitlt = false
-	player.canhurt = true
+	#player.canhurt = true
 	
 
 func physics_update(_delta: float) -> void:

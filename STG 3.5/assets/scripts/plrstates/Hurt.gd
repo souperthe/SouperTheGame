@@ -25,7 +25,6 @@ func enter(_msg := {}) -> void:
 	player.emachbox.disabled = true
 	player.disabletitlt = false
 	player.candoor = 0
-	player.canhurt = false
 	pass
 	
 func physics_update(delta: float) -> void:
@@ -38,9 +37,9 @@ func physics_update(delta: float) -> void:
 	if player.is_on_floor():
 		player.velocity.y = -450
 	if !player.face:
-		player.velocity.x = -player.jump_impulse
+		player.velocity.x = -player.jump_impulse / 1.5
 	if player.face:
-		player.velocity.x = player.jump_impulse
+		player.velocity.x = player.jump_impulse / 1.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -48,7 +47,6 @@ func physics_update(delta: float) -> void:
 
 func exit() -> void:
 	player.hurttimer.stop()
-	player.canhurt = true
 
 
 func _on_hurtimer_timeout():
@@ -57,7 +55,6 @@ func _on_hurtimer_timeout():
 		
 		
 func goback():
-	player.canhurt = true
 	player.disabletitlt = false
 	if player.is_on_floor():
 		state_machine.transition_to("Idle")
@@ -77,3 +74,8 @@ func createdead1():
 	ghost.sprite.texture = load("res://assets/sprites/player_souper/gun.png")
 	ghost.sprite.scale.x = 0.56
 	ghost.sprite.scale.y = 0.56
+
+
+func _on_iframes_timeout():
+	player.canhurt = true
+	pass # Replace with function body.
