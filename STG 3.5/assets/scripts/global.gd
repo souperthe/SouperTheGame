@@ -103,10 +103,10 @@ func _on_Timer_timeout():
 func room_goto(targetRoom, targetDoor):
 	get_tree().change_scene_to(load(targetRoom))
 	targetdoor = targetDoor
-	emit_signal("scenechanged")
 	targetRoom2 = targetRoom
 	objplayer.gototargetdoor()
 	presobjs.player2gototargetdoor()
+	emit_signal("scenechanged")
 	music.musicvolume = 2
 	
 func brah():

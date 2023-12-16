@@ -354,7 +354,7 @@ rotation = 0.00151305
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]

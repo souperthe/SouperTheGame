@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=2]
+[gd_scene load_steps=115 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -66,6 +66,8 @@
 [ext_resource path="res://assets/scripts/plrstates/crouch.gd" type="Script" id=64]
 [ext_resource path="res://assets/scripts/plrstates/crouchair.gd" type="Script" id=65]
 [ext_resource path="res://assets/fonts/new_dynamicfont2.tres" type="DynamicFont" id=66]
+[ext_resource path="res://assets/scripts/plrstates/upperkick.gd" type="Script" id=67]
+[ext_resource path="res://assets/sound/sfx/sfx_upperkick.wav" type="AudioStream" id=68]
 [ext_resource path="res://assets/scripts/plrstates/MachTurn.gd" type="Script" id=69]
 [ext_resource path="res://assets/sound/sfx/sfx_hitwall.wav" type="AudioStream" id=70]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
@@ -300,6 +302,9 @@ shader_param/flash_modifier = 1.0
 audio_stream = ExtResource( 63 )
 random_pitch = 1.05
 
+[sub_resource type="AudioStreamRandomPitch" id=54]
+audio_stream = ExtResource( 68 )
+
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 material = SubResource( 45 )
 z_index = 2
@@ -507,8 +512,8 @@ color_ramp = SubResource( 33 )
 [node name="animation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "hurt"
-frame = 1
+animation = "upperkick"
+frame = 9
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -674,6 +679,10 @@ _animation_player = NodePath("../../animation")
 
 [node name="crouchair" type="Node" parent="StateMachine"]
 script = ExtResource( 65 )
+_animation_player = NodePath("../../animation")
+
+[node name="upperkick" type="Node" parent="StateMachine"]
+script = ExtResource( 67 )
 _animation_player = NodePath("../../animation")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -1004,7 +1013,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 24
+frame = 13
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1019,6 +1028,11 @@ one_shot = true
 [node name="iframes" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="upperkick" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 54 )
+volume_db = -1.676
+bus = "SFX"
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
 [connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]

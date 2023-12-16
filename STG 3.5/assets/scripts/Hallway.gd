@@ -27,5 +27,10 @@ func enterscene():
 func _on_Hallway_area_entered(_area):
 	ct._fin()
 	playerin = true
-	yield(get_tree().create_timer(0.3), "timeout")
+	var e = Timer.new()
+	e.set_wait_time(0.3)
+	e.set_one_shot(true)
+	self.add_child(e)
+	e.start()
+	yield(e, "timeout")
 	enterscene()

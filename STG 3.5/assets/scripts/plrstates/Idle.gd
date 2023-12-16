@@ -64,5 +64,9 @@ func physics_update(_delta: float) -> void:
 	if Input.is_action_just_pressed(player.input_run):
 		state_machine.transition_to("MachPrep")
 	if Input.is_action_just_pressed(player.input_attack):
-		state_machine.transition_to("Attack")
+		if Input.is_action_pressed(player.input_up):
+			state_machine.transition_to("upperkick")
+			player.velocity.y = -player.jump_impulse * 1.3
+		if !Input.is_action_pressed(player.input_up):
+			state_machine.transition_to("Attack")
 

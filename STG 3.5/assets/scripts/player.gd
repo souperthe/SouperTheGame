@@ -97,6 +97,7 @@ onready var collide = $CollisionShape2D2
 onready var upthing = $thing
 onready var darkeffect = $darkeffect
 onready var sfxfire = $gunfire
+onready var sfxkick = $upperkick
 onready var cayatotime = $coyatotime
 var penisman = false
 var canpenis = true

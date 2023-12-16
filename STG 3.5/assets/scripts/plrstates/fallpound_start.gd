@@ -14,6 +14,8 @@ func enter(_msg := {}) -> void:
 	animation_player.play("fp_start")
 
 func physics_update(delta: float) -> void:
+	if Input.is_action_just_pressed(player.input_attack):
+		state_machine.transition_to("upperkick")
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	player.velocity.x = lerp(player.velocity.x, 0, 2 * delta)

@@ -23,6 +23,9 @@ func enter(_msg := {}) -> void:
 func physics_update(delta: float) -> void:
 	player.speedpart.emitting = false
 	player.trail()
+	if Input.is_action_just_pressed(player.input_attack):
+		if Input.is_action_pressed(player.input_up):
+			state_machine.transition_to("upperkick")
 	if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
 		state_machine.transition_to("fallpound_start")
 	if player.is_on_wall():

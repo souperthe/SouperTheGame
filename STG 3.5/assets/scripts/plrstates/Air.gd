@@ -23,7 +23,10 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("gunfire")
 		animation_player.play("gunfire")
 	if Input.is_action_just_pressed(player.input_attack):
-		state_machine.transition_to("tumble")
+		if Input.is_action_pressed(player.input_up):
+			state_machine.transition_to("upperkick")
+		if !Input.is_action_pressed(player.input_up):
+			state_machine.transition_to("tumble")
 	if Input.is_action_just_released(player.input_jump):
 		 if player.velocity.y < -100:
 			 player.velocity.y = -100
@@ -49,6 +52,7 @@ func physics_update(delta: float) -> void:
 	
 	if Input.is_action_just_pressed(player.input_down):
 		state_machine.transition_to("fallpound_start")
+		
 	
 	if player.is_on_floor():
 		player.sfxfoot.play()

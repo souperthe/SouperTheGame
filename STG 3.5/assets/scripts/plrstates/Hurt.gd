@@ -25,6 +25,10 @@ func enter(_msg := {}) -> void:
 	player.emachbox.disabled = true
 	player.disabletitlt = false
 	player.candoor = 0
+	if !player.face:
+		player.velocity.x = -player.jump_impulse / 1.2
+	if player.face:
+		player.velocity.x = player.jump_impulse / 1.2
 	pass
 	
 func physics_update(delta: float) -> void:
@@ -34,12 +38,9 @@ func physics_update(delta: float) -> void:
 	animation_player.play("hurt")
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
+	player.velocity.x = lerp(player.velocity.x, 0, player.friction / 50 * delta)
 	if player.is_on_floor():
 		player.velocity.y = -450
-	if !player.face:
-		player.velocity.x = -player.jump_impulse / 1.5
-	if player.face:
-		player.velocity.x = player.jump_impulse / 1.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

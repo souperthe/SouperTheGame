@@ -13,6 +13,7 @@ func enter(msg := {}) -> void:
 	player.emachbox.disabled = false
 	player.mach3.stop()
 	player.sfxspinng.play()
+	animation_player.play("spin2")
 	if msg.has("do_jump"):
 		player.jumpsfx.play()
 		player.velocity.y = -player.jump_impulse
@@ -21,7 +22,6 @@ func enter(msg := {}) -> void:
 #	pass
 func physics_update(delta: float) -> void:
 	player.trail()
-	animation_player.play("spin2")
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	if player.gun and Input.is_action_just_pressed(player.input_shoot):
@@ -29,10 +29,16 @@ func physics_update(delta: float) -> void:
 	if player.is_on_floor():
 		state_machine.transition_to("Mach2")
 	if Input.is_action_just_pressed(player.input_attack):
-		state_machine.transition_to("tumble")
-		player.mach3.stop()
-		player.machbox.disabled = true
-		player.emachbox.disabled = true
+		if Input.is_action_pressed(player.input_up):
+			state_machine.transition_to("upperkick")
+			player.mach3.stop()
+			player.machbox.disabled = true
+			player.emachbox.disabled = true
+		if !Input.is_action_pressed(player.input_up):
+			state_machine.transition_to("tumble")
+			player.mach3.stop()
+			player.machbox.disabled = true
+			player.emachbox.disabled = true
 	if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
 		state_machine.transition_to("fallpound_start")
 		player.mach3.stop()
