@@ -265,7 +265,8 @@ func startlvlselect():
 		self.add_child(t)
 		t.start()
 		yield(t, "timeout")
-		get_tree().change_scene("res://assets/scenes/level_select.tscn")
+		#get_tree().change_scene("res://assets/scenes/level_select.tscn")
+		global.room_goto("res://assets/scenes/level_select.tscn", "12831279312")
 	
 	
 	

@@ -827,15 +827,6 @@ position = Vector2( 9152, -1888 )
 [node name="smallcollectable119" parent="." instance=ExtResource( 8 )]
 position = Vector2( 9216, -1888 )
 
-[node name="smallcollectable120" parent="." instance=ExtResource( 8 )]
-position = Vector2( 9280, -1888 )
-
-[node name="smallcollectable121" parent="." instance=ExtResource( 8 )]
-position = Vector2( 9344, -1888 )
-
-[node name="smallcollectable122" parent="." instance=ExtResource( 8 )]
-position = Vector2( 9408, -1888 )
-
 [node name="collide57" parent="." instance=ExtResource( 2 )]
 position = Vector2( 7936, -2368 )
 scale = Vector2( 24, 1 )
@@ -844,21 +835,15 @@ scale = Vector2( 24, 1 )
 position = Vector2( 9472, -2304 )
 scale = Vector2( 1, 5 )
 
-[node name="metalblock11" parent="." instance=ExtResource( 10 )]
-position = Vector2( 9472, -1920 )
-
-[node name="metalblock12" parent="." instance=ExtResource( 10 )]
-position = Vector2( 9472, -1984 )
-
 [node name="collide59" parent="." instance=ExtResource( 2 )]
 position = Vector2( 9536, -2112 )
 scale = Vector2( 16, 1 )
 
 [node name="door2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 9664, -1888 )
+position = Vector2( 9600, -1888 )
 
-[node name="Hallway" parent="." instance=ExtResource( 17 )]
-position = Vector2( 9728, -2048 )
+[node name="Hallway" parent="door2" instance=ExtResource( 17 )]
+position = Vector2( 192, -160 )
 scale = Vector2( 2, 6 )
 targetdoor = "door1"
 targetscene = "res://assets/scenes/entrance/entrance_10.scn"
