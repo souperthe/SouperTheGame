@@ -62,7 +62,7 @@ func _move():
 	
 	
 
-func kill(speed):
+func kill(sdhagdhqwjdawaw):
 	$AnimatedSprite.position.y = 0
 	col.queue_free()
 	$anim.play("hurt")
@@ -70,8 +70,8 @@ func kill(speed):
 	global.resetcombo()
 	hitpart()
 	velocity.y -= 900
-	velocity.x = speed
-	rotatespeed = speed / 200 
+	velocity.x = sdhagdhqwjdawaw
+	rotatespeed = sdhagdhqwjdawaw / 200 
 	dead = true
 	yield(get_tree().create_timer(4.0), "timeout")
 	queue_free()

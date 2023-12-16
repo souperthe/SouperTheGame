@@ -181,7 +181,7 @@ modules="C:\\Users\\Benjamin\\AppData\\Local\\Android\\Sdk"
 [application]
 
 config/name="Souper The Game"
-run/main_scene="res://assets/scenes/splash_screen.tscn"
+run/main_scene="res://assets/objects/game.tscn"
 run/disable_stdout=true
 run/disable_stderr=true
 config/use_hidden_project_data_directory=false
@@ -201,7 +201,7 @@ objplayer="*res://assets/objects/player.tscn"
 presobjs="*res://assets/objects/Autoloads/presisentobjects.tscn"
 music="*res://assets/objects/Autoloads/musiccontroller.scn"
 Discord="*res://addons/discord_game_sdk/discord.gd"
-discordrpc="*res://assets/objects/Autoloads/discordrpc.scn"
+roomhandle="*res://assets/objects/Autoloads/roommanager.scn"
 
 [compression]
 

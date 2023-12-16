@@ -11,6 +11,7 @@ onready var secondtimer = $brahh
 export (int) var escapetime
 var rang = RandomNumberGenerator.new()
 var random
+var used = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -29,6 +30,11 @@ func _ready():
 
 
 func _process(delta):
+	$attackdetect.phonex = self.position.x
+	$attackdetect.alreadyused = tit
+	if $attackdetect.cutscene:
+		$AnimatedSprite.stop()
+		$ring2.stop()
 	if $attackdetect.dead == true:
 		if not tit:
 			hurt()
@@ -41,12 +47,15 @@ func _process(delta):
 	if tit and talkfinsihed and not a:
 		player.animator.play("onphonewtf")
 		a = true
-	if !zoomin:
+	if !zoomin and used:
 		global.camerazoom = lerp(global.camerazoom, 1, 5 * delta)
-	if zoomin:
+		global.cinematicbar = false
+	if zoomin and used:
 		global.camerazoom = lerp(global.camerazoom, 0.5, 2 * delta)
+		global.cinematicbar = true
 	if overphone and player.candoor and not tit:
 		if Input.is_action_just_pressed(player.input_up):
+			used = true
 			global.combotimer.paused = true
 			player.makethingnotvisible()
 			cutsceneplaying = true

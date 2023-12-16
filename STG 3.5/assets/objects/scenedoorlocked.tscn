@@ -11,16 +11,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "lockedopen",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "outdoor",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "indoor",
@@ -29,6 +19,16 @@ animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "locked",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "lockedopen",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "outdoor",
 "speed": 5.0
 } ]
 

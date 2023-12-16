@@ -91,39 +91,39 @@ func domusic():
 				$escapemusic.stream = lap2
 				$escapemusic.play()
 	#do stuff
-	if get_tree().current_scene.name == "scary":
+	if roomhandle.currentscene.name == "scary":
 		$Music.stream = null
-	if get_tree().current_scene.name == "oldsouper":
+	if roomhandle.currentscene.name == "oldsouper":
 			if !$Music.stream == old:
 				$Music.stream = old
 				$Music.play()
-	if get_tree().current_scene.name == "snow":
+	if roomhandle.currentscene.name == "snow":
 			if !$Music.stream == snow:
 				$Music.stream = snow
 				$Music.play()
-	if get_tree().current_scene.name == "entrance":
+	if roomhandle.currentscene.name == "entrance":
 		if !$Music.stream == entrancesong:
 			$Music.stream = entrancesong
 			$Music.play()
 			$Music.seek(float(temp))
-	if get_tree().current_scene.name == "tutorial":
+	if roomhandle.currentscene.name == "tutorial":
 		if !$Music.stream == tutorialsong:
 			$Music.stream = tutorialsong
 			$Music.play()
 			$Music.seek(float(temp))		
-	if get_tree().current_scene.name == "imagine":
+	if roomhandle.currentscene.name == "imagine":
 		if !$Music.stream == imaginesong:
 			$Music.stream = imaginesong
 			$Music.play()
-	if get_tree().current_scene.name == "gbj":
+	if roomhandle.currentscene.name == "gbj":
 		if !$Music.stream == failure:
 			$Music.stream = failure
 			$Music.play()
-	if get_tree().current_scene.name == "boss1":
+	if roomhandle.currentscene.name == "boss1":
 		if !$Music.stream == boss1:
 			$Music.stream = boss1
 			$Music.play()
-	if get_tree().current_scene.name == "city":
+	if roomhandle.currentscene.name == "city":
 		if !$Music.stream == city:
 			$Music.stream = city
 			$Music.play()

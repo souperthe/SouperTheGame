@@ -1,6 +1,6 @@
 extends Node
 
-func _process(delta):
+func _process(_delta):
 	update_activity()
 
 
@@ -31,7 +31,7 @@ func update_activity() -> void:
 	assets.set_small_image("soupercon")
 	assets.set_small_text(str("Playing as ", "Souper"))
 	
-	var timestamps = activity.get_timestamps()
+	var _timestamps = activity.get_timestamps()
 	#timestamps.set_start(OS.get_unix_time() + 100)
 	#timestamps.set_end(OS.get_unix_time() + 500)
 

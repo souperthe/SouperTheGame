@@ -26,7 +26,7 @@ func _process(_delta):
 	$Control.visible = enabled
 	$Control/smoothamount.visible = global.camerasmoothing
 	global.cameraspeed = float($Control/smoothamount.text)
-	Engine.time_scale = float($Control/gamespeed.text)
+	#Engine.time_scale = float($Control/gamespeed.text)
 	if Input.is_action_just_pressed("debugmenu"):
 		enabled = !enabled
 

@@ -180,13 +180,13 @@ func _physics_process(_delta):
 		$machch.scale.x = 1
 		$enemych.scale.x = 1
 	if playernumber == 0:
-		if get_tree().current_scene.name == "menu":
+		if roomhandle.currentscene.name == "menu":
 			$HUD/HUD.visible = false
 			velocity.x = 0
 			velocity.y = 0
-		if !get_tree().current_scene.name == "menu" and !get_tree().current_scene.name == "rankroom":
+		if !roomhandle.currentscene.name == "menu" and !roomhandle.currentscene.name == ("rankroom"):
 			$HUD/HUD.visible = true
-		if get_tree().current_scene.name == "rankroom":
+		if roomhandle.currentscene.name == "rankroom":
 			$HUD/HUD.visible = false
 	#print(animatonframes)
 	#f Input.is_action_pressed("2jump") and !twop_active:
@@ -376,10 +376,11 @@ func gototargetdoor():
 			$HUD/HUD/standard.visible = false
 	if global.hidehud:
 			$HUD/HUD/standard.visible = false
-	if get_tree().get_current_scene().get_node(global.targetdoor):
-		position.x = get_tree().get_current_scene().get_node(global.targetdoor).position.x
-		position.y = get_tree().get_current_scene().get_node(global.targetdoor).position.y - 15
-	if !get_tree().get_current_scene().get_node(global.targetdoor):
+	#var nextroom:Node = roomhandle.currentscene
+	if roomhandle.currentscene.get_node(global.targetdoor):
+		position.x = roomhandle.currentscene.get_node(global.targetdoor).position.x
+		position.y = roomhandle.currentscene.get_node(global.targetdoor).position.y - 15
+	if !roomhandle.currentscene.get_node(global.targetdoor):
 		position.x = position.x
 		position.y = position.x
 		

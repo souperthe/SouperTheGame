@@ -17,9 +17,9 @@ func enter(_msg := {}) -> void:
 	player.machbox.disabled = true
 	player.emachbox.disabled = true
 	if !player.face:
-		player.velocity.x = player.speedrun2 * 5
+		player.velocity.x = player.speedrun2
 	if player.face:
-		player.velocity.x = -player.speedrun2 * 5
+		player.velocity.x = -player.speedrun2
 	
 func physics_update(delta: float) -> void:
 	if player.is_on_floor():

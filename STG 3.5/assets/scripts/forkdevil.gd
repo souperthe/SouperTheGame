@@ -48,7 +48,7 @@ func hitpart():
 
 func _physics_process(_delta):
 	if animator.animation == ("attack"):
-		trail()
+		dashtrail()
 	thing = position.x < objplayer.position.x
 	var my_random_number2 = rang.randi_range(1, 6)
 	random = my_random_number2
@@ -88,12 +88,12 @@ func detect_turn():
 			scale.x = -scale.x
 		pass
 
-func kill(speed):
-	var yadda = speed
+func kill(sdhagdhqwjdawaw):
+	var yadda = sdhagdhqwjdawaw
 	if candie:
 		killreal(yadda)
 		
-func killreal(speed):
+func killreal(sdhagdhqwjdawaw222):
 	col.queue_free()
 	$anim.play("hurt")
 	hurtpart.canhurt = 0
@@ -101,8 +101,8 @@ func killreal(speed):
 	global.addcombo()
 	hitpart()
 	velocity.y -= 900
-	velocity.x = speed
-	rotatespeed = speed / 200 
+	velocity.x = sdhagdhqwjdawaw222
+	rotatespeed = sdhagdhqwjdawaw222 / 200 
 	dead = true
 	global.baddieroom.append(global.targetRoom2 + name)
 	var t = Timer.new()
@@ -176,11 +176,11 @@ func hardmodeattack():
 	machcheck.enabled = true
 	$hurtblock2.canhurt = 1
 	hurtpart.canhurt = 0
-	var speed = 600
+	var attackspeed = 600
 	if thing:
-		velocity.x = speed
+		velocity.x = attackspeed
 	if !thing:
-		velocity.x = -speed
+		velocity.x = -attackspeed
 	velocity.y = 0
 	$AnimatedSprite.play("attack")
 	attackwait()
@@ -212,7 +212,7 @@ func attackwait():
 	candie = true
 	
 	
-func trail():
+func dashtrail():
 	var dashtrail = preload("res://assets/objects/playerdashtrail.tscn")
 	var ghost: AnimatedSprite = dashtrail.instance()
 	get_parent().add_child(ghost)

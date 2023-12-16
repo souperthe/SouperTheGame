@@ -34,7 +34,7 @@ scale = Vector2( 15, 1 )
 position = Vector2( -128, 128 )
 scale = Vector2( 2, 6 )
 targetdoor = "door2"
-targetscene = "res://assets/scenes/entrance/entrance_10.tscn"
+targetscene = "res://assets/scenes/entrance/entrance_10.scn"
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2048, 160 )

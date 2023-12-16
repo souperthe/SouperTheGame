@@ -861,7 +861,7 @@ position = Vector2( 9664, -1888 )
 position = Vector2( 9728, -2048 )
 scale = Vector2( 2, 6 )
 targetdoor = "door1"
-targetscene = "res://assets/scenes/entrance/entrance_10.tscn"
+targetscene = "res://assets/scenes/entrance/entrance_10.scn"
 
 [node name="escapesmallcollectable" parent="." instance=ExtResource( 18 )]
 position = Vector2( 7584, -2016 )

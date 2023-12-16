@@ -72,15 +72,15 @@ func detect_turn():
 			scale.x = -scale.x
 		pass
 
-func kill(speed):
+func kill(hsjdfasdkj):
 	col.queue_free()
 	$anim.play("hurt")
 	deadsound()
 	global.addcombo()
 	hitpart()
 	velocity.y -= 900
-	velocity.x = speed
-	rotatespeed = speed / 200 
+	velocity.x = hsjdfasdkj
+	rotatespeed = hsjdfasdkj / 200 
 	dead = true
 	global.baddieroom.append(global.targetRoom2 + name)
 	var t = Timer.new()
