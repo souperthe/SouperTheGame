@@ -3,6 +3,7 @@ extends Node2D
 
 var done = false
 var tit = false
+var t = 0.0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -29,6 +30,9 @@ func _process(delta):
 				changebg()
 				tit = true
 				goback()
+#t = 200
+#objplayer.position.y = ease(objplayer.position.y, 270)
+#objplayer.position.x = ease(objplayer.position.x, 480)
 	objplayer.position = lerp(objplayer.position, Vector2(480,270), 1.5 * delta)
 	pass
 	

@@ -245,7 +245,7 @@ func hurtplayer():
 				bosshealth += -1
 		if !global.bosslevel:
 			if !global.score == 0:
-				global.score -= 5
+				global.score -= 100
 			canhurt = false
 			$iframes.start()
 			$StateMachine.transition_to("Hurt")

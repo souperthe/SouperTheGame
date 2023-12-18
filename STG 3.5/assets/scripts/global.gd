@@ -170,9 +170,9 @@ func escapeplaysmall():
 	$collectescapesmall.play()
 	
 func roomstart():
-	if get_tree().current_scene.name == "entrance":
+	if roomhandle.currentscene.name == "entrance":
 		rankworks = 1
-		srank = 8420
+		srank = 10475
 		arank = (global.srank - (global.srank / 4))
 		brank = (global.srank - ((global.srank / 4) * 2))
 		crank = (global.srank - ((global.srank / 4) * 3))

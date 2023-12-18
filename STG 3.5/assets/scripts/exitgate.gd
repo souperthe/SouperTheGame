@@ -134,7 +134,7 @@ func enterdoorsecondhalf():
 	yield(y, "timeout")
 	#global.room_goto("res://assets/scenes/rankroom.tscn", "none")
 	global.escapeexited = false
-	get_tree().change_scene("res://assets/scenes/rankroom.tscn")
+	global.room_goto("res://assets/scenes/rankroom.tscn", "123123")
 	player.animator.play("enterdoorfast")
 	ct._tout()
 	

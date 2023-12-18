@@ -36,7 +36,7 @@ func _physics_process(_delta):
 
 func _on_smallcollectable_body_entered(_body):
 	global.resetcombo()
-	global.addscore(10)
+	global.addscore(25)
 	queue_free()
 	global.playsmall()
 
@@ -45,7 +45,7 @@ func _on_smallcollectable_body_entered(_body):
 func _on_smallcollectable_area_entered(_area):
 	if cancollect:
 		global.resetcombo()
-		global.addscore(10)
+		global.addscore(25)
 		global.collectablesroom.append(global.targetRoom2 + name)
 		global.playsmall()
 		cancollect = false

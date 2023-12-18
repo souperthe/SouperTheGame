@@ -43,7 +43,7 @@ func _physics_process(_delta):
 
 func _on_smallcollectable_body_entered(_body):
 	global.resetcombo()
-	global.addscore(10)
+	global.addscore(25)
 	queue_free()
 	global.escapeplaysmall()
 
@@ -51,7 +51,7 @@ func _on_smallcollectable_body_entered(_body):
 
 func _on_smallcollectable_area_entered(_area):
 	global.resetcombo()
-	global.addscore(10)
+	global.addscore(25)
 	global.collectablesroom.append(global.targetRoom2 + name)
 	queue_free()
 	global.escapeplaysmall()
@@ -61,7 +61,7 @@ func _on_escapesmallcollectable_area_entered(_area):
 	if active:
 		if cancollect:
 			global.resetcombo()
-			global.addscore(10)
+			global.addscore(25)
 			global.escaperoom.append(global.targetRoom2 + name)
 			global.escapeplaysmall()
 			cancollect = false
