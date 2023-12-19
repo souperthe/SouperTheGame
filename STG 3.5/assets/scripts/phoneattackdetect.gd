@@ -11,7 +11,10 @@ var alreadyused
 
 func _process(delta):
 	if cutscene:
+		var shake = 0
 		global.camerazoom = lerp(global.camerazoom, 0.5, 0.05)
+		shake += 3
+		global.camera.shake(shake)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +29,15 @@ func kill(speed):
 		kill2(speed)
 		
 	
+func explode():
+	var whiteflash = preload("res://assets/objects/explosion.tscn")
+	var ghost: RigidBody2D = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y
+	
 func kill1(blahh):
+	music.stopmusic()
 	objplayer.cutscene()
 	objplayer.animator.stop()
 	cutscene = true
@@ -40,6 +51,7 @@ func kill1(blahh):
 	t.start()
 	yield(t, "timeout")
 	dead = true
+	explode()
 	objplayer.hardtumble()
 	objplayer.face = !objplayer.face
 	objplayer.animator.flip_h = !objplayer.animator.flip_h 
@@ -47,6 +59,7 @@ func kill1(blahh):
 	global.camerazoom = 1
 	global.cutscene = false
 	global.cinematicbar = false
+	global.camera.shake(50)
 	
 func kill2(blah2):
 	dead = true

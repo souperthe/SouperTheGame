@@ -4,15 +4,19 @@
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/objects/scenedoor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/objects/collectables/smallcollectable.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/scenes/entrance/entrancebg2tscn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/objects/enemys/forkdevil.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/objects/collectables/escapesmallcollectable.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/scenes/entrance/house_TILE.tres" type="TileSet" id=11]
+[ext_resource path="res://assets/objects/escapephone.tscn" type="PackedScene" id=12]
 
-[node name="entrance" type="Node2D"]
+[node name="nefsjke" type="Node2D"]
+
+[node name="escapephone" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1824, 320 )
+escapetime = 290
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 11 )
@@ -60,11 +64,6 @@ position = Vector2( 192, 0 )
 [node name="collide4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 192, -64 )
 scale = Vector2( 28, 1 )
-
-[node name="Door" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1792, 275 )
-targetdoor = "door1"
-targetscene = "res://assets/scenes/entrance/entrance_12.tscn"
 
 [node name="collide5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1024, 256 )

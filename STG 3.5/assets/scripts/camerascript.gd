@@ -13,6 +13,7 @@ var rotatesamount = 5
 # var a = 2
 # var b = "text"
 var tet = false
+onready var rand = RandomNumberGenerator.new()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,6 +42,8 @@ func _process(_delta):
 		rotation_degrees = 0
 	smoothing_speed = global.cameraspeed 
 	smoothing_enabled = global.camerasmoothing
+	self.offset.x = lerp(self.offset.x, 0, 0.05)
+	self.offset.y = lerp(self.offset.x, -1, 0.05)
 	if not presobjs.player2:
 		zoom.x = global.camerazoom
 		zoom.y = global.camerazoom
@@ -57,6 +60,14 @@ func _process(_delta):
 		if zoom.x < zoomin:
 			zoom.x = zoomin
 			zoom.y = zoomin
+			
+			
+func shake(amount):
+	self.offset = Vector2(
+		rand.randf_range(-amount, amount),
+		rand.randf_range(-amount, amount)	
+	)
+	
 			
 		
 			

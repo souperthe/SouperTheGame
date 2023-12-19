@@ -214,3 +214,17 @@ func hurteffect():
 func _on_talk_finished():
 	talkfinsihed = true
 	pass # Replace with function body.
+
+
+func _on_VisibilityNotifier2D_screen_entered():
+	global.phonescreen = true
+	pass # Replace with function body.
+
+
+func _on_escapephone_area_exited(area):
+	pass # Replace with function body.
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	global.phonescreen = false
+	pass # Replace with function body.

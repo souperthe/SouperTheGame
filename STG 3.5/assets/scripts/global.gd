@@ -44,6 +44,7 @@ var windowtitle = "Souper The Game"
 var hidehud = false
 var hidehudtween = false
 var cinematicbar = false
+var phonescreen = false
 
 var whiteflash = preload("res://assets/objects/flash.tscn")
 var SaveManager = ConfigFile.new()

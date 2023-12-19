@@ -33,6 +33,7 @@ func playtitle():
 func stopmusic():
 	$Music.stop()
 	$escapemusic.stop()
+	$Music.stream = null
 	temp = 0
 	
 func playsnow():
@@ -85,6 +86,10 @@ func _process(_delta):
 			temp = $Music.get_playback_position( )
 	
 func domusic():
+	if global.phonescreen:
+		musicvolume = lerp(musicvolume, -89, 0.005)
+	if !global.phonescreen:
+		musicvolume = lerp(musicvolume, 2, 0.1)
 	if global.panic:
 		if !global.laps == 0:
 			if !$escapemusic.stream == lap2:

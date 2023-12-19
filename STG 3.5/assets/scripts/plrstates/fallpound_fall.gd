@@ -25,6 +25,8 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed(player.input_attack):
 		player.get_input_direction()
 		state_machine.transition_to("tumble")
+	if player.is_on_floor():
+		global.camera.shake(10)
 	if player.is_on_floor() and hasntlanded:
 		player.poundpart()
 		player.fpfallsfx.stop()

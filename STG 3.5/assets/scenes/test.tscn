@@ -109,3 +109,8 @@ info = "MY PENIS IS SO BIG OH MY GOD"
 position = Vector2( 1031, 179 )
 targetdoor = "door1"
 targetscene = "res://assets/scenes/entrance/entrance_9.tscn"
+
+[node name="Door2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 112, 179 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/entrance/entrance_11.tscn"
