@@ -33,7 +33,6 @@ func playtitle():
 func stopmusic():
 	$Music.stop()
 	$escapemusic.stop()
-	$Music.stream = null
 	temp = 0
 	
 func playsnow():

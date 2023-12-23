@@ -365,10 +365,10 @@ func _on_machch_body_entered(body):
 	#pass # Replace with function body.
 	
 func gototargetdoor():
-	position.x = -4050
-	position.y = -4050
+	#position.x = -4050
+	#position.y = -4050
 	#$StateMachine.transition_to("Nothing")
-	yield(get_tree().create_timer(0.006), "timeout")
+	#yield(get_tree().create_timer(0.006), "timeout")
 	#print("player sent to ", global.targetdoor)
 	#$StateMachine.transition_to(oldstate)
 	$HUD/HUD/standard.visible = true
@@ -377,12 +377,13 @@ func gototargetdoor():
 	if global.hidehud:
 			$HUD/HUD/standard.visible = false
 	#var nextroom:Node = roomhandle.currentscene
-	if roomhandle.currentscene.get_node(global.targetdoor):
-		position.x = roomhandle.currentscene.get_node(global.targetdoor).position.x
-		position.y = roomhandle.currentscene.get_node(global.targetdoor).position.y - 15
-	if !roomhandle.currentscene.get_node(global.targetdoor):
-		position.x = position.x
-		position.y = position.x
+	if roomhandle.currentscene:
+		if roomhandle.currentscene.get_node(global.targetdoor):
+			position.x = roomhandle.currentscene.get_node(global.targetdoor).position.x
+			position.y = roomhandle.currentscene.get_node(global.targetdoor).position.y - 15
+		if !roomhandle.currentscene.get_node(global.targetdoor):
+			position.x = position.x
+			position.y = position.x
 		
 		
 func gooffscreen():

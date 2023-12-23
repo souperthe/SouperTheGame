@@ -5,15 +5,15 @@ var dead = false
 var cutscene
 var phonex 
 var alreadyused 
+var shake = 0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 func _process(delta):
 	if cutscene:
-		var shake = 0
 		global.camerazoom = lerp(global.camerazoom, 0.5, 0.05)
-		shake += 3
+		shake += 0.2
 		global.camera.shake(shake)
 
 
@@ -45,7 +45,7 @@ func kill1(blahh):
 	global.cinematicbar = true
 	$CollisionShape2D.disabled = true
 	var t = Timer.new()
-	t.set_wait_time(2)
+	t.set_wait_time(1.5)
 	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()
