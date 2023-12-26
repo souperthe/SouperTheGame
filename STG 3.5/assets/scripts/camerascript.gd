@@ -43,12 +43,12 @@ func _process(_delta):
 	smoothing_speed = global.cameraspeed 
 	smoothing_enabled = global.camerasmoothing
 	self.offset.x = lerp(self.offset.x, 0, 0.05)
-	self.offset.y = lerp(self.offset.x, -1, 0.05)
+	self.offset.y = lerp(self.offset.x, 0, 0.05)
 	if not presobjs.player2:
 		zoom.x = global.camerazoom
 		zoom.y = global.camerazoom
 		position.x = objplayer.position.x
-		position.y = objplayer.position.y
+		position.y = objplayer.position.y - 1
 	if presobjs.player2:
 		position = (objplayer.position + presobjs.player2.position) / Vector2(2,2)
 		zoom.x = max(zoomin, abs((objplayer.position.x-presobjs.player2.position.x)))/800

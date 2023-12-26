@@ -4,6 +4,7 @@ extends KinematicBody2D
 var dead = false
 var cutscene
 var phonex 
+var phoney
 var alreadyused 
 var shake = 0
 # Declare member variables here. Examples:
@@ -24,7 +25,10 @@ func _ready():
 
 func kill(speed):
 	if !alreadyused:
-		kill1(speed)
+		if !global.hardmode:
+			kill1(speed)
+		if global.hardmode:
+			kill3(speed)
 	if alreadyused:
 		kill2(speed)
 		
@@ -33,8 +37,8 @@ func explode():
 	var whiteflash = preload("res://assets/objects/explosion.tscn")
 	var ghost: RigidBody2D = whiteflash.instance()
 	get_tree().get_current_scene().add_child(ghost)
-	ghost.position.x = self.position.x
-	ghost.position.y = self.position.y
+	ghost.position.x = phonex
+	ghost.position.y = phoney
 	
 func kill1(blahh):
 	music.stopmusic()
@@ -62,7 +66,15 @@ func kill1(blahh):
 	global.camera.shake(50)
 	
 func kill2(blah2):
+	explode()
 	dead = true
+	
+func kill3(blah2):
+	dead = true
+	explode()
+	global.camerazoom = 1
+	global.cutscene = false
+	global.cinematicbar = false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

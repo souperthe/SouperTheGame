@@ -115,16 +115,16 @@ func _on_Timer_timeout():
 func update_activity() -> void:
 	var activity = Discord.Activity.new()
 	activity.set_type(Discord.ActivityType.Playing)
-	if get_tree().current_scene.name == "menu":
+	if roomhandle.currentscene.name ==  "menu":
 		activity.set_details("In the Menus")
-	if !get_tree().current_scene.name == "menu":
+	if !roomhandle.currentscene.name ==  "menu":
 		if global.hardmode:
-			activity.set_details("In a level with Tod mode.")
+			activity.set_details("In a level, with Tod mode.")
 		if !global.hardmode:
-			activity.set_details("In a level with standard.")
-	if get_tree().current_scene.name == "menu":
+			activity.set_details("In a level, with standard.")
+	if roomhandle.currentscene.name ==  "menu":
 		activity.set_state("The most epic game of all time..")
-	if !get_tree().current_scene.name == "menu":
+	if !roomhandle.currentscene.name ==  "menu":
 		if global.hidehud:
 			activity.set_state("The most epic game of all time..")
 		if !global.hidehud:

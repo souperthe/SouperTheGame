@@ -793,6 +793,7 @@ margin_bottom = 270.0
 visible = false
 position = Vector2( -460.9, -265.7 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 centered = false
 

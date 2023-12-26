@@ -30,6 +30,8 @@ func _ready():
 
 
 func _process(delta):
+	$attackdetect.phoney = self.position.y
+	
 	$attackdetect.phonex = self.position.x
 	$attackdetect.alreadyused = tit
 	if $attackdetect.cutscene:

@@ -46,7 +46,7 @@ func physics_update(delta: float) -> void:
 	if player.face:
 		player.velocity.x = -speed
 	
-	speed += 4
+	speed += 6
 	player.trail()
 	player.velocity.y += player.gravity * delta
 	var was_on_floor = player.is_on_floor()
