@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sprites/bgs/city/sun.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/bgs/city/city_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/bgs/city/city_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/bgs/city/city_sky.png" type="Texture" id=4]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_offset = Vector2( 0, -270 )
+motion_mirroring = Vector2( 960, 0 )
+
+[node name="CitySky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, -300 )
+
+[node name="Sun" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, -110 )
+motion_mirroring = Vector2( 960, 0 )
+
+[node name="City2" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer3"]
+margin_top = 540.0
+margin_right = 40.0
+margin_bottom = 580.0
+rect_scale = Vector2( 960, 540 )
+color = Color( 0.188235, 0.12549, 0.0627451, 1 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( 0, -100 )
+motion_mirroring = Vector2( 960, 0 )
+
+[node name="City1" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer4"]
+margin_top = 512.0
+margin_right = 40.0
+margin_bottom = 552.0
+rect_scale = Vector2( 960, 540 )
+color = Color( 0.313726, 0, 0, 1 )

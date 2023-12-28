@@ -1,0 +1,126 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/scenes/city/bg.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/enemys/forkdevil.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/switchblockalt.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 3 )]
+
+[node name="collide14" parent="." instance=ExtResource( 4 )]
+position = Vector2( -512, 256 )
+scale = Vector2( 24, 1 )
+
+[node name="collide17" parent="." instance=ExtResource( 4 )]
+position = Vector2( -512, 0 )
+scale = Vector2( 20, 1 )
+
+[node name="camera" parent="." instance=ExtResource( 5 )]
+position = Vector2( 864, -192 )
+limit_left = 0
+limit_bottom = 320
+
+[node name="door1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 224 )
+
+[node name="Hallway" parent="." instance=ExtResource( 2 )]
+position = Vector2( -160, 64 )
+scale = Vector2( 2, 6 )
+targetdoor = "door2"
+targetscene = "res://assets/scenes/city/city_1.tscn"
+
+[node name="collide" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1024, 320 )
+scale = Vector2( 1, -9 )
+
+[node name="collide2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 704, 0 )
+scale = Vector2( 1, -10 )
+
+[node name="collide3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 768, -576 )
+scale = Vector2( 30, 1 )
+
+[node name="collide4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1088, -256 )
+scale = Vector2( 7, 1 )
+
+[node name="collide5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2176, -256 )
+scale = Vector2( 10, 1 )
+
+[node name="collide6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1472, -192 )
+scale = Vector2( 1, 15 )
+
+[node name="collide7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2176, -192 )
+scale = Vector2( 1, 15 )
+
+[node name="switchblockalt" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1536, -256 )
+
+[node name="switchblockalt2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1568, -256 )
+
+[node name="switchblockalt3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1600, -256 )
+
+[node name="switchblockalt4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1632, -256 )
+
+[node name="switchblockalt5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1664, -256 )
+
+[node name="switchblockalt6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1696, -256 )
+
+[node name="switchblockalt7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1728, -256 )
+
+[node name="switchblockalt8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1760, -256 )
+
+[node name="switchblockalt9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1792, -256 )
+
+[node name="switchblockalt10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1824, -256 )
+
+[node name="switchblockalt11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1856, -256 )
+
+[node name="switchblockalt12" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1888, -256 )
+
+[node name="switchblockalt13" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1920, -256 )
+
+[node name="switchblockalt14" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1952, -256 )
+
+[node name="switchblockalt15" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1984, -256 )
+
+[node name="switchblockalt16" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2016, -256 )
+
+[node name="switchblockalt17" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2048, -256 )
+
+[node name="switchblockalt18" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2080, -256 )
+
+[node name="switchblockalt19" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2112, -256 )
+
+[node name="switchblockalt20" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2144, -256 )
+
+[node name="Enemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1408, -320 )
