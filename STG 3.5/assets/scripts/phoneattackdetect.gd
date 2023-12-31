@@ -39,6 +39,7 @@ func explode():
 	get_tree().get_current_scene().add_child(ghost)
 	ghost.position.x = phonex
 	ghost.position.y = phoney
+	ghost.canhurt = false
 	
 func kill1(blahh):
 	music.stopmusic()

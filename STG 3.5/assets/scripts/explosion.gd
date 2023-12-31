@@ -4,6 +4,7 @@ extends RigidBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var canhurt = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +13,8 @@ func _ready():
 	$AnimatedSprite.play("explode")
 	$AnimatedSprite.frame = 0
 	$CollisionShape2D.disabled = true
+	if !canhurt:
+		$hurtblock.queue_free()
 	pass # Replace with function body.
 
 
