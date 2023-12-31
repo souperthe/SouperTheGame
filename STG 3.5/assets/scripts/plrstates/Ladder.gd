@@ -22,10 +22,10 @@ func physics_update(_delta: float) -> void:
 		animation_player.play("climbidle")
 	if Input.is_action_pressed(player.input_up):
 		animation_player.play("climbup")
-		player.velocity.y = -250 * 2
+		player.velocity.y = -250 * 1.2
 	if Input.is_action_pressed(player.input_down):
 		animation_player.play("climbdown")
-		player.velocity.y = 450 * 2
+		player.velocity.y = 450 * 1.2
 	if Input.is_action_just_pressed(player.input_jump):
 		player.velocity.y = -player.jump_impulse
 		state_machine.transition_to("Air", {do_jump = true})
