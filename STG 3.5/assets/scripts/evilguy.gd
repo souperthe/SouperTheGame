@@ -20,18 +20,15 @@ func _ready():
 	
 func gotodoor():
 	pause = false
+	velocity = Vector2(0,0)
 	$Funnyboulder.modulate.a8 = 0
-	position.x = -4050
-	position.y = -4050
-	yield(get_tree().create_timer(0.008), "timeout")
 	#position = objplayer.position
 	if roomhandle.currentscene.get_node("escapephone"):
 		pause = true
 	if roomhandle.currentscene.get_node("treasure"):
 		pause = true
-	if roomhandle.currentscene.get_node(global.targetdoor) and not pause:
-		position.x = roomhandle.currentscene.get_node(global.targetdoor).position.x
-		position.y = roomhandle.currentscene.get_node(global.targetdoor).position.y
+	position.x = objplayer.position.x
+	position.y = objplayer.position.y
 		
 func destory():
 	queue_free()

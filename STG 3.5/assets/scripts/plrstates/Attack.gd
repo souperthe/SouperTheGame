@@ -34,6 +34,10 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("tumble")
 	if Input.is_action_just_pressed(player.input_jump):
 		state_machine.transition_to("mach_jump", {do_jump = true})
+		if !player.face:
+			player.velocity.x = player.attack_impulse * 2.5
+		if player.face:
+			player.velocity.x = -player.attack_impulse * 2.5
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
 	#if !player.face:
