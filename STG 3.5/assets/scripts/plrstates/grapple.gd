@@ -9,7 +9,7 @@ onready var animation_player:AnimatedSprite = get_node(_animation_player)
 
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
-	animation_player.play("grapplewall")
+	animation_player.play("grappleland")
 	player.sfxgrapple.play()
 	player.mach3.stop()
 	#player.velocity.x = 0
@@ -22,6 +22,9 @@ func enter(_msg := {}) -> void:
 		player.velocity.x = -player.speedrun2
 	
 func physics_update(delta: float) -> void:
+	if animation_player.animation == "grappleland":
+		if player.animatonframes > 5:
+			animation_player.play("grapplewall")
 	if player.is_on_floor():
 		state_machine.transition_to("Idle")
 	if !player.is_on_wall():

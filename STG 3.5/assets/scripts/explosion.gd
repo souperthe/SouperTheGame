@@ -13,12 +13,13 @@ func _ready():
 	$AnimatedSprite.play("explode")
 	$AnimatedSprite.frame = 0
 	$CollisionShape2D.disabled = true
-	if !canhurt:
-		$hurtblock.queue_free()
 	pass # Replace with function body.
 
 
 func _process(delta):
+	if !canhurt:
+		if is_instance_valid($hurtblock):
+			$hurtblock.queue_free()
 	if $AnimatedSprite.frame > 2:
 		if is_instance_valid($hurtblock):
 			$hurtblock.queue_free()
