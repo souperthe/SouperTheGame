@@ -40,7 +40,8 @@ func physics_update(delta: float) -> void:
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	player.velocity.x = lerp(player.velocity.x, 0, player.friction / 50 * delta)
 	if player.is_on_floor():
-		player.velocity.y = -450
+		state_machine.transition_to("Idle")
+		player.hurttimer.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -78,5 +79,5 @@ func createdead1():
 
 
 func _on_iframes_timeout():
-	player.canhurt = true
+	#player.canhurt = true
 	pass # Replace with function body.

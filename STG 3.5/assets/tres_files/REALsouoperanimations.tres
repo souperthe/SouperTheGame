@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=307 format=2]
+[gd_resource type="SpriteFrames" load_steps=320 format=2]
 
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0125.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0114.png" type="Texture" id=2]
@@ -306,6 +306,19 @@
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0357.png" type="Texture" id=304]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0356.png" type="Texture" id=305]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0359.png" type="Texture" id=306]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0365.png" type="Texture" id=307]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0366.png" type="Texture" id=308]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0362.png" type="Texture" id=309]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0364.png" type="Texture" id=310]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0363.png" type="Texture" id=311]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0361.png" type="Texture" id=312]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0360.png" type="Texture" id=313]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0369.png" type="Texture" id=314]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0370.png" type="Texture" id=315]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0371.png" type="Texture" id=316]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0372.png" type="Texture" id=317]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0367.png" type="Texture" id=318]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0368.png" type="Texture" id=319]
 
 [resource]
 animations = [ {
@@ -469,6 +482,11 @@ animations = [ {
 "name": "kick",
 "speed": 20.0
 }, {
+"frames": [ ExtResource( 318 ), ExtResource( 319 ), ExtResource( 314 ), ExtResource( 315 ), ExtResource( 316 ), ExtResource( 317 ), ExtResource( 317 ), ExtResource( 317 ), ExtResource( 317 ), ExtResource( 317 ), ExtResource( 317 ), ExtResource( 317 ), ExtResource( 317 ) ],
+"loop": true,
+"name": "kicknew",
+"speed": 24.0
+}, {
 "frames": [ ExtResource( 215 ), ExtResource( 218 ), ExtResource( 238 ), ExtResource( 237 ), ExtResource( 233 ), ExtResource( 216 ) ],
 "loop": false,
 "name": "land",
@@ -553,6 +571,11 @@ animations = [ {
 "loop": false,
 "name": "punch",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 313 ), ExtResource( 312 ), ExtResource( 309 ), ExtResource( 311 ), ExtResource( 310 ), ExtResource( 307 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ), ExtResource( 308 ) ],
+"loop": true,
+"name": "punchnew",
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 155 ), ExtResource( 118 ), ExtResource( 173 ), ExtResource( 91 ), ExtResource( 97 ), ExtResource( 93 ), ExtResource( 93 ), ExtResource( 93 ) ],
 "loop": false,

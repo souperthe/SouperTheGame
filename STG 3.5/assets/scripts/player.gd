@@ -158,8 +158,11 @@ func _ready():
 
 func _physics_process(_delta):
 	#trail()
+	if $iframes.time_left == 0:
+		canhurt = true
 	if $iframes.time_left > 0:
 		$AnimationPlayer.play("hurt")
+		canhurt = false
 	if !$iframes.time_left > 0:
 		$AnimationPlayer.play("reset")
 	currentstate = $StateMachine.statename
@@ -294,7 +297,8 @@ func poundpart():
 func trail():
 	var dashtrail = preload("res://assets/objects/playerdashtrail.tscn")
 	var ghost: AnimatedSprite = dashtrail.instance()
-	get_parent().add_child(ghost)
+	if !is_instance_valid(get_parent().get_node("dashtrail")):
+		get_parent().add_child(ghost)
 	ghost.playing = false
 	ghost.flip_h = animator.flip_h
 	ghost.global_position = global_position

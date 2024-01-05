@@ -18,7 +18,7 @@ func _ready():
 func _process(_delta):
 	$bar.max_value = global.combotimer.wait_time
 	$bar.value = global.combotimer.get_time_left()
-	$newcombotext.text = (str(global.combo)) 
+	$newcombotext.text = (str("x", global.combo)) 
 	$combotext.bbcode_text = (str("[center][shake rate=20.0 level=5 connected=1]", global.combo))
 	if !global.combo == 0 and not down:
 		$bar.visible = true

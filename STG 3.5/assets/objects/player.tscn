@@ -512,8 +512,8 @@ color_ramp = SubResource( 33 )
 [node name="animation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "upperkick"
-frame = 9
+animation = "kicknew"
+frame = 7
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -767,7 +767,6 @@ bus = "SFX"
 script = ExtResource( 30 )
 
 [node name="hurtimer" type="Timer" parent="."]
-wait_time = 0.6
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1013,7 +1012,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 13
+frame = 17
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

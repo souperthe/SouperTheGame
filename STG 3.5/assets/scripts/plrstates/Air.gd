@@ -26,7 +26,7 @@ func physics_update(delta: float) -> void:
 		if Input.is_action_pressed(player.input_up):
 			state_machine.transition_to("upperkick")
 		if !Input.is_action_pressed(player.input_up):
-			state_machine.transition_to("tumble")
+			state_machine.transition_to("Attack")
 	if Input.is_action_just_released(player.input_jump):
 		 if player.velocity.y < -100:
 			 player.velocity.y = -100
