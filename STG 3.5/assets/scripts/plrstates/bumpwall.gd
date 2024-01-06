@@ -17,7 +17,7 @@ func enter(_msg := {}) -> void:
 func physics_update(_delta: float) -> void:
 	player.velocity.y = 0
 	player.velocity.x = 0
-	if player.animatonframes == 5:
+	if player.animatonframes > 4:
 		state_machine.transition_to("Idle")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

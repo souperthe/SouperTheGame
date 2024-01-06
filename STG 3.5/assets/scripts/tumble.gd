@@ -38,8 +38,22 @@ func physics_update(delta: float) -> void:
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	if !player.face:
 		player.velocity.x = player.attack_impulse * 3
+		if Input.is_action_just_pressed(player.input_left):
+			player.attackbox.disabled = true
+			player.eattackbox.disabled = true
+			state_machine.transition_to("Idle")
+			player.get_input_direction()
+			player.attacksfx.stop()
+			player.sjumpentersfx.play()
 	if player.face:
 		player.velocity.x = -player.attack_impulse * 3
+		if Input.is_action_just_pressed(player.input_right):
+			player.attackbox.disabled = true
+			player.eattackbox.disabled = true
+			state_machine.transition_to("Idle")
+			player.get_input_direction()
+			player.attacksfx.stop()
+			player.sjumpentersfx.play()
 	if player.animatonframes > 8:
 		player.attackbox.disabled = true
 		player.eattackbox.disabled = true

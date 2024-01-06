@@ -512,8 +512,8 @@ color_ramp = SubResource( 33 )
 [node name="animation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "grappleland"
-frame = 8
+animation = "angryidle"
+frame = 9
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1012,7 +1012,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 28
+frame = 21
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1025,7 +1025,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="iframes" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 one_shot = true
 
 [node name="upperkick" type="AudioStreamPlayer2D" parent="."]

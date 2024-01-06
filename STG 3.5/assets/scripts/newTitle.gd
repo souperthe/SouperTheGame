@@ -28,6 +28,11 @@ func _ready():
 	var distancey = 31.5
 	$Pointerglove.position = Vector2($things/play.rect_position.x + distance, $things/play.rect_position.y + distancey)
 	objplayer.cutscene()
+	objplayer.reset()
+	global.emit_signal("reset")
+	if presobjs.player2:
+		presobjs.player2.reset()
+	objplayer.defaultdir()
 	if disablelvlselect:
 		maxthings = 2
 		$things/levelselect.queue_free()
@@ -211,6 +216,7 @@ func startgame():
 		ct._tout()
 		global.room_goto("res://assets/scenes/entrance/entrance_1.tscn", "door1")
 		objplayer.reset()
+		global.emit_signal("reset")
 		if presobjs.player2:
 			presobjs.player2.reset()
 		objplayer.defaultdir()
@@ -241,6 +247,7 @@ func startgametod():
 		ct._tout()
 		global.room_goto("res://assets/scenes/entrance/entrance_1.tscn", "door1")
 		objplayer.reset()
+		global.emit_signal("reset")
 		if presobjs.player2:
 			presobjs.player2.reset()
 		objplayer.defaultdir()

@@ -234,6 +234,10 @@ func _on_ladderchecker_body_exited(_body):
 	ladder = false
 	
 func hurtplayer():
+	if !currentstate == "bossdead":
+		dohurt()
+
+func dohurt():
 	if canhurt:
 		if global.bosslevel:
 			if bosshealth == 1:
@@ -252,6 +256,7 @@ func hurtplayer():
 			canhurt = false
 			$iframes.start()
 			$StateMachine.transition_to("Hurt")
+	
 		
 		
 func banana():

@@ -27,8 +27,11 @@ func gotodoor():
 		pause = true
 	if roomhandle.currentscene.get_node("treasure"):
 		pause = true
-	position.x = objplayer.position.x
-	position.y = objplayer.position.y
+	if pause:
+		position = Vector2(297897,297897)
+	if not pause:
+		position.x = objplayer.position.x
+		position.y = objplayer.position.y
 		
 func destory():
 	queue_free()
