@@ -35,10 +35,10 @@ func physics_update(delta: float) -> void:
 	player.disabletitlt = false
 	if Input.is_action_just_pressed(player.input_attack):
 		state_machine.transition_to("tumble")
-	if player.is_on_floor():
+	if player.is_on_floor() and player.currentstate == "Mach3":
 		player.speed3part.emitting = true
 		player.speedpart.emitting = true
-	if !player.is_on_floor():
+	else:
 		player.speed3part.emitting = false
 		player.speedpart.emitting = false
 	if !player.face:

@@ -29,7 +29,7 @@ func physics_update(_delta: float) -> void:
 			player.velocity.x = player.speedrun2
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	player.get_input_direction()
-	if player.animatonframes == 5:
+	if player.animatonframes > 4:
 		player.disabletitlt = false
 		player.sjumpentersfx.play()
 		state_machine.transition_to("Mach2")
