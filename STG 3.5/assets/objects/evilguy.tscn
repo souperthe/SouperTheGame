@@ -13,7 +13,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=11]
-radius = 8.24621
+radius = 13.0
 
 [sub_resource type="AudioStreamRandomPitch" id=13]
 audio_stream = ExtResource( 3 )

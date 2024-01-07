@@ -15,6 +15,7 @@ func enter(_msg := {}) -> void:
 	thing = false
 	player.hitpartical()
 	music.stopmusic()
+	global.cutscene = true
 	player.hurtsfx.play()
 	animation_player.play("hardtumble")
 	player.velocity.y = -jumpheight
@@ -30,7 +31,7 @@ func enter(_msg := {}) -> void:
 	pass # Replace with function body.
 	
 func physics_update(delta: float) -> void:
-	player.candoor = 1
+	player.makethingnotvisible()
 	player.pmachbox.disabled = true
 	player.machbox.disabled = true
 	player.emachbox.disabled = true

@@ -42,6 +42,7 @@ position = Vector2( -256, 0 )
 scale = Vector2( 20, 1 )
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
+position = Vector2( 96, 0 )
 limit_left = 0
 limit_top = 0
 limit_right = 5632
@@ -338,3 +339,51 @@ position = Vector2( 2624, 1088 )
 
 [node name="escapesmallcollectable9" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2048, 1120 )
+
+[node name="escapesmallcollectable10" parent="." instance=ExtResource( 11 )]
+position = Vector2( 800, 416 )
+
+[node name="escapesmallcollectable11" parent="." instance=ExtResource( 11 )]
+position = Vector2( 864, 416 )
+
+[node name="escapesmallcollectable12" parent="." instance=ExtResource( 11 )]
+position = Vector2( 800, 480 )
+
+[node name="escapesmallcollectable13" parent="." instance=ExtResource( 11 )]
+position = Vector2( 864, 480 )
+
+[node name="escapesmallcollectable14" parent="." instance=ExtResource( 11 )]
+position = Vector2( 800, 544 )
+
+[node name="escapesmallcollectable15" parent="." instance=ExtResource( 11 )]
+position = Vector2( 864, 544 )
+
+[node name="escapesmallcollectable16" parent="." instance=ExtResource( 11 )]
+position = Vector2( 800, 608 )
+
+[node name="escapesmallcollectable17" parent="." instance=ExtResource( 11 )]
+position = Vector2( 864, 608 )
+
+[node name="escapesmallcollectable18" parent="." instance=ExtResource( 11 )]
+position = Vector2( 800, 672 )
+
+[node name="escapesmallcollectable19" parent="." instance=ExtResource( 11 )]
+position = Vector2( 864, 672 )
+
+[node name="escapesmallcollectable20" parent="." instance=ExtResource( 11 )]
+position = Vector2( 800, 736 )
+
+[node name="escapesmallcollectable21" parent="." instance=ExtResource( 11 )]
+position = Vector2( 864, 736 )
+
+[node name="escapesmallcollectable22" parent="." instance=ExtResource( 11 )]
+position = Vector2( 800, 800 )
+
+[node name="escapesmallcollectable23" parent="." instance=ExtResource( 11 )]
+position = Vector2( 864, 800 )
+
+[node name="escapesmallcollectable24" parent="." instance=ExtResource( 11 )]
+position = Vector2( 800, 864 )
+
+[node name="escapesmallcollectable25" parent="." instance=ExtResource( 11 )]
+position = Vector2( 864, 864 )

@@ -45,6 +45,13 @@ func _physics_process(delta):
 		kill()
 	velocity = move_and_slide(velocity, Vector2.UP)
 	trail()
+	if $detect.overlaps_body(objplayer):
+		if $Funnyboulder.modulate.a8 == 255:
+			velocity = Vector2(0,0)
+			#body.hurtplayer()
+			kill()
+			objplayer.changestate("bossdead")
+			$Funnyboulder.modulate.a8 = 0
 	if global.hardmode and global.panicdone:
 		speed += 30
 	if $Funnyboulder.modulate.a8 > 251 and !global.cutscene and !objplayer.currentstate == ("EnterDoor") and !objplayer.currentstate == ("ExitDoor") and !objplayer.currentstate == ("bossdead") and !pause:
@@ -61,15 +68,15 @@ func _physics_process(delta):
 	if $Funnyboulder.modulate.a8 < 255:
 		$Funnyboulder.modulate.a8 += 3
 	
-func _on_evilguy_body_entered(body):
-	if body is Player:
-		if $Funnyboulder.modulate.a8 == 255:
-			velocity = Vector2(0,0)
-			#body.hurtplayer()
-			kill()
-			body.changestate("bossdead")
-			$Funnyboulder.modulate.a8 = 0
-	pass # Replace with function body.
+#func _on_evilguy_body_entered(body):
+	#if body is Player:
+		#if $Funnyboulder.modulate.a8 == 255:
+			#velocity = Vector2(0,0)
+			##body.hurtplayer()
+			#kill()
+			#body.changestate("bossdead")
+			#$Funnyboulder.modulate.a8 = 0
+	#pass # Replace with function body.
 	
 	
 	

@@ -302,8 +302,7 @@ func poundpart():
 func trail():
 	var dashtrail = preload("res://assets/objects/playerdashtrail.tscn")
 	var ghost: AnimatedSprite = dashtrail.instance()
-	if !is_instance_valid(get_parent().get_node("dashtrail")):
-		get_parent().add_child(ghost)
+	get_parent().add_child(ghost)
 	ghost.playing = false
 	ghost.flip_h = animator.flip_h
 	ghost.global_position = global_position

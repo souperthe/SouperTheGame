@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/sprites/bgs/grass/trees.png" type="Texture" id=13]
 [ext_resource path="res://assets/scenes/misc/ParallaxBackground.gd" type="Script" id=14]
 [ext_resource path="res://assets/objects/sillysfx.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=16]
 
 [sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 8 )
@@ -203,3 +204,12 @@ rotation = 3.14159
 scale = Vector2( 0.56, 0.56 )
 texture = ExtResource( 5 )
 flip_v = true
+
+[node name="camera" parent="." instance=ExtResource( 16 )]
+position = Vector2( -195, 586 )
+rotating = false
+current = false
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 540
