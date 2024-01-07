@@ -251,8 +251,10 @@ func dohurt():
 				$StateMachine.transition_to("Hurt")
 				bosshealth += -1
 		if !global.bosslevel:
-			if !global.score == 0:
+			if !global.score == 0 && !global.hardmode:
 				global.score -= 100
+			if !global.score == 0 && global.hardmode:
+				global.score -= 100 * 2
 			canhurt = false
 			$iframes.start()
 			$StateMachine.transition_to("Hurt")

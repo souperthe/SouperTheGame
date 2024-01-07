@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/scenedoor.tscn" type="PackedScene" id=2]
@@ -21,8 +21,15 @@
 [ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/scenes/entrance/house_TILE.tres" type="TileSet" id=20]
 [ext_resource path="res://assets/sprites/forkplaceholder.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/up arrow.png" type="Texture" id=22]
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2( 0.995118, 1 )
+
+[node name="UpArrow" type="Sprite" parent="."]
+position = Vector2( 128, -759 )
+z_index = -4
+texture = ExtResource( 22 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 20 )
@@ -720,18 +727,6 @@ position = Vector2( 960, 160 )
 
 [node name="escapesmallcollectable65" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1024, 128 )
-
-[node name="switchblock13" parent="." instance=ExtResource( 13 )]
-position = Vector2( 64, -1056 )
-
-[node name="switchblock14" parent="." instance=ExtResource( 13 )]
-position = Vector2( 96, -1056 )
-
-[node name="switchblock15" parent="." instance=ExtResource( 13 )]
-position = Vector2( 128, -1056 )
-
-[node name="switchblock16" parent="." instance=ExtResource( 13 )]
-position = Vector2( 160, -1056 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 2062, -640 )
