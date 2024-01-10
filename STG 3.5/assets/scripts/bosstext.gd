@@ -180,7 +180,7 @@ func statemachine():
 func createbanana():
 	var dashtrail = preload("res://assets/objects/bulletenemy.tscn")
 	var ghost: KinematicBody2D = dashtrail.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	var speed = 980
@@ -193,7 +193,7 @@ func createbanana():
 func createbombs():
 	var dashtrail = preload("res://assets/objects/bomb.tscn")
 	var ghost: KinematicBody2D = dashtrail.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	ghost.velocity.y = 500
@@ -206,7 +206,7 @@ func createbombs():
 func createdead1(velocityx, rotatespeed):
 	var whiteflash = preload("res://assets/objects/deadthing.tscn")
 	var ghost: KinematicBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.sprite.flip_h = !position.x < objplayer.position.x
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y

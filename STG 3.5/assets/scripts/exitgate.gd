@@ -55,7 +55,8 @@ func _physics_process(_delta):
 	if cutmusic:
 		music.stopmusic()
 	if zoomin:
-		global.camerazoom = lerp(global.camerazoom, 0.5, 3 * _delta)
+		#global.camerazoom = lerp(global.camerazoom, 0.5, 3 * _delta)
+		pass
 	if zoomin2:
 		global.camerazoom = lerp(global.camerazoom, 1, 5 * _delta)
 		if global.camerazoom > 0.99:
@@ -66,7 +67,7 @@ func _physics_process(_delta):
 		dick = true
 		
 	if overdoor and enter:
-		music.temp = 0
+		#music.temp = 0
 		exitgate()
 		enter = false
 	if global.panic and overdoor and player.candoor and doornotentered:
@@ -120,7 +121,7 @@ func enterdoor():
 	
 func enterdoorsecondhalf():
 	var t = Timer.new()
-	t.set_wait_time(2)
+	t.set_wait_time(3)
 	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()
@@ -150,6 +151,7 @@ func _on_exitgate_body_exited(body):
 	pass # Replace with function body.
 	
 func exitgate():
+	player.modulate = Color(0, 0, 0, 1)
 	global.restartlevel = global.targetRoom2
 	global.restartdoor = global.targetdoor
 	music.temp = 0
@@ -171,7 +173,7 @@ func exitgate():
 	yield(t, "timeout")
 	global.cutscene = false
 	zoomin2 = true
-	#global.makeflash()
+	global.makeflash()
 	if global.hardmode:
 		presobjs.createtod()
 	$slam.play()

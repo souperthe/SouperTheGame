@@ -32,6 +32,6 @@ func _on_Timer_timeout():
 func explode():
 	var whiteflash = preload("res://assets/objects/explosion.tscn")
 	var ghost: RigidBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y

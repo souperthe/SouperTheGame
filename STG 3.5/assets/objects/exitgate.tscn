@@ -18,8 +18,8 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="ExitgateClosed" type="Sprite" parent="."]
-position = Vector2( 0, -49 )
-scale = Vector2( 0.56, 0.56 )
+position = Vector2( 0, -52 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -31,8 +31,8 @@ one_shot = true
 
 [node name="ExitgateOpen" type="Sprite" parent="."]
 visible = false
-position = Vector2( 0, -49 )
-scale = Vector2( 0.56, 0.56 )
+position = Vector2( 0, -52 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 
 [node name="slam" type="AudioStreamPlayer2D" parent="."]

@@ -33,7 +33,7 @@ func _on_enemycheck_body_entered(body):
 func deadgun():
 	var whiteflash = preload("res://assets/objects/deadthing.tscn")
 	var ghost: KinematicBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	ghost.velocity.y = -700

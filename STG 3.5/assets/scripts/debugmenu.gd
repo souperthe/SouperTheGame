@@ -66,7 +66,7 @@ func createplayer2():
 func _on_spawngun_pressed():
 	var whiteflash = preload("res://assets/objects/guncollect.tscn")
 	var ghost: KinematicBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = objplayer.position.x
 	ghost.position.y = objplayer.position.y
 	pass # Replace with function body.
@@ -75,7 +75,7 @@ func _on_spawngun_pressed():
 func _on_spawnboombox_pressed():
 	var whiteflash = preload("res://assets/objects/boombox.tscn")
 	var ghost: KinematicBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = objplayer.position.x
 	ghost.position.y = objplayer.position.y
 	pass # Replace with function body.

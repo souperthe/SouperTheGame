@@ -169,7 +169,7 @@ func hurt2():
 	
 func createdead1():
 	var ghost: KinematicBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	ghost.velocity.y = -900
@@ -178,7 +178,7 @@ func createdead1():
 	
 func createdead2():
 	var ghost: KinematicBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	ghost.velocity.y = -1010
@@ -190,7 +190,7 @@ func createdead2():
 func playcock():
 	var whiteflash = preload("res://assets/objects/cocking.tscn")
 	var ghost: AudioStreamPlayer2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position = self.position
 	ghost.stream = load("res://assets/sound/sfx/sfx_destorymetal.wav")
 	ghost.play()
@@ -198,7 +198,7 @@ func playcock():
 func playcock2():
 	var whiteflash = preload("res://assets/objects/cockingnot3d.tscn")
 	var ghost: AudioStreamPlayer = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.volume_db = -1.189
 	ghost.stream = load("res://assets/sound/sfx/sfx_impact2.wav")
 	ghost.play()
@@ -206,7 +206,7 @@ func playcock2():
 func hurteffect():
 	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
 	var ghost: Node2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position = self.position
 	ghost.amount = 500
 	

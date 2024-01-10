@@ -12,6 +12,7 @@ func enter(_msg := {}) -> void:
 
 
 func physics_update(delta: float) -> void:
+	walk()
 	player.trail()
 	player.velocity.x = lerp(player.velocity.x, 0, player.friction / 50 * delta)
 	player.velocity.y += player.gravity * delta
@@ -26,5 +27,12 @@ func physics_update(delta: float) -> void:
 		else:
 			animation_player.play("landwalk")
 			state_machine.transition_to("Run")
+			
+func walk():
+	var amount = 0.2
+	if Input.is_action_pressed(player.input_left):
+		player.velocity.x = lerp(player.velocity.x , -player.attack_impulse, amount)
+	if Input.is_action_pressed(player.input_right):
+		player.velocity.x = lerp(player.velocity.x , player.attack_impulse, amount)
 			
 			

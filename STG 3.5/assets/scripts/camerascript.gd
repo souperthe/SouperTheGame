@@ -18,10 +18,10 @@ onready var rand = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if get_tree().get_current_scene().get_node(global.targetdoor):
-		position.x = get_tree().get_current_scene().get_node(global.targetdoor).position.x
-		position.y = get_tree().get_current_scene().get_node(global.targetdoor).position.y
-	if !get_tree().get_current_scene().get_node(global.targetdoor):
+	if roomhandle.currentscene.get_node(global.targetdoor):
+		position.x = roomhandle.currentscene.get_node(global.targetdoor).position.x
+		position.y = roomhandle.currentscene.get_node(global.targetdoor).position.y
+	if !roomhandle.currentscene.get_node(global.targetdoor):
 		position.x = 0
 		position.y = 0
 	pass # Replace with function body.

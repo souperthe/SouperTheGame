@@ -38,7 +38,7 @@ func _physics_process(_delta):
 func playcock():
 	var whiteflash = preload("res://assets/objects/cocking.tscn")
 	var ghost: AudioStreamPlayer2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position = self.position
 	ghost.play()
 	pass

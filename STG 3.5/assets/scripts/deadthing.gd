@@ -23,3 +23,8 @@ func _process(_delta):
 	$Sprite.rotation_degrees += spinamount
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
+	pass # Replace with function body.

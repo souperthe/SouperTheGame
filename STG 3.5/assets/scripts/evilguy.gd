@@ -5,7 +5,7 @@ onready var alpha = $Funnyboulder.modulate.a8
 var maxspeed = 8 / 10
 var mvsp = (maxspeed + (abs(objplayer.velocity.x) / 8))
 var velocity := Vector2.ZERO
-var speed = 70150
+var speed = 70350
 var pause = false
 #var dir = Vector2.angle_to_point(position.x, position.y, (objplayer.position.x + objplayer.velocity.x), (objplayer.position.y + objplayer.velocity.y))
 
@@ -119,13 +119,13 @@ func kill():
 func createdead1(velocityx, rotatespeed):
 	var whiteflash = preload("res://assets/objects/deadthing.tscn")
 	var ghost: KinematicBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	ghost.velocity.y = -900
 	ghost.velocity.x = velocityx
 	ghost.spinamount = rotatespeed
-	ghost.sprite.texture = load("res://assets/sprites/funnyboulder.png")
+	ghost.sprite.texture = load("res://assets/sprites/animated/tod/tod_sad.png")
 	ghost.sprite.scale.x = 0.6
 	ghost.sprite.scale.y = 0.6
 	
@@ -133,7 +133,7 @@ func createdead1(velocityx, rotatespeed):
 func goofysound():
 	var whiteflash = preload("res://assets/objects/sillysfx3d.tscn")
 	var ghost: Node2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.playsound = true
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y

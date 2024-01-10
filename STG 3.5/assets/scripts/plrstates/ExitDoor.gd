@@ -3,6 +3,7 @@ extends PlayerState
 
 export (NodePath) var _animation_player
 onready var animation_player:AnimatedSprite = get_node(_animation_player)
+var fadetowhite = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -13,10 +14,17 @@ func enter(_msg := {}) -> void:
 	animation_player.play("exitdoor")
 	player.velocity.x = 0
 	player.disabletitlt = true
+	if player.modulate == Color(0, 0, 0, 1):
+		fadetowhite = true
 	
 func physics_update(_delta: float) -> void:
 	footstepsfx()
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
+	if fadetowhite and player.modulate.r8 < 255:
+		var amount = 5
+		player.modulate.r8 += amount
+		player.modulate.b8 += amount
+		player.modulate.g8 += amount
 	if player.animatonframes == 11:
 		state_machine.transition_to("Idle")
 		global.combotimer.paused = false

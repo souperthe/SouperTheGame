@@ -17,3 +17,8 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 texture = ExtResource( 37 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( -50, -50, 100, 100 )
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

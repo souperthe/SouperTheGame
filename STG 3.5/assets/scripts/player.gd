@@ -471,7 +471,7 @@ func penismanswitcher():
 func deadgun():
 	var whiteflash = preload("res://assets/objects/deadthing.tscn")
 	var ghost: KinematicBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	ghost.velocity.y = -900
@@ -484,7 +484,7 @@ func deadgun():
 func goofysound():
 	var whiteflash = preload("res://assets/objects/sillysfx3d.tscn")
 	var ghost: Node2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.playsound = true
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
@@ -492,7 +492,7 @@ func goofysound():
 func hurteffect():
 	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
 	var ghost: Node2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position = self.position
 	ghost.amount = 500
 

@@ -36,7 +36,7 @@ func kill(speed):
 func explode():
 	var whiteflash = preload("res://assets/objects/explosion.tscn")
 	var ghost: RigidBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = phonex
 	ghost.position.y = phoney
 	ghost.canhurt = false

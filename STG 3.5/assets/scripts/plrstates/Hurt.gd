@@ -67,7 +67,7 @@ func goback():
 func createdead1():
 	var whiteflash = preload("res://assets/objects/deadthing.tscn")
 	var ghost: KinematicBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = player.position.x
 	ghost.position.y = player.position.y
 	ghost.velocity.y = -900

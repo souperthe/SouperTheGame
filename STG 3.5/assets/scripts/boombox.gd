@@ -66,7 +66,7 @@ func deadsound():
 func hurteffect():
 	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
 	var ghost: Node2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position = self.position
 	ghost.position.y -= 27
 	ghost.amount = 500

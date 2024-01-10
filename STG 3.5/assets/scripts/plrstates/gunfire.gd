@@ -39,7 +39,7 @@ func physics_update(delta: float) -> void:
 func createbullet():
 	var whiteflash = preload("res://assets/objects/bullet.tscn")
 	var ghost: KinematicBody2D = whiteflash.instance()
-	get_tree().get_current_scene().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = player.position.x
 	ghost.position.y = player.position.y
 	var bulletspeed = 800
