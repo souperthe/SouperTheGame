@@ -15,7 +15,7 @@ func _ready():
 
 
 func _process(_delta):
-	
+	trail()
 	velocity = move_and_slide(velocity, Vector2.UP, true)
 	if is_on_wall():
 		deadgun()
@@ -48,7 +48,7 @@ func trail():
 	var dashtrail = preload("res://assets/objects/playerdashtrail.tscn")
 	var ghost: AnimatedSprite = dashtrail.instance()
 	var animator = $Sprite
-	get_parent().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.playing = false
 	ghost.flip_h = animator.flip_h
 	ghost.global_position = global_position
@@ -61,8 +61,8 @@ func trail():
 	ghost.frame = animator.frame
 	ghost.rotation = animator.rotation
 	ghost.modulate.r8 = 255
-	ghost.modulate.g8 = 0
-	ghost.modulate.b8 = 0
+	ghost.modulate.g8 = 255
+	ghost.modulate.b8 = 255
 
 
 

@@ -215,7 +215,7 @@ func attackwait():
 func dashtrail():
 	var dashtrail = preload("res://assets/objects/playerdashtrail.tscn")
 	var ghost: AnimatedSprite = dashtrail.instance()
-	get_parent().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.playing = false
 	ghost.flip_h = is_movingleft
 	ghost.global_position = global_position

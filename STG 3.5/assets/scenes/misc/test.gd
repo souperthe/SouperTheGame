@@ -32,7 +32,7 @@ func createguy():
 	var nth = array.size()
 	var dashtrail = array
 	var ghost: KinematicBody2D = dashtrail.instance()
-	get_parent().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.position = position
 	
 func creategu2():

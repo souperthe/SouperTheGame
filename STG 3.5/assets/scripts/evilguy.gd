@@ -84,7 +84,7 @@ func trail():
 	var dashtrail = preload("res://assets/objects/playerdashtrail.tscn")
 	var ghost: AnimatedSprite = dashtrail.instance()
 	var animator = $Funnyboulder
-	get_parent().add_child(ghost)
+	roomhandle.currentscene.add_child(ghost)
 	ghost.playing = false
 	ghost.flip_h = animator.flip_h
 	ghost.global_position = global_position
