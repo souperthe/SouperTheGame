@@ -513,7 +513,7 @@ color_ramp = SubResource( 33 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "angryidle"
-frame = 4
+frame = 8
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1012,7 +1012,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 22
+frame = 1
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

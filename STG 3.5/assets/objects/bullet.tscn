@@ -28,6 +28,7 @@ scale = Vector2( 0.56, 0.56 )
 frames = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.57079
 shape = SubResource( 1 )
 
@@ -36,6 +37,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemycheck"]
+visible = false
 shape = SubResource( 2 )
 
 [node name="wallcheck" type="Area2D" parent="."]
@@ -43,6 +45,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wallcheck"]
+visible = false
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="enemycheck" to="." method="_on_enemycheck_body_entered"]

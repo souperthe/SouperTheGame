@@ -99,6 +99,7 @@ onready var darkeffect = $darkeffect
 onready var sfxfire = $gunfire
 onready var sfxkick = $upperkick
 onready var cayatotime = $coyatotime
+onready var iframestimer = $iframes
 var penisman = false
 var canpenis = true
 
@@ -321,7 +322,8 @@ func trail():
 
 
 func _on_enemych_body_entered(body):
-	body.kill(velocity.x)
+	if !$iframes.time_left > 0:
+		body.kill(velocity.x)
 	attacksfx.stop()
 	
 func respawn():

@@ -13,6 +13,9 @@ func _ready():
 	#modulate = colors[randi() % colors.size()]
 	#modulate = colors[make_color_hsv(randi() % colors.size())]
 	
+func _physics_process(delta):
+	playing = false
+	
 	
 
 func _on_Tween_tween_all_completed():

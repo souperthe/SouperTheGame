@@ -60,9 +60,9 @@ func trail():
 	ghost.animation = animator.animation
 	ghost.frame = animator.frame
 	ghost.rotation = animator.rotation
-	ghost.modulate.r8 = 255
-	ghost.modulate.g8 = 255
-	ghost.modulate.b8 = 255
+	ghost.modulate.r8 = 215
+	ghost.modulate.g8 = 138
+	ghost.modulate.b8 = 0
 
 
 

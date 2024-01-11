@@ -19,7 +19,7 @@ var cutmusic = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var t = Timer.new()
-	t.set_wait_time(0.2)
+	t.set_wait_time(0.1)
 	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()
@@ -155,6 +155,8 @@ func exitgate():
 	global.restartlevel = global.targetRoom2
 	global.restartdoor = global.targetdoor
 	music.temp = 0
+	ct._treset()
+	ct._tout()
 	if global.hardmode:
 		music.playmusic = false
 		objplayer.gun = true
