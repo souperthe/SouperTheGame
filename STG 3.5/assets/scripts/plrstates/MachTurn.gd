@@ -25,7 +25,7 @@ func _ready():
 func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
-	player.velocity.x = lerp(player.velocity.x, 0, 5 * delta)
+	player.velocity.x = lerp(player.velocity.x, 0, 8 * delta)
 	
 	if player.animatonframes > 3:
 		if !is_zero_approx(player.get_input_direction()):
