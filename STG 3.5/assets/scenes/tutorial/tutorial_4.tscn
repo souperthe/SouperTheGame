@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=2]
@@ -12,11 +12,14 @@
 [ext_resource path="res://assets/objects/treasure.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/objects/scenedoorlocked.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/objects/key.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=13]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="DoorLocked" parent="." instance=ExtResource( 11 )]
 position = Vector2( -4736, 915 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/tutorial/tutorial_5.tscn"
 
 [node name="collide" parent="." instance=ExtResource( 4 )]
 position = Vector2( -512, 512 )
@@ -44,7 +47,7 @@ targetdoor = "door2"
 targetscene = "res://assets/scenes/tutorial/tutorial_3.tscn"
 
 [node name="camera" parent="." instance=ExtResource( 1 )]
-position = Vector2( -4320, 800 )
+position = Vector2( -3744, 768 )
 limit_left = -5184
 limit_top = 256
 limit_right = 0
@@ -128,3 +131,6 @@ position = Vector2( -5056, 928 )
 [node name="shmick4" parent="." instance=ExtResource( 7 )]
 position = Vector2( -4448, 896 )
 info = "this door requires a key, gay people are gay, null rewrite this"
+
+[node name="door2" parent="." instance=ExtResource( 13 )]
+position = Vector2( -4736, 928 )
