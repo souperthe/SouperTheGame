@@ -44,9 +44,9 @@ position = Vector2( -1664, 576 )
 scale = Vector2( 1, 3 )
 
 [node name="collide14" parent="." instance=ExtResource( 4 )]
-position = Vector2( -2752, 896 )
+position = Vector2( -2944, 896 )
 scale = Vector2( 2, 1 )
 
 [node name="collide15" parent="." instance=ExtResource( 4 )]
-position = Vector2( -2400, 704 )
+position = Vector2( -2592, 704 )
 scale = Vector2( 2, 4 )
