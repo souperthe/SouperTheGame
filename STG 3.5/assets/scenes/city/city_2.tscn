@@ -21,7 +21,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Door" parent="." instance=ExtResource( 16 )]
-position = Vector2( 7936, -429 )
+position = Vector2( 8192, -429 )
 targetdoor = "door1"
 targetscene = "res://assets/scenes/city/city_3.tscn"
 
@@ -224,10 +224,10 @@ position = Vector2( 6144, -672 )
 
 [node name="collide-slope2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 7424, -384 )
-scale = Vector2( 4, 3 )
+scale = Vector2( 8, 3 )
 
 [node name="collide15" parent="." instance=ExtResource( 4 )]
-position = Vector2( 7680, -384 )
+position = Vector2( 7936, -384 )
 scale = Vector2( 8, 1 )
 
 [node name="collide16" parent="." instance=ExtResource( 4 )]
@@ -258,30 +258,23 @@ scale = Vector2( 6, 1 )
 position = Vector2( 2752, -1208 )
 info = "what are you doing up here?? get out of here!!"
 
-[node name="collide-slope3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 7680, -704 )
-scale = Vector2( -4, -3 )
-
 [node name="collide19" parent="." instance=ExtResource( 4 )]
-position = Vector2( 7616, -1088 )
-scale = Vector2( 1, 3 )
+position = Vector2( 7424, -1088 )
+scale = Vector2( 1, 6 )
 
 [node name="collide20" parent="." instance=ExtResource( 4 )]
-position = Vector2( 8128, -384 )
+position = Vector2( 8384, -384 )
 scale = Vector2( 1, -15 )
 
 [node name="collide21" parent="." instance=ExtResource( 4 )]
-position = Vector2( 7680, -1088 )
-scale = Vector2( 8, 1 )
+position = Vector2( 7488, -1088 )
+scale = Vector2( 14, 1 )
 
 [node name="door2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 7936, -416 )
+position = Vector2( 8192, -416 )
 
 [node name="EnemyDummy" parent="." instance=ExtResource( 17 )]
 position = Vector2( 2208, -320 )
 
 [node name="EnemyDummy2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 7808, -416 )
-
-[node name="EnemyDummy3" parent="." instance=ExtResource( 17 )]
-position = Vector2( 8064, -416 )
+position = Vector2( 8032, -416 )
