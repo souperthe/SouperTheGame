@@ -442,7 +442,7 @@ animations = [ {
 "frames": [ ExtResource( 116 ), ExtResource( 122 ), ExtResource( 106 ), ExtResource( 29 ), ExtResource( 29 ) ],
 "loop": false,
 "name": "fp_start",
-"speed": 12.0
+"speed": 18.0
 }, {
 "frames": [ ExtResource( 325 ), ExtResource( 320 ), ExtResource( 324 ), ExtResource( 326 ), ExtResource( 323 ), ExtResource( 322 ), ExtResource( 321 ), ExtResource( 321 ), ExtResource( 321 ) ],
 "loop": true,

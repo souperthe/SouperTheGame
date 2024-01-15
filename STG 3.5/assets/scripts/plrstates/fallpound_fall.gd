@@ -20,11 +20,12 @@ func enter(_msg := {}) -> void:
 	
 func physics_update(delta: float) -> void:
 	player.trail()
-	player.velocity.y += player.gravity * delta * 5
+	player.velocity.y += player.gravity * delta * 3
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
-	if Input.is_action_just_pressed(player.input_attack):
-		player.get_input_direction()
-		state_machine.transition_to("tumble")
+	walk()
+	#if Input.is_action_just_pressed(player.input_attack):
+		#player.get_input_direction()
+		#state_machine.transition_to("tumble")
 	if player.is_on_floor():
 		if global.camera:
 			global.camera.shake(10)
@@ -48,6 +49,15 @@ func exit() -> void:
 	player.mattackbox.disabled = true
 	player.fpfallsfx.stop()
 	player.mach3.stop()
+	
+func walk():
+	if Input.is_action_pressed(player.input_left):
+		player.velocity.x = -player.speed
+	if Input.is_action_pressed(player.input_right):
+		player.velocity.x = player.speed
+	if !Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
+		player.velocity.x = 0
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -6,14 +6,19 @@ onready var animation_player:AnimatedSprite = get_node(_animation_player)
 # var a = 2
 # var b = "text"
 
+var wallspeed = 0
+var canwallclimb = false
+
 
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
+	if player.currentstate != ("grapple"):
+		wallspeed = abs(player.velocity.x)
 	animation_player.play("grappleland")
 	player.sfxgrapple.play()
 	player.mach3.stop()
 	#player.velocity.x = 0
-	player.velocity.y = 0
+	player.velocity.y = player.velocity.x
 	player.machbox.disabled = true
 	player.emachbox.disabled = true
 	if !player.face:
@@ -28,9 +33,17 @@ func physics_update(delta: float) -> void:
 	if player.is_on_floor():
 		state_machine.transition_to("Idle")
 	if !player.is_on_wall():
-		state_machine.transition_to("Idle")
+		if canwallclimb:
+			state_machine.transition_to("Mach2")
+			player.velocity.y = 0
+			player.position.y - 64
+		if !canwallclimb:
+			state_machine.transition_to("Idle")
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
-	player.velocity.y += 200 * delta
+	if !canwallclimb:
+		player.velocity.y += 200 * delta
+	if canwallclimb:
+		player.velocity.y = -player.speedrun
 	if Input.is_action_just_pressed(player.input_jump):
 		dojump()
 	

@@ -32,8 +32,8 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("bump")
 	if Input.is_action_just_pressed(player.input_run):
 		state_machine.transition_to("Mach3")
-	if Input.is_action_just_pressed(player.input_jump):
-		state_machine.transition_to("mach_jump", {do_jump = true})
+	#if Input.is_action_just_pressed(player.input_jump):
+		#state_machine.transition_to("mach_jump", {do_jump = true})
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	if !player.face:
@@ -45,9 +45,11 @@ func physics_update(delta: float) -> void:
 			player.get_input_direction()
 			player.attacksfx.stop()
 			player.sjumpentersfx.play()
+			player.velocity.y = 0
 	if player.face:
 		player.velocity.x = -player.attack_impulse * 3
 		if Input.is_action_just_pressed(player.input_right):
+			player.velocity.y = 0
 			player.attackbox.disabled = true
 			player.eattackbox.disabled = true
 			state_machine.transition_to("Idle")
