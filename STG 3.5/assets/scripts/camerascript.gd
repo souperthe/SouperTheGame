@@ -63,9 +63,10 @@ func _process(_delta):
 			
 			
 func shake(amount):
+	randomize()
 	self.offset = Vector2(
-		rand.randf_range(-amount, amount),
-		rand.randf_range(-amount, amount)	
+		rand.randi_range(-amount, amount),
+		rand.randi_range(-amount, amount)	
 	)
 	
 			
