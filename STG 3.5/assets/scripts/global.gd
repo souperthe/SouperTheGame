@@ -65,7 +65,8 @@ func _ready():
 	
 	
 func _physics_process(_delta):
-	update_activity()
+	if OS.has_feature("64"):
+		update_activity()
 	runcinematic()
 	if score < 0:
 		score += abs(score)
