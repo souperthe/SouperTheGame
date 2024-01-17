@@ -1,6 +1,6 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=119 format=2]
 
-[ext_resource path="res://assets/tres_files/souper_anims.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/sound/sfx/sfx_slide.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_fall.gd" type="Script" id=3]
 [ext_resource path="res://assets/sound/sfx/sfx_fp_fall.wav" type="AudioStream" id=4]
@@ -42,8 +42,19 @@
 [ext_resource path="res://assets/sprites/asssmoke.png" type="Texture" id=40]
 [ext_resource path="res://assets/sprites/mach3fire.png" type="Texture" id=41]
 [ext_resource path="res://assets/sound/sfx/sfx_realstep.wav" type="AudioStream" id=42]
+[ext_resource path="res://assets/objects/Mobile.tscn" type="PackedScene" id=43]
+[ext_resource path="res://assets/objects/HUD.tscn" type="PackedScene" id=44]
+[ext_resource path="res://assets/objects/Pause.tscn" type="PackedScene" id=45]
+[ext_resource path="res://assets/scripts/plrstates/rollthing.gd" type="Script" id=46]
+[ext_resource path="res://assets/scripts/plrstates/brake.gd" type="Script" id=47]
 [ext_resource path="res://assets/scripts/plrstates/MachPrep.gd" type="Script" id=48]
-[ext_resource path="res://assets/sound/sfx/sfx_jump.wav" type="AudioStream" id=50]
+[ext_resource path="res://assets/scripts/plrstates/bossdead.gd" type="Script" id=49]
+[ext_resource path="res://assets/scripts/plrstates/machfall.gd" type="Script" id=50]
+[ext_resource path="res://assets/fonts/COMIC.TTF" type="DynamicFontData" id=51]
+[ext_resource path="res://assets/scripts/plrstates/crouchair.gd" type="Script" id=52]
+[ext_resource path="res://assets/scripts/plrstates/crouch.gd" type="Script" id=53]
+[ext_resource path="res://assets/scripts/plrstates/upperkick.gd" type="Script" id=54]
+[ext_resource path="res://assets/scripts/collectchec.gd" type="Script" id=55]
 [ext_resource path="res://assets/sound/sfx/sfx_machcancle.wav" type="AudioStream" id=56]
 [ext_resource path="res://assets/scripts/plrstates/Hurt.gd" type="Script" id=57]
 [ext_resource path="res://assets/sound/sfx/sfx_hurt.wav" type="AudioStream" id=58]
@@ -51,8 +62,19 @@
 [ext_resource path="res://assets/scripts/plrstates/Mach3.gd" type="Script" id=60]
 [ext_resource path="res://assets/sound/sfx/sfx_buildup.wav" type="AudioStream" id=61]
 [ext_resource path="res://assets/sound/sfx/sfx_machready.wav" type="AudioStream" id=62]
+[ext_resource path="res://assets/scripts/plrstates/gunfire.gd" type="Script" id=63]
+[ext_resource path="res://assets/tres_files/REALsouoperanimations.tres" type="SpriteFrames" id=64]
+[ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=65]
+[ext_resource path="res://assets/fonts/new_dynamicfont2.tres" type="DynamicFont" id=66]
+[ext_resource path="res://assets/sprites/player_souper/upthing.png" type="Texture" id=67]
+[ext_resource path="res://assets/scripts/plrstates/diving.gd" type="Script" id=68]
 [ext_resource path="res://assets/scripts/plrstates/MachTurn.gd" type="Script" id=69]
 [ext_resource path="res://assets/sound/sfx/sfx_hitwall.wav" type="AudioStream" id=70]
+[ext_resource path="res://assets/sound/sfx/sfx_jumpnew.wav" type="AudioStream" id=71]
+[ext_resource path="res://assets/sound/sfx/sfx_spinning.wav" type="AudioStream" id=72]
+[ext_resource path="res://assets/sound/sfx/sfx_gunfire.wav" type="AudioStream" id=73]
+[ext_resource path="res://assets/sound/sfx/sfx_upperkick.wav" type="AudioStream" id=74]
+[ext_resource path="res://assets/scripts/plrstates/crouchsliding.gd" type="Script" id=75]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
 [ext_resource path="res://assets/scripts/plrstates/Nothing.gd" type="Script" id=93]
 [ext_resource path="res://assets/scripts/plrstates/MachClimb.gd" type="Script" id=94]
@@ -67,108 +89,7 @@
 [ext_resource path="res://assets/sprites/hitpartical0001.png" type="Texture" id=156]
 [ext_resource path="res://assets/sprites/hitpartical0003.png" type="Texture" id=157]
 
-[sub_resource type="Curve" id=11]
-min_value = -360.0
-max_value = 360.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=13]
-curve = SubResource( 11 )
-
-[sub_resource type="Gradient" id=8]
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=14]
-gradient = SubResource( 8 )
-
-[sub_resource type="Curve" id=12]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.00681818 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=15]
-curve = SubResource( 12 )
-
-[sub_resource type="ParticlesMaterial" id=10]
-lifetime_randomness = 1.0
-flag_disable_z = true
-direction = Vector3( 0, -300, 0 )
-spread = 180.0
-flatness = 1.0
-gravity = Vector3( 0, -300, 0 )
-initial_velocity = 1000.0
-initial_velocity_random = 1.0
-angular_velocity = 296.47
-angular_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 1.0
-linear_accel = 100.0
-linear_accel_random = 1.0
-radial_accel = 20.0
-angle = 720.0
-angle_random = 1.0
-angle_curve = SubResource( 13 )
-scale = 0.5
-scale_random = 1.0
-scale_curve = SubResource( 15 )
-color_ramp = SubResource( 14 )
-
-[sub_resource type="Curve" id=24]
-min_value = -360.0
-max_value = 360.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.997685, 316.636 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=25]
-curve = SubResource( 24 )
-
-[sub_resource type="Gradient" id=26]
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=27]
-gradient = SubResource( 26 )
-
-[sub_resource type="Curve" id=28]
-min_value = -30.12
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.967593, 0.363454 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=29]
-curve = SubResource( 28 )
-
-[sub_resource type="ParticlesMaterial" id=30]
-trail_divisor = 6
-flag_disable_z = true
-spread = 180.0
-gravity = Vector3( 0, -50, 0 )
-initial_velocity = 1.0
-angular_velocity = 402.42
-angular_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-angle = 1.0
-angle_random = 1.0
-angle_curve = SubResource( 25 )
-scale = 0.5
-scale_random = 0.3
-scale_curve = SubResource( 29 )
-color_ramp = SubResource( 27 )
-
-[sub_resource type="ParticlesMaterial" id=31]
-trail_divisor = 6
-flag_disable_z = true
-spread = 180.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 1.0
-angular_velocity = 402.42
-angular_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-angle = 1.0
-angle_random = 1.0
-angle_curve = SubResource( 25 )
-scale = 0.5
-scale_random = 0.3
-scale_curve = SubResource( 29 )
-color_ramp = SubResource( 27 )
-
-[sub_resource type="Shader" id=21]
+[sub_resource type="Shader" id=44]
 code = "shader_type canvas_item;
 
 uniform vec4 flash_color : hint_color = vec4(1.0);
@@ -184,10 +105,56 @@ void fragment() {
 	
 }"
 
-[sub_resource type="ShaderMaterial" id=22]
-shader = SubResource( 21 )
+[sub_resource type="ShaderMaterial" id=45]
+shader = SubResource( 44 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/flash_modifier = 0.0
+
+[sub_resource type="CapsuleShape2D" id=17]
+radius = 13.5
+height = 101.571
+
+[sub_resource type="CapsuleShape2D" id=55]
+radius = 13.5
+height = 40.0
+
+[sub_resource type="DynamicFont" id=52]
+size = 37
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 51 )
+
+[sub_resource type="Curve" id=11]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.00681818 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=8]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=24]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.997685, 316.636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=34]
+min_value = -30.12
+_data = [ Vector2( 0.00537635, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.935484, -3.38509 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=33]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=28]
+min_value = -30.12
+_data = [ Vector2( 0.00537635, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.935484, -3.38509 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=26]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 2.86727 )
@@ -204,10 +171,37 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 0.5 ),
-"transitions": PoolRealArray( 1e-05, 1e-05 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 0.411765 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 0.462745 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 0.462745 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=53]
+resource_name = "reset"
+tracks/0/type = "value"
+tracks/0/path = NodePath("animation:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("animation:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -217,24 +211,48 @@ tracks/0/path = NodePath("animation:material")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 1,
-"values": [ SubResource( 22 ), SubResource( 22 ) ]
+"values": [  ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("animation:material:shader_param/flash_modifier")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:material:shader_param/flash_modifier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 1.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:material:shader_param/flash_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -242,49 +260,60 @@ custom_solver_bias = 1.0
 extents = Vector2( 13.6018, 45.1507 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 80.2837, 11.4691 )
+extents = Vector2( 50, 27.1631 )
+
+[sub_resource type="RectangleShape2D" id=49]
+extents = Vector2( 7.41576, 2.19077 )
+
+[sub_resource type="RectangleShape2D" id=50]
+extents = Vector2( 5.55694, 3.35636 )
 
 [sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 8.02647, 2.64015 )
+extents = Vector2( 8.12568, 2.64015 )
 
-[sub_resource type="CapsuleShape2D" id=17]
-radius = 13.5
-height = 83.7143
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 5.55694, 2.86485 )
 
 [sub_resource type="CircleShape2D" id=20]
 radius = 60.6355
 
-[sub_resource type="Gradient" id=33]
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+[sub_resource type="AudioStreamRandomPitch" id=41]
+audio_stream = ExtResource( 39 )
 
-[sub_resource type="GradientTexture" id=35]
-gradient = SubResource( 33 )
-
-[sub_resource type="Curve" id=34]
-min_value = -30.12
-_data = [ Vector2( 0.00537635, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.935484, -3.38509 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=36]
-curve = SubResource( 34 )
-
-[sub_resource type="ParticlesMaterial" id=37]
-trail_divisor = 7
-emission_shape = 2
-emission_box_extents = Vector3( 10, 1, 1 )
-flag_disable_z = true
-spread = 0.0
-gravity = Vector3( 0, 5, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.4
-scale_curve = SubResource( 36 )
-color_ramp = SubResource( 35 )
-
-[sub_resource type="AudioStreamRandomPitch" id=38]
+[sub_resource type="AudioStreamRandomPitch" id=39]
 audio_stream = ExtResource( 42 )
 random_pitch = 1.05
 
+[sub_resource type="Shader" id=42]
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
+
+
+
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
+	COLOR = color;
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=22]
+shader = SubResource( 42 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 1.0
+
+[sub_resource type="AudioStreamRandomPitch" id=43]
+audio_stream = ExtResource( 73 )
+random_pitch = 1.05
+
+[sub_resource type="AudioStreamRandomPitch" id=54]
+audio_stream = ExtResource( 74 )
+
 [node name="Player2" type="KinematicBody2D" groups=["Player"]]
+material = SubResource( 45 )
 z_index = 2
 input_pickable = true
 collision/safe_margin = 0.5
@@ -292,69 +321,224 @@ script = ExtResource( 11 )
 playernumber = 1
 _animation_player = NodePath("animation")
 
-[node name="hitpart3" type="Particles2D" parent="."]
+[node name="normal" type="CollisionShape2D" parent="."]
+modulate = Color( 0.219608, 1, 0, 1 )
+position = Vector2( 0, 9 )
+scale = Vector2( 0.56, 0.56 )
+z_index = 2
+shape = SubResource( 17 )
+
+[node name="crouching" type="CollisionShape2D" parent="."]
+modulate = Color( 0.219608, 1, 0, 1 )
+position = Vector2( 0, 26 )
+scale = Vector2( 0.56, 0.56 )
+z_index = 2
+shape = SubResource( 55 )
+disabled = true
+
+[node name="darkeffect" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_left = -892.0
+margin_top = -582.0
+margin_right = 1028.0
+margin_bottom = 498.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Mobile" parent="CanvasLayer" instance=ExtResource( 43 )]
+visible = false
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 127
+visible = false
+
+[node name="deadtext" type="RichTextLabel" parent="PauseLayer"]
+margin_left = 316.0
+margin_top = 437.0
+margin_right = 656.0
+margin_bottom = 491.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color_shadow = Color( 0.462745, 0.462745, 0.462745, 0 )
+custom_fonts/bold_font = ExtResource( 66 )
+custom_fonts/normal_font = SubResource( 52 )
+bbcode_enabled = true
+bbcode_text = "[center][shake rate=15.0 level=15 connected=0]Press X to restart[/shake][/center]"
+text = "Press X to restart"
+fit_content_height = true
+
+[node name="Pause" parent="PauseLayer" instance=ExtResource( 45 )]
+
+[node name="HUD" parent="." instance=ExtResource( 44 )]
+layer = 125
+visible = false
+
+[node name="hitpart3" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 4
 one_shot = true
 speed_scale = 1.2
 explosiveness = 1.0
 randomness = 1.0
+lifetime_randomness = 1.0
 fract_delta = false
 local_coords = false
 draw_order = 1
-process_material = SubResource( 10 )
 texture = ExtResource( 157 )
+direction = Vector2( 0, -300 )
+spread = 180.0
+gravity = Vector2( 0, -300 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = 296.47
+angular_velocity_random = 1.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 20.0
+angle = 720.0
+angle_random = 1.0
+angle_curve = SubResource( 11 )
+scale_amount = 0.5
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 12 )
+color_ramp = SubResource( 8 )
 
-[node name="hitpart2" type="Particles2D" parent="."]
+[node name="hitpart2" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 4
 one_shot = true
 speed_scale = 1.2
 explosiveness = 1.0
 randomness = 1.0
+lifetime_randomness = 1.0
 local_coords = false
 draw_order = 1
-process_material = SubResource( 10 )
 texture = ExtResource( 155 )
+direction = Vector2( 0, -300 )
+spread = 180.0
+gravity = Vector2( 0, -300 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = 296.47
+angular_velocity_random = 1.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 20.0
+angle = 720.0
+angle_random = 1.0
+angle_curve = SubResource( 11 )
+scale_amount = 0.5
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 12 )
+color_ramp = SubResource( 8 )
 
-[node name="hitpart1" type="Particles2D" parent="."]
+[node name="hitpart1" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 4
 one_shot = true
 speed_scale = 1.2
 explosiveness = 1.0
 randomness = 1.0
+lifetime_randomness = 1.0
 local_coords = false
 draw_order = 1
-process_material = SubResource( 10 )
 texture = ExtResource( 156 )
+direction = Vector2( 0, -300 )
+spread = 180.0
+gravity = Vector2( 0, -300 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = 296.47
+angular_velocity_random = 1.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 20.0
+angle = 720.0
+angle_random = 1.0
+angle_curve = SubResource( 11 )
+scale_amount = 0.5
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 12 )
+color_ramp = SubResource( 8 )
 
-[node name="runpart" type="Particles2D" parent="."]
+[node name="runpart" type="CPUParticles2D" parent="."]
 position = Vector2( 0, 43 )
-amount = 15
+emitting = false
+amount = 10
 lifetime = 2.0
 speed_scale = 2.0
 randomness = 1.0
 fract_delta = false
 local_coords = false
-process_material = SubResource( 30 )
 texture = ExtResource( 28 )
+spread = 180.0
+gravity = Vector2( 0, -50 )
+initial_velocity = 1.0
+angular_velocity = 402.42
+angular_velocity_random = 1.0
+angle = 1.0
+angle_random = 1.0
+angle_curve = SubResource( 24 )
+scale_amount = 0.5
+scale_amount_random = 0.3
+scale_amount_curve = SubResource( 34 )
+color_ramp = SubResource( 33 )
 
-[node name="asspart" type="Particles2D" parent="."]
+[node name="mach3part" type="CPUParticles2D" parent="."]
+position = Vector2( 0, 36 )
+scale = Vector2( 0.7, 0.7 )
+emitting = false
+amount = 500
+lifetime = 2.0
+randomness = 1.0
+fract_delta = false
+local_coords = false
+texture = ExtResource( 41 )
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 1 )
+spread = 0.0
+gravity = Vector2( 0, 5 )
+scale_amount = 0.4
+scale_amount_curve = SubResource( 28 )
+color_ramp = SubResource( 26 )
+
+[node name="asspart" type="CPUParticles2D" parent="."]
 position = Vector2( -2, 30 )
+emitting = false
 amount = 15
 lifetime = 2.0
 speed_scale = 2.0
 randomness = 1.0
 fract_delta = false
 local_coords = false
-process_material = SubResource( 31 )
 texture = ExtResource( 40 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1.0
+angular_velocity = 402.42
+angular_velocity_random = 1.0
+angle = 1.0
+angle_random = 1.0
+angle_curve = SubResource( 24 )
+scale_amount = 0.5
+scale_amount_random = 0.3
+scale_amount_curve = SubResource( 34 )
+color_ramp = SubResource( 33 )
 
 [node name="animation" type="AnimatedSprite" parent="."]
-material = SubResource( 22 )
-rotation = 0.00151305
 scale = Vector2( 0.56, 0.56 )
-frames = ExtResource( 1 )
+frames = ExtResource( 64 )
 animation = "idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -396,6 +580,10 @@ _animation_player = NodePath("../../animation")
 
 [node name="MachTurn" type="Node" parent="StateMachine"]
 script = ExtResource( 69 )
+_animation_player = NodePath("../../animation")
+
+[node name="machfall" type="Node" parent="StateMachine"]
+script = ExtResource( 50 )
 _animation_player = NodePath("../../animation")
 
 [node name="Hurt" type="Node" parent="StateMachine"]
@@ -494,8 +682,44 @@ _animation_player = NodePath("../../animation")
 script = ExtResource( 36 )
 _animation_player = NodePath("../../animation")
 
+[node name="rollthing" type="Node" parent="StateMachine"]
+script = ExtResource( 46 )
+_animation_player = NodePath("../../animation")
+
+[node name="bossdead" type="Node" parent="StateMachine"]
+script = ExtResource( 49 )
+_animation_player = NodePath("../../animation")
+
+[node name="brake" type="Node" parent="StateMachine"]
+script = ExtResource( 47 )
+_animation_player = NodePath("../../animation")
+
+[node name="gunfire" type="Node" parent="StateMachine"]
+script = ExtResource( 63 )
+_animation_player = NodePath("../../animation")
+
+[node name="crouch" type="Node" parent="StateMachine"]
+script = ExtResource( 53 )
+_animation_player = NodePath("../../animation")
+
+[node name="crouchsliding" type="Node" parent="StateMachine"]
+script = ExtResource( 75 )
+_animation_player = NodePath("../../animation")
+
+[node name="crouchair" type="Node" parent="StateMachine"]
+script = ExtResource( 52 )
+_animation_player = NodePath("../../animation")
+
+[node name="upperkick" type="Node" parent="StateMachine"]
+script = ExtResource( 54 )
+_animation_player = NodePath("../../animation")
+
+[node name="diving" type="Node" parent="StateMachine"]
+script = ExtResource( 68 )
+_animation_player = NodePath("../../animation")
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( -4, 44 )
+position = Vector2( 0, 44 )
 enabled = true
 cast_to = Vector2( 0, 5 )
 collision_mask = 1024
@@ -512,12 +736,12 @@ bus = "SFX"
 script = ExtResource( 30 )
 
 [node name="ladderchecker" type="Area2D" parent="."]
-position = Vector2( -4, 17 )
+position = Vector2( 0, 14 )
 collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ladderchecker"]
-position = Vector2( 0, 27.1 )
+position = Vector2( 0, 30.1 )
 scale = Vector2( 0.56, 0.56 )
 shape = SubResource( 3 )
 
@@ -526,7 +750,7 @@ wait_time = 0.6
 one_shot = true
 
 [node name="jump" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 50 )
+stream = ExtResource( 71 )
 bus = "SFX"
 script = ExtResource( 30 )
 
@@ -553,12 +777,14 @@ wait_time = 0.4
 one_shot = true
 
 [node name="machcancel" type="AudioStreamPlayer2D" parent="."]
+visible = false
 stream = ExtResource( 56 )
 bus = "SFX"
 script = ExtResource( 30 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/hurt = SubResource( 5 )
+anims/reset = SubResource( 53 )
 anims/startmach3 = SubResource( 23 )
 
 [node name="hurt" type="AudioStreamPlayer2D" parent="."]
@@ -574,10 +800,10 @@ bus = "SFX"
 script = ExtResource( 30 )
 
 [node name="hurtimer" type="Timer" parent="."]
-wait_time = 1.3
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -4, 14 )
 scale = Vector2( 0.56, 0.56 )
 shape = SubResource( 4 )
@@ -625,14 +851,19 @@ shape = SubResource( 6 )
 disabled = true
 
 [node name="machch" type="Area2D" parent="."]
-visible = false
 collision_layer = 256
 collision_mask = 256
 
 [node name="machcol" type="CollisionShape2D" parent="machch"]
-position = Vector2( -4, 0.999999 )
+position = Vector2( 46.5, -2 )
 scale = Vector2( 5.73104, 17.802 )
-shape = SubResource( 16 )
+shape = SubResource( 49 )
+disabled = true
+
+[node name="middlemachcol" type="CollisionShape2D" parent="machch"]
+position = Vector2( 0, 4.25001 )
+scale = Vector2( 3.97104, 17.802 )
+shape = SubResource( 50 )
 disabled = true
 
 [node name="fp_fall" type="AudioStreamPlayer2D" parent="."]
@@ -642,37 +873,56 @@ volume_db = -6.117
 bus = "SFX"
 
 [node name="enemych" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
 collision_mask = 8
 
 [node name="attackcol" type="CollisionShape2D" parent="enemych"]
 modulate = Color( 0.478431, 0, 1, 1 )
-position = Vector2( 3.06258e-06, 12.8454 )
+position = Vector2( 36, 16.7887 )
 scale = Vector2( 0.56, 0.56 )
 shape = SubResource( 6 )
 disabled = true
 
 [node name="machcol" type="CollisionShape2D" parent="enemych"]
-position = Vector2( 0, -3 )
+position = Vector2( 31.7326, 0 )
 scale = Vector2( 3.97104, 17.802 )
 shape = SubResource( 16 )
 disabled = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( -4, 14 )
-scale = Vector2( 0.56, 0.56 )
-shape = SubResource( 17 )
+[node name="middleattack" type="CollisionShape2D" parent="enemych"]
+position = Vector2( 0, 4.00003 )
+scale = Vector2( 3.97104, 17.802 )
+shape = SubResource( 51 )
+disabled = true
 
-[node name="poundpart" type="Particles2D" parent="."]
+[node name="poundpart" type="CPUParticles2D" parent="."]
 position = Vector2( 0, 39 )
+emitting = false
 amount = 19
 one_shot = true
 explosiveness = 1.0
+lifetime_randomness = 1.0
 local_coords = false
 draw_order = 1
-process_material = SubResource( 10 )
 texture = ExtResource( 5 )
+direction = Vector2( 0, -300 )
+spread = 180.0
+gravity = Vector2( 0, -300 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = 296.47
+angular_velocity_random = 1.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 20.0
+angle = 720.0
+angle_random = 1.0
+angle_curve = SubResource( 11 )
+scale_amount = 0.5
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 12 )
+color_ramp = SubResource( 8 )
 
 [node name="hitceiling" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
@@ -687,22 +937,20 @@ bus = "SFX"
 script = ExtResource( 30 )
 
 [node name="hallwaydetect" type="Area2D" parent="."]
-visible = false
 collision_layer = 32768
 collision_mask = 32768
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hallwaydetect"]
-position = Vector2( -4, 14 )
+position = Vector2( 0, 14 )
 scale = Vector2( 0.56, 0.56 )
 shape = SubResource( 4 )
 
 [node name="hurtblockdetect" type="Area2D" parent="."]
-visible = false
 collision_layer = 512
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtblockdetect"]
-position = Vector2( -4, 14 )
+position = Vector2( 0, 14 )
 scale = Vector2( 0.56, 0.56 )
 shape = SubResource( 4 )
 
@@ -719,6 +967,7 @@ script = ExtResource( 30 )
 visible = false
 collision_layer = 1073741824
 collision_mask = 1073741824
+script = ExtResource( 55 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="collectchec"]
 position = Vector2( -4, 14 )
@@ -744,7 +993,7 @@ bus = "SFX"
 
 [node name="lavacheck" type="Area2D" parent="."]
 modulate = Color( 0.0784314, 0.980392, 0, 1 )
-position = Vector2( -4, 17 )
+position = Vector2( 0, 17 )
 collision_layer = 4194304
 collision_mask = 4194304
 
@@ -758,31 +1007,64 @@ stream = ExtResource( 38 )
 bus = "SFX"
 
 [node name="burnscream" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 39 )
+stream = SubResource( 41 )
 bus = "SFX"
-script = ExtResource( 30 )
 
 [node name="playernotice" type="Sprite" parent="."]
-modulate = Color( 0.0784314, 0, 1, 1 )
+visible = false
+modulate = Color( 0.00784314, 0, 1, 1 )
 position = Vector2( 0, -78 )
 scale = Vector2( 0.56, 0.56 )
 texture = ExtResource( 27 )
 
-[node name="mach3part" type="Particles2D" parent="."]
-position = Vector2( 0, 36 )
-scale = Vector2( 0.7, 0.7 )
-amount = 500
-lifetime = 2.0
-randomness = 1.0
-fract_delta = false
-local_coords = false
-process_material = SubResource( 37 )
-texture = ExtResource( 41 )
+[node name="thing" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -65 )
+scale = Vector2( 0.56, 0.56 )
+texture = ExtResource( 67 )
 
 [node name="realste" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 0, 44 )
-stream = SubResource( 38 )
-volume_db = -2.0
+stream = SubResource( 39 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="swooshing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 72 )
+volume_db = -6.0
+bus = "SFX"
+
+[node name="animation2" type="AnimatedSprite" parent="."]
+visible = false
+material = SubResource( 22 )
+scale = Vector2( 0.255, 0.255 )
+frames = ExtResource( 65 )
+animation = "idle"
+frame = 13
+playing = true
+
+[node name="gunfire" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 43 )
+volume_db = -1.676
+bus = "SFX"
+
+[node name="coyatotime" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="iframes" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="upperkick" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 54 )
+volume_db = -1.676
+bus = "SFX"
+
+[node name="slide" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = 1.0
+pitch_scale = 0.9
 bus = "SFX"
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
@@ -795,3 +1077,4 @@ bus = "SFX"
 [connection signal="body_entered" from="hurtblockdetect" to="." method="_on_hurtblockdetect_body_entered"]
 [connection signal="body_entered" from="playermach" to="." method="_on_machch_body_entered"]
 [connection signal="body_entered" from="lavacheck" to="." method="_on_lavacheck_body_entered"]
+[connection signal="timeout" from="iframes" to="." method="_on_iframes_timeout"]

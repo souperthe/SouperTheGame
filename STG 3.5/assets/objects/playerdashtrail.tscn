@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/tres_files/souper_anims.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/tres_files/REALsouoperanimations.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/dashtrailtween.gd" type="Script" id=2]
 [ext_resource path="res://assets/scripts/playerdashtrail.gd" type="Script" id=3]
 
@@ -26,7 +26,7 @@ void fragment() {
 resource_local_to_scene = true
 shader = SubResource( 1 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
-shader_param/flash_modifier = 0.605
+shader_param/flash_modifier = 0.528
 
 [node name="dashtrail" type="AnimatedSprite"]
 modulate = Color( 1, 0, 0, 1 )
@@ -36,7 +36,7 @@ rotation = 4.96473e-05
 scale = Vector2( 0.56, 0.56 )
 z_index = 1
 frames = ExtResource( 1 )
-animation = "slip"
+animation = "idlepanic"
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]

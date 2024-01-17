@@ -69,7 +69,7 @@ position = Vector2( 992, 414 )
 scale = Vector2( -4, 1 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2176, 1854 )
+position = Vector2( 2208, 1854 )
 limit_left = 0
 limit_top = 0
 limit_right = 7360

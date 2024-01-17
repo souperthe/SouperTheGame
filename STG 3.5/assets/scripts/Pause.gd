@@ -5,6 +5,7 @@ var selection = 1
 var canselect = true
 var canpause = true
 var settings = false
+export (bool) var enabled
 onready var show = $CenterContainer/RightBar/Show
 func _ready():
 	show.position.y = 126
@@ -14,7 +15,8 @@ func _process(_delta):
 	if roomhandle.currentscene.name == "menu" and roomhandle.currentscene.name == "rankroom":
 		pass
 	if !roomhandle.currentscene.name == "menu" and !roomhandle.currentscene.name == "rankroom":
-		menu()
+		if enabled:
+			menu()
 	#print(selection)
 	
 

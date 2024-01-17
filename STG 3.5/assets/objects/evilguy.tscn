@@ -45,7 +45,7 @@ script = ExtResource( 2 )
 [node name="Funnyboulder" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 12 )
-frame = 3
+frame = 8
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -64,11 +64,13 @@ func _on_escapesmallcollectable_area_entered(_area):
 			global.addscore(25)
 			global.escaperoom.append(global.targetRoom2 + name)
 			global.escapeplaysmall()
-			cancollect = false
-			var t = Timer.new()
-			t.set_wait_time(0.2)
-			t.set_one_shot(true)
-			self.add_child(t)
-			t.start()
-			yield(t, "timeout")
+			numberthing("+25")
 			queue_free()
+			
+func numberthing(amount):
+	var dashtrail = preload("res://assets/objects/smallnumber.tscn")
+	var ghost: Node2D = dashtrail.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x + 50
+	ghost.position.y = self.position.y
+	ghost.number = str(amount)

@@ -34,6 +34,14 @@ func _on_treasure_body_entered(body):
 			collect()
 	pass # Replace with function body.
 	
+func numberthing(amount):
+	var dashtrail = preload("res://assets/objects/smallnumber.tscn")
+	var ghost: Node2D = dashtrail.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x + 50
+	ghost.position.y = self.position.y
+	ghost.number = str(amount)
+	
 func collect():
 	$AudioStreamPlayer2D.play()
 	global.combotimer.paused = true
@@ -51,7 +59,8 @@ func collect():
 	t.start()
 	yield(t, "timeout")
 	player.idle()
-	global.addscore(650)
+	global.addscore(1000)
+	numberthing("+1000")
 	global.combotimer.paused = false
 	global.resetcombo()
 	global.collectablesroom.append(global.targetRoom2 + name)

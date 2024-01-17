@@ -39,20 +39,22 @@ func _on_smallcollectable_body_entered(_body):
 	global.addscore(25)
 	queue_free()
 	global.playsmall()
+	
+func numberthing(amount):
+	var dashtrail = preload("res://assets/objects/smallnumber.tscn")
+	var ghost: Node2D = dashtrail.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x + 50
+	ghost.position.y = self.position.y
+	ghost.number = str(amount)
 
 
 
 func _on_smallcollectable_area_entered(_area):
 	if cancollect:
 		global.resetcombo()
+		numberthing(str("+", 25))
 		global.addscore(25)
 		global.collectablesroom.append(global.targetRoom2 + name)
 		global.playsmall()
-		cancollect = false
-		var t = Timer.new()
-		t.set_wait_time(0.2)
-		t.set_one_shot(true)
-		self.add_child(t)
-		t.start()
-		yield(t, "timeout")
 		queue_free()

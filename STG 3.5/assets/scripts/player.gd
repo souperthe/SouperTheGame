@@ -206,7 +206,10 @@ func _physics_process(_delta):
 		$normal.disabled = true
 		$crouching.disabled = false
 	if !iscrouching:
-		$normal.disabled = false
+		if currentstate == "Ladder":
+			$normal.disabled = true
+		if !currentstate == "Ladder":
+			$normal.disabled = false
 		$crouching.disabled = true
 	#print(animatonframes)
 	#f Input.is_action_pressed("2jump") and !twop_active:
@@ -254,6 +257,16 @@ func hurtplayer():
 	if !currentstate == "bossdead":
 		dohurt()
 
+func numberthing(amount):
+	var dashtrail = preload("res://assets/objects/smallnumber.tscn")
+	var ghost: Node2D = dashtrail.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x + 50
+	ghost.position.y = self.position.y
+	ghost.number = str(amount)
+	ghost.green = false
+	
+	
 func dohurt():
 	if canhurt:
 		if global.bosslevel:
@@ -270,8 +283,10 @@ func dohurt():
 		if !global.bosslevel:
 			if !global.score == 0 && !global.hardmode:
 				global.score -= 100
+				numberthing("-100")
 			if !global.score == 0 && global.hardmode:
-				global.score -= 100 * 2
+				global.score -= 100 * 5
+				numberthing(str("-", 100 * 5))
 			canhurt = false
 			$iframes.start()
 			$StateMachine.transition_to("Hurt")

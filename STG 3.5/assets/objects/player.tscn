@@ -372,6 +372,7 @@ text = "Press X to restart"
 fit_content_height = true
 
 [node name="Pause" parent="PauseLayer" instance=ExtResource( 150 )]
+enabled = true
 
 [node name="HUD" parent="." instance=ExtResource( 88 )]
 layer = 125
@@ -1037,7 +1038,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 1
+frame = 28
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

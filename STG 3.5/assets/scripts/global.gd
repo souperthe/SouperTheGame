@@ -208,6 +208,23 @@ func ranks():
 		if !laps == 0:
 			rank = "6/5"
 			
+func instance_create(x, y, scene):
+	var loadedscene = load(scene)
+	var id = loadedscene.instance()
+	roomhandle.currentscene.add_child(id)
+	id.position = Vector2(x, y)
+	return id
+			
+func get_instance_level(node):
+	var instancenode = roomhandle.currentscene.get_node_or_null(node)
+	return instancenode
+			
+func delete_tile_at(position):
+	var level_tilemap = get_instance_level("TileMap")
+	if level_tilemap != null:
+		var local_position = level_tilemap.to_local(position)
+		var tile_position = level_tilemap.world_to_map(local_position)
+		level_tilemap.set_cell(tile_position.x, tile_position.y, -1)
 
 
 
