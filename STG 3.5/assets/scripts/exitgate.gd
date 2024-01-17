@@ -175,7 +175,7 @@ func exitgate():
 	yield(t, "timeout")
 	global.cutscene = false
 	zoomin2 = true
-	global.makeflash()
+	#global.makeflash()
 	if global.hardmode:
 		presobjs.createtod()
 	$slam.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=120 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -116,7 +116,7 @@ height = 101.571
 
 [sub_resource type="CapsuleShape2D" id=55]
 radius = 13.5
-height = 40.0
+height = 26.0
 
 [sub_resource type="DynamicFont" id=52]
 size = 37
@@ -312,6 +312,9 @@ random_pitch = 1.05
 [sub_resource type="AudioStreamRandomPitch" id=54]
 audio_stream = ExtResource( 68 )
 
+[sub_resource type="RectangleShape2D" id=56]
+extents = Vector2( 10, 20 )
+
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 material = SubResource( 45 )
 z_index = 2
@@ -329,7 +332,7 @@ shape = SubResource( 17 )
 
 [node name="crouching" type="CollisionShape2D" parent="."]
 modulate = Color( 0.219608, 1, 0, 1 )
-position = Vector2( 0, 26 )
+position = Vector2( 0, 30.2 )
 scale = Vector2( 0.56, 0.56 )
 z_index = 2
 shape = SubResource( 55 )
@@ -1038,7 +1041,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 28
+frame = 5
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1065,6 +1068,14 @@ volume_db = 1.0
 pitch_scale = 0.9
 bus = "SFX"
 
+[node name="detectcrouch" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectcrouch"]
+position = Vector2( 0, -5 )
+shape = SubResource( 56 )
+
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
 [connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]
 [connection signal="timeout" from="dashtimer" to="StateMachine/MachPrep" method="_on_dashtimer_timeout"]
@@ -1076,3 +1087,5 @@ bus = "SFX"
 [connection signal="body_entered" from="playermach" to="." method="_on_machch_body_entered"]
 [connection signal="body_entered" from="lavacheck" to="." method="_on_lavacheck_body_entered"]
 [connection signal="timeout" from="iframes" to="." method="_on_iframes_timeout"]
+[connection signal="body_entered" from="detectcrouch" to="." method="_on_detectcrouch_body_entered"]
+[connection signal="body_exited" from="detectcrouch" to="." method="_on_detectcrouch_body_exited"]

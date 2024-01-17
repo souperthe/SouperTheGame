@@ -403,7 +403,7 @@ scale = Vector2( 4, 1 )
 
 [node name="collide29" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3328, -512 )
-scale = Vector2( 8, 2 )
+scale = Vector2( 8, 3.5 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 5184, -384 )

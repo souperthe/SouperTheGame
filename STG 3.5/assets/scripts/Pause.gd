@@ -135,6 +135,7 @@ func menu():
 					$AnimationPlayer.play("fadein")
 					canselect = false
 					$song.stop()
+					canpause = false
 					yield(get_tree().create_timer(1.0), "timeout")
 					get_tree().paused = !get_tree().paused
 					music.stopmusic()
@@ -146,6 +147,7 @@ func menu():
 					$AnimationPlayer.play("reset")
 					paused = !paused
 					self.visible = !self.visible
+					canpause = true
 					canselect = true
 		
 		

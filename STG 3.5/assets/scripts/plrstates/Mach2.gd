@@ -4,6 +4,7 @@ export (NodePath) var _animation_player
 onready var animation_player:AnimatedSprite = get_node(_animation_player)
 
 var speed = 1050
+var lastxvel
 var mach3speed = 1580
 var canjump = true
 # Declare member variables here. Examples:
@@ -13,11 +14,16 @@ var canjump = true
 
 # Called when the node enters the scene tree for the first time.
 func enter(msg := {}) -> void:
+	if !player.currentstate == ("diving"):
+		lastxvel = player.velocity.x
 	animation_player.play("mach2")
 	player.mach3.play()
 	player.candoor = 1
 	player.velocity.y = 0
-	speed = 1050
+	if lastxvel < 1050:
+		speed = 1050
+	if !lastxvel < 1050:
+		speed = lastxvel
 	player.speedpart.emitting = false
 	player.pmachbox.disabled = false
 	player.machbox.disabled = false

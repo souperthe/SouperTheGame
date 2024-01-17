@@ -24,7 +24,7 @@ func physics_update(delta: float) -> void:
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
 	if player.is_on_floor() and Input.is_action_just_pressed(player.input_jump):
 		state_machine.transition_to("mach_jump", {do_jump = true})
-	if !Input.is_action_pressed(player.input_down):
+	if !Input.is_action_pressed(player.input_down) and player.canuncrouch:
 		state_machine.transition_to("Mach2")
 	if player.is_on_wall():
 		state_machine.transition_to("bumpwall")

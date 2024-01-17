@@ -52,6 +52,7 @@ var canhurt = true
 var disabletitlt = false
 var bosshealth = 8
 var currentstate 
+var canuncrouch = true
 
 var velocity := Vector2.DOWN
 
@@ -102,6 +103,7 @@ onready var sfxkick = $upperkick
 onready var sfxslide = $slide
 onready var cayatotime = $coyatotime
 onready var iframestimer = $iframes
+onready var uncrouchdetect = $detectcrouch
 var penisman = false
 var canpenis = true
 
@@ -161,7 +163,7 @@ func _ready():
 
 func _physics_process(_delta):
 	if currentstate == "crouchsliding":
-		sfxslide.volume_db = lerp(sfxslide.volume_db, 0.7, 0.2)
+		sfxslide.volume_db = lerp(sfxslide.volume_db, 1, 0.5)
 		if !sfxslide.playing:
 			sfxslide.play()
 	if !currentstate == "crouchsliding":
@@ -534,4 +536,24 @@ func hurteffect():
 
 func _on_iframes_timeout():
 	canhurt = true
+	pass # Replace with function body.
+
+
+func _on_detectcrouch_area_exited(area):
+	canuncrouch = true
+	pass # Replace with function body.
+
+
+func _on_detectcrouch_area_entered(area):
+	canuncrouch = false
+	pass # Replace with function body.
+
+
+func _on_detectcrouch_body_entered(body):
+	canuncrouch = false
+	pass # Replace with function body.
+
+
+func _on_detectcrouch_body_exited(body):
+	canuncrouch = true
 	pass # Replace with function body.
