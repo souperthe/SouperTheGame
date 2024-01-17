@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -72,6 +72,7 @@
 [ext_resource path="res://assets/sound/sfx/sfx_hitwall.wav" type="AudioStream" id=70]
 [ext_resource path="res://assets/scripts/plrstates/crouchsliding.gd" type="Script" id=71]
 [ext_resource path="res://assets/scripts/plrstates/diving.gd" type="Script" id=72]
+[ext_resource path="res://assets/sound/sfx/sfx_slide.wav" type="AudioStream" id=73]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
 [ext_resource path="res://assets/objects/HUD.tscn" type="PackedScene" id=88]
 [ext_resource path="res://assets/scripts/plrstates/Nothing.gd" type="Script" id=93]
@@ -534,6 +535,7 @@ color_ramp = SubResource( 33 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1035,7 +1037,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 21
+frame = 1
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1054,6 +1056,12 @@ one_shot = true
 [node name="upperkick" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 54 )
 volume_db = -1.676
+bus = "SFX"
+
+[node name="slide" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 73 )
+volume_db = 1.0
+pitch_scale = 0.9
 bus = "SFX"
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]

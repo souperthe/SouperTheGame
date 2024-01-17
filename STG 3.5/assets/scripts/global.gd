@@ -65,7 +65,7 @@ func _ready():
 	
 	
 func _physics_process(_delta):
-	if OS.has_feature("64"):
+	if !OS.has_feature("32") and !OS.has_feature("Andriod"):
 		update_activity()
 	runcinematic()
 	if score < 0:

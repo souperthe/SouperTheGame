@@ -6,6 +6,8 @@ export (NodePath) var _animation_player
 onready var animation_player:AnimatedSprite = get_node(_animation_player)
 # Declare member variables here. Examples:
 func enter(_msg := {}) -> void:
+	player.machbox.disabled = false
+	player.emachbox.disabled = false
 	animation_player.play("dive")
 	player.sjumpentersfx.play()
 	#player.velocity.y = -player.jump_impulse
@@ -20,13 +22,18 @@ func enter(_msg := {}) -> void:
 func physics_update(delta: float) -> void:
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	player.velocity.y = 100 * 7.5
+	player.trail()
 	#player.velocity.y = abs(lastxvel / 1.2)
 	if player.is_on_wall():
 		state_machine.transition_to("bump")
+		player.machbox.disabled = true
+		player.emachbox.disabled = true
 	if player.is_on_floor():
 		state_machine.transition_to("crouchsliding")
 	if Input.is_action_just_pressed(player.input_jump):
 		player.attacksfx.play()
 		player.change.play()
 		player.velocity.y = -100 * 10
+		player.machbox.disabled = true
+		player.emachbox.disabled = true
 		state_machine.transition_to("fallpound_start")

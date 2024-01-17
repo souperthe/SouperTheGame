@@ -23,7 +23,7 @@ func physics_update(delta: float) -> void:
 	player.velocity.x = lerp(player.velocity.x, 0, player.air_friction * delta)
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)	
-	if player.animatonframes > 7:
+	if player.animatonframes > 4:
 		state_machine.transition_to("Idle")
 		
 		

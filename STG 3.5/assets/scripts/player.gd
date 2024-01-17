@@ -99,6 +99,7 @@ onready var upthing = $thing
 onready var darkeffect = $darkeffect
 onready var sfxfire = $gunfire
 onready var sfxkick = $upperkick
+onready var sfxslide = $slide
 onready var cayatotime = $coyatotime
 onready var iframestimer = $iframes
 var penisman = false
@@ -159,6 +160,13 @@ func _ready():
 
 
 func _physics_process(_delta):
+	if currentstate == "crouchsliding":
+		sfxslide.volume_db = lerp(sfxslide.volume_db, 0.7, 0.2)
+		if !sfxslide.playing:
+			sfxslide.play()
+	if !currentstate == "crouchsliding":
+		#sfxslide.stop()
+		sfxslide.volume_db = lerp(sfxslide.volume_db, -88, 0.1)
 	#trail()
 	if $iframes.time_left == 0:
 		canhurt = true
