@@ -27,7 +27,7 @@ func physics_update(delta: float) -> void:
 	if animation_player.animation == ("crouchstart"):
 		if player.animatonframes > 3:
 			animation_player.play("crouchidle")
-	if Input.is_action_just_released(player.input_down):
+	if !Input.is_action_pressed(player.input_down):
 		state_machine.transition_to("Idle")
 		animation_player.play("crouchdone")
 	if not player.is_on_floor():

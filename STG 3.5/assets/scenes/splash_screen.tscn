@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/sound/sfx/sfx_splash.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/sound/sfx/sfx_transitionin.wav" type="AudioStream" id=7]
-[ext_resource path="res://assets/sprites/splashscreen.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/splashscreen 4.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=2]
 length = 0.001

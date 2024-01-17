@@ -19,10 +19,12 @@ func _process(_delta):
 		
 func ladderthing():
 	if objplayer.currentstate == ("Ladder"):
-		objplayer.collide.disabled = true
+		#objplayer.collide.disabled = true
+		pass
 		#$CollisionShape2D.disabled = true
 	if !objplayer.currentstate == ("Ladder"):
-		objplayer.collide.disabled = false
+		#objplayer.collide.disabled = false
+		pass
 		#$CollisionShape2D.disabled = false
 		
 

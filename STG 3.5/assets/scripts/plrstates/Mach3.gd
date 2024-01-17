@@ -70,8 +70,10 @@ func physics_update(delta: float) -> void:
 	if player.is_on_floor() and Input.is_action_just_pressed(player.input_up):
 		state_machine.transition_to("sjump_prep")
 		player.mach4.stop()
+	if player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
+		state_machine.transition_to("crouchsliding")
 	if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
-		state_machine.transition_to("fallpound_start")
+		state_machine.transition_to("diving")
 		player.mach4.stop()
 		
 		

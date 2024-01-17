@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=2]
+[gd_scene load_steps=118 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -70,6 +70,8 @@
 [ext_resource path="res://assets/sound/sfx/sfx_upperkick.wav" type="AudioStream" id=68]
 [ext_resource path="res://assets/scripts/plrstates/MachTurn.gd" type="Script" id=69]
 [ext_resource path="res://assets/sound/sfx/sfx_hitwall.wav" type="AudioStream" id=70]
+[ext_resource path="res://assets/scripts/plrstates/crouchsliding.gd" type="Script" id=71]
+[ext_resource path="res://assets/scripts/plrstates/diving.gd" type="Script" id=72]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
 [ext_resource path="res://assets/objects/HUD.tscn" type="PackedScene" id=88]
 [ext_resource path="res://assets/scripts/plrstates/Nothing.gd" type="Script" id=93]
@@ -106,6 +108,14 @@ void fragment() {
 shader = SubResource( 44 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/flash_modifier = 0.0
+
+[sub_resource type="CapsuleShape2D" id=17]
+radius = 13.5
+height = 101.571
+
+[sub_resource type="CapsuleShape2D" id=55]
+radius = 13.5
+height = 40.0
 
 [sub_resource type="DynamicFont" id=52]
 size = 37
@@ -263,10 +273,6 @@ extents = Vector2( 8.12568, 2.64015 )
 [sub_resource type="RectangleShape2D" id=51]
 extents = Vector2( 5.55694, 2.86485 )
 
-[sub_resource type="CapsuleShape2D" id=17]
-radius = 13.5
-height = 83.7143
-
 [sub_resource type="CircleShape2D" id=20]
 radius = 60.6355
 
@@ -312,6 +318,21 @@ input_pickable = true
 collision/safe_margin = 0.5
 script = ExtResource( 11 )
 _animation_player = NodePath("animation")
+
+[node name="normal" type="CollisionShape2D" parent="."]
+modulate = Color( 0.219608, 1, 0, 1 )
+position = Vector2( 0, 9 )
+scale = Vector2( 0.56, 0.56 )
+z_index = 2
+shape = SubResource( 17 )
+
+[node name="crouching" type="CollisionShape2D" parent="."]
+modulate = Color( 0.219608, 1, 0, 1 )
+position = Vector2( 0, 26 )
+scale = Vector2( 0.56, 0.56 )
+z_index = 2
+shape = SubResource( 55 )
+disabled = true
 
 [node name="darkeffect" type="ColorRect" parent="."]
 visible = false
@@ -512,8 +533,7 @@ color_ramp = SubResource( 33 )
 [node name="animation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "angryidle"
-frame = 6
+animation = "idle"
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -677,12 +697,20 @@ _animation_player = NodePath("../../animation")
 script = ExtResource( 64 )
 _animation_player = NodePath("../../animation")
 
+[node name="crouchsliding" type="Node" parent="StateMachine"]
+script = ExtResource( 71 )
+_animation_player = NodePath("../../animation")
+
 [node name="crouchair" type="Node" parent="StateMachine"]
 script = ExtResource( 65 )
 _animation_player = NodePath("../../animation")
 
 [node name="upperkick" type="Node" parent="StateMachine"]
 script = ExtResource( 67 )
+_animation_player = NodePath("../../animation")
+
+[node name="diving" type="Node" parent="StateMachine"]
+script = ExtResource( 72 )
 _animation_player = NodePath("../../animation")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -862,11 +890,6 @@ scale = Vector2( 3.97104, 17.802 )
 shape = SubResource( 51 )
 disabled = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 14 )
-scale = Vector2( 0.56, 0.56 )
-shape = SubResource( 17 )
-
 [node name="poundpart" type="CPUParticles2D" parent="."]
 position = Vector2( 0, 39 )
 emitting = false
@@ -1012,7 +1035,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 14
+frame = 21
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

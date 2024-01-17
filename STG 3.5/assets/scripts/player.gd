@@ -15,6 +15,7 @@ var defaultscale = 0.56
 
 var haskey = false
 var gun = false
+var iscrouching = false
 
 
 
@@ -192,6 +193,13 @@ func _physics_process(_delta):
 			$HUD/HUD.visible = true
 		if roomhandle.currentscene.name == "rankroom":
 			$HUD/HUD.visible = false
+	iscrouching = currentstate == "crouch" or currentstate == "crouchair" or currentstate == "crouchsliding"
+	if iscrouching:
+		$normal.disabled = true
+		$crouching.disabled = false
+	if !iscrouching:
+		$normal.disabled = false
+		$crouching.disabled = true
 	#print(animatonframes)
 	#f Input.is_action_pressed("2jump") and !twop_active:
 		#wop_active = true

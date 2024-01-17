@@ -14,7 +14,7 @@ func enter(_msg := {}) -> void:
 			player.formexit.play()
 			player.form = false
 	player.hitpartical()
-	player.velocity.y = -player.jump_impulse
+	player.velocity.y = -player.jump_impulse * 1.2
 	player.mach3.stop()
 	player.hurtsfx.play()
 	player.hurttimer.start()

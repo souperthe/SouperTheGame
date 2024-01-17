@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/scenedoor.tscn" type="PackedScene" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=19]
 [ext_resource path="res://assets/scenes/entrance/house_TILE.tres" type="TileSet" id=20]
-[ext_resource path="res://assets/sprites/forkplaceholder.png" type="Texture" id=21]
 [ext_resource path="res://assets/sprites/up arrow.png" type="Texture" id=22]
 
 [node name="Node2D" type="Node2D"]
@@ -376,16 +375,16 @@ position = Vector2( 1792, -1024 )
 scale = Vector2( 8, 1 )
 
 [node name="hurtblock2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2048, -672 )
+position = Vector2( 767.748, -608 )
 
 [node name="hurtblock3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2048, -640 )
+position = Vector2( 767.748, -576 )
 
 [node name="hurtblock4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2048, -608 )
+position = Vector2( 767.748, -544 )
 
 [node name="hurtblock5" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2048, -704 )
+position = Vector2( 767.748, -640 )
 
 [node name="collide21" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1728, -960 )
@@ -400,7 +399,7 @@ position = Vector2( 2240, -896 )
 scale = Vector2( 1, -1 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 17 )]
-position = Vector2( 2208, -640 )
+position = Vector2( 2058.05, -704 )
 
 [node name="collide22" parent="." instance=ExtResource( 1 )]
 position = Vector2( 768, -512 )
@@ -585,40 +584,31 @@ position = Vector2( 1440, -576 )
 position = Vector2( 1504, -576 )
 
 [node name="escapesmallcollectable18" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1920, -608 )
+position = Vector2( 1929.42, -608 )
 
 [node name="escapesmallcollectable19" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1952, -640 )
+position = Vector2( 1961.58, -640 )
 
 [node name="escapesmallcollectable20" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1920, -672 )
-
-[node name="escapesmallcollectable21" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1952, -704 )
-
-[node name="escapesmallcollectable22" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1920, -736 )
-
-[node name="escapesmallcollectable23" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1952, -768 )
+position = Vector2( 1993.73, -608 )
 
 [node name="escapesmallcollectable24" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2176, -608 )
+position = Vector2( 2025.89, -640 )
 
 [node name="escapesmallcollectable25" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2208, -640 )
+position = Vector2( 2090.2, -640 )
 
 [node name="escapesmallcollectable26" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2176, -672 )
+position = Vector2( 2058.05, -608 )
 
 [node name="escapesmallcollectable27" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2208, -704 )
+position = Vector2( 2122.36, -608 )
 
 [node name="escapesmallcollectable28" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2176, -736 )
+position = Vector2( 2154.52, -640 )
 
 [node name="escapesmallcollectable29" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2208, -768 )
+position = Vector2( 2186.68, -608 )
 
 [node name="escapesmallcollectable30" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3200, -544 )
@@ -727,8 +717,3 @@ position = Vector2( 960, 160 )
 
 [node name="escapesmallcollectable65" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1024, 128 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2062, -640 )
-scale = Vector2( 0.545421, 0.549534 )
-texture = ExtResource( 21 )
