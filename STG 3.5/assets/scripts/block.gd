@@ -11,7 +11,6 @@ var destoryed = false
 func _ready():
 	if (global.othersroom.has(global.targetRoom2 + name)):
 		queue_free()
-		deletetile()
 	$sprite.visible = true
 	$hitpart1.emitting = false
 	$hitpart2.emitting = false
@@ -41,11 +40,10 @@ func deletetile():
 	global.delete_tile_at(position3)
 	global.delete_tile_at(position4)
 func destory():
-	global.addcombo()
+	#global.addcombo()
 	$CollisionShape2D.queue_free()
 	hitpart()
 	deadsound()
-	deletetile()
 	$sprite.visible = false
 	global.othersroom.append(global.targetRoom2 + name)
 	var t = Timer.new()
@@ -55,6 +53,9 @@ func destory():
 	t.start()
 	yield(t, "timeout")
 	queue_free()
+	
+func kill(blahblah):
+	destory()
 	
 	
 func hitpart():

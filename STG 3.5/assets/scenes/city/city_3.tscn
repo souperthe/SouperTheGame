@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/scenes/city/bg.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/objects/switchblockalt.tscn" type="PackedScene" id=15]
 [ext_resource path="res://assets/objects/switchblock.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/objects/enemys/forkdevil.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/objects/block.tscn" type="PackedScene" id=18]
 
 [node name="Node2D" type="Node2D"]
 
@@ -407,3 +408,51 @@ scale = Vector2( 8, 3.5 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 5184, -384 )
+
+[node name="block" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3328, -288 )
+
+[node name="block2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3360, -288 )
+
+[node name="block3" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3392, -288 )
+
+[node name="block4" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3424, -288 )
+
+[node name="block5" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3456, -288 )
+
+[node name="block6" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3488, -288 )
+
+[node name="block7" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3520, -288 )
+
+[node name="block8" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3552, -288 )
+
+[node name="block9" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3584, -288 )
+
+[node name="block10" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3616, -288 )
+
+[node name="block11" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3648, -288 )
+
+[node name="block12" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3680, -288 )
+
+[node name="block13" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3712, -288 )
+
+[node name="block14" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3744, -288 )
+
+[node name="block15" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3776, -288 )
+
+[node name="block16" parent="." instance=ExtResource( 18 )]
+position = Vector2( 3808, -288 )

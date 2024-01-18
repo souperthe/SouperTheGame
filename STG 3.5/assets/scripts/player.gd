@@ -115,6 +115,7 @@ onready var playerthing = $playernotice
 onready var attackbox = $attackch/attackcol
 onready var machbox = $machch/machcol
 onready var eattackbox = $enemych/attackcol
+onready var ecattackbox = $enemych/crouchcol
 onready var emachbox = $enemych/machcol
 onready var pmachbox = $playermach/playermachcol
 onready var mattackbox = $enemych/middleattack

@@ -15,6 +15,8 @@ func _ready():
 
 
 func physics_update(delta: float) -> void:
+	if player.currentstate == "crouchsliding":
+		player.ecattackbox.disabled = false
 	player.trail()
 	#player.sfxslide.pitch_scale =  abs(player.velocity.x) / 700
 	#player.sfxslide.pitch_scale = abs(-player.velocity.x / 100)
@@ -35,6 +37,7 @@ func physics_update(delta: float) -> void:
 		
 func exit() -> void:
 	player.speedpart.emitting = false
+	player.ecattackbox.disabled = true
 	player.pmachbox.disabled = true
 	player.machbox.disabled = true
 	player.emachbox.disabled = true

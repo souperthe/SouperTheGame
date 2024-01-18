@@ -23,9 +23,10 @@ func physics_update(delta: float) -> void:
 		player.machbox.disabled = false
 		player.emachbox.disabled = false
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
-	player.velocity.x * 1.1
+	#player.velocity.x * 1.1
 	player.velocity.y += 1
 	player.trail()
+	#player.velocity.y = abs(lastxvel / 1.2)
 	#player.velocity.y = abs(lastxvel / 1.2)
 	if player.is_on_wall():
 		state_machine.transition_to("bump")

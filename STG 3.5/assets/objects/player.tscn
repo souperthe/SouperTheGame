@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=2]
+[gd_scene load_steps=121 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -260,7 +260,7 @@ custom_solver_bias = 1.0
 extents = Vector2( 13.6018, 45.1507 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 50, 27.1631 )
+extents = Vector2( 50, 22.6988 )
 
 [sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 7.41576, 2.19077 )
@@ -273,6 +273,9 @@ extents = Vector2( 8.12568, 2.64015 )
 
 [sub_resource type="RectangleShape2D" id=51]
 extents = Vector2( 5.55694, 2.86485 )
+
+[sub_resource type="RectangleShape2D" id=57]
+extents = Vector2( 34.8214, 22.6988 )
 
 [sub_resource type="CircleShape2D" id=20]
 radius = 60.6355
@@ -896,6 +899,13 @@ scale = Vector2( 3.97104, 17.802 )
 shape = SubResource( 51 )
 disabled = true
 
+[node name="crouchcol" type="CollisionShape2D" parent="enemych"]
+modulate = Color( 0.478431, 0, 1, 1 )
+position = Vector2( 30.5, 29.2887 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 57 )
+disabled = true
+
 [node name="poundpart" type="CPUParticles2D" parent="."]
 position = Vector2( 0, 39 )
 emitting = false
@@ -1041,7 +1051,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 5
+frame = 24
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
