@@ -12,10 +12,7 @@ func _ready():
 	if (global.othersroom.has(global.targetRoom2 + name)):
 		queue_free()
 	$sprite.visible = true
-	$hitpart1.emitting = false
-	$hitpart2.emitting = false
 	$hitpart3.emitting = false
-	$hitpart4.emitting = false
 	if destoryed:
 		destory()
 

@@ -20,6 +20,8 @@ func enter(_msg := {}) -> void:
 	
 
 func physics_update(_delta: float) -> void:
+	if !player.canuncrouch:
+		state_machine.transition_to("crouch")
 	if !animation_player.animation == "land" and !animation_player.animation == "crouchdone":
 		if player.gun:
 			animation_player.play("idlegun")

@@ -275,7 +275,7 @@ extents = Vector2( 8.12568, 2.5278 )
 extents = Vector2( 5.55694, 2.86485 )
 
 [sub_resource type="RectangleShape2D" id=57]
-extents = Vector2( 34.8214, 22.6988 )
+extents = Vector2( 72.3214, 21.4286 )
 
 [sub_resource type="CircleShape2D" id=20]
 radius = 60.6355
@@ -316,7 +316,7 @@ random_pitch = 1.05
 audio_stream = ExtResource( 68 )
 
 [sub_resource type="RectangleShape2D" id=56]
-extents = Vector2( 10, 20 )
+extents = Vector2( 7, 20 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 material = SubResource( 45 )
@@ -900,7 +900,7 @@ disabled = true
 
 [node name="crouchcol" type="CollisionShape2D" parent="enemych"]
 modulate = Color( 0.478431, 0, 1, 1 )
-position = Vector2( 30.5, 29.2887 )
+position = Vector2( 48.5, 31 )
 scale = Vector2( 0.56, 0.56 )
 shape = SubResource( 57 )
 disabled = true
@@ -1050,7 +1050,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 19
+frame = 29
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
