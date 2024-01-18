@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/objects/enemys/testicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/objects/FallZone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sprites/bgs/snow/5.png" type="Texture" id=9]
+[ext_resource path="res://assets/objects/exitgate.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/sprites/bgs/grass/sky.png" type="Texture" id=11]
 [ext_resource path="res://assets/scripts/win.gd" type="Script" id=14]
 
@@ -144,22 +145,30 @@ position = Vector2( 96736, -25216 )
 scale = Vector2( 50, 50 )
 
 [node name="platform" parent="." instance=ExtResource( 7 )]
-position = Vector2( 96864, -26496 )
+position = Vector2( 96864, -26528 )
 rotation = 1.57079
 scale = Vector2( 20, 1 )
 
 [node name="Area2D2" type="Area2D" parent="."]
-position = Vector2( 97024, -25702 )
+position = Vector2( 97024, -26182 )
 script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 0, -176 )
 shape = SubResource( 4 )
+disabled = true
 
 [node name="Enemy16" parent="." instance=ExtResource( 1 )]
 position = Vector2( 85632, -23008 )
 
 [node name="Enemy17" parent="." instance=ExtResource( 1 )]
 position = Vector2( 88960, -23808 )
+
+[node name="exitgate" parent="." instance=ExtResource( 10 )]
+position = Vector2( 160, 384 )
+
+[node name="collide4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 99296, -26656 )
+scale = Vector2( 50, 50 )
 
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]

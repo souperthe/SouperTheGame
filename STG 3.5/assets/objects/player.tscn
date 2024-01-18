@@ -269,7 +269,7 @@ extents = Vector2( 7.41576, 2.19077 )
 extents = Vector2( 5.55694, 3.35636 )
 
 [sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 8.12568, 2.64015 )
+extents = Vector2( 8.12568, 2.5278 )
 
 [sub_resource type="RectangleShape2D" id=51]
 extents = Vector2( 5.55694, 2.86485 )
@@ -542,7 +542,6 @@ color_ramp = SubResource( 33 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -888,7 +887,7 @@ shape = SubResource( 6 )
 disabled = true
 
 [node name="machcol" type="CollisionShape2D" parent="enemych"]
-position = Vector2( 31.7326, 0 )
+position = Vector2( 31.7326, -1.99997 )
 scale = Vector2( 3.97104, 17.802 )
 shape = SubResource( 16 )
 disabled = true
@@ -1051,7 +1050,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 24
+frame = 19
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

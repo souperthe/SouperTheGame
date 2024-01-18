@@ -23,8 +23,8 @@ func gotodoor():
 	velocity = Vector2(0,0)
 	$Funnyboulder.modulate.a8 = 0
 	#position = objplayer.position
-	if roomhandle.currentscene.get_node("escapephone"):
-		pause = true
+	#if roomhandle.currentscene.get_node("escapephone"):
+		#pause = true
 	if roomhandle.currentscene.get_node("treasure"):
 		pause = true
 	if pause:

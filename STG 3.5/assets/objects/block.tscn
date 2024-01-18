@@ -43,7 +43,6 @@ bus = "SFX"
 [node name="hitpart3" type="CPUParticles2D" parent="."]
 position = Vector2( 16, 16 )
 emitting = false
-amount = 6
 lifetime = 5.0
 one_shot = true
 speed_scale = 1.5

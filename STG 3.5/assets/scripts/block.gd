@@ -40,7 +40,7 @@ func deletetile():
 	global.delete_tile_at(position3)
 	global.delete_tile_at(position4)
 func destory():
-	#global.addcombo()
+	global.resetcombo()
 	$CollisionShape2D.queue_free()
 	hitpart()
 	deadsound()
@@ -59,10 +59,7 @@ func kill(blahblah):
 	
 	
 func hitpart():
-	$hitpart1.emitting = true
-	$hitpart2.emitting = true
 	$hitpart3.emitting = true
-	$hitpart4.emitting = true
 	
 func deadsound():
 	$hurt3.play()
