@@ -70,7 +70,7 @@ targetscene = "res://assets/scenes/entrance/entrance_1.tscn"
 
 [node name="lapportal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 800, 288 )
-targetscene = "res://assets/scenes/entrance/entrance_12.tscn"
+targetscene = "res://assets/scenes/entrance/entrance_11.tscn"
 
 [node name="escapesmallcollectable" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1792, 448 )

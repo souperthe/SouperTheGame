@@ -54,13 +54,21 @@ func gotolap():
 	global.fill.paused = false
 	global.escaperoom = []
 	
-
+func numberthing(amount):
+	var dashtrail = preload("res://assets/objects/smallnumber.tscn")
+	var ghost: Node2D = dashtrail.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x + 50
+	ghost.position.y = self.position.y
+	ghost.number = str(amount)
 
 func _on_lapportal_body_entered(body):
 	if body is Player:
 		if cangoin:
 			player = body
 			wentin = true
+			global.addscore(1000)
+			numberthing("+1000")
 	pass # Replace with function body.
 	
 func fadein():

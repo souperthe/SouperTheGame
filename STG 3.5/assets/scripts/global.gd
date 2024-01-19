@@ -205,8 +205,8 @@ func ranks():
 	if score > srank and treasure:
 		if laps == 0:
 			rank = "5/5"
-		if !laps == 0:
-			rank = "6/5"
+		#if !laps == 0:
+			#rank = "6/5"
 			
 func instance_create(x, y, scene):
 	var loadedscene = load(scene)

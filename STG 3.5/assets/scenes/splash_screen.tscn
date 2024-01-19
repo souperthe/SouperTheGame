@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/scripts/splash_screen.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/DEMO.png" type="Texture" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://assets/sound/sfx/sfx_splash.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/sound/sfx/sfx_transitionin.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/sprites/splashscreen 4.png" type="Texture" id=8]
+[ext_resource path="res://assets/sound/sfx/sfx_lowpiano.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/fonts/Isiniscript-lOJy.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="Animation" id=3]
+resource_name = "New Anim"
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -88,6 +93,52 @@ tracks/4/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "start2"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("yay2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RichTextLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 7, 9.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 34
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 10 )
+
 [node name="menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -109,8 +160,10 @@ scale = Vector2( 0.781, 0.781 )
 texture = ExtResource( 2 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 3 )
 anims/RESET = SubResource( 2 )
 anims/start = SubResource( 1 )
+anims/start2 = SubResource( 4 )
 
 [node name="door1" parent="." instance=ExtResource( 5 )]
 position = Vector2( -2528, 32 )
@@ -132,4 +185,27 @@ bus = "SFX"
 [node name="Splashscreen" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 480, 270 )
+scale = Vector2( 1.05, 1.05 )
 texture = ExtResource( 8 )
+
+[node name="yay2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = 1.0
+bus = "SFX"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 192.0
+margin_bottom = 192.0
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[center]All sprites, music, code, sound effects and animation are created and owned by Benjamin Blakeley built in the Godot game engine.
+
+Everything seen in this demo is subject to change with future builds and demos
+Please enjoy this demo Benjamin Blakeley has prepared..[/center]"
+text = "All sprites, music, code, sound effects and animation are created and owned by Benjamin Blakeley built in the Godot game engine.
+
+Everything seen in this demo is subject to change with future builds and demos
+Please enjoy this demo Benjamin Blakeley has prepared.."
+scroll_active = false
