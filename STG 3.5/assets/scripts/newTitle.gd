@@ -23,7 +23,6 @@ var modedick = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$play/AnimationPlayer.play("flash")
-	global.showcolloisions = false
 	$modeselect.rect_position.y = 540
 	$things.visible = true
 	var distance = -45

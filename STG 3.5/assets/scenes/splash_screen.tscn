@@ -193,18 +193,13 @@ volume_db = 1.0
 bus = "SFX"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 192.0
 margin_bottom = 192.0
 custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
-bbcode_text = "[center]All sprites, music, code, sound effects and animation are created and owned by Benjamin Blakeley built in the Godot game engine.
-
-Everything seen in this demo is subject to change with future builds and demos
-Please enjoy this demo Benjamin Blakeley has prepared..[/center]"
-text = "All sprites, music, code, sound effects and animation are created and owned by Benjamin Blakeley built in the Godot game engine.
-
-Everything seen in this demo is subject to change with future builds and demos
-Please enjoy this demo Benjamin Blakeley has prepared.."
+bbcode_text = "blsebfjkwbefjksbfkjefskj"
+text = "blsebfjkwbefjksbfkjefskj"
 scroll_active = false

@@ -12,6 +12,6 @@ func _ready():
 	$yay.stop()
 	yield(get_tree().create_timer(1.0), "timeout")
 	$anim.play("start")
-	yield(get_tree().create_timer(7.5), "timeout")
+	yield(get_tree().create_timer(6.5), "timeout")
 	ct._tout()
 	global.room_goto("res://assets/scenes/newTitle.tscn", "door1")
