@@ -212,7 +212,7 @@ position = Vector2( 256, 192 )
 scale = Vector2( 1, 2 )
 
 [node name="collide10" parent="." instance=ExtResource( 4 )]
-position = Vector2( -5624, -64 )
+position = Vector2( -5632, -64 )
 scale = Vector2( 92, 1 )
 
 [node name="collide-slope3" parent="." instance=ExtResource( 5 )]
