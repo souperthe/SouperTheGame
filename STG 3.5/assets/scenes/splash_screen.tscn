@@ -183,9 +183,8 @@ volume_db = -13.0
 bus = "SFX"
 
 [node name="Splashscreen" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 480, 270 )
-scale = Vector2( 1.05, 1.05 )
+scale = Vector2( 1.26181, 1.26181 )
 texture = ExtResource( 8 )
 
 [node name="yay2" type="AudioStreamPlayer" parent="."]
