@@ -1,3 +1,4 @@
+class_name Collision
 extends RigidBody2D
 
 

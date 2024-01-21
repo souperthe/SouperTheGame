@@ -29,6 +29,7 @@ func physics_update(delta: float) -> void:
 	#player.velocity.y = abs(lastxvel / 1.2)
 	#player.velocity.y = abs(lastxvel / 1.2)
 	if player.is_on_wall():
+		player.goofysound()
 		state_machine.transition_to("bump")
 		player.machbox.disabled = true
 		player.emachbox.disabled = true

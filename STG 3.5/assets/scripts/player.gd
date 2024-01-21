@@ -402,6 +402,7 @@ func reset():
 	music.musicvolume = 2
 	music.temp = 0
 	global.hidehud = false
+	global.secretsfound = 0
 	defaultdir()
 
 
@@ -551,10 +552,12 @@ func _on_detectcrouch_area_entered(area):
 
 
 func _on_detectcrouch_body_entered(body):
-	canuncrouch = false
+	if body is Collision:
+		canuncrouch = false
 	pass # Replace with function body.
 
 
 func _on_detectcrouch_body_exited(body):
-	canuncrouch = true
+	if body is Collision:
+		canuncrouch = true
 	pass # Replace with function body.

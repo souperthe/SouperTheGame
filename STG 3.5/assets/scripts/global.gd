@@ -10,6 +10,7 @@ var combo = 0
 var publicbuild = 0
 var sisyphusbuild = 0
 var score = 0
+var secretsfound = 0
 var level = "none"
 var restartlevel = "res://assets/scenes/test.tscn"
 var restartdoor = targetdoor
@@ -174,7 +175,7 @@ func escapeplaysmall():
 func roomstart():
 	if roomhandle.currentscene.name == "entrance":
 		rankworks = 1
-		srank = 10475
+		srank = 22150
 		arank = (global.srank - (global.srank / 4))
 		brank = (global.srank - ((global.srank / 4) * 2))
 		crank = (global.srank - ((global.srank / 4) * 3))

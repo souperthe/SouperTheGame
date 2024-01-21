@@ -1050,7 +1050,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 29
+frame = 20
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

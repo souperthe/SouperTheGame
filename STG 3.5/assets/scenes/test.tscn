@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/objects/misc/collosion_loopart1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/exitgate.tscn" type="PackedScene" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://assets/objects/shmick.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/objects/scenedoor.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/objects/block.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/objects/secretflag.tscn" type="PackedScene" id=21]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 54.0093
@@ -30,7 +32,7 @@ audio_stream = ExtResource( 11 )
 script = ExtResource( 15 )
 
 [node name="Lava" parent="." instance=ExtResource( 13 )]
-tile_data = PoolIntArray( 196688, 1, 0, 196689, 1, 0, 196690, 1, 0, 196691, 1, 0, 196692, 1, 0, 196693, 1, 0, 196694, 1, 0, 196695, 1, 0, 196696, 1, 0, 196697, 1, 0, 196698, 1, 0, 196699, 1, 0, 196700, 1, 0, 196701, 1, 0, 196702, 1, 0, 196703, 1, 0, 196704, 1, 0, 196705, 1, 0, 196706, 1, 0, 262224, 0, 0, 262225, 0, 0, 262226, 0, 0, 262227, 0, 0, 262228, 0, 0, 262229, 0, 0, 262230, 0, 0, 262231, 0, 0, 262232, 0, 0, 262233, 0, 0, 262234, 0, 0, 262235, 0, 0, 262236, 0, 0, 262237, 0, 0, 262238, 0, 0, 262239, 0, 0, 262240, 0, 0, 262241, 0, 0, 262242, 0, 0 )
+tile_data = PoolIntArray( 196688, 1, 0, 196689, 1, 0, 196690, 1, 0, 196691, 1, 0, 196692, 1, 0, 196693, 1, 0, 196694, 1, 0, 196695, 1, 0, 196696, 1, 0, 196697, 1, 0, 196698, 1, 0, 196699, 1, 0, 196700, 1, 0, 196701, 1, 0, 196702, 1, 0, 196703, 1, 0, 196704, 1, 0, 196705, 1, 0, 196706, 1, 0, 262224, 0, 0, 262225, 0, 0, 262226, 0, 0, 262227, 0, 0, 262228, 0, 0, 262229, 0, 0, 262230, 0, 0, 262231, 0, 0, 262232, 0, 0, 262233, 0, 0, 262234, 0, 0, 262235, 0, 0, 262236, 0, 0, 262237, 0, 0, 262238, 0, 0, 262239, 0, 0, 262240, 0, 0, 262241, 0, 0, 262242, 0, 0, 327760, 0, 0, 327761, 0, 0, 327762, 0, 0, 327763, 0, 0, 327764, 0, 0, 327765, 0, 0, 327766, 0, 0, 327767, 0, 0, 327768, 0, 0, 327769, 0, 0, 327770, 0, 0, 327771, 0, 0, 327772, 0, 0, 327773, 0, 0, 327774, 0, 0, 327775, 0, 0, 327776, 0, 0, 327777, 0, 0, 327778, 0, 0, 393296, 0, 0, 393297, 0, 0, 393298, 0, 0, 393299, 0, 0, 393300, 0, 0, 393301, 0, 0, 393302, 0, 0, 393303, 0, 0, 393304, 0, 0, 393305, 0, 0, 393306, 0, 0, 393307, 0, 0, 393308, 0, 0, 393309, 0, 0, 393310, 0, 0, 393311, 0, 0, 393312, 0, 0, 393313, 0, 0, 393314, 0, 0, 458832, 0, 0, 458833, 0, 0, 458834, 0, 0, 458835, 0, 0, 458836, 0, 0, 458837, 0, 0, 458838, 0, 0, 458839, 0, 0, 458840, 0, 0, 458841, 0, 0, 458842, 0, 0, 458843, 0, 0, 458844, 0, 0, 458845, 0, 0, 458846, 0, 0, 458847, 0, 0, 458848, 0, 0, 458849, 0, 0, 458850, 0, 0 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2144, 32 )
@@ -100,7 +102,7 @@ scale = Vector2( 20, 1 )
 position = Vector2( 723, 186 )
 
 [node name="boombox" parent="." instance=ExtResource( 16 )]
-position = Vector2( 3407, 65 )
+position = Vector2( 3712, 64 )
 
 [node name="shmick" parent="." instance=ExtResource( 17 )]
 position = Vector2( 203, -63 )
@@ -205,3 +207,114 @@ position = Vector2( 1568, 256 )
 
 [node name="block30" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1568, 288 )
+
+[node name="collide-slope" parent="." instance=ExtResource( 20 )]
+position = Vector2( 4448, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope2" parent="." instance=ExtResource( 20 )]
+position = Vector2( 4704, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope3" parent="." instance=ExtResource( 20 )]
+position = Vector2( 4704, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope4" parent="." instance=ExtResource( 20 )]
+position = Vector2( 4960, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope5" parent="." instance=ExtResource( 20 )]
+position = Vector2( 4960, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope6" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5216, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope7" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5216, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope8" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5472, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope9" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5472, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope10" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5728, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope11" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5728, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope12" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5984, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope13" parent="." instance=ExtResource( 20 )]
+position = Vector2( 5984, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope14" parent="." instance=ExtResource( 20 )]
+position = Vector2( 6240, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope15" parent="." instance=ExtResource( 20 )]
+position = Vector2( 6240, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope16" parent="." instance=ExtResource( 20 )]
+position = Vector2( 6496, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope17" parent="." instance=ExtResource( 20 )]
+position = Vector2( 6496, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope18" parent="." instance=ExtResource( 20 )]
+position = Vector2( 6752, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope19" parent="." instance=ExtResource( 20 )]
+position = Vector2( 6752, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope20" parent="." instance=ExtResource( 20 )]
+position = Vector2( 7008, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope21" parent="." instance=ExtResource( 20 )]
+position = Vector2( 7008, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope22" parent="." instance=ExtResource( 20 )]
+position = Vector2( 7264, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide-slope23" parent="." instance=ExtResource( 20 )]
+position = Vector2( 7264, 32 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope24" parent="." instance=ExtResource( 20 )]
+position = Vector2( 7520, 32 )
+scale = Vector2( -2, 1 )
+
+[node name="collide7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2560, 256 )
+scale = Vector2( 9.5, 1 )
+
+[node name="collide8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2496, 160 )
+scale = Vector2( 1, 2.5 )
+
+[node name="collide9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3168, 160 )
+scale = Vector2( 1, 2.5 )
+
+[node name="secretflag" parent="." instance=ExtResource( 21 )]
+position = Vector2( 3328, 96 )
