@@ -19,8 +19,8 @@ func numberthing(amount):
 	var dashtrail = preload("res://assets/objects/smallnumber.tscn")
 	var ghost: Node2D = dashtrail.instance()
 	roomhandle.currentscene.add_child(ghost)
-	ghost.position.x = self.position.x + 50
-	ghost.position.y = self.position.y
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y - 64
 	ghost.number = str(amount)
 	
 func _process(delta):

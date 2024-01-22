@@ -87,7 +87,7 @@ func _process(delta):
 		if selection == 3:
 			global.level = "none"
 			ct._tout()
-			global.room_goto("res://assets/scenes/misc/retros.tscn", "door1")
+			global.room_goto("res://assets/ignore/porting/1-1.tscn", "door1")
 			objplayer.reset()
 			if presobjs.player2:
 				presobjs.player2.reset()

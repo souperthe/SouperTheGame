@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/ignore/porting/Pipe.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Pipes" type="Node2D" parent="."]
+
+[node name="Pipe1" parent="Pipes" instance=ExtResource( 1 )]
+position = Vector2( 1856, 832 )
+
+[node name="Pipe2" parent="Pipes" instance=ExtResource( 1 )]
+position = Vector2( 2496, 768 )
+
+[node name="Pipe3" parent="Pipes" instance=ExtResource( 1 )]
+position = Vector2( 3008, 704 )
+
+[node name="Pipe4" parent="Pipes" instance=ExtResource( 1 )]
+position = Vector2( 3712, 704 )

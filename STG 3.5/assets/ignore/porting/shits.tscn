@@ -1,0 +1,171 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/ignore/porting/QuestionBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/ignore/porting/Brick.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ignore/porting/Pipe.tscn" type="PackedScene" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Section1" type="Node2D" parent="."]
+
+[node name="Boxes" type="Node2D" parent="Section1"]
+
+[node name="QuestionBox" parent="Section1/Boxes" instance=ExtResource( 1 )]
+position = Vector2( 1056, 672 )
+
+[node name="QuestionBox2" parent="Section1/Boxes" instance=ExtResource( 1 )]
+position = Vector2( 1376, 672 )
+
+[node name="QuestionBox3" parent="Section1/Boxes" instance=ExtResource( 1 )]
+position = Vector2( 1504, 672 )
+
+[node name="QuestionBox4" parent="Section1/Boxes" instance=ExtResource( 1 )]
+position = Vector2( 1440, 416 )
+
+[node name="Bricks" type="Node2D" parent="Section1"]
+
+[node name="Brick" parent="Section1/Bricks" instance=ExtResource( 4 )]
+position = Vector2( 1312, 672 )
+
+[node name="Brick2" parent="Section1/Bricks" instance=ExtResource( 4 )]
+position = Vector2( 1440, 672 )
+
+[node name="Brick3" parent="Section1/Bricks" instance=ExtResource( 4 )]
+position = Vector2( 1568, 672 )
+
+[node name="Pipes" type="Node2D" parent="Section1"]
+
+[node name="Pipe1" parent="Section1/Pipes" instance=ExtResource( 5 )]
+position = Vector2( 1856, 832 )
+
+[node name="Pipe2" parent="Section1/Pipes" instance=ExtResource( 5 )]
+position = Vector2( 2496, 768 )
+
+[node name="Pipe3" parent="Section1/Pipes" instance=ExtResource( 5 )]
+position = Vector2( 3008, 704 )
+
+[node name="Pipe4" parent="Section1/Pipes" instance=ExtResource( 5 )]
+position = Vector2( 3712, 704 )
+
+[node name="Section2" type="Node2D" parent="."]
+position = Vector2( 4576, 864 )
+
+[node name="Brick" parent="Section2" instance=ExtResource( 4 )]
+position = Vector2( 384, -192 )
+
+[node name="Brick2" parent="Section2" instance=ExtResource( 4 )]
+position = Vector2( 512, -192 )
+
+[node name="Brick3" parent="Section2" instance=ExtResource( 4 )]
+position = Vector2( 576, -448 )
+
+[node name="Brick4" parent="Section2" instance=ExtResource( 4 )]
+position = Vector2( 640, -448 )
+
+[node name="Brick5" parent="Section2" instance=ExtResource( 4 )]
+position = Vector2( 704, -448 )
+
+[node name="Brick6" parent="Section2" instance=ExtResource( 4 )]
+position = Vector2( 768, -448 )
+
+[node name="Brick7" parent="Section2" instance=ExtResource( 4 )]
+position = Vector2( 832, -448 )
+
+[node name="Brick8" parent="Section2" instance=ExtResource( 4 )]
+position = Vector2( 896, -448 )
+
+[node name="Brick9" parent="Section2" instance=ExtResource( 4 )]
+position = Vector2( 960, -448 )
+
+[node name="Brick10" parent="Section2" instance=ExtResource( 4 )]
+position = Vector2( 1024, -448 )
+
+[node name="QuestionBox" parent="Section2" instance=ExtResource( 1 )]
+position = Vector2( 448, -192 )
+
+[node name="Section3" type="Node2D" parent="."]
+position = Vector2( 5792, 864 )
+
+[node name="Brick" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 64, -448 )
+
+[node name="Brick2" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 128, -448 )
+
+[node name="Brick3" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 192, -448 )
+
+[node name="Brick4" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 256, -192 )
+
+[node name="Brick5" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 640, -192 )
+
+[node name="Brick6" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 704, -192 )
+
+[node name="Brick7" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 1728, -192 )
+
+[node name="Brick8" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 1920, -448 )
+
+[node name="Brick9" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 1984, -448 )
+
+[node name="Brick10" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 2048, -448 )
+
+[node name="Brick11" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 2368, -448 )
+
+[node name="Brick12" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 2560, -448 )
+
+[node name="Brick13" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 2432, -192 )
+
+[node name="Brick14" parent="Section3" instance=ExtResource( 4 )]
+position = Vector2( 2496, -192 )
+
+[node name="QuestionBox" parent="Section3" instance=ExtResource( 1 )]
+position = Vector2( 256, -448 )
+
+[node name="QuestionBox2" parent="Section3" instance=ExtResource( 1 )]
+position = Vector2( 1024, -192 )
+
+[node name="QuestionBox3" parent="Section3" instance=ExtResource( 1 )]
+position = Vector2( 1216, -192 )
+
+[node name="QuestionBox4" parent="Section3" instance=ExtResource( 1 )]
+position = Vector2( 1408, -192 )
+
+[node name="QuestionBox5" parent="Section3" instance=ExtResource( 1 )]
+position = Vector2( 1216, -448 )
+
+[node name="QuestionBox6" parent="Section3" instance=ExtResource( 1 )]
+position = Vector2( 2432, -448 )
+
+[node name="QuestionBox7" parent="Section3" instance=ExtResource( 1 )]
+position = Vector2( 2496, -448 )
+
+[node name="Section4" type="Node2D" parent="."]
+position = Vector2( 10176, 832 )
+
+[node name="Pipe" parent="Section4" instance=ExtResource( 5 )]
+position = Vector2( 256, 0 )
+
+[node name="Pipe2" parent="Section4" instance=ExtResource( 5 )]
+position = Vector2( 1280, 0 )
+
+[node name="Brick" parent="Section4" instance=ExtResource( 4 )]
+position = Vector2( 544, -160 )
+
+[node name="Brick2" parent="Section4" instance=ExtResource( 4 )]
+position = Vector2( 608, -160 )
+
+[node name="Brick3" parent="Section4" instance=ExtResource( 4 )]
+position = Vector2( 736, -160 )
+
+[node name="QuestionBox" parent="Section4" instance=ExtResource( 1 )]
+position = Vector2( 672, -160 )

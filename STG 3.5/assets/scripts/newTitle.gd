@@ -22,6 +22,8 @@ var modedick = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ct._treset()
+	ct._fout()
 	$play/AnimationPlayer.play("flash")
 	$modeselect.rect_position.y = 540
 	$things.visible = true

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/ignore/porting/items.png" type="Texture" id=3]
+
+[node name="QuestionBox" type="Node2D" groups=["bricks"]]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 4
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+texture = ExtResource( 3 )
+hframes = 9
+vframes = 14
+frame = 45
+
+[node name="Tween" type="Tween" parent="."]

@@ -399,6 +399,7 @@ func reset():
 	global.combo = 0
 	global.cutscene = false
 	global.camerazoom = 1
+	global.cinematicbar = false
 	music.musicvolume = 2
 	music.temp = 0
 	global.hidehud = false

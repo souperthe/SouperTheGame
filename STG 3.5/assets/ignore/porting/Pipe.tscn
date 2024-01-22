@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/ignore/porting/PipesFoliage.tres" type="TileSet" id=2]
+
+[node name="Pipe" type="Node2D" groups=["platforms"]]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1, 0, 0, -65536, 1, 0, 65535, 26, 0, 0, 27, 0 )

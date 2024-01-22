@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
@@ -18,8 +18,13 @@
 [ext_resource path="res://assets/objects/enemys/forkdevil.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/objects/scenedoor.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/scenes/entrance/house_TILE.tres" type="TileSet" id=18]
+[ext_resource path="res://assets/objects/secretflag.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/objects/secretblock.tscn" type="PackedScene" id=20]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="secretflag" parent="." instance=ExtResource( 19 )]
+position = Vector2( 1024, 256 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 18 )
@@ -61,8 +66,8 @@ position = Vector2( -64, 0 )
 scale = Vector2( 16, 1 )
 
 [node name="collide4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 960, 1 )
-scale = Vector2( 1, 5 )
+position = Vector2( 960, 0 )
+scale = Vector2( 2, 2 )
 
 [node name="smallcollectable" parent="." instance=ExtResource( 5 )]
 position = Vector2( 512, 480 )
@@ -162,7 +167,7 @@ position = Vector2( 960, 512 )
 scale = Vector2( 10, 1 )
 
 [node name="collide11" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1024, 256 )
+position = Vector2( 960, 256 )
 scale = Vector2( 10, 1 )
 
 [node name="Hallway2" parent="." instance=ExtResource( 6 )]
@@ -547,3 +552,55 @@ position = Vector2( -4832, 192 )
 
 [node name="Enemy7" parent="." instance=ExtResource( 16 )]
 position = Vector2( -2144, 256 )
+
+[node name="collide22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1088, 128 )
+scale = Vector2( 1, 2 )
+
+[node name="secretblock" parent="." instance=ExtResource( 20 )]
+position = Vector2( 960, 112 )
+
+[node name="secretblock2" parent="." instance=ExtResource( 20 )]
+position = Vector2( 992, 112 )
+
+[node name="secretblock3" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1024, 112 )
+
+[node name="secretblock4" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1056, 112 )
+
+[node name="secretblock5" parent="." instance=ExtResource( 20 )]
+position = Vector2( 960, 144 )
+
+[node name="secretblock6" parent="." instance=ExtResource( 20 )]
+position = Vector2( 992, 144 )
+
+[node name="secretblock7" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1024, 144 )
+
+[node name="secretblock8" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1056, 144 )
+
+[node name="secretblock9" parent="." instance=ExtResource( 20 )]
+position = Vector2( 960, 176 )
+
+[node name="secretblock10" parent="." instance=ExtResource( 20 )]
+position = Vector2( 992, 176 )
+
+[node name="secretblock11" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1024, 176 )
+
+[node name="secretblock12" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1056, 176 )
+
+[node name="secretblock13" parent="." instance=ExtResource( 20 )]
+position = Vector2( 960, 208 )
+
+[node name="secretblock14" parent="." instance=ExtResource( 20 )]
+position = Vector2( 992, 208 )
+
+[node name="secretblock15" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1024, 208 )
+
+[node name="secretblock16" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1056, 208 )

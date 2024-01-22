@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/ignore/porting/bricks.png" type="Texture" id=3]
+
+[node name="Brick" type="Node2D" groups=["bricks"]]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 32
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+texture = ExtResource( 3 )
+hframes = 33
+vframes = 2
+frame = 1
+region_rect = Rect2( 64, 0, 64, 64 )

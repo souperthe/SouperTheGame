@@ -55,7 +55,7 @@ func _process(delta):
 	if zoomin and used:
 		global.camerazoom = lerp(global.camerazoom, 0.5, 2 * delta)
 		global.cinematicbar = true
-	if overphone and player.candoor and not tit:
+	if overphone and player.candoor and player.currentstate == "Idle" and not tit:
 		if Input.is_action_just_pressed(player.input_up):
 			used = true
 			global.combotimer.paused = true
