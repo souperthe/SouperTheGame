@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://import/veryunfinisheddraft.mp3-f7d898020aa40e4bcefecbf6c573c103.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/veryunfinisheddraft.mp3"
+dest_files=[ "res://import/veryunfinisheddraft.mp3-f7d898020aa40e4bcefecbf6c573c103.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

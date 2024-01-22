@@ -11,6 +11,7 @@ var dick = false
 var zoomin = false
 var zoomin2 = false
 var cutmusic = false
+var glowpart = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -52,11 +53,18 @@ func _on_Door_body_exited(_body):
 		overdoor = false
 	
 func _physics_process(_delta):
+	$glow.z_index = objplayer.z_index - 1
 	if cutmusic:
 		music.stopmusic()
 	if zoomin:
 		#global.camerazoom = lerp(global.camerazoom, 0.5, 3 * _delta)
 		pass
+	if glowpart:
+		$glow.scale.x += 0.05
+		$glow.scale.y += 0.05
+		objplayer.position = lerp(objplayer.position, global.camera.get_camera_screen_center(), 0.01)
+		if $glow.scale.x > 15:
+			roomhandle.scenegoto("res://assets/scenes/rankroom.tscn")
 	if zoomin2:
 		global.camerazoom = lerp(global.camerazoom, 1, 5 * _delta)
 		if global.camerazoom > 0.99:
@@ -79,13 +87,17 @@ func _physics_process(_delta):
 			player.makethingnotvisible()
 			global.targetdoor = targetdoor
 			doornotentered = true
+			glowpart = true
+			$glow.visible = true
 			global.cutscene = true
-			music.stopmusic()
+			global.hidehud = true
+			#music.stopmusic()
 			player.cutscene()
 			player.animator.play("enterdoor")
 			player.position.x = position.x
 			global.escapeexited = true
-			enterdoor()
+			music.playranksong()
+			#enterdoor()
 
 
 

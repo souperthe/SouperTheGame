@@ -34,8 +34,13 @@ func scenegoto(selectedscene):
 			self.remove_child(c)
 			c.queue_free()
 		add_child(spawnedscene)
+		if music.playmusic:
+			music.domusic()
 	else:
 		add_child(spawnedscene)
+		if music.playmusic:
+			music.domusic()
+		
 		
 	#queue_free_children(self)
 	#free_children(self)

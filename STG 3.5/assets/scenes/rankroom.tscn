@@ -149,7 +149,7 @@ animations = [ {
 "name": "didntfinish",
 "speed": 12.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 35 ) ],
 "loop": true,
 "name": "nothing",
 "speed": 5.0
@@ -216,6 +216,5 @@ stretch_mode = 2
 [node name="ranks" type="AnimatedSprite" parent="rankcontroller/CanvasLayer"]
 position = Vector2( 480, 270 )
 frames = SubResource( 8 )
-animation = "rank4"
-frame = 19
+animation = "nothing"
 playing = true

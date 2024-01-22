@@ -18,7 +18,7 @@ func _ready():
 	objplayer.animator.play("enterdoorfast")
 	objplayer.cutscene()
 	global.cutscene = false
-	objplayer.position.y = 540
+	objplayer.position.y = 900
 	startrankthing()
 	pass # Replace with function body.
 
@@ -33,12 +33,12 @@ func _process(delta):
 #t = 200
 #objplayer.position.y = ease(objplayer.position.y, 270)
 #objplayer.position.x = ease(objplayer.position.x, 480)
-	objplayer.position = lerp(objplayer.position, Vector2(480,270), 1.5 * delta)
+	#objplayer.position = lerp(objplayer.position, Vector2(480,270), 1.5 * delta)
 	pass
 	
 func rankanimation():
 	var t = Timer.new()
-	t.set_wait_time(3)
+	t.set_wait_time(2)
 	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()
@@ -59,7 +59,7 @@ func rankanimation():
 	
 func startrankthing():
 	rankanimation()
-	$AudioStreamPlayer.play()
+	#$AudioStreamPlayer.play()
 	done = true
 
 func changebg():
@@ -69,7 +69,7 @@ func changebg():
 	
 func goback():
 	var t = Timer.new()
-	t.set_wait_time(10)
+	t.set_wait_time(30)
 	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()

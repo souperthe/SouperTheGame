@@ -16,17 +16,6 @@
 
 [node name="mario" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 6912, 544 )
-scale = Vector2( 214.5, -22.5 )
-z_index = -2
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 192, 64, 64, 64 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -44,7 +33,7 @@ format = 1
 tile_data = PoolIntArray( 720898, 9, 0, 720946, 9, 0, 720994, 9, 0, 721041, 9, 0, 721089, 9, 0, 786433, 8, 0, 786434, 34, 0, 786435, 10, 0, 786449, 9, 0, 786478, 26, 0, 786479, 27, 0, 786481, 8, 0, 786482, 34, 0, 786483, 10, 0, 786489, 26, 0, 786490, 27, 0, 786497, 9, 0, 786529, 8, 0, 786530, 34, 0, 786531, 10, 0, 786544, 9, 0, 786576, 8, 0, 786577, 46, 0, 786578, 10, 0, 786592, 9, 0, 786624, 8, 0, 786625, 34, 0, 786626, 10, 0, 851968, 8, 0, 851969, 34, 0, 851970, 35, 0, 851971, 36, 0, 851972, 10, 0, 851979, 43, 0, 851980, 38, 0, 851981, 38, 0, 851982, 38, 0, 851983, 45, 0, 851984, 8, 0, 851985, 34, 0, 851986, 10, 0, 851991, 43, 0, 851992, 38, 0, 851993, 45, 0, 852006, 26, 0, 852007, 27, 0, 852009, 37, 0, 852010, 38, 0, 852011, 38, 0, 852012, 39, 0, 852014, 26, 0, 852015, 27, 0, 852016, 8, 0, 852017, 46, 0, 852018, 35, 0, 852019, 34, 0, 852020, 10, 0, 852025, 26, 0, 852026, 27, 0, 852027, 43, 0, 852028, 38, 0, 852029, 38, 0, 852030, 38, 0, 852031, 39, 0, 852032, 8, 0, 852033, 46, 0, 852034, 10, 0, 852039, 43, 0, 852040, 38, 0, 852041, 39, 0, 852057, 37, 0, 852058, 38, 0, 852059, 38, 0, 852060, 39, 0, 852064, 8, 0, 852065, 46, 0, 852066, 35, 0, 852067, 36, 0, 852068, 10, 0, 852075, 37, 0, 852076, 38, 0, 852077, 38, 0, 852078, 39, 0, 852079, 8, 0, 852080, 46, 0, 852081, 10, 0, 852086, 37, 0, 852087, 38, 0, 852088, 39, 0, 852105, 38, 0, 852106, 38, 0, 852111, 8, 0, 852112, 46, 0, 852113, 47, 0, 852114, 48, 0, 852126, 39, 0, 852127, 8, 0, 852128, 46, 0, 852129, 10, 0, 852134, 37, 0, 852135, 38, 0, 852136, 39, 0, 852159, 8, 0, 852160, 46, 0, 852161, 47, 0, 852162, 48, 0, 852163, 10, 0 )
 
 [node name="camera" parent="." instance=ExtResource( 7 )]
-position = Vector2( 10720, 352 )
+position = Vector2( -64, 448 )
 limit_left = 0
 limit_top = 0
 limit_right = 13568
@@ -705,3 +694,19 @@ position = Vector2( 11072, 800 )
 
 [node name="Enemy14" parent="." instance=ExtResource( 12 )]
 position = Vector2( 11168, 800 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2( -5, 0 )
+scale = Vector2( 15.5, 15.5 )
+z_index = -2
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 192, 64, 64, 64 )

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/sprites/exitgate_closed.png" type="Texture" id=1]
 [ext_resource path="res://assets/scripts/exitgate.gd" type="Script" id=2]
 [ext_resource path="res://assets/sprites/exitgate_open.png" type="Texture" id=3]
 [ext_resource path="res://assets/sound/sfx/sfx_elevatorclose.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sprites/exitgate_openpart.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 42, 20 )
@@ -39,6 +40,13 @@ texture = ExtResource( 3 )
 position = Vector2( 0, -41 )
 stream = SubResource( 2 )
 bus = "SFX"
+
+[node name="glow" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1, -47 )
+scale = Vector2( 0.6, 0.6 )
+z_as_relative = false
+texture = ExtResource( 5 )
 
 [connection signal="body_entered" from="." to="." method="_on_exitgate_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_exitgate_body_exited"]

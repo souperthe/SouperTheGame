@@ -81,6 +81,7 @@ tracks/1/keys = {
 [node name="camera" type="Camera2D"]
 rotating = true
 current = true
+limit_smoothed = true
 smoothing_speed = 0.0
 offset_v = -1.0
 editor_draw_limits = true

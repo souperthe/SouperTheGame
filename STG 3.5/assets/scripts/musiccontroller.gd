@@ -29,10 +29,16 @@ func playtitle():
 	song = load("res://assets/sound/music/ogg/mus_title.ogg")
 	$Music.stream = song
 	$Music.play()
+
+func playranksong():
+	song = load("res://assets/sound/music/veryunfinisheddraft.mp3")
+	$Music.stream = song
+	$Music.play()
 	
 func stopmusic():
 	$Music.stop()
 	$escapemusic.stop()
+	$Music.stream = null
 	temp = 0
 	
 func playsnow():
@@ -80,7 +86,7 @@ func playtutorial():
 	
 func _process(_delta):
 	if playmusic:
-		domusic()
+		#domusic()
 		if !$Music.stream == null:
 			temp = $Music.get_playback_position( )
 	
