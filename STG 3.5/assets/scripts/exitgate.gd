@@ -96,7 +96,16 @@ func _physics_process(_delta):
 			player.animator.play("enterdoor")
 			player.position.x = position.x
 			global.escapeexited = true
-			music.playranksong()
+			if global.rank == "1/5":
+				music.playsong("res://assets/sound/music/mus_rank1.ogg")
+			if global.rank == "2/5":
+				music.playsong("res://assets/sound/music/mus_rank2.ogg")
+			if global.rank == "3/5":
+				music.playsong("res://assets/sound/music/mus_rank3.ogg")
+			if global.rank == "4/5":
+				music.playsong("res://assets/sound/music/mus_rank4.ogg")
+			if global.rank == "5/5":
+				music.playsong("res://assets/sound/music/mus_rank5.ogg")
 			#enterdoor()
 
 

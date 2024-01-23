@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://import/mus_rank5.ogg-3aff71f848e2c6ff0cfad060ac3a82e8.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/music/mus_rank5.ogg"
+dest_files=[ "res://import/mus_rank5.ogg-3aff71f848e2c6ff0cfad060ac3a82e8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -34,6 +34,11 @@ func playranksong():
 	song = load("res://assets/sound/music/veryunfinisheddraft.mp3")
 	$Music.stream = song
 	$Music.play()
+
+func playsong(id):
+	song = load(id)
+	$Music.stream = song
+	$Music.play()
 	
 func stopmusic():
 	$Music.stop()
