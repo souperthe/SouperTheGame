@@ -101,10 +101,12 @@ func _physics_process(_delta):
 			if global.rank == "2/5":
 				music.playsong("res://assets/sound/music/mus_rank2.ogg")
 			if global.rank == "3/5":
-				music.playsong("res://assets/sound/music/mus_rank3.ogg")
+				music.playsong("res://assets/sound/music/mus_rank2.ogg")
 			if global.rank == "4/5":
-				music.playsong("res://assets/sound/music/mus_rank4.ogg")
+				music.playsong("res://assets/sound/music/mus_rank3.ogg")
 			if global.rank == "5/5":
+				music.playsong("res://assets/sound/music/mus_rank4.ogg")
+			if global.rank == "6/5":
 				music.playsong("res://assets/sound/music/mus_rank5.ogg")
 			#enterdoor()
 

@@ -92,6 +92,11 @@ func playtutorial():
 func _process(_delta):
 	if playmusic:
 		#domusic()
+		if global.panic:
+			if !global.laps == 0:
+				if !$escapemusic.stream == lap2:
+					$escapemusic.stream = lap2
+					$escapemusic.play()
 		if !$Music.stream == null:
 			temp = $Music.get_playback_position( )
 	
@@ -100,11 +105,6 @@ func domusic():
 		musicvolume = lerp(musicvolume, -89, 0.005)
 	if !global.phonescreen:
 		musicvolume = lerp(musicvolume, 2, 0.1)
-	if global.panic:
-		if !global.laps == 0:
-			if !$escapemusic.stream == lap2:
-				$escapemusic.stream = lap2
-				$escapemusic.play()
 	#do stuff
 	if roomhandle.currentscene.name == "scary":
 		$Music.stream = null
