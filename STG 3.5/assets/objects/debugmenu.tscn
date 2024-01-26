@@ -131,6 +131,13 @@ enabled_focus_mode = 1
 text = "spawn boombox"
 expand_icon = true
 
+[node name="plranimation2" type="Label" parent="Control"]
+pause_mode = 2
+margin_top = -312.0
+margin_right = 40.0
+margin_bottom = -298.0
+text = "willy"
+
 [node name="spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -8.898

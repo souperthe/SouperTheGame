@@ -54,6 +54,8 @@ var bosshealth = 8
 var currentstate 
 var canuncrouch = true
 
+var character = "souper"
+
 var velocity := Vector2.DOWN
 
 onready var state = $StateMachine
@@ -535,7 +537,15 @@ func hurteffect():
 	ghost.amount = 500
 
 	
-
+func switchplayer(character):
+	if playercharacter =="S":
+		animator.frames = load("res://assets/important/souperframes.tres")
+		character = "souper"
+		playercharacter = "S"
+	if playercharacter == "SM":
+		animator.frames = load("res://assets/important/sockmanframes.tres")
+		character = "sockman"
+		playercharacter = "SM"
 
 func _on_iframes_timeout():
 	canhurt = true

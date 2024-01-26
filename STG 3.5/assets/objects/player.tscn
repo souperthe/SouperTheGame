@@ -53,7 +53,7 @@
 [ext_resource path="res://assets/fonts/COMIC.TTF" type="DynamicFontData" id=51]
 [ext_resource path="res://assets/sound/sfx/sfx_spinning.wav" type="AudioStream" id=52]
 [ext_resource path="res://assets/scripts/collectchec.gd" type="Script" id=53]
-[ext_resource path="res://assets/tres_files/REALsouoperanimations.tres" type="SpriteFrames" id=54]
+[ext_resource path="res://assets/important/souperframes.tres" type="SpriteFrames" id=54]
 [ext_resource path="res://assets/scripts/plrstates/gunfire.gd" type="Script" id=55]
 [ext_resource path="res://assets/sound/sfx/sfx_machcancle.wav" type="AudioStream" id=56]
 [ext_resource path="res://assets/scripts/plrstates/Hurt.gd" type="Script" id=57]
@@ -1051,7 +1051,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 7
+frame = 5
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

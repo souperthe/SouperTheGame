@@ -83,6 +83,6 @@ func walk():
 	
 func footstepsfx():
 	#print(sfxnothasplayed)
-	if player.animatonframes == 2 or player.animatonframes == 6:
+	if player.character == "souper" and player.animatonframes == 2 or player.animatonframes == 6:
 		if !player.sfxfoot.playing:
 			player.sfxfoot.play()

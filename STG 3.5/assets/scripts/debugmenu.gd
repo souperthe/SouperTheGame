@@ -23,6 +23,7 @@ func _process(_delta):
 	$Control/plrspos.text = (str("PLAYER POSITION: ", objplayer.position))
 	$Control/plrsvol.text = (str("PLAYER VELOCITY: ",objplayer.velocity))
 	$Control/plranimation.text = (str("PLAYER ANIMATION: ",objplayer.animator.animation))
+	$Control/plranimation2.text = (str("PLAYER CHARACTER: ",objplayer.playercharacter))
 	$Control.visible = enabled
 	$Control/smoothamount.visible = global.camerasmoothing
 	global.cameraspeed = float($Control/smoothamount.text)
