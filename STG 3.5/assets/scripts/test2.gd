@@ -19,5 +19,5 @@ func _process(delta):
 			self.scale = Vector2(1.2, 1.2)
 			$AudioStreamPlayer2D.play()
 			#objplayer.changestate("peelslip")
-			objplayer.switchplayer("sockman")
+			objplayer.switchplayer("SM")
 	pass

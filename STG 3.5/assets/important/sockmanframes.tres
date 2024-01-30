@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=337 format=2]
+[gd_resource type="SpriteFrames" load_steps=343 format=2]
 
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0316.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0042.png" type="Texture" id=2]
@@ -96,10 +96,9 @@
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0107.png" type="Texture" id=94]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0103.png" type="Texture" id=95]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0025.png" type="Texture" id=96]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0012.png" type="Texture" id=97]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0019.png" type="Texture" id=97]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0112.png" type="Texture" id=98]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0113.png" type="Texture" id=99]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0018.png" type="Texture" id=100]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0076.png" type="Texture" id=101]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0008.png" type="Texture" id=102]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0104.png" type="Texture" id=103]
@@ -133,22 +132,22 @@
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0055.png" type="Texture" id=131]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0009.png" type="Texture" id=132]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0013.png" type="Texture" id=133]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0014.png" type="Texture" id=134]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0018.png" type="Texture" id=134]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0001.png" type="Texture" id=135]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0329.png" type="Texture" id=136]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0015.png" type="Texture" id=137]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0020.png" type="Texture" id=138]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0030.png" type="Texture" id=138]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0189.png" type="Texture" id=139]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0019.png" type="Texture" id=140]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0022.png" type="Texture" id=140]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0350.png" type="Texture" id=141]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0016.png" type="Texture" id=142]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0020.png" type="Texture" id=142]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0051.png" type="Texture" id=143]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0059.png" type="Texture" id=144]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0030.png" type="Texture" id=145]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0052.png" type="Texture" id=146]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0022.png" type="Texture" id=147]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0031.png" type="Texture" id=147]
 [ext_resource path="res://assets/sprites/player_souper/placeholder2.png" type="Texture" id=148]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0013.png" type="Texture" id=149]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0028.png" type="Texture" id=149]
 [ext_resource path="res://assets/sprites/player_souper/noclip.png" type="Texture" id=150]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0132.png" type="Texture" id=151]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0137.png" type="Texture" id=152]
@@ -166,17 +165,17 @@
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0037.png" type="Texture" id=164]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0005.png" type="Texture" id=165]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0038.png" type="Texture" id=166]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0021.png" type="Texture" id=167]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0032.png" type="Texture" id=167]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0321.png" type="Texture" id=168]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0036.png" type="Texture" id=169]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0002.png" type="Texture" id=170]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0017.png" type="Texture" id=171]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0029.png" type="Texture" id=171]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0297.png" type="Texture" id=172]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0004.png" type="Texture" id=173]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0352.png" type="Texture" id=174]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0136.png" type="Texture" id=175]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0057.png" type="Texture" id=176]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0015.png" type="Texture" id=177]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0024.png" type="Texture" id=177]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0320.png" type="Texture" id=178]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0135.png" type="Texture" id=179]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0070.png" type="Texture" id=180]
@@ -336,6 +335,13 @@
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0011.png" type="Texture" id=334]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0006.png" type="Texture" id=335]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0012.png" type="Texture" id=336]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0023.png" type="Texture" id=337]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0025.png" type="Texture" id=338]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0026.png" type="Texture" id=339]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0033.png" type="Texture" id=340]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0034.png" type="Texture" id=341]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0035.png" type="Texture" id=342]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0036.png" type="Texture" id=343]
 
 [resource]
 animations = [ {
@@ -449,7 +455,7 @@ animations = [ {
 "name": "exitdoor",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 138 ), ExtResource( 167 ), ExtResource( 147 ) ],
+"frames": [ ExtResource( 342 ), ExtResource( 343 ) ],
 "loop": true,
 "name": "fall",
 "speed": 12.0
@@ -504,7 +510,12 @@ animations = [ {
 "name": "idlepanic",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 97 ), ExtResource( 149 ), ExtResource( 134 ), ExtResource( 177 ), ExtResource( 142 ), ExtResource( 171 ), ExtResource( 100 ), ExtResource( 140 ), ExtResource( 138 ), ExtResource( 167 ), ExtResource( 147 ), ExtResource( 147 ), ExtResource( 147 ) ],
+"frames": [ ExtResource( 134 ) ],
+"loop": true,
+"name": "jog",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 337 ), ExtResource( 177 ), ExtResource( 338 ), ExtResource( 339 ), ExtResource( 149 ), ExtResource( 171 ), ExtResource( 138 ), ExtResource( 147 ), ExtResource( 167 ), ExtResource( 340 ), ExtResource( 341 ), ExtResource( 342 ), ExtResource( 343 ) ],
 "loop": true,
 "name": "jump",
 "speed": 17.0
@@ -529,7 +540,7 @@ animations = [ {
 "name": "landwalk",
 "speed": 16.0
 }, {
-"frames": [ ExtResource( 180 ), ExtResource( 195 ), ExtResource( 157 ) ],
+"frames": [ ExtResource( 97 ), ExtResource( 142 ), ExtResource( 140 ) ],
 "loop": true,
 "name": "mach2",
 "speed": 17.0

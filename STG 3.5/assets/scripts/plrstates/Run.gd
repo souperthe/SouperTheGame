@@ -50,7 +50,10 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Air")
 	
 	if Input.is_action_just_pressed(player.input_run):
-		state_machine.transition_to("MachPrep")
+		if player.playercharacter == "S":
+			state_machine.transition_to("MachPrep")
+		if player.playercharacter == "SM":
+			state_machine.transition_to("jog")
 	
 	if Input.is_action_just_pressed(player.input_jump):
 		if canjump:

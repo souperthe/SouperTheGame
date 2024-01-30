@@ -103,6 +103,7 @@ onready var darkeffect = $darkeffect
 onready var sfxfire = $gunfire
 onready var sfxkick = $upperkick
 onready var sfxslide = $slide
+onready var sfxsmsjump = $slide2
 onready var cayatotime = $coyatotime
 onready var iframestimer = $iframes
 onready var uncrouchdetect = $detectcrouch
@@ -401,6 +402,7 @@ func reset():
 	global.combo = 0
 	global.cutscene = false
 	global.camerazoom = 1
+	global.escapeexited = false
 	global.cinematicbar = false
 	music.musicvolume = 2
 	music.temp = 0
@@ -538,11 +540,11 @@ func hurteffect():
 
 	
 func switchplayer(character):
-	if playercharacter =="S":
+	if character =="S":
 		animator.frames = load("res://assets/important/souperframes.tres")
 		character = "souper"
 		playercharacter = "S"
-	if playercharacter == "SM":
+	if character == "SM":
 		animator.frames = load("res://assets/important/sockmanframes.tres")
 		character = "sockman"
 		playercharacter = "SM"

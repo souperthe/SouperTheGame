@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=2]
+[gd_scene load_steps=123 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -73,6 +73,8 @@
 [ext_resource path="res://assets/scripts/plrstates/crouchsliding.gd" type="Script" id=71]
 [ext_resource path="res://assets/scripts/plrstates/diving.gd" type="Script" id=72]
 [ext_resource path="res://assets/sound/sfx/sfx_slide.wav" type="AudioStream" id=73]
+[ext_resource path="res://assets/scripts/plrstates/jog.gd" type="Script" id=74]
+[ext_resource path="res://assets/sound/sfx/sfx_sjump_releasesm.wav" type="AudioStream" id=75]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
 [ext_resource path="res://assets/objects/HUD.tscn" type="PackedScene" id=88]
 [ext_resource path="res://assets/scripts/plrstates/Nothing.gd" type="Script" id=93]
@@ -542,7 +544,6 @@ color_ramp = SubResource( 33 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -720,6 +721,10 @@ _animation_player = NodePath("../../animation")
 
 [node name="diving" type="Node" parent="StateMachine"]
 script = ExtResource( 72 )
+_animation_player = NodePath("../../animation")
+
+[node name="jog" type="Node" parent="StateMachine"]
+script = ExtResource( 74 )
 _animation_player = NodePath("../../animation")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -1051,7 +1056,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 5
+frame = 13
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1085,6 +1090,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectcrouch"]
 position = Vector2( 0, -5 )
 shape = SubResource( 56 )
+
+[node name="slide2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 75 )
+volume_db = 1.0
+bus = "SFX"
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
 [connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]

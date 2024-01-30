@@ -64,7 +64,10 @@ func physics_update(_delta: float) -> void:
 		if Input.is_action_just_pressed(player.input_up) or Input.is_action_just_pressed(player.input_down):
 			state_machine.transition_to("Ladder")
 	if Input.is_action_just_pressed(player.input_run):
-		state_machine.transition_to("MachPrep")
+		if player.playercharacter == "S":
+			state_machine.transition_to("MachPrep")
+		if player.playercharacter == "SM":
+			state_machine.transition_to("jog")
 	if Input.is_action_just_pressed(player.input_attack):
 		if Input.is_action_pressed(player.input_up):
 			state_machine.transition_to("upperkick")
