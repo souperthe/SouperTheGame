@@ -354,7 +354,7 @@ margin_bottom = 498.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 128
+layer = 127
 
 [node name="Mobile" parent="CanvasLayer" instance=ExtResource( 27 )]
 visible = false
@@ -544,6 +544,7 @@ color_ramp = SubResource( 33 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1056,7 +1057,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 13
+frame = 17
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

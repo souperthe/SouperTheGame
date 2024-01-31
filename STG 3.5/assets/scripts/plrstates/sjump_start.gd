@@ -32,6 +32,12 @@ func physics_update(delta: float) -> void:
 	player.velocity.x = lerp(player.velocity.x, 0, player.air_friction * delta)
 	if player.playercharacter == "S":
 		player.velocity.y -= 10
+		if player.is_on_ceiling():
+			player.machbox.disabled = true
+			player.emachbox.disabled = true
+			player.mmachbox.disabled = true
+			player.mattackbox.disabled = true
+			state_machine.transition_to("sjump_hitceiling")
 	if player.playercharacter == "SM":
 		player.velocity.y += player.gravity * delta
 		if player.is_on_wall():
@@ -42,12 +48,6 @@ func physics_update(delta: float) -> void:
 		walk()
 		if player.is_on_floor():
 			state_machine.transition_to("peelland")
-	if player.is_on_ceiling():
-		player.machbox.disabled = true
-		player.emachbox.disabled = true
-		player.mmachbox.disabled = true
-		player.mattackbox.disabled = true
-		state_machine.transition_to("sjump_hitceiling")
 	if Input.is_action_just_pressed(player.input_attack) or Input.is_action_just_pressed(player.input_run):
 		if player.playercharacter == "S":
 			player.sjumpreleasesfx.stop()
