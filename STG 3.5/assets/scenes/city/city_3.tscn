@@ -69,8 +69,9 @@ position = Vector2( 1536, 448 )
 scale = Vector2( 8, 2 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
-position = Vector2( 7424, 128 )
+position = Vector2( 3456, -896 )
 limit_left = -64
+limit_top = -704
 limit_right = 7424
 limit_bottom = 992
 
@@ -194,7 +195,7 @@ scale = Vector2( 8, 1 )
 
 [node name="collide16" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3072, 192 )
-scale = Vector2( 1, -8 )
+scale = Vector2( 1, -5 )
 
 [node name="collide17" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2816, 64 )
@@ -266,8 +267,8 @@ position = Vector2( 4864, 256 )
 scale = Vector2( 12, 4 )
 
 [node name="collide21" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3072, -256 )
-scale = Vector2( 64, 2 )
+position = Vector2( 2944, -256 )
+scale = Vector2( 66, 2 )
 
 [node name="collide22" parent="." instance=ExtResource( 2 )]
 position = Vector2( 5888, 192 )
@@ -456,3 +457,16 @@ position = Vector2( 3776, -288 )
 
 [node name="block16" parent="." instance=ExtResource( 18 )]
 position = Vector2( 3808, -288 )
+
+[node name="collide30" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3328, -576 )
+scale = Vector2( 1, -15 )
+
+[node name="collide31" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2944, -256 )
+scale = Vector2( 1, -20 )
+
+[node name="Uparrow2" type="Sprite" parent="."]
+position = Vector2( 3168, -480 )
+z_index = -4
+texture = ExtResource( 12 )
