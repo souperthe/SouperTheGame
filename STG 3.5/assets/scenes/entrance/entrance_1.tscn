@@ -142,8 +142,8 @@ position = Vector2( 4832, 350 )
 scale = Vector2( 2.5, 1 )
 
 [node name="Area2D" parent="." instance=ExtResource( 10 )]
-position = Vector2( 4352, 704 )
-scale = Vector2( 16.5, 6.16 )
+position = Vector2( 4052, 698 )
+scale = Vector2( 28, 6.16 )
 
 [node name="platform7" parent="." instance=ExtResource( 8 )]
 position = Vector2( 5120, 254 )
