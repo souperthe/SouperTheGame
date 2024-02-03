@@ -8,6 +8,10 @@ extends Sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if objplayer.playercharacter == "SM":
+		texture = load("res://assets/sprites/animated/hurtblock/hurtblock_0001.png")
+	if objplayer.playercharacter == "S":
+		texture = load("res://assets/sprites/animated/panicswitchblock/switchblock0001.png")
 	pass # Replace with function body.
 
 
@@ -19,5 +23,9 @@ func _process(delta):
 			self.scale = Vector2(1.2, 1.2)
 			$AudioStreamPlayer2D.play()
 			#objplayer.changestate("peelslip")
-			objplayer.switchplayer("SM")
+			if objplayer.playercharacter == "SM":
+				objplayer.switchplayer("souper")
+			if objplayer.playercharacter == "S":
+				objplayer.switchplayer("sockman")
+			queue_free()
 	pass

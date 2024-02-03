@@ -544,7 +544,6 @@ color_ramp = SubResource( 33 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]

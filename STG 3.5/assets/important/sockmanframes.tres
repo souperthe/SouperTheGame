@@ -336,12 +336,12 @@
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0006.png" type="Texture" id=335]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0012.png" type="Texture" id=336]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0023.png" type="Texture" id=337]
-[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0025.png" type="Texture" id=338]
-[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0026.png" type="Texture" id=339]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0037.png" type="Texture" id=338]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0033.png" type="Texture" id=340]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0034.png" type="Texture" id=341]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0035.png" type="Texture" id=342]
 [ext_resource path="res://assets/sprites/player_sockman/sockmananim_0036.png" type="Texture" id=343]
+[ext_resource path="res://assets/sprites/player_sockman/sockmananim_0038.png" type="Texture" id=344]
 
 [resource]
 animations = [ {
@@ -455,7 +455,7 @@ animations = [ {
 "name": "exitdoor",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 342 ), ExtResource( 343 ) ],
+"frames": [ ExtResource( 338 ), ExtResource( 344 ) ],
 "loop": true,
 "name": "fall",
 "speed": 12.0
@@ -515,7 +515,7 @@ animations = [ {
 "name": "jog",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 337 ), ExtResource( 177 ), ExtResource( 338 ), ExtResource( 339 ), ExtResource( 149 ), ExtResource( 171 ), ExtResource( 138 ), ExtResource( 147 ), ExtResource( 167 ), ExtResource( 340 ), ExtResource( 341 ), ExtResource( 342 ), ExtResource( 343 ) ],
+"frames": [ ExtResource( 337 ), ExtResource( 177 ), ExtResource( 149 ), ExtResource( 171 ), ExtResource( 138 ), ExtResource( 147 ), ExtResource( 167 ), ExtResource( 340 ), ExtResource( 341 ), ExtResource( 342 ), ExtResource( 343 ) ],
 "loop": true,
 "name": "jump",
 "speed": 17.0

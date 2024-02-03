@@ -353,6 +353,14 @@ func trail():
 	ghost.rotation = animator.rotation
 	ghost.scale.x = animator.scale.x
 	ghost.scale.y = animator.scale.y
+	if playercharacter == "S":
+		ghost.modulate.r8 = 255
+		ghost.modulate.g8 = 0
+		ghost.modulate.b8 = 0
+	if playercharacter == "SM":
+		ghost.modulate.r8 = 224
+		ghost.modulate.g8 = 48
+		ghost.modulate.b8 = 0
 
 
 
@@ -539,15 +547,13 @@ func hurteffect():
 	ghost.amount = 500
 
 	
-func switchplayer(character):
-	if character =="S":
-		animator.frames = load("res://assets/important/souperframes.tres")
-		character = "souper"
-		playercharacter = "S"
-	if character == "SM":
+func switchplayer(fasfasfdasfa):
+	if fasfasfdasfa == "sockman":
 		animator.frames = load("res://assets/important/sockmanframes.tres")
-		character = "sockman"
 		playercharacter = "SM"
+	if fasfasfdasfa == "souper":
+		animator.frames = load("res://assets/important/souperframes.tres")
+		playercharacter = "S"
 
 func _on_iframes_timeout():
 	canhurt = true

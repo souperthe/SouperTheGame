@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/tres_files/REALsouoperanimations.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/important/sockmanframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/dashtrailtween.gd" type="Script" id=2]
 [ext_resource path="res://assets/scripts/playerdashtrail.gd" type="Script" id=3]
 
@@ -26,23 +26,23 @@ void fragment() {
 resource_local_to_scene = true
 shader = SubResource( 1 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
-shader_param/flash_modifier = 0.528
+shader_param/flash_modifier = 0.5
 
 [node name="dashtrail" type="AnimatedSprite"]
-modulate = Color( 1, 0, 0, 1 )
 material = SubResource( 2 )
 position = Vector2( 0, -4.301 )
 rotation = 4.96473e-05
 scale = Vector2( 0.56, 0.56 )
 z_index = 1
 frames = ExtResource( 1 )
-animation = "idlepanic"
+animation = "idle"
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]
 script = ExtResource( 2 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
 rect = Rect2( -150, -150, 300, 300 )
 
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
