@@ -12,7 +12,7 @@ var city = load("res://assets/sound/music/ogg/mus_citynew.ogg")
 var none
 var scary = load("res://assets/sound/music/ogg/mus_scary.ogg")
 var snow = load("res://assets/sound/music/ogg/mus_snow.ogg")
-var lap1 = load("res://assets/sound/music/ogg/mus_escapenew.ogg")
+var lap1 = load("res://assets/sound/music/ogg/mus_souper_escapenew.ogg")
 var lap2 = load("res://assets/sound/music/ogg/mus_lapping.ogg")
 var tutorialsong = load("res://assets/sound/music/ogg/mus_tut.ogg")
 var old = load("res://assets/ignore/loop1.mp3")
@@ -73,6 +73,7 @@ func playentrance():
 	$Music.play()
 	
 func playescape():
+	global.camera.shake(1)
 	if global.panic == true and panicplaying == false and playmusic:
 		$escapemusic.stream = lap1
 		$escapemusic.play()
