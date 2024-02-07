@@ -24,7 +24,7 @@ shader_param/wave_width = 2.0
 
 [sub_resource type="Animation" id=3]
 resource_name = "panic"
-length = 8.0
+length = 6.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -45,7 +45,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4, 8 ),
+"times": PoolRealArray( 0, 3.1, 6 ),
 "transitions": PoolRealArray( -2, -2, 1 ),
 "update": 0,
 "values": [ Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 0.301961 ), Color( 1, 0, 0, 0 ) ]
