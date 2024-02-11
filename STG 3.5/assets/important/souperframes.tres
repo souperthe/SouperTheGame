@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=331 format=2]
+[gd_resource type="SpriteFrames" load_steps=332 format=2]
 
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0316.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0042.png" type="Texture" id=2]
@@ -95,7 +95,7 @@
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0093.png" type="Texture" id=93]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0107.png" type="Texture" id=94]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0103.png" type="Texture" id=95]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0025.png" type="Texture" id=96]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0388.png" type="Texture" id=96]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0012.png" type="Texture" id=97]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0112.png" type="Texture" id=98]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0113.png" type="Texture" id=99]
@@ -110,7 +110,7 @@
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0118.png" type="Texture" id=108]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0003.png" type="Texture" id=109]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0120.png" type="Texture" id=110]
-[ext_resource path="res://assets/sprites/player_souper/souperanim_0023.png" type="Texture" id=111]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0387.png" type="Texture" id=111]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0117.png" type="Texture" id=112]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0149.png" type="Texture" id=113]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0144.png" type="Texture" id=114]
@@ -330,6 +330,7 @@
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0368.png" type="Texture" id=328]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0367.png" type="Texture" id=329]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0347.png" type="Texture" id=330]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0389.png" type="Texture" id=331]
 
 [resource]
 animations = [ {
@@ -478,10 +479,10 @@ animations = [ {
 "name": "hardtumble",
 "speed": 16.0
 }, {
-"frames": [ ExtResource( 111 ), ExtResource( 96 ) ],
+"frames": [ ExtResource( 111 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 331 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 331 ) ],
 "loop": true,
 "name": "hurt",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 133 ), ExtResource( 102 ) ],
 "loop": true,

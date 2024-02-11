@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/objects/FallZone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/scenes/snow/snowguy.gd" type="Script" id=7]
+[ext_resource path="res://assets/objects/iceblock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/objects/exitgate.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -107,5 +108,95 @@ position = Vector2( 192, 512 )
 [node name="collide8" parent="." instance=ExtResource( 1 )]
 position = Vector2( 3584, 512 )
 scale = Vector2( 1, 25 )
+
+[node name="iceblock" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3648, 448 )
+
+[node name="iceblock2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3712, 448 )
+
+[node name="iceblock3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3776, 448 )
+
+[node name="iceblock4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3840, 448 )
+
+[node name="iceblock5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3904, 448 )
+
+[node name="iceblock6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3968, 448 )
+
+[node name="iceblock7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4032, 448 )
+
+[node name="iceblock8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4096, 448 )
+
+[node name="iceblock9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4160, 448 )
+
+[node name="iceblock10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4224, 448 )
+
+[node name="iceblock11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4288, 448 )
+
+[node name="iceblock12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4352, 448 )
+
+[node name="iceblock13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4416, 448 )
+
+[node name="iceblock14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4480, 448 )
+
+[node name="iceblock15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4544, 448 )
+
+[node name="iceblock16" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4608, 448 )
+
+[node name="iceblock17" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4672, 448 )
+
+[node name="iceblock18" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4736, 448 )
+
+[node name="iceblock19" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4800, 448 )
+
+[node name="iceblock20" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4864, 448 )
+
+[node name="iceblock21" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4928, 448 )
+
+[node name="iceblock22" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4992, 448 )
+
+[node name="iceblock23" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5056, 448 )
+
+[node name="iceblock24" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5120, 448 )
+
+[node name="iceblock25" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5184, 448 )
+
+[node name="iceblock26" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5248, 448 )
+
+[node name="iceblock27" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5312, 448 )
+
+[node name="iceblock28" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5376, 448 )
+
+[node name="iceblock29" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5440, 448 )
+
+[node name="iceblock30" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5504, 448 )
 
 [connection signal="body_entered" from="snowguy" to="snowguy" method="_on_snowguy_body_entered"]

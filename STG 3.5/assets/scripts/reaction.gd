@@ -16,8 +16,6 @@ func _ready():
 
 
 func _process(_delta):
-	if presobjs.player2:
-		modulate.a8 = 70
 	if player.currentstate == ("peelslip") or player.currentstate == ("peelland") or player.currentstate == ("peelslipbounce"):
 		if !animator.animation == ("judgement"):
 			playanim("judgement")

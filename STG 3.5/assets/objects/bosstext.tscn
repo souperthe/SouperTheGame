@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://assets/tres_files/REALsouoperanimations.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/important/souperframes.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/bosstext.gd" type="Script" id=2]
 [ext_resource path="res://assets/sound/sfx/sfx_punch4.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/sound/sfx/sfx_punch6.wav" type="AudioStream" id=4]
@@ -56,7 +56,6 @@ rotation = 0.00151305
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 1 )
 animation = "mach3old"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

@@ -9,8 +9,8 @@ func _ready():
 	pass
 	
 func _physics_process(_delta):
-	if canhurt == 1:
+	if canhurt:
 		$CollisionShape2D.disabled = false
-	if canhurt == 0:
+	if !canhurt:
 		$CollisionShape2D.disabled = true
 

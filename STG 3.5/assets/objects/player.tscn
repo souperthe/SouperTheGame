@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=2]
+[gd_scene load_steps=124 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -75,6 +75,7 @@
 [ext_resource path="res://assets/sound/sfx/sfx_slide.wav" type="AudioStream" id=73]
 [ext_resource path="res://assets/scripts/plrstates/jog.gd" type="Script" id=74]
 [ext_resource path="res://assets/sound/sfx/sfx_sjump_releasesm.wav" type="AudioStream" id=75]
+[ext_resource path="res://assets/objects/hurtblock.tscn" type="PackedScene" id=76]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
 [ext_resource path="res://assets/objects/HUD.tscn" type="PackedScene" id=88]
 [ext_resource path="res://assets/scripts/plrstates/Nothing.gd" type="Script" id=93]
@@ -543,7 +544,8 @@ color_ramp = SubResource( 33 )
 [node name="animation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "idle"
+animation = "hurt"
+frame = 5
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1056,7 +1058,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 17
+frame = 1
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1095,6 +1097,13 @@ shape = SubResource( 56 )
 stream = ExtResource( 75 )
 volume_db = 1.0
 bus = "SFX"
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+
+[node name="hurtblock" parent="hurtbox" instance=ExtResource( 76 )]
+position = Vector2( 28, 0 )
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
 [connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]

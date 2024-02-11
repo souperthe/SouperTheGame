@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=2]
+[gd_scene load_steps=124 format=2]
 
 [ext_resource path="res://assets/sound/sfx/sfx_slide.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/sound/sfx/sfx_impact.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/scripts/plrstates/mach_jump.gd" type="Script" id=9]
 [ext_resource path="res://assets/scripts/plrstates/bumpwall.gd" type="Script" id=10]
-[ext_resource path="res://assets/scripts/player.gd" type="Script" id=11]
+[ext_resource path="res://assets/scripts/player2.gd" type="Script" id=11]
 [ext_resource path="res://assets/sound/sfx/sfx_step.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/scripts/stateMachine.gd" type="Script" id=13]
 [ext_resource path="res://assets/scripts/plrstates/Idle.gd" type="Script" id=14]
@@ -26,7 +26,7 @@
 [ext_resource path="res://assets/scripts/plrstates/peelslip.gd" type="Script" id=24]
 [ext_resource path="res://assets/scripts/plrstates/peelland.gd" type="Script" id=25]
 [ext_resource path="res://assets/sound/sfx/sfx_funny.wav" type="AudioStream" id=26]
-[ext_resource path="res://assets/sprites/player_souper/player2.png" type="Texture" id=27]
+[ext_resource path="res://assets/scripts/plrstates/jog.gd" type="Script" id=27]
 [ext_resource path="res://assets/sprites/smoke.png" type="Texture" id=28]
 [ext_resource path="res://assets/scripts/tumble.gd" type="Script" id=29]
 [ext_resource path="res://assets/scripts/randompitch.gd" type="Script" id=30]
@@ -63,7 +63,7 @@
 [ext_resource path="res://assets/sound/sfx/sfx_buildup.wav" type="AudioStream" id=61]
 [ext_resource path="res://assets/sound/sfx/sfx_machready.wav" type="AudioStream" id=62]
 [ext_resource path="res://assets/scripts/plrstates/gunfire.gd" type="Script" id=63]
-[ext_resource path="res://assets/tres_files/REALsouoperanimations.tres" type="SpriteFrames" id=64]
+[ext_resource path="res://assets/important/souperframes.tres" type="SpriteFrames" id=64]
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=65]
 [ext_resource path="res://assets/fonts/new_dynamicfont2.tres" type="DynamicFont" id=66]
 [ext_resource path="res://assets/sprites/player_souper/upthing.png" type="Texture" id=67]
@@ -75,7 +75,10 @@
 [ext_resource path="res://assets/sound/sfx/sfx_gunfire.wav" type="AudioStream" id=73]
 [ext_resource path="res://assets/sound/sfx/sfx_upperkick.wav" type="AudioStream" id=74]
 [ext_resource path="res://assets/scripts/plrstates/crouchsliding.gd" type="Script" id=75]
+[ext_resource path="res://assets/sprites/player_souper/player1.png" type="Texture" id=76]
+[ext_resource path="res://assets/sound/sfx/sfx_sjump_releasesm.wav" type="AudioStream" id=77]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
+[ext_resource path="res://assets/objects/hurtblock.tscn" type="PackedScene" id=79]
 [ext_resource path="res://assets/scripts/plrstates/Nothing.gd" type="Script" id=93]
 [ext_resource path="res://assets/scripts/plrstates/MachClimb.gd" type="Script" id=94]
 [ext_resource path="res://assets/sound/sfx/sfx_swing.wav" type="AudioStream" id=134]
@@ -116,7 +119,7 @@ height = 101.571
 
 [sub_resource type="CapsuleShape2D" id=55]
 radius = 13.5
-height = 40.0
+height = 26.0
 
 [sub_resource type="DynamicFont" id=52]
 size = 37
@@ -155,36 +158,6 @@ _data = [ Vector2( 0.00537635, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.935484, -3.38509 
 
 [sub_resource type="Gradient" id=26]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
-
-[sub_resource type="Shader" id=56]
-code = "shader_type canvas_item;
-
-uniform float rotation = 0.0;
-uniform vec2 rotation_offset = vec2(0.5, 0.5);
-
-void fragment() {
-	// Make the rotation dependant on the UV. Useful to \"anchor\" the
-	// bottom of the sprite
-	float rotation_anchored = rotation * (1.0 - UV.y);
-	
-	// Create the rotation matrix: https://en.wikipedia.org/wiki/Rotation_matrix
-	mat2 rotation_mat = mat2(vec2(cos(rotation_anchored), sin(rotation_anchored)),
-							vec2(-sin(rotation_anchored), cos(rotation_anchored)));
-	
-	// Offset the UV to apply the rotation
-	vec2 centered_uv = UV - rotation_offset;
-	// Apply rotation
-	vec2 rotated_uv = centered_uv * rotation_mat;
-	// Offset the UV back to normal
-	rotated_uv = rotated_uv + rotation_offset;
-	
-	COLOR = texture(TEXTURE, rotated_uv);
-}"
-
-[sub_resource type="ShaderMaterial" id=57]
-shader = SubResource( 56 )
-shader_param/rotation = 15.0
-shader_param/rotation_offset = Vector2( 0.5, 0.5 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 2.86727 )
@@ -290,7 +263,7 @@ custom_solver_bias = 1.0
 extents = Vector2( 13.6018, 45.1507 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 50, 27.1631 )
+extents = Vector2( 50, 22.6988 )
 
 [sub_resource type="RectangleShape2D" id=49]
 extents = Vector2( 7.41576, 2.19077 )
@@ -299,10 +272,13 @@ extents = Vector2( 7.41576, 2.19077 )
 extents = Vector2( 5.55694, 3.35636 )
 
 [sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 8.12568, 2.64015 )
+extents = Vector2( 8.12568, 2.5278 )
 
 [sub_resource type="RectangleShape2D" id=51]
 extents = Vector2( 5.55694, 2.86485 )
+
+[sub_resource type="RectangleShape2D" id=57]
+extents = Vector2( 72.3214, 21.4286 )
 
 [sub_resource type="CircleShape2D" id=20]
 radius = 60.6355
@@ -342,14 +318,15 @@ random_pitch = 1.05
 [sub_resource type="AudioStreamRandomPitch" id=54]
 audio_stream = ExtResource( 74 )
 
-[node name="Player2" type="KinematicBody2D" groups=["Player"]]
+[sub_resource type="RectangleShape2D" id=56]
+extents = Vector2( 7, 20 )
+
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
 material = SubResource( 45 )
 z_index = 2
 input_pickable = true
 collision/safe_margin = 0.5
 script = ExtResource( 11 )
-playernumber = 1
-_animation_player = NodePath("animation")
 
 [node name="normal" type="CollisionShape2D" parent="."]
 modulate = Color( 0.219608, 1, 0, 1 )
@@ -360,7 +337,7 @@ shape = SubResource( 17 )
 
 [node name="crouching" type="CollisionShape2D" parent="."]
 modulate = Color( 0.219608, 1, 0, 1 )
-position = Vector2( 0, 26 )
+position = Vector2( 0, 30.2 )
 scale = Vector2( 0.56, 0.56 )
 z_index = 2
 shape = SubResource( 55 )
@@ -377,7 +354,7 @@ margin_bottom = 498.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 128
+layer = 127
 
 [node name="Mobile" parent="CanvasLayer" instance=ExtResource( 43 )]
 visible = false
@@ -404,6 +381,7 @@ text = "Press X to restart"
 fit_content_height = true
 
 [node name="Pause" parent="PauseLayer" instance=ExtResource( 45 )]
+enabled = true
 
 [node name="HUD" parent="." instance=ExtResource( 44 )]
 layer = 125
@@ -565,10 +543,10 @@ scale_amount_curve = SubResource( 34 )
 color_ramp = SubResource( 33 )
 
 [node name="animation" type="AnimatedSprite" parent="."]
-material = SubResource( 57 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 64 )
-animation = "idle"
+animation = "hurt"
+frame = 23
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -748,6 +726,10 @@ _animation_player = NodePath("../../animation")
 script = ExtResource( 68 )
 _animation_player = NodePath("../../animation")
 
+[node name="jog" type="Node" parent="StateMachine"]
+script = ExtResource( 27 )
+_animation_player = NodePath("../../animation")
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 0, 44 )
 enabled = true
@@ -914,7 +896,7 @@ shape = SubResource( 6 )
 disabled = true
 
 [node name="machcol" type="CollisionShape2D" parent="enemych"]
-position = Vector2( 31.7326, 0 )
+position = Vector2( 31.7326, -1.99997 )
 scale = Vector2( 3.97104, 17.802 )
 shape = SubResource( 16 )
 disabled = true
@@ -923,6 +905,13 @@ disabled = true
 position = Vector2( 0, 4.00003 )
 scale = Vector2( 3.97104, 17.802 )
 shape = SubResource( 51 )
+disabled = true
+
+[node name="crouchcol" type="CollisionShape2D" parent="enemych"]
+modulate = Color( 0.478431, 0, 1, 1 )
+position = Vector2( 48.5, 31 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 57 )
 disabled = true
 
 [node name="poundpart" type="CPUParticles2D" parent="."]
@@ -1042,10 +1031,10 @@ bus = "SFX"
 
 [node name="playernotice" type="Sprite" parent="."]
 visible = false
-modulate = Color( 0.00784314, 0, 1, 1 )
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -78 )
 scale = Vector2( 0.56, 0.56 )
-texture = ExtResource( 27 )
+texture = ExtResource( 76 )
 
 [node name="thing" type="Sprite" parent="."]
 visible = false
@@ -1070,7 +1059,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 65 )
 animation = "idle"
-frame = 9
+frame = 19
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1097,6 +1086,26 @@ volume_db = 1.0
 pitch_scale = 0.9
 bus = "SFX"
 
+[node name="detectcrouch" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectcrouch"]
+position = Vector2( 0, -5 )
+shape = SubResource( 56 )
+
+[node name="slide2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 77 )
+volume_db = 1.0
+bus = "SFX"
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 512
+
+[node name="hurtblock" parent="hurtbox" instance=ExtResource( 79 )]
+position = Vector2( 28, 0 )
+
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
 [connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]
 [connection signal="timeout" from="dashtimer" to="StateMachine/MachPrep" method="_on_dashtimer_timeout"]
@@ -1108,3 +1117,6 @@ bus = "SFX"
 [connection signal="body_entered" from="playermach" to="." method="_on_machch_body_entered"]
 [connection signal="body_entered" from="lavacheck" to="." method="_on_lavacheck_body_entered"]
 [connection signal="timeout" from="iframes" to="." method="_on_iframes_timeout"]
+[connection signal="body_entered" from="detectcrouch" to="." method="_on_detectcrouch_body_entered"]
+[connection signal="body_exited" from="detectcrouch" to="." method="_on_detectcrouch_body_exited"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_enemych_body_entered"]

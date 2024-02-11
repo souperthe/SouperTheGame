@@ -138,12 +138,7 @@ onready var input_shoot = "shoot"
 #-------------------------
 
 
-
-func _ready():
-	if global.sisyphusbuild:
-		speedrun = 550
-	playercharacter = "S"
-	gototargetdoor()
+func setbinds():
 	if playernumber == 0:
 		input_up = "move_up"
 		input_down = "move_down"
@@ -163,9 +158,21 @@ func _ready():
 		input_run = "2run"
 		input_noclip = "2noclip"
 	
+func _ready():
+	if global.sisyphusbuild:
+		speedrun = 550
+	playercharacter = "S"
+	gototargetdoor()
+	setbinds()
+	
 
 
 func _physics_process(_delta):
+	$hurtbox/hurtblock.canhurt = currentstate == "Attack"
+	if global.showcolloisions:
+		$hurtbox/hurtblock.visible = currentstate == "Attack"
+	if !global.showcolloisions:
+		$hurtbox/hurtblock.visible = false
 	if currentstate == "crouchsliding":
 		sfxslide.volume_db = lerp(sfxslide.volume_db, 1, 0.5)
 		if !sfxslide.playing:
@@ -195,9 +202,11 @@ func _physics_process(_delta):
 	if face:
 		$machch.scale.x = -1
 		$enemych.scale.x = -1
+		$hurtbox.scale.x = -1
 	if !face:
 		$machch.scale.x = 1
 		$enemych.scale.x = 1
+		$hurtbox.scale.x = 1
 	if playernumber == 0:
 		if roomhandle.currentscene.name == "menu":
 			$HUD/HUD.visible = false
