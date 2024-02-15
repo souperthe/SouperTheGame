@@ -168,7 +168,7 @@ func _ready():
 
 
 func _physics_process(_delta):
-	$hurtbox/hurtblock.canhurt = currentstate == "Attack"
+	$hurtbox/hurtblock.canhurt = currentstate == "Attack" or currentstate == "tumble"
 	if global.showcolloisions:
 		$hurtbox/hurtblock.visible = currentstate == "Attack"
 	if !global.showcolloisions:

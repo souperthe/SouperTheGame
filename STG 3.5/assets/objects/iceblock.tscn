@@ -54,4 +54,9 @@ one_shot = true
 stream = SubResource( 4 )
 volume_db = -11.361
 
+[node name="restoretimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="restoretimer" to="." method="_on_restoretimer_timeout"]

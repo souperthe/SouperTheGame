@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://assets/scenes/snow/snowguy.gd" type="Script" id=7]
 [ext_resource path="res://assets/objects/iceblock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/objects/exitgate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/metalblock.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/objects/block.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/objects/secretblock.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 48, 80 )
@@ -27,8 +30,10 @@ scale = Vector2( 1, 9 )
 position = Vector2( 192, 480 )
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1024, 544 )
+position = Vector2( 6912, 320 )
 limit_left = -32
+limit_top = 0
+limit_right = 6912
 limit_bottom = 800
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -71,7 +76,7 @@ position = Vector2( 2176, 640 )
 scale = Vector2( 1, 25 )
 
 [node name="fallzone" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1440, 1216 )
+position = Vector2( 1440, 1024 )
 scale = Vector2( 13, 1 )
 
 [node name="collide-slope2" parent="." instance=ExtResource( 5 )]
@@ -151,12 +156,6 @@ position = Vector2( 4416, 448 )
 [node name="iceblock14" parent="." instance=ExtResource( 8 )]
 position = Vector2( 4480, 448 )
 
-[node name="iceblock15" parent="." instance=ExtResource( 8 )]
-position = Vector2( 4544, 448 )
-
-[node name="iceblock16" parent="." instance=ExtResource( 8 )]
-position = Vector2( 4608, 448 )
-
 [node name="iceblock17" parent="." instance=ExtResource( 8 )]
 position = Vector2( 4672, 448 )
 
@@ -198,5 +197,134 @@ position = Vector2( 5440, 448 )
 
 [node name="iceblock30" parent="." instance=ExtResource( 8 )]
 position = Vector2( 5504, 448 )
+
+[node name="collide9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5632, 512 )
+scale = Vector2( 1, 25 )
+
+[node name="collide10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5632, 448 )
+scale = Vector2( 20, 1 )
+
+[node name="iceblock31" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5568, 448 )
+
+[node name="metalblock" parent="." instance=ExtResource( 10 )]
+position = Vector2( 6080, 384 )
+
+[node name="metalblock2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 6080, 320 )
+
+[node name="collide11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6080, 128 )
+scale = Vector2( 1, 3 )
+
+[node name="collide-slope3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5952, 0 )
+scale = Vector2( 3, 2 )
+
+[node name="collide12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6144, 0 )
+scale = Vector2( 12, 2 )
+
+[node name="collide13" parent="." instance=ExtResource( 1 )]
+position = Vector2( -64, -64 )
+scale = Vector2( 105, 1 )
+
+[node name="collide14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6656, 128 )
+scale = Vector2( 4, 2 )
+
+[node name="fallzone2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3520, 1024 )
+scale = Vector2( 35, 1 )
+
+[node name="collide-slope4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 6496, 192 )
+scale = Vector2( 2.5, -1 )
+
+[node name="collide15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4544, 224 )
+scale = Vector2( 2, 1.5 )
+
+[node name="block" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4576, 192 )
+
+[node name="block2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4608, 192 )
+
+[node name="block3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4576, 160 )
+
+[node name="block4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4608, 160 )
+
+[node name="block5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4576, 128 )
+
+[node name="block6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4608, 128 )
+
+[node name="block7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4576, 96 )
+
+[node name="block8" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4608, 96 )
+
+[node name="collide16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4544, 0 )
+scale = Vector2( 2, 1.5 )
+
+[node name="collide17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4544, 448 )
+scale = Vector2( 2, 25 )
+
+[node name="secretblock" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4544, 320 )
+
+[node name="secretblock2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4544, 352 )
+
+[node name="secretblock3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4544, 384 )
+
+[node name="secretblock4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4544, 416 )
+
+[node name="secretblock5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4576, 320 )
+
+[node name="secretblock6" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4576, 352 )
+
+[node name="secretblock7" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4576, 384 )
+
+[node name="secretblock8" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4576, 416 )
+
+[node name="secretblock9" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4608, 320 )
+
+[node name="secretblock10" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4608, 352 )
+
+[node name="secretblock11" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4608, 384 )
+
+[node name="secretblock12" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4608, 416 )
+
+[node name="secretblock13" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4640, 320 )
+
+[node name="secretblock14" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4640, 352 )
+
+[node name="secretblock15" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4640, 384 )
+
+[node name="secretblock16" parent="." instance=ExtResource( 12 )]
+position = Vector2( 4640, 416 )
 
 [connection signal="body_entered" from="snowguy" to="snowguy" method="_on_snowguy_body_entered"]
