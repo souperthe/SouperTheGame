@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://assets/objects/exitgate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/objects/metalblock.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/objects/block.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/objects/secretblock.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 48, 80 )
@@ -245,7 +244,7 @@ scale = Vector2( 2.5, -1 )
 
 [node name="collide15" parent="." instance=ExtResource( 1 )]
 position = Vector2( 4544, 224 )
-scale = Vector2( 2, 1.5 )
+scale = Vector2( 2, 25 )
 
 [node name="block" parent="." instance=ExtResource( 11 )]
 position = Vector2( 4576, 192 )
@@ -274,57 +273,5 @@ position = Vector2( 4608, 96 )
 [node name="collide16" parent="." instance=ExtResource( 1 )]
 position = Vector2( 4544, 0 )
 scale = Vector2( 2, 1.5 )
-
-[node name="collide17" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4544, 448 )
-scale = Vector2( 2, 25 )
-
-[node name="secretblock" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4544, 320 )
-
-[node name="secretblock2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4544, 352 )
-
-[node name="secretblock3" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4544, 384 )
-
-[node name="secretblock4" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4544, 416 )
-
-[node name="secretblock5" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4576, 320 )
-
-[node name="secretblock6" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4576, 352 )
-
-[node name="secretblock7" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4576, 384 )
-
-[node name="secretblock8" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4576, 416 )
-
-[node name="secretblock9" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4608, 320 )
-
-[node name="secretblock10" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4608, 352 )
-
-[node name="secretblock11" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4608, 384 )
-
-[node name="secretblock12" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4608, 416 )
-
-[node name="secretblock13" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4640, 320 )
-
-[node name="secretblock14" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4640, 352 )
-
-[node name="secretblock15" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4640, 384 )
-
-[node name="secretblock16" parent="." instance=ExtResource( 12 )]
-position = Vector2( 4640, 416 )
 
 [connection signal="body_entered" from="snowguy" to="snowguy" method="_on_snowguy_body_entered"]
