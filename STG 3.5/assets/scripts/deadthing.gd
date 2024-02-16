@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 var jump = 900
 var knockback = 50
-var gravity = 35
+var gravity = 1600
 var velocity := Vector2.ZERO
 var spinamount = 2
 onready var sprite = $Sprite
@@ -21,7 +21,7 @@ func _ready():
 
 func _process(_delta):
 	$Sprite.rotation_degrees += spinamount
-	velocity.y += gravity
+	velocity.y += gravity * _delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 

@@ -11,13 +11,13 @@ dest_files=[ "res://import/sfx_damage.wav-27378ad76b95e17111c71ab9a38e5c83.sampl
 
 [params]
 
-force/8_bit=false
-force/mono=false
-force/max_rate=false
-force/max_rate_hz=44100
+force/8_bit=true
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=11025.0
 edit/trim=false
 edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=0
+compress/mode=1

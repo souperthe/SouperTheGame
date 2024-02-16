@@ -652,12 +652,12 @@ animations = [ {
 "frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 18 ), ExtResource( 30 ), ExtResource( 43 ), ExtResource( 34 ) ],
 "loop": true,
 "name": "spin2",
-"speed": 28.0
+"speed": 35.0
 }, {
 "frames": [ ExtResource( 225 ), ExtResource( 113 ), ExtResource( 187 ), ExtResource( 182 ), ExtResource( 251 ), ExtResource( 226 ), ExtResource( 247 ), ExtResource( 220 ) ],
 "loop": true,
 "name": "spinjump",
-"speed": 24.0
+"speed": 50.0
 }, {
 "frames": [ ExtResource( 269 ), ExtResource( 128 ), ExtResource( 266 ), ExtResource( 285 ), ExtResource( 274 ), ExtResource( 285 ), ExtResource( 274 ), ExtResource( 285 ), ExtResource( 274 ), ExtResource( 285 ), ExtResource( 274 ), ExtResource( 285 ), ExtResource( 274 ), ExtResource( 285 ), ExtResource( 274 ) ],
 "loop": true,

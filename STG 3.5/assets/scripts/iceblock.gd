@@ -13,8 +13,8 @@ func _ready():
 
 
 func _process(delta):
-	$uncracked.visible = !cracked
 	$cracked.visible = cracked
+	$uncracked.visible = !cracked
 	if $Area2D.overlaps_body(objplayer):
 		if not cracked:
 			cracked = true
@@ -32,7 +32,13 @@ func hurteffect():
 	ghost.amount = 500
 
 func _on_Timer_timeout():
-	createdead1(0, rand_range(-5,5))
+	hurteffect()
+	createdead1(rand_range(-500,500), rand_range(-10,10))
+	createdead1(rand_range(-500,500), rand_range(-10,10))
+	createdead1(rand_range(-500,500), rand_range(-10,10))
+	createdead1(rand_range(-500,500), rand_range(-10,10))
+	createdead1(rand_range(-500,500), rand_range(-10,10))
+	createdead1(rand_range(-500,500), rand_range(-10,10))
 	randomize()
 	$change2.play()
 	$CollisionShape2D.disabled = true
@@ -47,18 +53,18 @@ func createdead1(velocityx, rotatespeed):
 	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x + 32
 	ghost.position.y = self.position.y + 32
-	ghost.velocity.y = -900
+	ghost.velocity.y = rand_range(-500,-900)
 	ghost.velocity.x = velocityx
 	ghost.spinamount = rotatespeed
 	ghost.sprite.texture = load("res://assets/sprites/white.png")
-	ghost.sprite.scale.x = 2
-	ghost.sprite.scale.y = 2
+	ghost.sprite.scale.x = 1
+	ghost.sprite.scale.y = 1
 
 func _on_restoretimer_timeout():
 	cracked = false
 	$CollisionShape2D.disabled = false
 	$uncracked.modulate.a8 = 143
 	$cracked.modulate.a8 = 143
-	$change.play()
+	$change3.play()
 	$Area2D/CollisionShape2D.disabled = false
 	pass # Replace with function body.

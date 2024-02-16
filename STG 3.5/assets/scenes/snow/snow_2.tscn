@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/block.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="collide10" parent="." instance=ExtResource( 3 )]
+position = Vector2( -256, 320 )
+scale = Vector2( 16, 1 )
+
+[node name="collide14" parent="." instance=ExtResource( 3 )]
+position = Vector2( -256, 0 )
+scale = Vector2( 8, 2 )
+
+[node name="Hallway" parent="." instance=ExtResource( 2 )]
+position = Vector2( -32, 128 )
+scale = Vector2( -2, 6 )
+targetdoor = "door2"
+targetscene = "res://assets/scenes/snow/snow_1.tscn"
+
+[node name="door1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 288 )
+
+[node name="camera" parent="." instance=ExtResource( 4 )]
+position = Vector2( 256, 160 )
+limit_left = 0
+
+[node name="collide-slope" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1024, 320 )
+scale = Vector2( -4, 1 )
+
+[node name="collide" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1024, 384 )
+scale = Vector2( 20, 1 )
+
+[node name="collide2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1536, 224 )
+scale = Vector2( 8, 2.5 )
+
+[node name="collide3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1536, 0 )
+scale = Vector2( 4, 3 )
+
+[node name="platform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1280, 224 )
+scale = Vector2( 4, 1 )
+
+[node name="collide4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2304, 384 )
+scale = Vector2( 8, 1 )
+
+[node name="collide5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2816, 320 )
+scale = Vector2( 8, 1 )
+
+[node name="collide-slope2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3584, 320 )
+scale = Vector2( -4, 1 )
+
+[node name="block" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1536, 192 )
+
+[node name="block2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1568, 192 )
+
+[node name="block3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1600, 192 )
+
+[node name="block4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1632, 192 )
+
+[node name="block5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1664, 192 )
+
+[node name="block6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1696, 192 )
+
+[node name="block7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1728, 192 )
+
+[node name="block8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1760, 192 )
