@@ -88,7 +88,7 @@ position = Vector2( 3392, 448 )
 scale = Vector2( 4, 1 )
 
 [node name="snowguy" type="Area2D" parent="."]
-position = Vector2( 113, 1044 )
+position = Vector2( 6304, 384 )
 script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="snowguy"]
