@@ -27,29 +27,30 @@ expand_icon = true
 
 [node name="plrstate" type="Label" parent="Control"]
 pause_mode = 2
-margin_top = 24.0
-margin_right = 40.0
-margin_bottom = 38.0
+margin_top = 30.0
+margin_right = 55.0
+margin_bottom = 44.0
+text = "dfasfasfa"
 
 [node name="plrspos" type="Label" parent="Control"]
 pause_mode = 2
-margin_top = 40.0
-margin_right = 40.0
-margin_bottom = 54.0
+margin_top = 46.0
+margin_right = 43.0
+margin_bottom = 60.0
 text = "weiner"
 
 [node name="plrsvol" type="Label" parent="Control"]
 pause_mode = 2
-margin_top = 56.0
+margin_top = 62.0
 margin_right = 40.0
-margin_bottom = 70.0
+margin_bottom = 76.0
 text = "willy"
 
 [node name="escapecheck2" type="Button" parent="Control"]
 pause_mode = 2
-margin_top = -72.0
+margin_top = -256.0
 margin_right = 131.0
-margin_bottom = -48.0
+margin_bottom = -232.0
 focus_mode = 1
 shortcut_in_tooltip = false
 enabled_focus_mode = 1
@@ -58,9 +59,9 @@ expand_icon = true
 
 [node name="smoothamount" type="TextEdit" parent="Control"]
 pause_mode = 2
-margin_top = -168.0
+margin_top = -304.0
 margin_right = 40.0
-margin_bottom = -128.0
+margin_bottom = -264.0
 hint_tooltip = "enter camera speed here"
 focus_mode = 1
 text = "5"
@@ -71,9 +72,9 @@ selecting_enabled = false
 
 [node name="escapecheck3" type="Button" parent="Control"]
 pause_mode = 2
-margin_top = -200.0
+margin_top = -104.0
 margin_right = 131.0
-margin_bottom = -176.0
+margin_bottom = -80.0
 focus_mode = 1
 shortcut_in_tooltip = false
 enabled_focus_mode = 1
@@ -82,9 +83,9 @@ expand_icon = true
 
 [node name="gamespeed" type="TextEdit" parent="Control"]
 pause_mode = 2
-margin_top = -256.0
+margin_top = -161.0
 margin_right = 40.0
-margin_bottom = -208.0
+margin_bottom = -113.0
 hint_tooltip = "enter game speed here"
 focus_mode = 1
 text = "1
@@ -96,23 +97,23 @@ selecting_enabled = false
 
 [node name="fps" type="Label" parent="Control"]
 pause_mode = 2
-margin_top = 72.0
+margin_top = 78.0
 margin_right = 43.0
-margin_bottom = 86.0
+margin_bottom = 92.0
 text = "weiner"
 
 [node name="plranimation" type="Label" parent="Control"]
 pause_mode = 2
-margin_top = 8.0
+margin_top = 14.0
 margin_right = 40.0
-margin_bottom = 22.0
+margin_bottom = 28.0
 text = "willy"
 
 [node name="spawngun" type="Button" parent="Control"]
 pause_mode = 2
-margin_top = -112.0
+margin_top = -72.0
 margin_right = 131.0
-margin_bottom = -88.0
+margin_bottom = -48.0
 focus_mode = 1
 shortcut_in_tooltip = false
 enabled_focus_mode = 1
@@ -121,9 +122,9 @@ expand_icon = true
 
 [node name="spawnboombox" type="Button" parent="Control"]
 pause_mode = 2
-margin_top = -288.0
+margin_top = -192.0
 margin_right = 131.0
-margin_bottom = -264.0
+margin_bottom = -168.0
 hint_tooltip = "GIVE ME THE BOOMBOX.."
 focus_mode = 1
 shortcut_in_tooltip = false
@@ -133,10 +134,22 @@ expand_icon = true
 
 [node name="plranimation2" type="Label" parent="Control"]
 pause_mode = 2
-margin_top = -312.0
+margin_top = -2.0
 margin_right = 40.0
-margin_bottom = -298.0
-text = "willy"
+margin_bottom = 12.0
+text = "ghfh"
+
+[node name="noclip" type="Button" parent="Control"]
+pause_mode = 2
+margin_top = -224.0
+margin_right = 56.0
+margin_bottom = -200.0
+hint_tooltip = "GIVE ME THE BOOMBOX.."
+focus_mode = 1
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "noclip"
+expand_icon = true
 
 [node name="spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -147,3 +160,4 @@ volume_db = -8.898
 [connection signal="pressed" from="Control/escapecheck3" to="." method="_on_escapecheck3_pressed"]
 [connection signal="pressed" from="Control/spawngun" to="." method="_on_spawngun_pressed"]
 [connection signal="pressed" from="Control/spawnboombox" to="." method="_on_spawnboombox_pressed"]
+[connection signal="pressed" from="Control/noclip" to="." method="_on_noclip_pressed"]

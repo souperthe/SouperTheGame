@@ -30,8 +30,6 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_released(player.input_jump):
 		 if player.velocity.y < -10:
 			 player.velocity.y = 10
-	if Input.is_action_just_pressed(player.input_noclip) and OS.is_debug_build():
-		state_machine.transition_to("Noclip")
 	if player.ladder:
 		if Input.is_action_just_pressed(player.input_up) or Input.is_action_pressed(player.input_down):
 			state_machine.transition_to("Ladder")

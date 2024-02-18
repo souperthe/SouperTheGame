@@ -41,11 +41,10 @@ func physics_update(delta: float) -> void:
 		player.position.y += 10
 		if Input.is_action_pressed("run"):
 			player.position.y += 25
-	if Input.is_action_just_pressed(player.input_noclip):
-		player.machbox.disabled = true
-		player.emachbox.disabled = true
-		player.disabletitlt = false
-		state_machine.transition_to("Idle")
+	if Input.is_action_just_pressed(player.input_jump):
+		state_machine.transition_to("Air", {do_jump = true})
+	if Input.is_action_just_pressed(player.input_attack):
+		state_machine.transition_to("Attack")
 		
 		
 func exit() -> void:

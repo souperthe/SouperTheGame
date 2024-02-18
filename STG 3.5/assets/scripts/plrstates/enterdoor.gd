@@ -16,8 +16,6 @@ func enter(_msg := {}) -> void:
 	
 func physics_update(delta: float) -> void:
 	global.combotimer.paused = true
-	if Input.is_action_pressed(player.input_noclip) and OS.is_debug_build():
-		state_machine.transition_to("Noclip")
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
 

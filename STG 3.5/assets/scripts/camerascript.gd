@@ -53,8 +53,9 @@ func _process(_delta):
 		var xz = objplayer.position.x-presobjs.player2.position.x
 		var yz = objplayer.position.y-presobjs.player2.position.y
 		position = (objplayer.position + presobjs.player2.position) / Vector2(2,2)
-		zoom.x = max(zoomin, abs((xz - yz * 1.5)))/800
-		zoom.y = max(zoomin, abs((xz - yz * 1.5)))/800
+		zoom.x = max(zoomin, abs((xz - yz)))/800
+		zoom.y = max(zoomin, abs((xz - yz)))/800
+		#zoom.y = max(zoomin, abs((yz)))/800
 		limit_bottom = 10000000
 		limit_right = 10000000
 		limit_left = -10000000

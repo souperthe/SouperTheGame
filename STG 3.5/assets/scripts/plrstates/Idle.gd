@@ -51,9 +51,6 @@ func physics_update(_delta: float) -> void:
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
 	if Input.is_action_just_pressed(player.input_down):
 		state_machine.transition_to("crouch")
-	
-	if Input.is_action_just_pressed(player.input_noclip) and OS.is_debug_build():
-		state_machine.transition_to("Noclip")
 	if player.gun and Input.is_action_just_pressed(player.input_shoot):
 		state_machine.transition_to("gunfire")
 	if Input.is_action_just_pressed(player.input_jump):

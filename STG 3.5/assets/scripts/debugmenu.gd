@@ -18,6 +18,7 @@ func _process(_delta):
 		if enabled:
 			if !presobjs.player2:
 				createplayer2()
+	$Control/noclip.visible = !objplayer.currentstate == "Noclip"
 	$Control/plrstate.text = str("PLAYER STATE: ", objplayer.currentstate)
 	$Control/fps.text = (str("FPS: ", Engine.get_frames_per_second()))
 	$Control/plrspos.text = (str("PLAYER POSITION: ", objplayer.position))
@@ -79,4 +80,10 @@ func _on_spawnboombox_pressed():
 	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = objplayer.position.x
 	ghost.position.y = objplayer.position.y
+	pass # Replace with function body.
+
+
+func _on_noclip_pressed():
+	if !objplayer.currentstate == "Noclip":
+		objplayer.changestate("Noclip")
 	pass # Replace with function body.

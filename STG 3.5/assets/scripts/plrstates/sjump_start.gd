@@ -39,6 +39,15 @@ func physics_update(delta: float) -> void:
 			player.mattackbox.disabled = true
 			state_machine.transition_to("sjump_hitceiling")
 	if player.playercharacter == "SM":
+		if Input.is_action_just_pressed(player.input_jump):
+			player.attacksfx.play()
+			player.change.play()
+			player.velocity.y = -100 * 10
+			player.machbox.disabled = true
+			player.emachbox.disabled = true
+			state_machine.transition_to("fallpound_start")
+		if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
+			state_machine.transition_to("diving")
 		player.velocity.y += player.gravity * delta
 		if player.is_on_wall():
 			player.machbox.disabled = true
