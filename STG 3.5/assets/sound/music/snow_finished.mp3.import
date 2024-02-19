@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://import/snow_finished.mp3-d9c3de997218dd7f63c319c92bd54d2a.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/snow_finished.mp3"
+dest_files=[ "res://import/snow_finished.mp3-d9c3de997218dd7f63c319c92bd54d2a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

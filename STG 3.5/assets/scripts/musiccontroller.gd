@@ -11,7 +11,7 @@ var boss1 = load("res://assets/sound/music/ogg/mus_boss1.ogg")
 var city = load("res://assets/sound/music/ogg/mus_citynew.ogg")
 var none
 var scary = load("res://assets/sound/music/ogg/mus_scary.ogg")
-var snow = load("res://assets/sound/music/snow wip.ogg")
+var snow = load("res://assets/sound/music/snow_finished.mp3")
 var lap1 = load("res://assets/sound/music/ogg/mus_souper_escapenew.ogg")
 var lap2 = load("res://assets/sound/music/ogg/lap2wip.ogg")
 var tutorialsong = load("res://assets/sound/music/ogg/mus_tut.ogg")

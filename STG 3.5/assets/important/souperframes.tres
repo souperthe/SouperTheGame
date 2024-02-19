@@ -532,7 +532,7 @@ animations = [ {
 "frames": [ ExtResource( 276 ), ExtResource( 172 ), ExtResource( 264 ), ExtResource( 256 ), ExtResource( 271 ), ExtResource( 190 ) ],
 "loop": true,
 "name": "mach3",
-"speed": 35.0
+"speed": 40.0
 }, {
 "frames": [ ExtResource( 213 ), ExtResource( 144 ), ExtResource( 214 ) ],
 "loop": false,

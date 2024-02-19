@@ -115,7 +115,7 @@ shader_param/flash_modifier = 0.0
 
 [sub_resource type="CapsuleShape2D" id=17]
 radius = 13.5
-height = 101.571
+height = 83.7143
 
 [sub_resource type="CapsuleShape2D" id=55]
 radius = 13.5
@@ -331,7 +331,7 @@ _animation_player = NodePath("animation")
 
 [node name="normal" type="CollisionShape2D" parent="."]
 modulate = Color( 0.219608, 1, 0, 1 )
-position = Vector2( 0, 9 )
+position = Vector2( 0, 14 )
 scale = Vector2( 0.56, 0.56 )
 z_index = 2
 shape = SubResource( 17 )
@@ -544,8 +544,7 @@ color_ramp = SubResource( 33 )
 [node name="animation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "hurt"
-frame = 21
+animation = "mach3"
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1058,7 +1057,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 17
+frame = 12
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1090,7 +1089,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectcrouch"]
-position = Vector2( 0, -5 )
+position = Vector2( 0, 4 )
 shape = SubResource( 56 )
 
 [node name="slide2" type="AudioStreamPlayer2D" parent="."]
