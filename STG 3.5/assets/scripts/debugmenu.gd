@@ -87,3 +87,8 @@ func _on_noclip_pressed():
 	if !objplayer.currentstate == "Noclip":
 		objplayer.changestate("Noclip")
 	pass # Replace with function body.
+
+
+func _on_spawnboombox2_pressed():
+	global.room_goto("res://assets/scenes/entrance/entrance_lap.tscn", "door1")
+	pass # Replace with function body.

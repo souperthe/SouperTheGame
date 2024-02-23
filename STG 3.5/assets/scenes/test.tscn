@@ -363,3 +363,8 @@ stream = SubResource( 2 )
 [node name="escapephone" parent="." instance=ExtResource( 25 )]
 position = Vector2( 4288, 96 )
 escapetime = 80
+
+[node name="Door3" parent="." instance=ExtResource( 18 )]
+position = Vector2( 832, 178 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/testA.tscn"
