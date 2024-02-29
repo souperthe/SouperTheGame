@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=2]
+[gd_scene load_steps=110 format=2]
 
 [ext_resource path="res://assets/scripts/Combo.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panic_0002.png" type="Texture" id=2]
@@ -78,6 +78,8 @@
 [ext_resource path="res://assets/sprites/HUD/ranknew_5.png" type="Texture" id=76]
 [ext_resource path="res://assets/sprites/HUD/ranknew_6.png" type="Texture" id=77]
 [ext_resource path="res://assets/sprites/HUD/ranknew_4.png" type="Texture" id=78]
+[ext_resource path="res://assets/sprites/HUD/souper fallen new.png" type="Texture" id=79]
+[ext_resource path="res://assets/sound/the best song ever.wav" type="AudioStream" id=80]
 
 [sub_resource type="StyleBoxFlat" id=30]
 bg_color = Color( 0, 0, 0, 1 )
@@ -185,7 +187,7 @@ void vertex(){
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 35 )
-shader_param/motion = Vector2( -30, -30 )
+shader_param/motion = Vector2( -100, -100 )
 shader_param/scale = 1.0
 shader_param/offset = Vector2( 0, 0 )
 
@@ -377,6 +379,85 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -100 ) ]
 }
 
+[sub_resource type="Animation" id=36]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/song:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 4.888, -80.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/song:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "reset"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 126
 
@@ -539,7 +620,7 @@ position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 3
+frame = 4
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -578,7 +659,6 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "combo"
-frame = 9
 playing = true
 offset = Vector2( 497, -410 )
 
@@ -668,6 +748,37 @@ anims/panic = SubResource( 31 )
 anims/escapedone = SubResource( 34 )
 anims/escapestart = SubResource( 19 )
 anims/reset = SubResource( 20 )
+
+[node name="fallen" type="Control" parent="HUD"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="HUD/fallen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="bg" type="TextureRect" parent="HUD/fallen/Control"]
+modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 7 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 13 )
+expand = true
+stretch_mode = 2
+
+[node name="SouperFallen" type="Sprite" parent="HUD/fallen/Control"]
+texture = ExtResource( 79 )
+centered = false
+
+[node name="song" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
+stream = ExtResource( 80 )
+volume_db = 4.888
+bus = "Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/fallen"]
+anims/fade = SubResource( 36 )
+anims/reset = SubResource( 37 )
 
 [node name="Tween" type="Tween" parent="HUD"]
 

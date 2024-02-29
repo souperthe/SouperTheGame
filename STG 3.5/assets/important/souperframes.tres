@@ -472,7 +472,7 @@ animations = [ {
 "frames": [ ExtResource( 41 ), ExtResource( 38 ), ExtResource( 1 ), ExtResource( 39 ), ExtResource( 42 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "gunfire",
-"speed": 15.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 261 ), ExtResource( 258 ), ExtResource( 255 ), ExtResource( 280 ), ExtResource( 268 ), ExtResource( 270 ), ExtResource( 252 ) ],
 "loop": true,

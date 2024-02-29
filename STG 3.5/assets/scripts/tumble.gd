@@ -33,6 +33,8 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed(player.input_run):
 		if player.playercharacter == "S":
 			state_machine.transition_to("Mach3")
+			player.sfxinstamach.play()
+			player.doflash()
 		if player.playercharacter == "SM":
 			state_machine.transition_to("sjump_start")
 	#if Input.is_action_just_pressed(player.input_jump):

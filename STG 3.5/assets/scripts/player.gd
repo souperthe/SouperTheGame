@@ -107,6 +107,7 @@ onready var sfxsmsjump = $slide2
 onready var cayatotime = $coyatotime
 onready var iframestimer = $iframes
 onready var uncrouchdetect = $detectcrouch
+onready var sfxinstamach = $instamach4
 var penisman = false
 var canpenis = true
 
@@ -290,12 +291,15 @@ func dohurt():
 					$StateMachine.transition_to("Nothing")
 				if playernumber == 0:
 					$StateMachine.transition_to("bossdead")
+					doflash()
 					global.cutscene = true
 				bosshealth = 0
 			if bosshealth > 1:
 				$StateMachine.transition_to("Hurt")
+				doflash()
 				bosshealth += -1
 		if !global.bosslevel:
+			doflash()
 			if !global.score == 0 && !global.hardmode:
 				global.score -= 100
 				numberthing("-100")
@@ -407,6 +411,12 @@ func reset():
 	haskey = false
 	bosshealth = 8
 	gun = false
+	global.combotimer.paused = false
+	$fallzonetimer.stop()
+	$HUD/HUD/fallen/AnimationPlayer.play("reset")
+	$HUD/HUD/fallen.visible = false
+	$HUD/HUD/fallen/Control/song.stop()
+	$HUD/HUD/fallen/Control/song.volume_db = 6
 	global.treasure = false
 	global.panicdone = false
 	global.rank = "1/5"
@@ -563,7 +573,8 @@ func switchplayer(fasfasfdasfa):
 	if fasfasfdasfa == "souper":
 		animator.frames = load("res://assets/important/souperframes.tres")
 		playercharacter = "S"
-
+func doflash():
+	$AnimationPlayer2.play("doflash")
 func _on_iframes_timeout():
 	canhurt = true
 	pass # Replace with function body.
@@ -588,4 +599,24 @@ func _on_detectcrouch_body_entered(body):
 func _on_detectcrouch_body_exited(body):
 	if body is Collision:
 		canuncrouch = true
+	pass # Replace with function body.
+func fall():
+	cutscene()
+	goofysound()
+	global.makeflash()
+	$HUD/HUD/fallen.visible = true
+	global.combotimer.paused = true
+	music.musicvolume = -88
+	$HUD/HUD/fallen/Control/song.play()
+	$HUD/HUD/fallen/Control/song.volume_db = 6
+	$HUD/HUD/fallen/AnimationPlayer.play("reset")
+	$fallzonetimer.start()
+
+func _on_fallzone_timer_timeout():
+	presobjs.player2respawn()
+	respawn()
+	global.combotimer.paused = false
+	music.musicvolume = 2
+	$HUD/HUD/fallen/AnimationPlayer.play("fade")
+	
 	pass # Replace with function body.

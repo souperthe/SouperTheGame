@@ -23,6 +23,7 @@ func _ready():
 
 func _on_Area2D_area_entered(_area):
 	print("wtf!")
+	#global.camera.shake(25)
 	if !objplayer.currentstate == ("bossdead"):
 		dorespawn()
 	if objplayer.currentstate == ("bossdead") && !objplayer.animator.animation == "slipland":
@@ -32,13 +33,5 @@ func _on_Area2D_area_entered(_area):
 		objplayer.velocity.y = -5
 	
 func dorespawn():
-	objplayer.cutscene()
-	global.combotimer.paused = true
-	yield(get_tree().create_timer(0.5), "timeout")
-	ct._tin()
-	yield(get_tree().create_timer(0.5), "timeout")
-	ct._tout()
-	global.combotimer.paused = false
-	presobjs.player2respawn()
-	objplayer.respawn()
+	objplayer.fall()
 	

@@ -6,14 +6,16 @@ onready var animation_player:AnimatedSprite = get_node(_animation_player)
 # var a = 2
 # var b = "text"
 
-var wallspeed = 0
+var lastxvel = 0
 var canwallclimb = false
 
 
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
-	if player.currentstate != ("grapple"):
-		wallspeed = abs(player.velocity.x)
+	if !player.currentstate == ("diving"):
+		lastxvel = player.velocity.x
+	#if player.currentstate != ("grapple"):
+		#wallspeed = abs(player.velocity.x)
 	animation_player.play("grappleland")
 	player.sfxgrapple.play()
 	player.mach3.stop()

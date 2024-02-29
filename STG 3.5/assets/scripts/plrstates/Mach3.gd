@@ -85,6 +85,7 @@ func exit() -> void:
 	player.machbox.disabled = true
 	player.emachbox.disabled = true
 	player.mach4.stop()
+	player.sfxinstamach.stop()
 		
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

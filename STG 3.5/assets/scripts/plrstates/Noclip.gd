@@ -29,18 +29,22 @@ func physics_update(delta: float) -> void:
 		player.position.x += 10
 		if Input.is_action_pressed(player.input_run):
 			player.position.x += 25
+			player.trail()
 	if Input.is_action_pressed(player.input_left):
 		player.position.x -= 10
 		if Input.is_action_pressed(player.input_run):
 			player.position.x -= 25
+			player.trail()
 	if Input.is_action_pressed(player.input_up):
 		player.position.y -= 10
 		if Input.is_action_pressed(player.input_run):
 			player.position.y -= 25
+			player.trail()
 	if Input.is_action_pressed(player.input_down):
 		player.position.y += 10
 		if Input.is_action_pressed("run"):
 			player.position.y += 25
+			player.trail()
 	if Input.is_action_just_pressed(player.input_jump):
 		state_machine.transition_to("Air", {do_jump = true})
 	if Input.is_action_just_pressed(player.input_attack):

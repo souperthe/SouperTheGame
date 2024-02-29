@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=2]
+[gd_scene load_steps=128 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -76,7 +76,9 @@
 [ext_resource path="res://assets/scripts/plrstates/jog.gd" type="Script" id=74]
 [ext_resource path="res://assets/sound/sfx/sfx_sjump_releasesm.wav" type="AudioStream" id=75]
 [ext_resource path="res://assets/objects/hurtblock.tscn" type="PackedScene" id=76]
+[ext_resource path="res://assets/sound/sfx/sfx_dropkickdash.wav" type="AudioStream" id=77]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
+[ext_resource path="res://assets/shaders/color_flash.tres" type="Material" id=79]
 [ext_resource path="res://assets/objects/HUD.tscn" type="PackedScene" id=88]
 [ext_resource path="res://assets/scripts/plrstates/Nothing.gd" type="Script" id=93]
 [ext_resource path="res://assets/scripts/plrstates/MachClimb.gd" type="Script" id=94]
@@ -321,6 +323,24 @@ audio_stream = ExtResource( 68 )
 [sub_resource type="RectangleShape2D" id=56]
 extents = Vector2( 7, 20 )
 
+[sub_resource type="AudioStreamRandomPitch" id=58]
+audio_stream = ExtResource( 77 )
+
+[sub_resource type="Animation" id=59]
+resource_name = "doflash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("animation:material:shader_param/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 material = SubResource( 45 )
 z_index = 2
@@ -400,7 +420,7 @@ draw_order = 1
 texture = ExtResource( 157 )
 direction = Vector2( 0, -300 )
 spread = 180.0
-gravity = Vector2( 0, -300 )
+gravity = Vector2( 0, 500 )
 initial_velocity = 1000.0
 initial_velocity_random = 1.0
 angular_velocity = 296.47
@@ -430,7 +450,7 @@ draw_order = 1
 texture = ExtResource( 155 )
 direction = Vector2( 0, -300 )
 spread = 180.0
-gravity = Vector2( 0, -300 )
+gravity = Vector2( 0, 500 )
 initial_velocity = 1000.0
 initial_velocity_random = 1.0
 angular_velocity = 296.47
@@ -460,7 +480,7 @@ draw_order = 1
 texture = ExtResource( 156 )
 direction = Vector2( 0, -300 )
 spread = 180.0
-gravity = Vector2( 0, -300 )
+gravity = Vector2( 0, 500 )
 initial_velocity = 1000.0
 initial_velocity_random = 1.0
 angular_velocity = 296.47
@@ -542,9 +562,11 @@ scale_amount_curve = SubResource( 34 )
 color_ramp = SubResource( 33 )
 
 [node name="animation" type="AnimatedSprite" parent="."]
+material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "mach3"
+frame = 5
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1057,7 +1079,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 12
+frame = 2
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1104,6 +1126,18 @@ collision_mask = 512
 [node name="hurtblock" parent="hurtbox" instance=ExtResource( 76 )]
 position = Vector2( 28, 0 )
 
+[node name="instamach4" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 58 )
+volume_db = 3.051
+bus = "SFX"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/doflash = SubResource( 59 )
+
+[node name="fallzonetimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
 [connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]
 [connection signal="timeout" from="dashtimer" to="StateMachine/MachPrep" method="_on_dashtimer_timeout"]
@@ -1117,3 +1151,4 @@ position = Vector2( 28, 0 )
 [connection signal="timeout" from="iframes" to="." method="_on_iframes_timeout"]
 [connection signal="body_entered" from="detectcrouch" to="." method="_on_detectcrouch_body_entered"]
 [connection signal="body_exited" from="detectcrouch" to="." method="_on_detectcrouch_body_exited"]
+[connection signal="timeout" from="fallzonetimer" to="." method="_on_fallzone_timer_timeout"]
