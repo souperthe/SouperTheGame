@@ -14,7 +14,7 @@ func enter(_msg := {}) -> void:
 func physics_update(delta: float) -> void:
 	walk()
 	player.trail()
-	player.velocity.x = lerp(player.velocity.x, 0, player.friction / 50 * delta)
+	#player.velocity.x = lerp(player.velocity.x, 0, player.friction / 50 * delta)
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	#player.velocity.x = lerp(player.velocity.x, 0, player.friction * delta)

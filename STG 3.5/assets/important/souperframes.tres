@@ -667,7 +667,7 @@ animations = [ {
 "frames": [ ExtResource( 141 ), ExtResource( 325 ), ExtResource( 174 ), ExtResource( 319 ), ExtResource( 287 ), ExtResource( 321 ), ExtResource( 317 ), ExtResource( 299 ), ExtResource( 322 ), ExtResource( 323 ) ],
 "loop": false,
 "name": "upperkick",
-"speed": 20.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 121 ), ExtResource( 223 ), ExtResource( 228 ), ExtResource( 246 ), ExtResource( 217 ) ],
 "loop": true,

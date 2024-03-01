@@ -609,7 +609,8 @@ func fall():
 	$HUD/HUD/fallen.visible = true
 	global.combotimer.paused = true
 	music.musicvolume = -88
-	$HUD/HUD/fallen/Control/song.play()
+	if !global.panic:
+		$HUD/HUD/fallen/Control/song.play()
 	$HUD/HUD/fallen/Control/song.volume_db = 6
 	$HUD/HUD/fallen/AnimationPlayer.play("reset")
 	$fallzonetimer.start()

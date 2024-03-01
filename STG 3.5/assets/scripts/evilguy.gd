@@ -45,16 +45,9 @@ func _physics_process(delta):
 		kill()
 	velocity = move_and_slide(velocity, Vector2.UP)
 	trail()
-	if $detect.overlaps_body(objplayer):
-		if $Funnyboulder.modulate.a8 == 255:
-			velocity = Vector2(0,0)
-			#body.hurtplayer()
-			kill()
-			objplayer.changestate("bossdead")
-			$Funnyboulder.modulate.a8 = 0
 	if global.hardmode and global.panicdone:
 		speed += 30
-	if $Funnyboulder.modulate.a8 > 251 and !global.cutscene and !objplayer.currentstate == ("EnterDoor") and !objplayer.currentstate == ("ExitDoor") and !objplayer.currentstate == ("bossdead") and !pause:
+	if $Funnyboulder.modulate.a8 > 251 and !global.cutscene and !objplayer.currentstate == ("EnterDoor") and !objplayer.currentstate == ("ExitDoor") and !objplayer.currentstate == ("bossdead") and !objplayer.currentstate == ("Nothing") and !pause:
 		#position = lerp(position, objplayer.position, 3 * delta)
 		#position = Vector2.slide(objplayer.position)
 		#velocity = move_and_slide(velocity)
@@ -62,6 +55,13 @@ func _physics_process(delta):
 		var vector = (mousepoint - self.get_position()).normalized()
 		var goto = (vector * speed * delta)
 		velocity = lerp(velocity, goto, 1 * delta)
+		if $detect.overlaps_body(objplayer):
+			if $Funnyboulder.modulate.a8 == 255:
+				velocity = Vector2(0,0)
+				#body.hurtplayer()
+				kill()
+				objplayer.changestate("bossdead")
+				$Funnyboulder.modulate.a8 = 0
 	else:
 		velocity.x = lerp(velocity.x, 0, 5 * delta)
 		velocity.y = lerp(velocity.y, 0, 5 * delta)

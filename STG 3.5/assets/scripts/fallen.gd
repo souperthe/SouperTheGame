@@ -19,7 +19,8 @@ func dothing():
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("dostuff")
 	$Control/ouch.position = objplayer.position
-	playlaugh()
+	if !global.panic:
+		playlaugh()
 	#playcock()
 	#$Control/static.play("static")
 	$Control/static.frame = 0
