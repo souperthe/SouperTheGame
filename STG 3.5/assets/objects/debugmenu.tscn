@@ -163,6 +163,19 @@ enabled_focus_mode = 1
 text = "go to house lap room"
 expand_icon = true
 
+[node name="spawnboombox3" type="Button" parent="Control"]
+pause_mode = 2
+margin_left = 1.0
+margin_top = -361.0
+margin_right = 125.0
+margin_bottom = -337.0
+hint_tooltip = "yea"
+focus_mode = 1
+shortcut_in_tooltip = false
+enabled_focus_mode = 1
+text = "fallzone cutscene"
+expand_icon = true
+
 [node name="spawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -8.898
@@ -174,3 +187,4 @@ volume_db = -8.898
 [connection signal="pressed" from="Control/spawnboombox" to="." method="_on_spawnboombox_pressed"]
 [connection signal="pressed" from="Control/noclip" to="." method="_on_noclip_pressed"]
 [connection signal="pressed" from="Control/spawnboombox2" to="." method="_on_spawnboombox2_pressed"]
+[connection signal="pressed" from="Control/spawnboombox3" to="." method="_on_spawnboombox3_pressed"]

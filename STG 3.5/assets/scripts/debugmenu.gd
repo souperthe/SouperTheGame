@@ -92,3 +92,8 @@ func _on_noclip_pressed():
 func _on_spawnboombox2_pressed():
 	global.room_goto("res://assets/scenes/entrance/entrance_lap.tscn", "door1")
 	pass # Replace with function body.
+
+
+func _on_spawnboombox3_pressed():
+	objplayer.fall()
+	pass # Replace with function body.
