@@ -603,7 +603,9 @@ func _on_detectcrouch_body_exited(body):
 func fall():
 	cutscene()
 	goofysound()
-	global.makeflash()
+	$HUD/HUD/fallen.dothing()
+	$HUD/HUD/fallen/Control/ouch.play()
+	#global.makeflash()
 	$HUD/HUD/fallen.visible = true
 	global.combotimer.paused = true
 	music.musicvolume = -88

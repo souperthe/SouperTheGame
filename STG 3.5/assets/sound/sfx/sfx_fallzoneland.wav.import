@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://import/sfx_fallzoneland.wav-6963af8bdd0fdb2eca8db11ad487b8a8.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/sfx_fallzoneland.wav"
+dest_files=[ "res://import/sfx_fallzoneland.wav-6963af8bdd0fdb2eca8db11ad487b8a8.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=11025.0
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=1

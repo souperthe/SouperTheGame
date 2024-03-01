@@ -25,7 +25,7 @@ func _on_Area2D_area_entered(_area):
 	print("wtf!")
 	#global.camera.shake(25)
 	if !objplayer.currentstate == ("bossdead"):
-		dorespawn()
+		objplayer.fall()
 	if objplayer.currentstate == ("bossdead") && !objplayer.animator.animation == "slipland":
 		objplayer.velocity.y = -670 * 2
 		objplayer.velocity.x = 670

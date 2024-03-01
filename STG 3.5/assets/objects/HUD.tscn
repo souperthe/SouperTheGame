@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=2]
+[gd_scene load_steps=127 format=2]
 
 [ext_resource path="res://assets/scripts/Combo.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panic_0002.png" type="Texture" id=2]
@@ -80,6 +80,16 @@
 [ext_resource path="res://assets/sprites/HUD/ranknew_4.png" type="Texture" id=78]
 [ext_resource path="res://assets/sprites/HUD/souper fallen new.png" type="Texture" id=79]
 [ext_resource path="res://assets/sound/the best song ever.wav" type="AudioStream" id=80]
+[ext_resource path="res://assets/sprites/animated/bomb/explode_0010.png" type="Texture" id=81]
+[ext_resource path="res://assets/sprites/animated/static/static_4.png" type="Texture" id=82]
+[ext_resource path="res://assets/sprites/animated/static/static_2.png" type="Texture" id=83]
+[ext_resource path="res://assets/sprites/animated/static/static_1.png" type="Texture" id=84]
+[ext_resource path="res://assets/sprites/animated/static/static_3.png" type="Texture" id=85]
+[ext_resource path="res://assets/scripts/fallen.gd" type="Script" id=86]
+[ext_resource path="res://assets/sound/sfx/sfx_fallzoneland.wav" type="AudioStream" id=87]
+[ext_resource path="res://assets/sound/sfx/sfx_fallzonelaugh1.wav" type="AudioStream" id=88]
+[ext_resource path="res://assets/sound/sfx/sfx_fallzonelaugh3.wav" type="AudioStream" id=89]
+[ext_resource path="res://assets/sound/sfx/sfx_fallzonelaugh2.wav" type="AudioStream" id=90]
 
 [sub_resource type="StyleBoxFlat" id=30]
 bg_color = Color( 0, 0, 0, 1 )
@@ -174,7 +184,7 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 55 )
 
-[sub_resource type="Shader" id=35]
+[sub_resource type="Shader" id=41]
 code = "shader_type canvas_item;
 
 uniform vec2 motion = vec2(0.0);
@@ -186,8 +196,8 @@ void vertex(){
 }"
 
 [sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 35 )
-shader_param/motion = Vector2( -100, -100 )
+shader = SubResource( 41 )
+shader_param/motion = Vector2( -30, -30 )
 shader_param/scale = 1.0
 shader_param/offset = Vector2( 0, 0 )
 
@@ -377,6 +387,89 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -100 ) ]
+}
+
+[sub_resource type="AudioStreamRandomPitch" id=43]
+audio_stream = ExtResource( 88 )
+
+[sub_resource type="AudioStreamRandomPitch" id=44]
+audio_stream = ExtResource( 90 )
+
+[sub_resource type="AudioStreamRandomPitch" id=45]
+audio_stream = ExtResource( 89 )
+
+[sub_resource type="ShaderMaterial" id=42]
+shader = SubResource( 41 )
+shader_param/motion = Vector2( -100, 100 )
+shader_param/scale = 2.0
+shader_param/offset = Vector2( 0, 0 )
+
+[sub_resource type="AudioStreamRandomPitch" id=39]
+audio_stream = ExtResource( 87 )
+
+[sub_resource type="SpriteFrames" id=38]
+animations = [ {
+"frames": [ ExtResource( 84 ), ExtResource( 83 ), ExtResource( 85 ), ExtResource( 82 ), ExtResource( 81 ) ],
+"loop": false,
+"name": "default",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 84 ), ExtResource( 83 ), ExtResource( 85 ), ExtResource( 82 ), ExtResource( 84 ), ExtResource( 83 ), ExtResource( 85 ), ExtResource( 82 ), ExtResource( 81 ) ],
+"loop": false,
+"name": "static",
+"speed": 24.0
+} ]
+
+[sub_resource type="Animation" id=40]
+resource_name = "dostuff"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/static:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/static:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "static" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/ouch:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/laugh:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=36]
@@ -620,7 +713,7 @@ position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 4
+frame = 11
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -750,17 +843,29 @@ anims/escapestart = SubResource( 19 )
 anims/reset = SubResource( 20 )
 
 [node name="fallen" type="Control" parent="HUD"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 86 )
 
 [node name="Control" type="Control" parent="HUD/fallen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="laugh" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
+stream = SubResource( 43 )
+volume_db = 2.0
+
+[node name="laugh2" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
+stream = SubResource( 44 )
+volume_db = -2.0
+
+[node name="laugh3" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
+stream = SubResource( 45 )
+volume_db = -2.0
+
 [node name="bg" type="TextureRect" parent="HUD/fallen/Control"]
 modulate = Color( 1, 0, 0, 1 )
-material = SubResource( 7 )
+material = SubResource( 42 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 13 )
@@ -776,7 +881,20 @@ stream = ExtResource( 80 )
 volume_db = 4.888
 bus = "Music"
 
+[node name="ouch" type="AudioStreamPlayer2D" parent="HUD/fallen/Control"]
+position = Vector2( 480, 540 )
+stream = SubResource( 39 )
+
+[node name="static" type="AnimatedSprite" parent="HUD/fallen/Control"]
+scale = Vector2( 2, 1.5 )
+frames = SubResource( 38 )
+animation = "static"
+frame = 8
+playing = true
+centered = false
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/fallen"]
+anims/dostuff = SubResource( 40 )
 anims/fade = SubResource( 36 )
 anims/reset = SubResource( 37 )
 

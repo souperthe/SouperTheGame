@@ -566,7 +566,7 @@ material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "mach3"
-frame = 5
+frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -788,10 +788,12 @@ script = ExtResource( 30 )
 
 [node name="mach4" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 23 )
+volume_db = 6.0
 bus = "SFX"
 
 [node name="mach3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 59 )
+volume_db = 6.0
 bus = "SFX"
 
 [node name="machprep" type="AudioStreamPlayer2D" parent="."]
@@ -1079,7 +1081,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 2
+frame = 6
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1135,7 +1137,7 @@ bus = "SFX"
 anims/doflash = SubResource( 59 )
 
 [node name="fallzonetimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
