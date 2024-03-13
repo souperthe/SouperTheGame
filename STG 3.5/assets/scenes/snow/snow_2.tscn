@@ -16,6 +16,9 @@
 
 [node name="Node2D" type="Node2D"]
 
+[node name="metalblock4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2304, -128 )
+
 [node name="switchblockalt" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1536, 192 )
 
@@ -287,3 +290,30 @@ position = Vector2( 5248, 320 )
 
 [node name="iceblock8" parent="." instance=ExtResource( 12 )]
 position = Vector2( 5312, 320 )
+
+[node name="collide18" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2304, -320 )
+scale = Vector2( 30, 1 )
+
+[node name="collide19" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3584, -320 )
+scale = Vector2( 4, 4.5 )
+
+[node name="metalblock3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2304, -64 )
+
+[node name="collide12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2304, -256 )
+scale = Vector2( 1, 2 )
+
+[node name="collide20" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2816, -32 )
+scale = Vector2( 4, 0.5 )
+
+[node name="collide-slope2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2688, -32 )
+scale = Vector2( 2, 0.5 )
+
+[node name="collide-slope4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3200, -32 )
+scale = Vector2( -2, 0.5 )

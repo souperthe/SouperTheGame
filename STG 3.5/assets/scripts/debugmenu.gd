@@ -22,7 +22,7 @@ func _process(_delta):
 	$Control/plrstate.text = str("PLAYER STATE: ", objplayer.currentstate)
 	$Control/fps.text = (str("FPS: ", Engine.get_frames_per_second()))
 	$Control/plrspos.text = (str("PLAYER POSITION: ", objplayer.position))
-	$Control/plrsvol.text = (str("PLAYER VELOCITY: ",objplayer.velocity))
+	$Control/plrsvol.text = (str("PLAYER VELOCITY: ",objplayer.velocity / 60))
 	$Control/plranimation.text = (str("PLAYER ANIMATION: ",objplayer.animator.animation))
 	$Control/plranimation2.text = (str("PLAYER CHARACTER: ",objplayer.playercharacter))
 	$Control.visible = enabled

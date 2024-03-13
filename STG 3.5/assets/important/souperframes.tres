@@ -432,7 +432,7 @@ animations = [ {
 "frames": [ ExtResource( 143 ), ExtResource( 146 ), ExtResource( 210 ), ExtResource( 208 ), ExtResource( 131 ), ExtResource( 218 ), ExtResource( 176 ) ],
 "loop": false,
 "name": "enterdoor",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 218 ), ExtResource( 176 ) ],
 "loop": true,

@@ -25,6 +25,7 @@ func physics_update(_delta: float) -> void:
 		player.modulate.r8 += amount
 		player.modulate.b8 += amount
 		player.modulate.g8 += amount
+		player.modulate.a8 += amount
 	if player.animatonframes == 11:
 		state_machine.transition_to("Idle")
 		global.combotimer.paused = false

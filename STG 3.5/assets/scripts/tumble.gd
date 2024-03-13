@@ -29,14 +29,19 @@ func physics_update(delta: float) -> void:
 	if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
 		state_machine.transition_to("diving")
 	if player.is_on_wall():
-		state_machine.transition_to("bump")
+		if player.playercharacter == "SM":
+			state_machine.transition_to("grapple")
+		if player.playercharacter == "S":
+			state_machine.transition_to("bump")
 	if Input.is_action_just_pressed(player.input_run):
 		if player.playercharacter == "S":
 			state_machine.transition_to("Mach3")
 			player.sfxinstamach.play()
 			player.doflash()
 		if player.playercharacter == "SM":
-			state_machine.transition_to("sjump_start")
+			state_machine.transition_to("Mach3")
+			player.sfxinstamach.play()
+			player.doflash()
 	#if Input.is_action_just_pressed(player.input_jump):
 		#state_machine.transition_to("mach_jump", {do_jump = true})
 	player.velocity.y += player.gravity * delta

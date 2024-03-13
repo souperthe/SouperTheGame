@@ -48,7 +48,7 @@ func _physics_process(_delta):
 			doornotentered = true
 			player.enterdoor()
 			player.position.x = position.x
-			yield(get_tree().create_timer(0.5), "timeout")
+			yield(get_tree().create_timer(0.3), "timeout")
 			ct._tin()
 			timer.start()
 
