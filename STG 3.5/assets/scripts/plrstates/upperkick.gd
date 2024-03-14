@@ -7,6 +7,7 @@ func enter(_msg := {}) -> void:
 	animation_player.play("upperkick")
 	player.sjumpentersfx.play()
 	player.velocity.y = -player.jump_impulse
+	#animation_player.flip_h = false
 	player.sfxkick.play()
 	player.mattackbox.disabled = false
 

@@ -38,10 +38,6 @@ func physics_update(delta: float) -> void:
 			state_machine.transition_to("Mach3")
 			player.sfxinstamach.play()
 			player.doflash()
-		if player.playercharacter == "SM":
-			state_machine.transition_to("Mach3")
-			player.sfxinstamach.play()
-			player.doflash()
 	#if Input.is_action_just_pressed(player.input_jump):
 		#state_machine.transition_to("mach_jump", {do_jump = true})
 	player.velocity.y += player.gravity * delta
