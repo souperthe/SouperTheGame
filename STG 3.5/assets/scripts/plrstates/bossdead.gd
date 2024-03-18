@@ -61,7 +61,7 @@ func physics_update(delta: float) -> void:
 	if thing:
 		#global.camerazoom = lerp(global.camerazoom, 0.5, 2 * delta)
 		player.velocity.x = lerp(player.velocity.x, 0, player.air_friction * delta)
-		player.darkeffect.modulate.a8 = lerp(player.darkeffect.modulate.a8, 280, 2 * delta)
+		#player.darkeffect.modulate.a8 = lerp(player.darkeffect.modulate.a8, 280, 2 * delta)
 	
 	if player.is_on_floor() and not thing:
 		thing = true

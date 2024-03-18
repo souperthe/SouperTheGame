@@ -90,7 +90,8 @@ func _on_noclip_pressed():
 
 
 func _on_spawnboombox2_pressed():
-	global.room_goto("res://assets/scenes/entrance/entrance_lap.tscn", "door1")
+	global.room_goto(global.targetRoom2, global.targetdoor)
+	objplayer.reset()
 	pass # Replace with function body.
 
 

@@ -17,7 +17,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="metalblock4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2304, -128 )
+position = Vector2( 2048, -128 )
 
 [node name="switchblockalt" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1536, 192 )
@@ -83,15 +83,15 @@ position = Vector2( 1536, 0 )
 scale = Vector2( 4, 3 )
 
 [node name="platform" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1280, 224 )
-scale = Vector2( 4, 1 )
+position = Vector2( 1152, 224 )
+scale = Vector2( 6, 1 )
 
 [node name="collide4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2304, 384 )
 scale = Vector2( 8, 1 )
 
 [node name="collide5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2816, 320 )
+position = Vector2( 3072, 320 )
 scale = Vector2( 8, 0.5 )
 
 [node name="block" parent="." instance=ExtResource( 5 )]
@@ -208,52 +208,52 @@ position = Vector2( 5376, -256 )
 scale = Vector2( 1, 16 )
 
 [node name="block13" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2816, 352 )
-
-[node name="block14" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2848, 352 )
-
-[node name="block15" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2880, 352 )
-
-[node name="block16" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2912, 352 )
-
-[node name="block17" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2944, 352 )
-
-[node name="block18" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2976, 352 )
-
-[node name="block19" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3040, 352 )
-
-[node name="block20" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3008, 352 )
-
-[node name="block21" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3072, 352 )
 
-[node name="block22" parent="." instance=ExtResource( 5 )]
+[node name="block14" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3104, 352 )
 
-[node name="block23" parent="." instance=ExtResource( 5 )]
+[node name="block15" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3136, 352 )
 
-[node name="block24" parent="." instance=ExtResource( 5 )]
+[node name="block16" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3168, 352 )
 
-[node name="block25" parent="." instance=ExtResource( 5 )]
+[node name="block17" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3200, 352 )
 
-[node name="block26" parent="." instance=ExtResource( 5 )]
+[node name="block18" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3232, 352 )
 
-[node name="block27" parent="." instance=ExtResource( 5 )]
+[node name="block19" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3296, 352 )
+
+[node name="block20" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3264, 352 )
 
+[node name="block21" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3328, 352 )
+
+[node name="block22" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3360, 352 )
+
+[node name="block23" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3392, 352 )
+
+[node name="block24" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3424, 352 )
+
+[node name="block25" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3456, 352 )
+
+[node name="block26" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3488, 352 )
+
+[node name="block27" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3520, 352 )
+
 [node name="block28" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3296, 352 )
+position = Vector2( 3552, 352 )
 
 [node name="collide17" parent="." instance=ExtResource( 3 )]
 position = Vector2( 4800, 384 )
@@ -292,28 +292,92 @@ position = Vector2( 5248, 320 )
 position = Vector2( 5312, 320 )
 
 [node name="collide18" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2304, -320 )
-scale = Vector2( 30, 1 )
+position = Vector2( 2048, -320 )
+scale = Vector2( 34, 1 )
 
 [node name="collide19" parent="." instance=ExtResource( 3 )]
-position = Vector2( 3584, -320 )
-scale = Vector2( 4, 4.5 )
+position = Vector2( 3328, -256 )
+scale = Vector2( 4, 3.5 )
 
 [node name="metalblock3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2304, -64 )
+position = Vector2( 2048, -64 )
 
 [node name="collide12" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2304, -256 )
+position = Vector2( 2048, -256 )
 scale = Vector2( 1, 2 )
 
 [node name="collide20" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2816, -32 )
+position = Vector2( 2560, -32 )
 scale = Vector2( 4, 0.5 )
 
 [node name="collide-slope2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2688, -32 )
+position = Vector2( 2432, -32 )
 scale = Vector2( 2, 0.5 )
 
 [node name="collide-slope4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3200, -32 )
+position = Vector2( 2944, -32 )
 scale = Vector2( -2, 0.5 )
+
+[node name="collide21" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1536, -768 )
+scale = Vector2( 1, 12 )
+
+[node name="collide22" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192, -256 )
+scale = Vector2( 1, 4 )
+
+[node name="collide23" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256, -256 )
+scale = Vector2( 20, 1 )
+
+[node name="collide24" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1600, -96 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="collide25" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1888, -192 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="collide26" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1600, -288 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="collide27" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1888, -384 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="collide28" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2048, -512 )
+scale = Vector2( 1, 4 )
+
+[node name="collide29" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1600, -480 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="collide30" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1888, -576 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="collide31" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2048, -576 )
+scale = Vector2( 12, 1 )
+
+[node name="collide32" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1536, -832 )
+scale = Vector2( 20, 1 )
+
+[node name="block33" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2080, -640 )
+
+[node name="block34" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2112, -640 )
+
+[node name="block35" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2112, -608 )
+
+[node name="block36" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2080, -608 )
+
+[node name="collide33" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2080, -768 )
+scale = Vector2( 1, 2 )

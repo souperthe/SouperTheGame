@@ -4,6 +4,7 @@ export (NodePath) var _animation_player
 onready var animation_player:AnimatedSprite = get_node(_animation_player)
 var laststate
 var lastxvel
+var lastyvel
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -16,6 +17,7 @@ func enter(_msg := {}) -> void:
 		laststate = player.currentstate
 		if player.currentstate == ("mach_jump"):
 			lastxvel = player.velocity.x
+			lastyvel = player.velocity.y
 	player.sfxfire.play()
 	createbullet()
 	if !player.is_on_floor():
@@ -33,6 +35,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to(str(laststate))
 		if lastxvel != 0:
 			player.velocity.x = lastxvel
+			player.velocity.y = lastyvel
 	pass
 	
 	

@@ -47,6 +47,7 @@ func physics_update(delta: float) -> void:
 		player.velocity.x = -speed
 	
 	speed += 6
+	#animation_player.speed_scale = speed / 1200
 	player.trail()
 	player.velocity.y += player.gravity * delta
 	var was_on_floor = player.is_on_floor()
@@ -79,6 +80,7 @@ func physics_update(delta: float) -> void:
 		
 func exit() -> void:
 	started = false
+	animation_player.speed_scale = 1
 	player.speedpart.emitting = false
 	player.speed3part.emitting = false
 	player.pmachbox.disabled = true

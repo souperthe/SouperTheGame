@@ -29,6 +29,8 @@ func _ready():
 
 func _process(_delta):
 	global.camera = self
+	var py = objplayer.position.y - 1
+	var px = objplayer.position.x 
 	rotatesamount = global.camerarotamount
 	if global.panic:
 		escapetilt()
@@ -47,8 +49,13 @@ func _process(_delta):
 	if not presobjs.player2:
 		zoom.x = global.camerazoom
 		zoom.y = global.camerazoom
-		position.x = objplayer.position.x
-		position.y = objplayer.position.y - 1
+		if !objplayer.currentstate == "bossdead":
+			position.x = px
+			position.y = py
+		else:
+			if objplayer.animator.animation == "slipland":
+				position.x = lerp(position.x, px, 0.01)
+				position.y = lerp(position.y, py, 0.01)
 	if presobjs.player2:
 		var xz = objplayer.position.x-presobjs.player2.position.x
 		var yz = objplayer.position.y-presobjs.player2.position.y

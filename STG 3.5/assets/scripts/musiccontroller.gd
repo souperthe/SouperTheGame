@@ -13,7 +13,7 @@ var none
 var scary = load("res://assets/sound/music/ogg/mus_scary.ogg")
 var snow = load("res://assets/sound/music/snow_finished.mp3")
 var lap1 = load("res://assets/sound/music/ogg/mus_souper_escapenew.ogg")
-var lap2 = load("res://assets/sound/music/ogg/lap2wip.ogg")
+var lap2 = load("res://assets/sound/music/lap2ishitmyself.mp3")
 var tutorialsong = load("res://assets/sound/music/ogg/mus_tut.ogg")
 var old = load("res://assets/ignore/loop1.mp3")
 var musicvolume = 2
