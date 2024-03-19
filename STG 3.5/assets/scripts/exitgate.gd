@@ -94,8 +94,10 @@ func _physics_process(_delta):
 			#music.stopmusic()
 			player.cutscene()
 			player.animator.play("enterdoor")
+			player.animator.flip_h = false
 			#player.position.x = position.x
 			global.escapeexited = true
+			global.lockcamera = true
 			if global.rank == "1/5":
 				music.playsong("res://assets/sound/music/mus_rank1.ogg")
 			if global.rank == "2/5":

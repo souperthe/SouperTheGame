@@ -53,6 +53,7 @@ stream = SubResource( 6 )
 bus = "SFX"
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
 one_shot = true
 
 [node name="change2" type="AudioStreamPlayer2D" parent="."]

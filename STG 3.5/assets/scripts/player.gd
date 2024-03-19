@@ -404,6 +404,7 @@ func reset():
 	$StateMachine.transition_to("Idle")
 	fpfallsfx.stop()
 	mach3.stop()
+	global.lockcamera = false
 	machbox.disabled = true
 	emachbox.disabled = true
 	attackbox.disabled = true

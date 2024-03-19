@@ -50,12 +50,14 @@ func _process(_delta):
 		zoom.x = global.camerazoom
 		zoom.y = global.camerazoom
 		if !objplayer.currentstate == "bossdead":
-			position.x = px
-			position.y = py
+			if !global.lockcamera:
+				position.x = px
+				position.y = py
 		else:
 			if objplayer.animator.animation == "slipland":
-				position.x = lerp(position.x, px, 0.01)
-				position.y = lerp(position.y, py, 0.01)
+				if !global.lockcamera:
+					position.x = lerp(position.x, px, 0.01)
+					position.y = lerp(position.y, py, 0.01)
 	if presobjs.player2:
 		var xz = objplayer.position.x-presobjs.player2.position.x
 		var yz = objplayer.position.y-presobjs.player2.position.y
