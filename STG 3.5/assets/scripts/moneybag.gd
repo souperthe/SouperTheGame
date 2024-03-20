@@ -5,7 +5,6 @@ var anchorY = 0
 var frequency = 0.1
 var amplitude = 20
 var timer = 0
-export (String) var treasuresprite
 var player
 
 onready var y = position.y
@@ -18,8 +17,6 @@ var dick = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if treasuresprite != null:
-		$sprite.texture = load(treasuresprite)
 	if (global.collectablesroom.has(global.targetRoom2 + name)):
 		queue_free()
 
@@ -69,6 +66,14 @@ func collect():
 	global.combotimer.paused = false
 	global.resetcombo()
 	global.collectablesroom.append(global.targetRoom2 + name)
-	global.treasure = true
+	global.moneybag = true
 	queue_free()
 	
+
+
+func _on_moneybag_body_entered(body):
+	if body is Player:
+		player = body
+	if not dick:
+		collect()
+	pass # Replace with function body.

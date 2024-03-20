@@ -23,10 +23,10 @@ func enter(_msg := {}) -> void:
 	player.candoor = 0
 	speed = 1050
 	bounces = false
-	if player.face:
-		player.velocity.x = -speed
-	if !player.face:
-		player.velocity.x = speed
+	#if player.face:
+		#player.velocity.x = -speed
+	#if !player.face:
+		#player.velocity.x = speed
 	
 	
 func physics_update(delta: float) -> void:

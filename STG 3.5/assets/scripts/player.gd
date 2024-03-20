@@ -298,6 +298,8 @@ func dohurt():
 				$StateMachine.transition_to("Hurt")
 				doflash()
 				bosshealth += -1
+				canhurt = false
+				$iframes.start()
 		if !global.bosslevel:
 			doflash()
 			if !global.score == 0 && !global.hardmode:
@@ -421,6 +423,7 @@ func reset():
 	$HUD/HUD/fallen/Control/song.stop()
 	$HUD/HUD/fallen/Control/song.volume_db = 6
 	global.treasure = false
+	global.moneybag = false
 	global.panicdone = false
 	global.rank = "1/5"
 	global.baddieroom = []

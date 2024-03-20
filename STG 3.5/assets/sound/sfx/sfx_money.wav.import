@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://import/sfx_money.wav-995324a206a0f19ec6293f1c90e51ba7.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/sfx_money.wav"
+dest_files=[ "res://import/sfx_money.wav-995324a206a0f19ec6293f1c90e51ba7.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=11025.0
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=1

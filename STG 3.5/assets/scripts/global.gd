@@ -13,6 +13,7 @@ var score = 0
 var secretsfound = 0
 var level = "none"
 var lockcamera = false
+var moneybag = false
 var restartlevel = "res://assets/scenes/test.tscn"
 var restartdoor = targetdoor
 var bosslevel = 0

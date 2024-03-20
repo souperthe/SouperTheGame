@@ -26,6 +26,7 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_pressed(player.input_run) && player.is_on_floor():
 		player.sfxfoot.play()
 		state_machine.transition_to("Mach2")
+		player.get_input_direction()
 			
 func walk():
 	var amount = 0.2
