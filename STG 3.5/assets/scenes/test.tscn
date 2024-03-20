@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/objects/misc/collosion_loopart1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/exitgate.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://assets/scripts/test2.gd" type="Script" id=23]
 [ext_resource path="res://assets/sprites/animated/panicswitchblock/switchblock0001.png" type="Texture" id=24]
 [ext_resource path="res://assets/objects/escapephone.tscn" type="PackedScene" id=25]
+[ext_resource path="res://assets/objects/laportalexit.tscn" type="PackedScene" id=26]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 54.0093
@@ -368,3 +369,6 @@ escapetime = 80
 position = Vector2( 832, 178 )
 targetdoor = "door1"
 targetscene = "res://assets/scenes/testA.tscn"
+
+[node name="laportalexit" parent="." instance=ExtResource( 26 )]
+position = Vector2( 512, 0 )

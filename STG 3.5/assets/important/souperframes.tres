@@ -477,7 +477,7 @@ animations = [ {
 "frames": [ ExtResource( 261 ), ExtResource( 258 ), ExtResource( 255 ), ExtResource( 280 ), ExtResource( 268 ), ExtResource( 270 ), ExtResource( 252 ) ],
 "loop": true,
 "name": "hardtumble",
-"speed": 16.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 111 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 331 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 96 ), ExtResource( 331 ), ExtResource( 331 ) ],
 "loop": true,

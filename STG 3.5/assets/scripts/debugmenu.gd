@@ -91,7 +91,7 @@ func _on_noclip_pressed():
 
 func _on_spawnboombox2_pressed():
 	global.room_goto(global.targetRoom2, global.targetdoor)
-	objplayer.respawn()
+	objplayer.reset()
 	pass # Replace with function body.
 
 

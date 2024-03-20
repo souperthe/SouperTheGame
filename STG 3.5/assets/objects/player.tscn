@@ -278,7 +278,7 @@ extents = Vector2( 5.55694, 3.35636 )
 extents = Vector2( 8.12568, 2.5278 )
 
 [sub_resource type="RectangleShape2D" id=51]
-extents = Vector2( 5.55694, 2.86485 )
+extents = Vector2( 5.557, 4 )
 
 [sub_resource type="RectangleShape2D" id=57]
 extents = Vector2( 72.3214, 21.4286 )
@@ -566,8 +566,8 @@ color_ramp = SubResource( 33 )
 material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "slipland"
-frame = 12
+animation = "hardtumble"
+frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -929,7 +929,7 @@ shape = SubResource( 16 )
 disabled = true
 
 [node name="middleattack" type="CollisionShape2D" parent="enemych"]
-position = Vector2( 0, 4.00003 )
+position = Vector2( 1.19209e-07, -4 )
 scale = Vector2( 3.97104, 17.802 )
 shape = SubResource( 51 )
 disabled = true
@@ -1086,7 +1086,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 18
+frame = 3
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

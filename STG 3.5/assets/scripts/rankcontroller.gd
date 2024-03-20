@@ -69,7 +69,7 @@ func changebg():
 	
 func goback():
 	var t = Timer.new()
-	t.set_wait_time(30)
+	t.set_wait_time(22)
 	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()

@@ -334,7 +334,9 @@ func win():
 	$StateMachine.transition_to("congrat")
 	
 func exitlapportal():
-	$StateMachine.transition_to("fallpound_fall")
+	animator.scale.x = defaultscale
+	animator.scale.y = defaultscale
+	respawn()
 
 
 func hardtumble():

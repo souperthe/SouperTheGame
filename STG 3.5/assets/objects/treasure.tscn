@@ -33,7 +33,6 @@ z_index = 2
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
-position = Vector2( 0, -4.30471 )
 scale = Vector2( 0.56, 0.56 )
 texture = ExtResource( 1 )
 

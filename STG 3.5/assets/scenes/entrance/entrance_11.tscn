@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/laportalexit.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/objects/collectables/smallcollectable.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/scenes/entrance/entrancebg2tscn.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=8]
@@ -152,5 +153,5 @@ position = Vector2( 1120, 128 )
 [node name="escapesmallcollectable" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1088, 96 )
 
-[node name="lap" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1816, 104 )
+[node name="lapexit" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1792, 96 )

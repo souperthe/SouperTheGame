@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=2]
+[gd_scene load_steps=130 format=2]
 
 [ext_resource path="res://assets/scripts/rankcontroller.gd" type="Script" id=1]
 [ext_resource path="res://assets/sound/music/mus_rankdrumroll.wav" type="AudioStream" id=2]
@@ -185,6 +185,53 @@ animations = [ {
 "speed": 12.0
 } ]
 
+[sub_resource type="Shader" id=9]
+code = "shader_type canvas_item;
+
+uniform vec4 first_color : hint_color;
+uniform vec4 second_color : hint_color;
+
+uniform float angle_radians = 0;
+
+const float PI = 3.14159265358979323846;
+
+vec2 calculateVectorFromAngle(float targetAngle) {
+	return vec2(cos(targetAngle), sin(targetAngle));
+}
+
+bool getEqualOrLessThanBoundary(float x, float y, vec2 boundary) {
+	return (x - 0.5) * boundary.x <= (y - 0.5) * boundary.y;
+}
+
+bool getGreaterThanBoundary(float x, float y, vec2 boundary) {
+	return (x - 0.5) * boundary.x > (y - 0.5) * boundary.y;
+}
+
+void fragment() {
+	vec2 line_1 = calculateVectorFromAngle(angle_radians);
+	vec2 line_2 = calculateVectorFromAngle(angle_radians + PI/2.0);
+	
+	if (getEqualOrLessThanBoundary(UV.x, UV.y, line_1) && 
+		getEqualOrLessThanBoundary(UV.x, UV.y, line_2)) {
+		COLOR = first_color;
+	} else if (getGreaterThanBoundary(UV.x, UV.y, line_1) &&
+		getGreaterThanBoundary(UV.x, UV.y, line_2)) {
+		COLOR = first_color;
+	} else if (getEqualOrLessThanBoundary(UV.x, UV.y, line_1) &&
+		getGreaterThanBoundary(UV.x, UV.y, line_2)) {
+		COLOR = second_color;
+	} else if (getGreaterThanBoundary(UV.x, UV.y, line_1) &&
+		getEqualOrLessThanBoundary(UV.x, UV.y, line_2)) {
+		COLOR = second_color;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
+shader_param/first_color = Color( 1, 1, 1, 1 )
+shader_param/second_color = Color( 0.529412, 0.529412, 0.529412, 1 )
+shader_param/angle_radians = 0.0
+
 [node name="rankroom" type="Node2D"]
 
 [node name="rankcontroller" type="Node2D" parent="."]
@@ -218,3 +265,12 @@ position = Vector2( 480, 270 )
 frames = SubResource( 8 )
 animation = "nothing"
 playing = true
+
+[node name="Control" type="Control" parent="rankcontroller/CanvasLayer"]
+margin_right = 960.0
+margin_bottom = 540.0
+
+[node name="ColorRect" type="ColorRect" parent="rankcontroller/CanvasLayer/Control"]
+material = SubResource( 10 )
+anchor_right = 1.0
+anchor_bottom = 1.0

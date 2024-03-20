@@ -8,6 +8,8 @@ onready var animation_player:AnimatedSprite = get_node(_animation_player)
 # var b = "text"
 var canbounce = false
 var speed = 1050
+var bounces = false
+var realvelocity
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +22,7 @@ func enter(_msg := {}) -> void:
 	player.fpfallsfx.stop()
 	player.candoor = 0
 	speed = 1050
+	bounces = false
 	if player.face:
 		player.velocity.x = -speed
 	if !player.face:
@@ -27,6 +30,7 @@ func enter(_msg := {}) -> void:
 	
 	
 func physics_update(delta: float) -> void:
+	realvelocity = player.velocity / 60
 	if player.form:
 			player.formexit.play()
 			player.form = false
@@ -58,7 +62,21 @@ func physics_update(delta: float) -> void:
 	if player.animatonframes > 7:
 		player.trail()
 	if player.is_on_floor():
-		state_machine.transition_to("peelland")
+		if !abs(realvelocity.x) < 2:
+			animation_player.play("hardtumble")
+			player.sfxgrapple.play()
+			player.goofysound()
+			animation_player.flip_h = !animation_player.flip_h
+			player.face = !player.face 
+			#speed = speed / 1.5
+			#peed = speed + speed
+			player.velocity.y = -player.jump_impulse
+			#player.position.y -= 10
+			player.velocity.x = player.velocity.x / 2
+			#bounces = true
+			player.hurteffect()
+		if abs(realvelocity.x) < 10:
+			state_machine.transition_to("peelland")
 
 
 

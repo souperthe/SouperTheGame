@@ -121,6 +121,6 @@ position = Vector2( 864, 480 )
 
 [node name="treasure" parent="." instance=ExtResource( 7 )]
 position = Vector2( 480, 320 )
-z_index = 2
+treasuresprite = "res://assets/sprites/house_treasure.png"
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 8 )]

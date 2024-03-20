@@ -30,29 +30,20 @@ func _process(delta):
 			player.animator.scale.x = lerp(player.animator.scale.x, 0, amount * delta)
 			player.animator.scale.y = lerp(player.animator.scale.y, 0, amount * delta)
 			player.animator.play("hurt")
-			global.cutscene = true
-			global.camerazoom = lerp(global.camerazoom, 0.6, amount * delta)
+			#global.cutscene = true
+			global.lockcamera = true
+			#global.camerazoom = lerp(global.camerazoom, 0.6, amount * delta)
 			global.fill.paused = true
 		var t = Timer.new()
-		t.set_wait_time(1)
+		t.set_wait_time(0.7)
 		t.set_one_shot(true)
 		self.add_child(t)
 		t.start()
 		yield(t, "timeout")
 		done = true
-		fadein()
-		gotolap()
+		#fadein()
+		changescene()
 	pass
-	
-func gotolap():
-	player.animator.scale = Vector2(player.defaultscale, player.defaultscale)
-	player.exitlapportal()
-	global.room_goto(targetscene, "lap")
-	global.camerazoom = 1
-	global.cutscene = false
-	global.laps += 1
-	global.fill.paused = false
-	global.escaperoom = []
 	
 func numberthing(amount):
 	var dashtrail = preload("res://assets/objects/smallnumber.tscn")
@@ -67,8 +58,10 @@ func _on_lapportal_body_entered(body):
 		if cangoin:
 			player = body
 			wentin = true
+			$AudioStreamPlayer2D.play()
 			global.addscore(1000)
 			numberthing("+1000")
+			cangoin = false
 	pass # Replace with function body.
 	
 func fadein():
@@ -82,3 +75,27 @@ func fadein():
 	if not weiner:
 		ct._tin()
 		weiner = true
+		
+func enterscene():
+	ct._fout()
+	global.room_goto(targetscene, "lapexit")
+
+
+func changescene():
+	ct._fin()
+	var e = Timer.new()
+	e.set_wait_time(0.3)
+	e.set_one_shot(true)
+	self.add_child(e)
+	e.start()
+	yield(e, "timeout")
+	enterscene()
+	#ayer.animator.scale = Vector2(player.defaultscale, player.defaultscale)
+	player.exitlapportal()
+	global.camerazoom = 1
+	global.cutscene = false
+	global.lockcamera = false
+	global.laps += 1
+	global.fill.paused = false
+	global.escaperoom = []
+
