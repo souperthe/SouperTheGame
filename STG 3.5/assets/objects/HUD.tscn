@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=2]
+[gd_scene load_steps=127 format=2]
 
 [ext_resource path="res://assets/scripts/Combo.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panicnewfix0001.png" type="Texture" id=2]
@@ -18,10 +18,9 @@
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_idle0002.png" type="Texture" id=16]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_idle0003.png" type="Texture" id=17]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_idle0001.png" type="Texture" id=18]
-[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_mach2_0002.png" type="Texture" id=19]
-[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_mach2_0004.png" type="Texture" id=20]
-[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_mach2_0003.png" type="Texture" id=21]
-[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_mach2_0001.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_mach2_new_0003.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_mach2_new_0001.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_mach2_new_0002.png" type="Texture" id=21]
 [ext_resource path="res://assets/scripts/reaction.gd" type="Script" id=23]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_change0007.png" type="Texture" id=24]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_change0010.png" type="Texture" id=25]
@@ -284,10 +283,10 @@ animations = [ {
 "name": "judgement",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 22 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "mach2",
-"speed": 20.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ) ],
 "loop": true,
@@ -331,6 +330,18 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("shakey/time:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
@@ -715,7 +726,7 @@ position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 9
+frame = 12
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -753,7 +764,8 @@ texture = ExtResource( 15 )
 [node name="tv" type="AnimatedSprite" parent="HUD/standard/HonestReaction"]
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
-animation = "escape"
+animation = "mach2"
+frame = 1
 playing = true
 offset = Vector2( 497, -410 )
 
@@ -772,11 +784,14 @@ margin_bottom = 84.8
 script = ExtResource( 56 )
 
 [node name="holder" type="Control" parent="HUD/standard/EscapeTimer"]
-margin_top = -100.0
 margin_right = 40.0
-margin_bottom = -60.0
+margin_bottom = 40.0
 
-[node name="laps" type="Label" parent="HUD/standard/EscapeTimer/holder"]
+[node name="shakey" type="Control" parent="HUD/standard/EscapeTimer/holder"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="laps" type="Label" parent="HUD/standard/EscapeTimer/holder/shakey"]
 margin_left = -182.0
 margin_top = 12.2
 margin_right = 183.0
@@ -794,14 +809,14 @@ align = 1
 valign = 1
 max_lines_visible = 1
 
-[node name="ColorRect" type="ColorRect" parent="HUD/standard/EscapeTimer/holder"]
+[node name="ColorRect" type="ColorRect" parent="HUD/standard/EscapeTimer/holder/shakey"]
 margin_left = -140.0
 margin_top = -15.8
 margin_right = 138.0
 margin_bottom = 24.2
 color = Color( 1, 0, 0, 1 )
 
-[node name="progress" type="ProgressBar" parent="HUD/standard/EscapeTimer/holder"]
+[node name="progress" type="ProgressBar" parent="HUD/standard/EscapeTimer/holder/shakey"]
 margin_left = 139.0
 margin_top = -17.8
 margin_right = 417.0
@@ -812,14 +827,13 @@ custom_styles/bg = SubResource( 27 )
 value = 100.0
 percent_visible = false
 
-[node name="Sprite" type="Sprite" parent="HUD/standard/EscapeTimer/holder"]
+[node name="Sprite" type="Sprite" parent="HUD/standard/EscapeTimer/holder/shakey"]
 position = Vector2( 0, -24 )
 scale = Vector2( 0.8, 1 )
 texture = ExtResource( 57 )
 flip_v = true
 
-[node name="time" type="Label" parent="HUD/standard/EscapeTimer/holder"]
-visible = false
+[node name="time" type="Label" parent="HUD/standard/EscapeTimer/holder/shakey"]
 margin_left = -182.0
 margin_top = -23.8
 margin_right = 183.0
@@ -837,10 +851,12 @@ align = 1
 valign = 1
 max_lines_visible = 1
 
-[node name="red" type="AnimationPlayer" parent="HUD/standard/EscapeTimer/holder"]
+[node name="red" type="AnimationPlayer" parent="HUD/standard/EscapeTimer/holder/shakey"]
+root_node = NodePath("../..")
 anims/panic = SubResource( 31 )
 
-[node name="time2" type="RichTextLabel" parent="HUD/standard/EscapeTimer/holder"]
+[node name="time2" type="RichTextLabel" parent="HUD/standard/EscapeTimer/holder/shakey"]
+visible = false
 margin_left = -146.0
 margin_top = -24.0
 margin_right = 145.0
@@ -861,12 +877,12 @@ anims/escapestart = SubResource( 19 )
 anims/reset = SubResource( 20 )
 
 [node name="fallen" type="Control" parent="HUD"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 86 )
 
 [node name="Control" type="Control" parent="HUD/fallen"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 

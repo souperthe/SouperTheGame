@@ -399,6 +399,8 @@ func respawn():
 	emachbox.disabled = true
 	attackbox.disabled = true
 	eattackbox.disabled = true
+	animator.scale.x = defaultscale
+	animator.scale.y = defaultscale
 	
 	
 func reset():
@@ -415,6 +417,8 @@ func reset():
 	eattackbox.disabled = true
 	haskey = false
 	bosshealth = 8
+	animator.scale.x = defaultscale
+	animator.scale.y = defaultscale
 	gun = false
 	global.combotimer.paused = false
 	$fallzonetimer.stop()

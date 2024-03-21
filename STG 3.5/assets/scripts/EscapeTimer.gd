@@ -6,6 +6,8 @@ extends Control
 # var b = "text"
 var idk = false
 var penis = false
+var shakeamount = 1
+onready var rand = RandomNumberGenerator.new()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,21 +24,27 @@ func _process(_delta):
 	var seconds := fmod(time, 60)
 	var _milliseconds := fmod(time, 1) * 100
 	var timet = (str("%01d:%02d" % [minutes, seconds]))
-	$holder/laps.text = str("LAP ", global.laps + 1)
+	if global.panic:
+		randomize()
+		$holder/shakey.rect_position = Vector2(
+			rand.randi_range(-shakeamount, shakeamount),
+			rand.randi_range(-shakeamount, shakeamount)	
+			)
+	$holder/shakey/laps.text = str("LAP ", global.laps + 1)
 	if !global.panic:
-		$holder/laps.rect_position.y = -23.8
+		$holder/shakey/laps.rect_position.y = -23.8
 	if global.panic and !global.laps == 0:
-		$holder/laps.rect_position.y = lerp($holder/laps.rect_position.y , 16.2, 1.3 * _delta)
+		$holder/shakey/laps.rect_position.y = lerp($holder/shakey/laps.rect_position.y , 16.2, 1.3 * _delta)
 	if time >= 60:
-		$holder/time.modulate.g8 = 255
-		$holder/time.modulate.b8 = 255
+		$holder/shakey/time.modulate.g8 = 255
+		$holder/shakey/time.modulate.b8 = 255
 	if time <= 60:
-		$holder/red.play("panic")
+		$holder/shakey/red.play("panic")
 	if !global.panicdone:
-		$holder/progress.max_value = global.fill.wait_time
-		$holder/progress.value = global.fill.get_time_left()
-		$holder/time.text = timet
-		$holder/time2.bbcode_text = str("[center][shake rate=50.0 level=9 connected=0]", timet, "[/shake][/center]")
+		$holder/shakey/progress.max_value = global.fill.wait_time
+		$holder/shakey/progress.value = global.fill.get_time_left()
+		$holder/shakey/time.text = timet
+		$holder/shakey/time2.bbcode_text = str("[center][shake rate=50.0 level=9 connected=0]", timet, "[/shake][/center]")
 	if global.panicdone:
 		global.camerarotamount = lerp(global.camerarotamount, 6, 0.2 * _delta)
 		if !penis and !is_instance_valid(presobjs.get_node("evilguy")):

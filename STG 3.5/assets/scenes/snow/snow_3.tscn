@@ -267,3 +267,16 @@ scale = Vector2( 4, 1.5 )
 [node name="collide18" parent="." instance=ExtResource( 4 )]
 position = Vector2( -512, -96 )
 scale = Vector2( 1.5, 2.5 )
+
+[node name="collide19" parent="." instance=ExtResource( 4 )]
+position = Vector2( -2752, 576 )
+
+[node name="collide20" parent="." instance=ExtResource( 4 )]
+position = Vector2( -2752, 448 )
+scale = Vector2( 1, -6 )
+
+[node name="metalblock5" parent="." instance=ExtResource( 8 )]
+position = Vector2( -2752, 448 )
+
+[node name="metalblock6" parent="." instance=ExtResource( 8 )]
+position = Vector2( -2752, 512 )
