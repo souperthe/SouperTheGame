@@ -21,6 +21,7 @@ func _process(_delta):
 	var minutes := int(time / 60)
 	var seconds := fmod(time, 60)
 	var _milliseconds := fmod(time, 1) * 100
+	var timet = (str("%01d:%02d" % [minutes, seconds]))
 	$holder/laps.text = str("LAP ", global.laps + 1)
 	if !global.panic:
 		$holder/laps.rect_position.y = -23.8
@@ -34,7 +35,8 @@ func _process(_delta):
 	if !global.panicdone:
 		$holder/progress.max_value = global.fill.wait_time
 		$holder/progress.value = global.fill.get_time_left()
-		$holder/time.text = (str("%01d:%02d" % [minutes, seconds]))
+		$holder/time.text = timet
+		$holder/time2.bbcode_text = str("[center][shake rate=50.0 level=9 connected=0]", timet, "[/shake][/center]")
 	if global.panicdone:
 		global.camerarotamount = lerp(global.camerarotamount, 6, 0.2 * _delta)
 		if !penis and !is_instance_valid(presobjs.get_node("evilguy")):

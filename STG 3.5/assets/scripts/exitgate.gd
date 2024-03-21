@@ -66,9 +66,10 @@ func _physics_process(_delta):
 		if $glow.scale.x > 15:
 			roomhandle.scenegoto("res://assets/scenes/rankroom.tscn")
 	if zoomin2:
-		global.camerazoom = lerp(global.camerazoom, 1, 5 * _delta)
-		if global.camerazoom > 0.99:
+		global.camerazoom = lerp(global.camerazoom, 1.11, 5 * _delta)
+		if global.camerazoom > 0.999:
 			global.cutscene = false
+			global.camerazoom = 1
 			zoomin2 = false
 	if global.panic and not dick:
 		$ExitgateOpen.visible = true

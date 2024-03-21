@@ -1,8 +1,8 @@
-[gd_scene load_steps=127 format=2]
+[gd_scene load_steps=128 format=2]
 
 [ext_resource path="res://assets/scripts/Combo.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panic_0002.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panic_0001.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panicnewfix0001.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panicnewfix0002.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/HUD/comboborder.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/HUD/ranknew_1.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_mach30002.png" type="Texture" id=6]
@@ -90,6 +90,7 @@
 [ext_resource path="res://assets/sound/sfx/sfx_fallzonelaugh1.wav" type="AudioStream" id=88]
 [ext_resource path="res://assets/sound/sfx/sfx_fallzonelaugh3.wav" type="AudioStream" id=89]
 [ext_resource path="res://assets/sound/sfx/sfx_fallzonelaugh2.wav" type="AudioStream" id=90]
+[ext_resource path="res://assets/fonts/timerfont.tres" type="DynamicFont" id=91]
 
 [sub_resource type="StyleBoxFlat" id=30]
 bg_color = Color( 0, 0, 0, 1 )
@@ -263,10 +264,10 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "escape",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 41 ), ExtResource( 39 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 43 ) ],
 "loop": true,
@@ -319,12 +320,6 @@ bg_color = Color( 0, 0, 0, 1 )
 [sub_resource type="StyleBoxFlat" id=27]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="DynamicFont" id=18]
-size = 37
-outline_size = 2
-use_filter = true
-font_data = ExtResource( 55 )
-
 [sub_resource type="Animation" id=31]
 resource_name = "panic"
 length = 2.5
@@ -341,6 +336,13 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="DynamicFont" id=46]
+size = 37
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 55 )
 
 [sub_resource type="Animation" id=34]
 resource_name = "escapedone"
@@ -713,6 +715,7 @@ position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
+frame = 9
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -750,8 +753,7 @@ texture = ExtResource( 15 )
 [node name="tv" type="AnimatedSprite" parent="HUD/standard/HonestReaction"]
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
-animation = "combo"
-frame = 4
+animation = "escape"
 playing = true
 offset = Vector2( 497, -410 )
 
@@ -817,6 +819,7 @@ texture = ExtResource( 57 )
 flip_v = true
 
 [node name="time" type="Label" parent="HUD/standard/EscapeTimer/holder"]
+visible = false
 margin_left = -182.0
 margin_top = -23.8
 margin_right = 183.0
@@ -828,7 +831,7 @@ size_flags_stretch_ratio = 0.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.462745, 0.462745, 0.462745, 0 )
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = ExtResource( 91 )
 text = "idk how to count"
 align = 1
 valign = 1
@@ -836,6 +839,21 @@ max_lines_visible = 1
 
 [node name="red" type="AnimationPlayer" parent="HUD/standard/EscapeTimer/holder"]
 anims/panic = SubResource( 31 )
+
+[node name="time2" type="RichTextLabel" parent="HUD/standard/EscapeTimer/holder"]
+margin_left = -146.0
+margin_top = -24.0
+margin_right = 145.0
+margin_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color_shadow = Color( 0.462745, 0.462745, 0.462745, 0 )
+custom_fonts/normal_font = SubResource( 46 )
+bbcode_enabled = true
+bbcode_text = "[center][shake rate=50.0 level=9 connected=0]2:00[/shake][/center]"
+text = "2:00"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/standard/EscapeTimer"]
 anims/escapedone = SubResource( 34 )
@@ -848,6 +866,7 @@ anchor_bottom = 1.0
 script = ExtResource( 86 )
 
 [node name="Control" type="Control" parent="HUD/fallen"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 

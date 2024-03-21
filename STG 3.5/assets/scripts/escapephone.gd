@@ -50,7 +50,9 @@ func _process(delta):
 		player.animator.play("onphonewtf")
 		a = true
 	if !zoomin and used:
-		global.camerazoom = lerp(global.camerazoom, 1, 5 * delta)
+		global.camerazoom = lerp(global.camerazoom,  1.11, 5 * delta)
+		if global.camerazoom > 0.999:
+			global.camerazoom = 1
 		global.cinematicbar = false
 	if zoomin and used:
 		global.camerazoom = lerp(global.camerazoom, 0.5, 2 * delta)
