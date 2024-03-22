@@ -14,6 +14,7 @@ var secretsfound = 0
 var level = "none"
 var lockcamera = false
 var moneybag = false
+var combodropped = false
 var restartlevel = "res://assets/scenes/test.tscn"
 var restartdoor = targetdoor
 var bosslevel = 0
@@ -116,6 +117,7 @@ func congratplay():
 
 func _on_Timer_timeout():
 	addscore(combo)
+	combodropped = true
 	combo = 0
 	
 func update_activity() -> void:
@@ -211,7 +213,11 @@ func ranks():
 		if laps == 0:
 			rank = "5/5"
 		if !laps == 0:
-			rank = "6/5"
+			if !combodropped:
+				rank = "6/5"
+			if combodropped:
+				rank = "5/5"
+			
 			
 func instance_create(x, y, scene):
 	var loadedscene = load(scene)

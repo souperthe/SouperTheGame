@@ -421,6 +421,7 @@ func reset():
 	animator.scale.y = defaultscale
 	gun = false
 	global.combotimer.paused = false
+	global.combodropped = false
 	$fallzonetimer.stop()
 	$HUD/HUD/fallen/AnimationPlayer.play("reset")
 	$HUD/HUD/fallen.visible = false
