@@ -773,7 +773,7 @@ position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 2
+frame = 4
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -781,7 +781,6 @@ position = Vector2( 158, -20 )
 frames = SubResource( 33 )
 
 [node name="HonestReaction" type="Control" parent="HUD/standard"]
-visible = false
 margin_left = 819.0
 margin_top = 81.0
 margin_right = 859.0
@@ -813,7 +812,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 36
+frame = 23
 playing = true
 offset = Vector2( 497, -410 )
 
@@ -936,7 +935,7 @@ anchor_bottom = 1.0
 
 [node name="laugh" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
 stream = SubResource( 43 )
-volume_db = 2.0
+volume_db = 5.0
 
 [node name="laugh2" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
 stream = SubResource( 44 )
