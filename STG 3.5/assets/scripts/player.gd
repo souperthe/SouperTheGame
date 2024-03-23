@@ -287,6 +287,7 @@ func dohurt():
 	if canhurt:
 		if global.bosslevel:
 			if bosshealth == 1:
+				hurtsfx.play()
 				if !playernumber == 0:
 					$StateMachine.transition_to("Nothing")
 				if playernumber == 0:
@@ -295,6 +296,8 @@ func dohurt():
 					global.cutscene = true
 				bosshealth = 0
 			if bosshealth > 1:
+				hurteffect()
+				hurtsfx.play()
 				$StateMachine.transition_to("Hurt")
 				doflash()
 				bosshealth += -1
@@ -302,6 +305,7 @@ func dohurt():
 				$iframes.start()
 		if !global.bosslevel:
 			doflash()
+			hurtsfx.play()
 			if !global.score == 0 && !global.hardmode:
 				global.score -= 100
 				numberthing("-100")
@@ -310,6 +314,7 @@ func dohurt():
 				numberthing(str("-", 100 * 5))
 			canhurt = false
 			$iframes.start()
+			hurteffect()
 			$StateMachine.transition_to("Hurt")
 	
 		

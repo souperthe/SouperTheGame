@@ -16,7 +16,6 @@ func enter(_msg := {}) -> void:
 	player.hitpartical()
 	player.velocity.y = -player.jump_impulse * 1.2
 	player.mach3.stop()
-	player.hurtsfx.play()
 	player.hurttimer.start()
 	player.turntimer.stop()
 	player.fpfallsfx.stop()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/scripts/global.gd" type="Script" id=1]
 [ext_resource path="res://assets/objects/debugmenu.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/sound/sfx/sfx_select.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/sound/sfx/sfx_smallcollect.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/objects/customborder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sound/sfx/sfx_comboend.wav" type="AudioStream" id=8]
 
 [sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 6 )
@@ -39,7 +40,7 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 0
-wait_time = 10.0
+wait_time = 7.0
 one_shot = true
 
 [node name="congrat" type="AudioStreamPlayer" parent="."]
@@ -62,6 +63,10 @@ wait_time = 5.0
 
 [node name="collectescapesmall" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 2 )
+volume_db = -12.857
+
+[node name="comboend" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 volume_db = -12.857
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

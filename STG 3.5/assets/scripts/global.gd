@@ -116,6 +116,7 @@ func congratplay():
 
 
 func _on_Timer_timeout():
+	$comboend.play()
 	addscore(combo)
 	combodropped = true
 	combo = 0

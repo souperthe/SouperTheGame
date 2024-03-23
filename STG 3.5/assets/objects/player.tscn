@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=2]
+[gd_scene load_steps=130 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -57,7 +57,7 @@
 [ext_resource path="res://assets/scripts/plrstates/gunfire.gd" type="Script" id=55]
 [ext_resource path="res://assets/sound/sfx/sfx_machcancle.wav" type="AudioStream" id=56]
 [ext_resource path="res://assets/scripts/plrstates/Hurt.gd" type="Script" id=57]
-[ext_resource path="res://assets/sound/sfx/sfx_hurt.wav" type="AudioStream" id=58]
+[ext_resource path="res://assets/sound/sfx/sfx_hurtnew.wav" type="AudioStream" id=58]
 [ext_resource path="res://assets/sound/sfx/sfx_mach3.wav" type="AudioStream" id=59]
 [ext_resource path="res://assets/scripts/plrstates/Mach3.gd" type="Script" id=60]
 [ext_resource path="res://assets/sound/sfx/sfx_buildup.wav" type="AudioStream" id=61]
@@ -260,6 +260,10 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="AudioStreamRandomPitch" id=60]
+audio_stream = ExtResource( 58 )
+random_pitch = 1.2
 
 [sub_resource type="RectangleShape2D" id=4]
 custom_solver_bias = 1.0
@@ -567,7 +571,6 @@ material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "hardtumble"
-frame = 3
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -827,10 +830,9 @@ anims/reset = SubResource( 53 )
 anims/startmach3 = SubResource( 23 )
 
 [node name="hurt" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 58 )
-volume_db = -6.177
+stream = SubResource( 60 )
+volume_db = 4.0
 bus = "SFX"
-script = ExtResource( 30 )
 
 [node name="hitwall" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 70 )
@@ -1086,7 +1088,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 25
+frame = 6
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
