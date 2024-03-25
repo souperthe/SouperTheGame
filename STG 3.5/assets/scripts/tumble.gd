@@ -6,7 +6,7 @@ onready var animation_player:AnimatedSprite = get_node(_animation_player)
 # var a = 2
 # var b = "text"
 
-
+var realvelocity = Vector2()
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
 	player.velocity.y = -player.jump_impulse
@@ -17,10 +17,15 @@ func enter(_msg := {}) -> void:
 	player.pmachbox.disabled = false
 	player.machbox.disabled = false
 	player.emachbox.disabled = false
+	if !player.face:
+		player.velocity.x = player.attack_impulse * 3
+	if player.face:
+		player.velocity.x = -player.attack_impulse * 3
 	pass # Replace with function body.
 	
 	
 func physics_update(delta: float) -> void:
+	realvelocity = player.velocity / 60
 	player.speedpart.emitting = false
 	player.trail()
 	if Input.is_action_just_pressed(player.input_attack):
@@ -43,7 +48,6 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	if !player.face:
-		player.velocity.x = player.attack_impulse * 3
 		if Input.is_action_just_pressed(player.input_left):
 			player.attackbox.disabled = true
 			player.eattackbox.disabled = true
@@ -53,7 +57,6 @@ func physics_update(delta: float) -> void:
 			player.sjumpentersfx.play()
 			player.velocity.y = 0
 	if player.face:
-		player.velocity.x = -player.attack_impulse * 3
 		if Input.is_action_just_pressed(player.input_right):
 			player.velocity.y = 0
 			player.attackbox.disabled = true

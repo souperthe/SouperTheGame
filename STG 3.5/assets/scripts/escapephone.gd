@@ -57,7 +57,7 @@ func _process(delta):
 	if zoomin and used:
 		global.camerazoom = lerp(global.camerazoom, 0.5, 2 * delta)
 		global.cinematicbar = true
-	if overphone and player.candoor and player.currentstate == "Idle" and not tit:
+	if !global.hardmode and overphone and player.candoor and player.currentstate == "Idle" and not tit:
 		if Input.is_action_just_pressed(player.input_up):
 			used = true
 			global.combotimer.paused = true
@@ -86,7 +86,7 @@ func _on_escapephone_body_entered(body):
 	if body is Player:
 		player = body
 		overphone = true
-		if not tit:
+		if not tit and !global.hardmode:
 			body.makethingvisible()
 	pass # Replace with function body.
 
@@ -94,7 +94,7 @@ func _on_escapephone_body_entered(body):
 func _on_escapephone_body_exited(body):
 	if body is Player:
 		overphone = false
-		if not tit:
+		if not tit and !global.hardmode:
 			body.makethingnotvisible()
 	pass # Replace with function body.
 	

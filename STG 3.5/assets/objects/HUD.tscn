@@ -160,7 +160,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 3.48221, 1 ),
+"transitions": PoolRealArray( 0.233259, 1 ),
 "update": 0,
 "values": [ Vector2( 807, 135 ), Vector2( 807, 35 ) ]
 }
@@ -753,12 +753,11 @@ position = Vector2( 8, -4 )
 texture = ExtResource( 8 )
 
 [node name="text" type="RichTextLabel" parent="HUD/standard/Score"]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -47.0
-margin_top = 27.0
-margin_right = 29.0
-margin_bottom = 42.0
+margin_left = -50.0
+margin_top = -142.0
+margin_right = 26.0
+margin_bottom = -127.0
 grow_vertical = 2
 rect_scale = Vector2( 2, 2 )
 bbcode_enabled = true
@@ -772,7 +771,7 @@ position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 3
+frame = 2
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -811,7 +810,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 32
+frame = 16
 playing = true
 offset = Vector2( 497, -410 )
 

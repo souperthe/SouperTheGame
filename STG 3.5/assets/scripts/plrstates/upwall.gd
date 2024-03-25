@@ -44,18 +44,29 @@ func physics_update(delta: float) -> void:
 		if Input.is_action_pressed(player.input_run):
 			if realvelocity.y > 30:
 				state_machine.transition_to("Mach3")
+				player.doflash()
 			if realvelocity.y < 30:
 				state_machine.transition_to("Mach2")
 			player.get_input_direction()
 			player.sfxfoot.play()
 		if !Input.is_action_pressed(player.input_run):
 			player.sfxfoot.play()
-			if is_zero_approx(player.get_input_direction()):
-				animation_player.play("land")
-				state_machine.transition_to("Idle")
-			else:
-				animation_player.play("landwalk")
-				state_machine.transition_to("Run")
+			if realvelocity.y < 30:
+				if is_zero_approx(player.get_input_direction()):
+					animation_player.play("land")
+					state_machine.transition_to("Idle")
+				else:
+					animation_player.play("landwalk")
+					state_machine.transition_to("Run")
+			if realvelocity.y > 30:
+				player.poundpart()
+				player.fpfallsfx.stop()
+				player.hitwall.play()
+				player.step.play()
+				player.velocity.y = -player.jump_impulse
+				state_machine.transition_to("Air")
+				player.machbox.disabled = true
+				player.emachbox.disabled = true
 	pass
 	
 func walk():

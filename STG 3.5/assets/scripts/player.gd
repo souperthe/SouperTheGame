@@ -169,6 +169,7 @@ func _ready():
 
 
 func _physics_process(_delta):
+	$mach3part.emitting = currentstate == "Mach3" and is_on_floor()
 	$hurtbox/hurtblock.canhurt = currentstate == "Attack" or currentstate == "tumble"
 	if global.showcolloisions:
 		$hurtbox/hurtblock.visible = currentstate == "Attack"
@@ -360,29 +361,6 @@ func hitpartical():
 	
 func poundpart():
 	$poundpart.emitting = true
-	
-func trail():
-	var dashtrail = preload("res://assets/objects/playerdashtrail.tscn")
-	var ghost: AnimatedSprite = dashtrail.instance()
-	roomhandle.currentscene.add_child(ghost)
-	ghost.playing = false
-	ghost.flip_h = animator.flip_h
-	ghost.global_position = global_position
-	#ghost.position.y += -4.301
-	ghost.frames = animator.frames
-	ghost.animation = animator.animation
-	ghost.frame = animator.frame
-	ghost.rotation = animator.rotation
-	ghost.scale.x = animator.scale.x
-	ghost.scale.y = animator.scale.y
-	if playercharacter == "S":
-		ghost.modulate.r8 = 255
-		ghost.modulate.g8 = 0
-		ghost.modulate.b8 = 0
-	if playercharacter == "SM":
-		ghost.modulate.r8 = 224
-		ghost.modulate.g8 = 48
-		ghost.modulate.b8 = 0
 
 
 
@@ -426,6 +404,7 @@ func reset():
 	animator.scale.y = defaultscale
 	gun = false
 	global.combotimer.paused = false
+	global.combotimer.stop()
 	global.combodropped = false
 	$fallzonetimer.stop()
 	$HUD/HUD/fallen/AnimationPlayer.play("reset")
@@ -638,4 +617,35 @@ func _on_fallzone_timer_timeout():
 	music.musicvolume = 2
 	$HUD/HUD/fallen/AnimationPlayer.play("fade")
 	
+	pass # Replace with function body.
+
+func trail():
+	if !$trailtimer.time_left > 0:
+		$trailtimer.start()
+
+func createtrail():
+	var dashtrail = preload("res://assets/objects/playerdashtrail.tscn")
+	var ghost: AnimatedSprite = dashtrail.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.playing = false
+	ghost.flip_h = animator.flip_h
+	ghost.global_position = global_position
+	#ghost.position.y += -4.301
+	ghost.frames = animator.frames
+	ghost.animation = animator.animation
+	ghost.frame = animator.frame
+	ghost.rotation = animator.rotation
+	ghost.scale.x = animator.scale.x
+	ghost.scale.y = animator.scale.y
+	if playercharacter == "S":
+		ghost.modulate.r8 = 255
+		ghost.modulate.g8 = 0
+		ghost.modulate.b8 = 0
+	if playercharacter == "SM":
+		ghost.modulate.r8 = 224
+		ghost.modulate.g8 = 48
+		ghost.modulate.b8 = 0
+
+func _on_trailtimer_timeout():
+	createtrail()
 	pass # Replace with function body.

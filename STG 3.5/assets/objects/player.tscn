@@ -571,7 +571,6 @@ material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "hardtumble"
-frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1089,7 +1088,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 21
+frame = 22
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1152,6 +1151,10 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="trailtimer" type="Timer" parent="."]
+wait_time = 0.07
+one_shot = true
+
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
 [connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]
 [connection signal="timeout" from="dashtimer" to="StateMachine/MachPrep" method="_on_dashtimer_timeout"]
@@ -1167,3 +1170,4 @@ one_shot = true
 [connection signal="body_exited" from="detectcrouch" to="." method="_on_detectcrouch_body_exited"]
 [connection signal="timeout" from="fallzonetimer" to="." method="_on_fallzone_timer_timeout"]
 [connection signal="timeout" from="bossdeadtimer" to="." method="_on_bossdeadtimer_timeout"]
+[connection signal="timeout" from="trailtimer" to="." method="_on_trailtimer_timeout"]
