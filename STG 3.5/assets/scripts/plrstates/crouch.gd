@@ -27,13 +27,13 @@ func physics_update(delta: float) -> void:
 	if animation_player.animation == ("crouchstart"):
 		if player.animatonframes > 3:
 			animation_player.play("crouchidle")
-	if !Input.is_action_pressed(player.input_down) and player.canuncrouch:
+	if !Inputs.key_down and player.canuncrouch:
 		#if !player.uncrouchdetect.is_colliding():
 		state_machine.transition_to("Idle")
 		animation_player.play("crouchdone")
 	if not player.is_on_floor():
 		state_machine.transition_to("crouchair")
-	if Input.is_action_just_released(player.input_jump):
+	if Inputs.just_key_jump:
 		state_machine.transition_to("crouchair", {do_jump = true})
 		animation_player.play("crouchjump")
 #	pass
@@ -43,9 +43,9 @@ func walk():
 	if player.is_on_floor():
 		animation_player.play("crouchwalk")
 		footstepsfx()
-	if Input.is_action_pressed(player.input_left):
+	if Inputs.key_left:
 		player.velocity.x = -player.speed / 2
-	if Input.is_action_pressed(player.input_right):
+	if Inputs.key_right:
 		player.velocity.x = player.speed / 2
 		
 func footstepsfx():

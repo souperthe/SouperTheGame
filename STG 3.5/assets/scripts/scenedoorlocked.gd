@@ -45,7 +45,7 @@ func _physics_process(delta):
 	if unlocked:
 		$AnimatedSprite.play("outdoor")
 	if overdoor and player.candoor and doornotentered:
-		if Input.is_action_just_pressed(player.input_up):
+		if Inputs.just_key_up:
 			if objplayer.haskey == true:
 				global.othersroom.append(global.targetRoom2 + name)
 				player.makethingnotvisible()

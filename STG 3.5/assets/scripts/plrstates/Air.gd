@@ -19,19 +19,19 @@ func enter(msg := {}) -> void:
 
 
 func physics_update(delta: float) -> void:
-	if player.gun and Input.is_action_just_pressed(player.input_shoot):
+	if player.gun and Inputs.just_key_shoot:
 		state_machine.transition_to("gunfire")
 		animation_player.play("gunfire")
-	if Input.is_action_just_pressed(player.input_attack):
-		if Input.is_action_pressed(player.input_up):
+	if Inputs.just_key_attack:
+		if Inputs.key_up:
 			state_machine.transition_to("upperkick")
-		if !Input.is_action_pressed(player.input_up):
+		if !Inputs.key_up:
 			state_machine.transition_to("tumble")
-	if Input.is_action_just_released(player.input_jump):
+	if !Inputs.key_jump:
 		 if player.velocity.y < -10:
 			 player.velocity.y = 10
 	if player.ladder:
-		if Input.is_action_just_pressed(player.input_up) or Input.is_action_pressed(player.input_down):
+		if Inputs.key_up or Inputs.key_down:
 			state_machine.transition_to("Ladder")
 	if not is_zero_approx(player.get_input_direction()):
 		player.velocity.x = lerp(player.velocity.x, player.get_input_direction() * player.speed, player.acceleration * delta)
@@ -44,11 +44,11 @@ func physics_update(delta: float) -> void:
 		if player.animatonframes == 10:
 				animation_player.play("fall")
 	else:
-		if !Input.is_action_just_pressed(player.input_attack):
+		if !Inputs.just_key_attack:
 			animation_player.play("fall")
 		
 	
-	if Input.is_action_just_pressed(player.input_down):
+	if Inputs.just_key_down:
 		state_machine.transition_to("fallpound_start")
 		
 	

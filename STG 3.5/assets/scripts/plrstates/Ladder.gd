@@ -18,20 +18,20 @@ func physics_update(_delta: float) -> void:
 	player.velocity.x = 0
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	player.disabletitlt = true
-	if not Input.is_action_pressed(player.input_up) and not Input.is_action_pressed(player.input_down):
+	if not Inputs.key_up and not Inputs.key_down:
 		animation_player.play("climbidle")
-	if Input.is_action_pressed(player.input_up):
+	if Inputs.key_up:
 		animation_player.play("climbup")
 		player.velocity.y = -250 * 1.5
-	if Input.is_action_pressed(player.input_down):
+	if Inputs.key_down:
 		animation_player.play("climbdown")
 		player.velocity.y = 450 * 1.5
-	if Input.is_action_just_pressed(player.input_jump):
+	if Inputs.just_key_jump:
 		player.velocity.y = -player.jump_impulse
 		state_machine.transition_to("Air", {do_jump = true})
 	if not player.ladder:
 		state_machine.transition_to("Air")
-	if !Input.is_action_pressed(player.input_up) and !Input.is_action_pressed(player.input_down) and !Input.is_action_just_pressed(player.input_jump):
+	if !Inputs.key_up and !Inputs.key_down and !Inputs.just_key_jump:
 		player.velocity.y = 0
 	if player.is_on_floor():
 			if player.velocity.y < 450:

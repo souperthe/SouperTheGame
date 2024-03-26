@@ -39,12 +39,12 @@ func physics_update(delta: float) -> void:
 			player.mattackbox.disabled = true
 			state_machine.transition_to("sjump_hitceiling")
 	if player.playercharacter == "SM":
-		if Input.is_action_just_pressed(player.input_attack):
-			if Input.is_action_pressed(player.input_up):
+		if Inputs.just_key_attack:
+			if Inputs.key_up:
 				state_machine.transition_to("upperkick")
-			if !Input.is_action_pressed(player.input_up):
+			if !Inputs.key_up:
 				state_machine.transition_to("tumble")
-		if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
+		if !player.is_on_floor() and Inputs.just_key_down:
 			state_machine.transition_to("diving")
 		player.velocity.y += player.gravity * delta
 		if player.is_on_wall():
@@ -55,7 +55,7 @@ func physics_update(delta: float) -> void:
 		walk()
 		if player.is_on_floor():
 			state_machine.transition_to("peelland")
-	if Input.is_action_just_pressed(player.input_attack) or Input.is_action_just_pressed(player.input_run):
+	if Inputs.key_attack or Inputs.key_dash:
 		if player.playercharacter == "S":
 			player.sjumpreleasesfx.stop()
 			player.sjumpentersfx.stop()
@@ -69,9 +69,9 @@ func physics_update(delta: float) -> void:
 				player.velocity.x = lerp(player.velocity.x, -player.speedrun2, player.acceleration * delta)
 			
 func walk():
-	if Input.is_action_pressed(player.input_left):
+	if Inputs.key_left:
 		player.velocity.x = -player.attack_impulse
-	if Input.is_action_pressed(player.input_right):
+	if Inputs.key_right:
 		player.velocity.x = player.attack_impulse
 	
 

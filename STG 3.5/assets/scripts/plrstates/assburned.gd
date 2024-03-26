@@ -32,9 +32,9 @@ func physics_update(delta: float) -> void:
 		
 		
 func walk():
-	if Input.is_action_pressed(player.input_left):
+	if Inputs.key_left:
 		player.velocity.x = -player.attack_impulse
-	if Input.is_action_pressed(player.input_right):
+	if Inputs.key_right:
 		player.velocity.x = player.attack_impulse
 	
 	

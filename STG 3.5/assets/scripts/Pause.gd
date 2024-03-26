@@ -53,7 +53,7 @@ func menu():
 		self.visible = !self.visible
 		paused = !paused
 		song()
-	if Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("pause") or Inputs.just_key_attack:
 		if settings:
 			$Settings.visible = false
 			$Settings.playconfirm()

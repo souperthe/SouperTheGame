@@ -15,16 +15,16 @@ func enter(_msg := {}) -> void:
 	pass # Replace with function body.
 
 func physics_update(delta: float) -> void:
-	if !Input.is_action_pressed(player.input_run):
+	if !Inputs.key_dash:
 		state_machine.transition_to("Idle")
 	if player.is_on_floor():
 		speed = lerp(speed, 850, 0.07)
-		if Input.is_action_just_pressed(player.input_jump):
+		if Inputs.just_key_jump:
 			player.velocity.y = -player.jump_impulse
 			player.jumpsfx.play()
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
-	if player.is_on_floor() and Input.is_action_pressed(player.input_down):
+	if player.is_on_floor() and Inputs.key_down:
 		state_machine.transition_to("crouchsliding")
 	if player.is_on_floor() and player.is_on_wall():
 		state_machine.transition_to("bumpwall")
@@ -33,7 +33,7 @@ func physics_update(delta: float) -> void:
 		player.hurteffect()
 	if !player.is_on_floor() and player.is_on_wall():
 		state_machine.transition_to("grapple")
-	if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
+	if !player.is_on_floor() and Inputs.just_key_down:
 		state_machine.transition_to("diving")
 		player.mach3.stop()
 	if speed > 800:

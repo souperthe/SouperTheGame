@@ -58,7 +58,7 @@ func _process(delta):
 		global.camerazoom = lerp(global.camerazoom, 0.5, 2 * delta)
 		global.cinematicbar = true
 	if !global.hardmode and overphone and player.candoor and player.currentstate == "Idle" and not tit:
-		if Input.is_action_just_pressed(player.input_up):
+		if Inputs.just_key_up:
 			used = true
 			global.combotimer.paused = true
 			player.makethingnotvisible()
@@ -76,7 +76,7 @@ func _process(delta):
 			cutscene()
 			
 	if cutsceneplaying:
-		if Input.is_action_just_pressed(player.input_attack):
+		if Inputs.just_key_attack:
 			cutscene2nowait()
 			
 	pass

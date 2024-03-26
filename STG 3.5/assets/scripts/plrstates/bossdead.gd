@@ -39,7 +39,7 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	player.iframestimer.start()
-	if Input.is_action_just_pressed(player.input_attack):
+	if Inputs.just_key_attack:
 			player.restartlevel()
 			player.iframestimer.stop()
 	if player.is_on_wall() and not thing:

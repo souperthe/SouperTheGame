@@ -208,6 +208,7 @@ presobjs="*res://assets/objects/Autoloads/presisentobjects.tscn"
 music="*res://assets/objects/Autoloads/musiccontroller.scn"
 Discord="*res://addons/discord_game_sdk/discord.gd"
 roomhandle="*res://assets/objects/Autoloads/roommanager.scn"
+Inputs="*res://assets/objects/Autoloads/Inputs.tscn"
 
 [compression]
 

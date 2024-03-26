@@ -7,8 +7,12 @@ onready var animation_player:AnimatedSprite = get_node(_animation_player)
 # var b = "text"
 
 var realvelocity = Vector2()
+var instantspeedbuffer = 2
+var shine = false
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
+	instantspeedbuffer = 2
+	shine = false
 	player.velocity.y = -player.jump_impulse
 	player.attacksfx.play()
 	animation_player.play("tumble")
@@ -17,28 +21,28 @@ func enter(_msg := {}) -> void:
 	player.pmachbox.disabled = false
 	player.machbox.disabled = false
 	player.emachbox.disabled = false
-	if !player.face:
-		player.velocity.x = player.attack_impulse * 3
-	if player.face:
-		player.velocity.x = -player.attack_impulse * 3
 	pass # Replace with function body.
 	
 	
 func physics_update(delta: float) -> void:
+	if !player.face:
+		player.velocity.x = player.attack_impulse * 3
+	if player.face:
+		player.velocity.x = -player.attack_impulse * 3
 	realvelocity = player.velocity / 60
 	player.speedpart.emitting = false
 	player.trail()
-	if Input.is_action_just_pressed(player.input_attack):
-		if Input.is_action_pressed(player.input_up):
+	if Inputs.just_key_attack:
+		if Inputs.key_up:
 			state_machine.transition_to("upperkick")
-	if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
+	if !player.is_on_floor() and Inputs.just_key_down:
 		state_machine.transition_to("diving")
 	if player.is_on_wall():
 		if player.playercharacter == "SM":
 			state_machine.transition_to("grapple")
 		if player.playercharacter == "S":
 			state_machine.transition_to("bump")
-	if Input.is_action_just_pressed(player.input_run):
+	if Inputs.key_dash:
 		if player.playercharacter == "S":
 			state_machine.transition_to("Mach3")
 			player.sfxinstamach.play()

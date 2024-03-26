@@ -21,21 +21,21 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	player.velocity.x = lerp(player.velocity.x, 0, player.friction * delta)
-	if Input.is_action_pressed(player.input_left):
+	if Inputs.key_left:
 		player.velocity.x = -225
 		if player.is_on_floor():
 			player.velocity.y = -player.jump_impulse / 3
 			if !player.sfxfoot.playing:
 				player.sfxfoot.play()
-	if Input.is_action_pressed(player.input_right):
+	if Inputs.key_right:
 		player.velocity.x = 225
 		if player.is_on_floor():
 			player.velocity.y = -player.jump_impulse / 3
 			if !player.sfxfoot.playing:
 				player.sfxfoot.play()
-	if not Input.is_action_pressed(player.input_up) and ready == 1:
+	if not Inputs.key_up and ready == 1:
 		state_machine.transition_to("sjump_start")
-	#if not Input.is_action_pressed(player.input_up) and ready == 1:
+	#if not Inputs.key_up and ready == 1:
 		#state_machine.transition_to("Idle")
 	if animation_player.animation == ("sjump_start"):
 		if player.animatonframes > 3:

@@ -35,7 +35,7 @@ func physics_update(delta: float) -> void:
 		player.emachbox.disabled = true
 	if player.is_on_floor():
 		state_machine.transition_to("crouchsliding")
-	if Input.is_action_just_pressed(player.input_jump):
+	if Inputs.just_key_jump:
 		player.attacksfx.play()
 		player.change.play()
 		player.velocity.y = -100 * 10

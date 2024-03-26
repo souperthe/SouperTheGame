@@ -18,7 +18,7 @@ func enter(_msg := {}) -> void:
 	
 func physics_update(_delta: float) -> void:
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
-	if Input.is_action_pressed(player.input_jump):
+	if Inputs.just_key_jump:
 		state_machine.transition_to("Air", {do_jump = true})
 		player.mach3.stop()
 		if !player.face:

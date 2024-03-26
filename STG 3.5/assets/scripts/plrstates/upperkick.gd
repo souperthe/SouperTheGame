@@ -19,20 +19,20 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	#player.velocity.x = lerp(player.velocity.x, 0, player.friction * delta)
-	if !Input.is_action_pressed(player.input_run) && player.is_on_floor():
+	if !Inputs.key_dash && player.is_on_floor():
 		player.mattackbox.disabled = true
 		player.sfxfoot.play()
 		land()
-	if Input.is_action_pressed(player.input_run) && player.is_on_floor():
+	if Inputs.key_dash && player.is_on_floor():
 		player.sfxfoot.play()
 		state_machine.transition_to("Mach2")
 		player.get_input_direction()
 			
 func walk():
 	var amount = 0.2
-	if Input.is_action_pressed(player.input_left):
+	if Inputs.key_left:
 		player.velocity.x = lerp(player.velocity.x , -player.attack_impulse, amount)
-	if Input.is_action_pressed(player.input_right):
+	if Inputs.key_right:
 		player.velocity.x = lerp(player.velocity.x , player.attack_impulse, amount)
 	
 func land():

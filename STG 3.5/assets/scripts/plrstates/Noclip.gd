@@ -25,29 +25,29 @@ func physics_update(delta: float) -> void:
 	animation_player.play("noclip")
 	player.form = true
 	player.velocity.x = lerp(player.velocity.x, player.get_input_direction() * player.speed, player.acceleration * delta)
-	if Input.is_action_pressed(player.input_right):
+	if Inputs.key_right:
 		player.position.x += 10
-		if Input.is_action_pressed(player.input_run):
+		if Inputs.key_dash:
 			player.position.x += 25
 			player.trail()
-	if Input.is_action_pressed(player.input_left):
+	if Inputs.key_left:
 		player.position.x -= 10
-		if Input.is_action_pressed(player.input_run):
+		if Inputs.key_dash:
 			player.position.x -= 25
 			player.trail()
-	if Input.is_action_pressed(player.input_up):
+	if Inputs.key_up:
 		player.position.y -= 10
-		if Input.is_action_pressed(player.input_run):
+		if Inputs.key_dash:
 			player.position.y -= 25
 			player.trail()
-	if Input.is_action_pressed(player.input_down):
+	if Inputs.key_down:
 		player.position.y += 10
-		if Input.is_action_pressed("run"):
+		if Inputs.key_dash:
 			player.position.y += 25
 			player.trail()
-	if Input.is_action_just_pressed(player.input_jump):
+	if Inputs.just_key_jump:
 		state_machine.transition_to("Air", {do_jump = true})
-	if Input.is_action_just_pressed(player.input_attack):
+	if Inputs.just_key_attack:
 		state_machine.transition_to("Attack")
 		
 		

@@ -24,22 +24,22 @@ func physics_update(delta: float) -> void:
 	player.trail()
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
-	if player.gun and Input.is_action_just_pressed(player.input_shoot):
+	if player.gun and Inputs.just_key_shoot:
 		state_machine.transition_to("gunfire")
 	if player.is_on_floor():
 		state_machine.transition_to("Mach2")
-	if Input.is_action_just_pressed(player.input_attack):
-		if Input.is_action_pressed(player.input_up):
+	if Inputs.just_key_attack:
+		if Inputs.key_up:
 			state_machine.transition_to("upperkick")
 			player.mach3.stop()
 			player.machbox.disabled = true
 			player.emachbox.disabled = true
-		if !Input.is_action_pressed(player.input_up):
+		if !Inputs.key_up:
 			state_machine.transition_to("tumble")
 			player.mach3.stop()
 			player.machbox.disabled = true
 			player.emachbox.disabled = true
-	if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
+	if !player.is_on_floor() and Inputs.just_key_down:
 		state_machine.transition_to("diving")
 		player.mach3.stop()
 		player.machbox.disabled = true

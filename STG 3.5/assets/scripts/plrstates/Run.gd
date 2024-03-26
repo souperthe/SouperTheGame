@@ -16,7 +16,7 @@ func enter(_msg := {}) -> void:
 	
 
 func physics_update(delta: float) -> void:
-	if player.gun and Input.is_action_just_pressed(player.input_shoot):
+	if player.gun and Inputs.just_key_shoot:
 		state_machine.transition_to("gunfire")
 	if animation_player.animation == "move" or animation_player.animation == "walkonwall":
 		footstepsfx()
@@ -25,7 +25,7 @@ func physics_update(delta: float) -> void:
 		#state_machine.transition_to("Air")
 		#pass
 	
-	if Input.is_action_just_pressed(player.input_down):
+	if Inputs.just_key_down:
 		state_machine.transition_to("crouch")
 	if animation_player.animation == "landwalk":
 		if player.animatonframes > 3:
@@ -49,22 +49,22 @@ func physics_update(delta: float) -> void:
 	if !player.is_on_floor() and player.cayatotime.time_left == 0.0:
 		state_machine.transition_to("Air")
 	
-	if Input.is_action_just_pressed(player.input_run):
+	if Inputs.just_key_dash:
 		if player.playercharacter == "S":
 			state_machine.transition_to("MachPrep")
 		if player.playercharacter == "SM":
 			state_machine.transition_to("jog")
 	
-	if Input.is_action_just_pressed(player.input_jump):
+	if Inputs.just_key_jump:
 		if canjump:
 			state_machine.transition_to("Air", {do_jump = true})
 			pass
 			
-	if Input.is_action_just_pressed(player.input_attack):
-		if Input.is_action_pressed(player.input_up):
+	if Inputs.just_key_attack:
+		if Inputs.key_up:
 			state_machine.transition_to("upperkick")
 			player.velocity.y = -player.jump_impulse * 1.3
-		if !Input.is_action_pressed(player.input_up):
+		if !Inputs.key_up:
 			state_machine.transition_to("Attack")
 	elif is_zero_approx(player.get_input_direction()):
 		state_machine.transition_to("Idle")
@@ -77,9 +77,9 @@ func coyatoTime():
 	pass
 	
 func walk():
-	if Input.is_action_pressed(player.input_left):
+	if Inputs.key_left:
 		player.velocity.x = -player.speed
-	if Input.is_action_pressed(player.input_right):
+	if Inputs.key_right:
 		player.velocity.x = player.speed
 	
 	

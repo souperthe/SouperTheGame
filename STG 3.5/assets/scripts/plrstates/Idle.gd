@@ -49,26 +49,26 @@ func physics_update(_delta: float) -> void:
 	#player.velocity.x = lerp(player.velocity.x, 0, player.friction * delta)
 	player.velocity.x = 0
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
-	if Input.is_action_just_pressed(player.input_down):
+	if Inputs.just_key_down:
 		state_machine.transition_to("crouch")
 	if player.gun and Input.is_action_just_pressed(player.input_shoot):
 		state_machine.transition_to("gunfire")
-	if Input.is_action_just_pressed(player.input_jump):
+	if Inputs.just_key_jump:
 		state_machine.transition_to("Air", {do_jump = true})
 	elif not is_zero_approx(player.get_input_direction()):
 		state_machine.transition_to("Run")
 	if player.ladder:
-		if Input.is_action_just_pressed(player.input_up) or Input.is_action_just_pressed(player.input_down):
+		if Inputs.just_key_up or Inputs.just_key_down:
 			state_machine.transition_to("Ladder")
-	if Input.is_action_just_pressed(player.input_run):
+	if Inputs.just_key_dash:
 		if player.playercharacter == "S":
 			state_machine.transition_to("MachPrep")
 		if player.playercharacter == "SM":
 			state_machine.transition_to("jog")
-	if Input.is_action_just_pressed(player.input_attack):
-		if Input.is_action_pressed(player.input_up):
+	if Inputs.just_key_attack:
+		if Inputs.key_up:
 			state_machine.transition_to("upperkick")
 			player.velocity.y = -player.jump_impulse * 1.3
-		if !Input.is_action_pressed(player.input_up):
+		if !Inputs.key_up:
 			state_machine.transition_to("Attack")
 

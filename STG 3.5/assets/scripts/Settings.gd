@@ -73,27 +73,27 @@ func printselect():
 	pass
 	
 func inputs():
-	if Input.is_action_just_pressed("move_left"):
+	if Inputs.just_key_left:
 		if canselect:
 			$move.play()
 			selection -= 1
 			printselect()
-	if Input.is_action_just_pressed("move_right"):
+	if Inputs.just_key_right:
 		if canselect:
 			selection += 1
 			printselect()
 			$move.play()
-	if Input.is_action_just_pressed("move_down"):
+	if Inputs.just_key_down:
 		if canselect:
 			$move.play()
 			selection -= 2
 			printselect()
-	if Input.is_action_just_pressed("move_up"):
+	if Inputs.just_key_up:
 		if canselect:
 			selection += 2
 			printselect()
 			$move.play()
-	if Input.is_action_just_pressed("jump"):
+	if Inputs.just_key_jump:
 		if canselect:
 			$select.play()
 			if selection == 1:

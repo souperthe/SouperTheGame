@@ -45,11 +45,9 @@ func physics_update(delta: float) -> void:
 			player.get_input_direction()
 			player.attacksfx.stop()
 			player.sjumpentersfx.play()
-	if player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
+	if player.is_on_floor() and Inputs.just_key_down:
 		state_machine.transition_to("crouchsliding")
-	if Input.is_action_just_pressed(player.input_attack):
-		state_machine.transition_to("tumble")
-	if Input.is_action_just_pressed(player.input_jump):
+	if Inputs.just_key_jump:
 		state_machine.transition_to("mach_jump", {do_jump = true})
 		if !player.face:
 			player.velocity.x = player.attack_impulse * 2.5

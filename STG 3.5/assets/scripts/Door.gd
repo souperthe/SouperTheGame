@@ -41,7 +41,7 @@ func _on_Door_body_exited(body):
 	
 func _physics_process(delta):
 	if overdoor and player.candoor and doornotentered:
-		if Input.is_action_just_pressed(player.input_up):
+		if Inputs.just_key_up:
 			player.makethingnotvisible()
 			player.position.x = position.x
 			doornotentered = true

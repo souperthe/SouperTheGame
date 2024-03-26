@@ -26,22 +26,22 @@ func physics_update(delta: float) -> void:
 	realvelocity = player.velocity / 60
 	player.get_input_direction()
 	player.trail()
-	if Input.is_action_pressed(player.input_down):
+	if Inputs.key_down:
 		 player.velocity.y += player.gravity * delta * 4
-	if !Input.is_action_pressed(player.input_down):
+	if !Inputs.key_down:
 		 player.velocity.y += player.gravity * delta
 	walk()
-	if Input.is_action_just_pressed(player.input_attack):
+	if Inputs.just_key_attack:
 		player.get_input_direction()
-		if Input.is_action_pressed(player.input_up):
+		if Inputs.key_down:
 			state_machine.transition_to("upperkick")
-		if !Input.is_action_pressed(player.input_up):
+		if !Inputs.key_down:
 			state_machine.transition_to("tumble")
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	player.mmachbox.disabled = realvelocity.y > 30
 	player.mattackbox.disabled = realvelocity.y > 30
 	if player.is_on_floor():
-		if Input.is_action_pressed(player.input_run):
+		if Inputs.key_dash:
 			if realvelocity.y > 30:
 				state_machine.transition_to("Mach3")
 				player.doflash()
@@ -49,7 +49,7 @@ func physics_update(delta: float) -> void:
 				state_machine.transition_to("Mach2")
 			player.get_input_direction()
 			player.sfxfoot.play()
-		if !Input.is_action_pressed(player.input_run):
+		if !Inputs.key_dash:
 			player.sfxfoot.play()
 			if realvelocity.y < 30:
 				if is_zero_approx(player.get_input_direction()):
@@ -71,9 +71,9 @@ func physics_update(delta: float) -> void:
 	
 func walk():
 	var amount = 0.2
-	if Input.is_action_pressed(player.input_left):
+	if Inputs.key_left:
 		player.velocity.x = lerp(player.velocity.x , -player.attack_impulse, amount)
-	if Input.is_action_pressed(player.input_right):
+	if Inputs.key_right:
 		player.velocity.x = lerp(player.velocity.x , player.attack_impulse, amount)
-	if !Input.is_action_pressed(player.input_left) and Input.is_action_pressed(player.input_right):
+	if !Inputs.key_left and Inputs.key_right:
 		player.velocity.x = lerp(player.velocity.x , 0, amount)

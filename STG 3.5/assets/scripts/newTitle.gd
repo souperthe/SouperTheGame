@@ -136,7 +136,7 @@ func options():
 				t.start()
 				yield(t, "timeout")
 				$Settings.canselect = 1
-		if Input.is_action_just_pressed("pause") or Input.is_action_just_pressed("attack"):
+		if Inputs.just_key_pause or Input.is_action_just_pressed("attack"):
 			if settings:
 				$Settings.visible = false
 				$sillysfx.sound()

@@ -23,7 +23,7 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta * 3
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	walk()
-	#if Input.is_action_just_pressed(player.input_attack):
+	#if Inputs.just_key_attack:
 		#player.get_input_direction()
 		#state_machine.transition_to("tumble")
 	if player.is_on_floor():
@@ -51,11 +51,11 @@ func exit() -> void:
 	player.mach3.stop()
 	
 func walk():
-	if Input.is_action_pressed(player.input_left):
+	if Inputs.key_left:
 		player.velocity.x = -player.speed
-	if Input.is_action_pressed(player.input_right):
+	if Inputs.key_right:
 		player.velocity.x = player.speed
-	if !Input.is_action_pressed(player.input_left) and !Input.is_action_pressed(player.input_right):
+	if !Inputs.key_left and !Inputs.key_right:
 		player.velocity.x = 0
 		
 

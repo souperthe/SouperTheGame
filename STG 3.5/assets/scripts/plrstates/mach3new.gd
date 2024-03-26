@@ -36,25 +36,25 @@ func physics_update(delta: float) -> void:
 	if !player.face and player.is_on_floor():
 		if player.velocity.x > 2050:
 			state_machine.transition_to("Mach3")
-		if Input.is_action_pressed(player.input_left):
+		if Inputs.key_left:
 			state_machine.transition_to("MachTurn", {one = true})
 		player.velocity.x = lerp(player.velocity.x, speed, player.acceleration * delta)
 	if player.face and player.is_on_floor():
 		if player.velocity.x < -2050:
 			state_machine.transition_to("Mach3")
-		if Input.is_action_pressed(player.input_right):
+		if Inputs.key_right:
 			state_machine.transition_to("MachTurn", {one = true})
 		player.velocity.x = lerp(player.velocity.x, -speed, player.acceleration * delta)
-	if player.is_on_floor() and Input.is_action_just_pressed(player.input_jump):
+	if player.is_on_floor() and Inputs.just_key_jump:
 		state_machine.transition_to("mach_jump", {do_jump = true})
 	if player.is_on_wall():
 		state_machine.transition_to("bumpwall")
 		#player.hitwall.play()
 		player.mach4.stop()
-	if player.is_on_floor() and Input.is_action_just_pressed(player.input_up):
+	if player.is_on_floor() and Inputs.just_key_up:
 		state_machine.transition_to("sjump_prep")
 		player.mach4.stop()
-	if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
+	if !player.is_on_floor() and Inputs.just_key_down:
 		state_machine.transition_to("fallpound_start")
 		player.mach4.stop()
 	pass

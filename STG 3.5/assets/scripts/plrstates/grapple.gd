@@ -49,7 +49,7 @@ func physics_update(delta: float) -> void:
 		player.velocity.y += 200 * delta
 	if canwallclimb:
 		player.velocity.y = -player.speedrun
-	if Input.is_action_just_pressed(player.input_jump):
+	if Inputs.just_key_jump:
 		dojump()
 	
 		

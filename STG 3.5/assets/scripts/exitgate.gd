@@ -80,7 +80,7 @@ func _physics_process(_delta):
 		exitgate()
 		enter = false
 	if global.panic and overdoor and player.candoor and doornotentered:
-		if Input.is_action_just_pressed(player.input_up):
+		if Inputs.just_key_up:
 			global.makeflash()
 			global.panic = false
 			global.fill.paused = false

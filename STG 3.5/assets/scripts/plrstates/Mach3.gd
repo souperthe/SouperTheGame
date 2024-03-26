@@ -30,10 +30,10 @@ func enter(_msg := {}) -> void:
 	pass
 	
 func physics_update(delta: float) -> void:
-	if player.gun and Input.is_action_just_pressed(player.input_shoot):
+	if player.gun and Inputs.just_key_shoot:
 		state_machine.transition_to("gunfire")
 	player.disabletitlt = false
-	if Input.is_action_just_pressed(player.input_attack):
+	if Inputs.just_key_attack:
 		state_machine.transition_to("tumble")
 	if player.is_on_floor() and player.currentstate == "Mach3":
 		player.speed3part.emitting = true
@@ -56,24 +56,24 @@ func physics_update(delta: float) -> void:
 	if just_left_ledge:
 		player.cayatotime.start()
 	if !player.face and player.is_on_floor():
-		if Input.is_action_pressed(player.input_left):
+		if Inputs.key_left:
 			state_machine.transition_to("MachTurn", {two = true})
 	if player.face and player.is_on_floor():
-		if Input.is_action_pressed(player.input_right):
+		if Inputs.key_right:
 			state_machine.transition_to("MachTurn", {two = true})
-	if canjump and Input.is_action_just_pressed(player.input_jump):
+	if canjump and Inputs.just_key_jump:
 		state_machine.transition_to("mach_jump", {do_jump = true})
 	if player.is_on_wall():
 		state_machine.transition_to("bumpwall")
 		player.hitwall.play()
 		player.mach4.stop()
 		player.hurteffect()
-	if player.is_on_floor() and Input.is_action_just_pressed(player.input_up):
+	if player.is_on_floor() and Inputs.just_key_up:
 		state_machine.transition_to("sjump_prep")
 		player.mach4.stop()
-	if player.is_on_floor() and Input.is_action_pressed(player.input_down):
+	if player.is_on_floor() and Inputs.key_down:
 		state_machine.transition_to("crouchsliding")
-	if !player.is_on_floor() and Input.is_action_just_pressed(player.input_down):
+	if !player.is_on_floor() and Inputs.just_key_down:
 		state_machine.transition_to("diving")
 		player.mach4.stop()
 		

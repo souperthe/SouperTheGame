@@ -29,7 +29,7 @@ onready var combo = $HUD/HUD/standard/Combo
 
 #35
 
-var snap_vector = Vector2.DOWN * snap if not Input.is_action_just_pressed("jump") else Vector2.ZERO
+var snap_vector = Vector2.DOWN * snap
 
 
 var speed = 450
