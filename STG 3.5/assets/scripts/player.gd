@@ -413,6 +413,7 @@ func reset():
 	$HUD/HUD/fallen/Control/song.stop()
 	$HUD/HUD/fallen/Control/song.volume_db = 6
 	global.treasure = false
+	global.oldtodmode = false
 	global.moneybag = false
 	global.panicdone = false
 	global.rank = "1/5"

@@ -49,6 +49,7 @@ var hidehud = false
 var hidehudtween = false
 var cinematicbar = false
 var phonescreen = false
+var oldtodmode = false
 
 var whiteflash = preload("res://assets/objects/flash.tscn")
 var SaveManager = ConfigFile.new()
@@ -63,6 +64,7 @@ signal reset
 
 
 func _ready():
+	$infolayer/info.rect_position.y = 560
 	#AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	#OS.window_size.x = 480 /2
 	#OS.window_size.y = 270 / 2
@@ -71,6 +73,7 @@ func _ready():
 	
 	
 func _physics_process(_delta):
+	$infolayer/info.visible = !hidehud or !cutscene
 	if !OS.has_feature("32") and !OS.has_feature("Andriod"):
 		update_activity()
 	runcinematic()
@@ -238,6 +241,11 @@ func delete_tile_at(position):
 		var tile_position = level_tilemap.world_to_map(local_position)
 		level_tilemap.set_cell(tile_position.x, tile_position.y, -1)
 
+func info(text,time):
+	$infolayer/infoanimation.play("enter")
+	$infolayer/info.bbcode_text = str("[center][wave]", text)
+	$infolayer/infotime.wait_time = time
+	$infolayer/infotime.start()
 
 
 #save data shit, i DO not wanna code this shit atall
@@ -264,9 +272,17 @@ func load_save():
 	return _content
 	
 	
+
+	
+	
 	
 	
 
 
 
 	
+
+
+func _on_infotime_timeout():
+	$infolayer/infoanimation.play("leave")
+	pass # Replace with function body.

@@ -56,6 +56,7 @@ rotation = 0.00151305
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 1 )
 animation = "mach3old"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

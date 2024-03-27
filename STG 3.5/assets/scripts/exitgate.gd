@@ -12,6 +12,7 @@ var zoomin = false
 var zoomin2 = false
 var cutmusic = false
 var glowpart = false
+var entering = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -53,6 +54,13 @@ func _on_Door_body_exited(_body):
 		overdoor = false
 	
 func _physics_process(_delta):
+	if entering and global.hardmode:
+		if Input.is_key_pressed(KEY_F4):
+			if !global.oldtodmode:
+				global.oldtodmode = true
+				objplayer.gun = false
+				global.playsmall()
+				global.info("old tod mode activated", 3)
 	$glow.z_index = objplayer.z_index - 1
 	if cutmusic:
 		music.stopmusic()
@@ -177,6 +185,7 @@ func _on_exitgate_body_exited(body):
 	pass # Replace with function body.
 	
 func exitgate():
+	entering = true
 	player.modulate = Color(0, 0, 0, 1)
 	global.restartlevel = global.targetRoom2
 	global.restartdoor = global.targetdoor
@@ -204,6 +213,7 @@ func exitgate():
 	#global.makeflash()
 	if global.hardmode:
 		presobjs.createtod()
+	entering = false
 	$slam.play()
 	cutmusic = false
 	$ExitgateOpen.visible = false

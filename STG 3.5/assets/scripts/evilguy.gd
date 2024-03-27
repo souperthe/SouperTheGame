@@ -11,6 +11,7 @@ var pause = false
 
 
 func _ready():
+	#global.info("test", 10)
 	#$ass.play()
 	global.connect("reset", self, "destory")
 	global.connect("scenechanged", self, "gotodoor")
@@ -39,27 +40,40 @@ func destory():
 	
 
 	
+
+func hurteffect():
+	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position = self.position
+	ghost.amount = 500
 	
 func _physics_process(delta):
 	if global.escapeexited == true:
 		kill()
 	velocity = move_and_slide(velocity, Vector2.UP)
-	trail()
 	if global.hardmode and global.panicdone:
 		speed += 30
 	if $Funnyboulder.modulate.a8 > 251 and !global.cutscene and !objplayer.currentstate == ("EnterDoor") and !objplayer.currentstate == ("ExitDoor") and !objplayer.currentstate == ("bossdead") and !objplayer.currentstate == ("Nothing") and !pause:
 		#position = lerp(position, objplayer.position, 3 * delta)
 		#position = Vector2.slide(objplayer.position)
 		#velocity = move_and_slide(velocity)
+		trail()
 		var mousepoint = objplayer.get_position()
 		var vector = (mousepoint - self.get_position()).normalized()
 		var goto = (vector * speed * delta)
-		velocity = lerp(velocity, goto, 1 * delta)
+		var oldspeed = 8 * 3000
+		var oldgoto = (vector * speed * delta)
+		if !global.oldtodmode:
+			velocity = lerp(velocity, goto, 1 * delta)
+		if global.oldtodmode:
+			velocity = oldgoto
 		if $detect.overlaps_body(objplayer):
 			if $Funnyboulder.modulate.a8 == 255:
 				velocity = Vector2(0,0)
 				#body.hurtplayer()
 				kill()
+				objplayer.doflash()
 				objplayer.changestate("bossdead")
 				$Funnyboulder.modulate.a8 = 0
 	else:
@@ -128,7 +142,7 @@ func createdead1(velocityx, rotatespeed):
 	ghost.position.y = self.position.y
 	ghost.velocity.y = -900
 	ghost.velocity.x = velocityx
-	ghost.spinamount = rotatespeed
+	ghost.spinamount = -rotatespeed * 2
 	ghost.sprite.texture = load("res://assets/sprites/animated/tod/tod_sad.png")
 	ghost.sprite.scale.x = 0.6
 	ghost.sprite.scale.y = 0.6
@@ -149,6 +163,10 @@ func _on_attackdetect_body_entered(body):
 	if $Funnyboulder.modulate.a8 == 255:
 		createdead1(body.velocity.x, body.velocity.x / 170)
 		goofysound()
+		hurteffect()
+		$punchsoumd.dosound()
+		hurteffect()
+		$AnimationPlayer.play("flash")
 		global.addcombo()
 		$Funnyboulder.modulate.a8 = 0
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/scripts/global.gd" type="Script" id=1]
 [ext_resource path="res://assets/objects/debugmenu.tscn" type="PackedScene" id=2]
@@ -8,6 +8,49 @@
 [ext_resource path="res://assets/sound/sfx/sfx_smallcollect.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/objects/customborder.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sound/sfx/sfx_comboend.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/fonts/COMIC.TTF" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/fonts/new_dynamicfont2.tres" type="DynamicFont" id=10]
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 5
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "enter"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("info:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 0.287175, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 540 ), Vector2( 0, 455 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "leave"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("info:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.2 ),
+"transitions": PoolRealArray( 0.148651, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 455 ), Vector2( 0, 560 ) ]
+}
 
 [sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 6 )
@@ -37,6 +80,32 @@ margin_top = 550.0
 margin_right = 960.0
 margin_bottom = 700.0
 color = Color( 0, 0, 0, 1 )
+
+[node name="infolayer" type="CanvasLayer" parent="."]
+layer = 124
+
+[node name="info" type="RichTextLabel" parent="infolayer"]
+margin_top = 455.0
+margin_right = 960.0
+margin_bottom = 508.999
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/font_color_shadow = Color( 0.462745, 0.462745, 0.462745, 0 )
+custom_fonts/bold_font = ExtResource( 10 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center][wave]text"
+text = "text"
+fit_content_height = true
+
+[node name="infoanimation" type="AnimationPlayer" parent="infolayer"]
+anims/enter = SubResource( 4 )
+anims/leave = SubResource( 5 )
+
+[node name="infotime" type="Timer" parent="infolayer"]
+one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
 process_mode = 0
@@ -69,5 +138,6 @@ volume_db = -12.857
 stream = ExtResource( 8 )
 volume_db = -12.857
 
+[connection signal="timeout" from="infolayer/infotime" to="." method="_on_infotime_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="panicfill" to="." method="_on_panicfill_timeout"]
