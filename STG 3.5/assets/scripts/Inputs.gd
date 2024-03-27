@@ -79,7 +79,7 @@ func _oldprocess(delta):
 	pass
 	
 func _process(delta):
-	gamepaused = get_tree().paused
+	gamepaused = false
 	
 	if Input.is_key_pressed(input_jump) and !gamepaused:
 		canpress_jump = false
