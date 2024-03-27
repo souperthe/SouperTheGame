@@ -11,9 +11,9 @@ var instantspeedbuffer = 2
 var shine = false
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
+	player.velocity.y = -player.jump_impulse
 	instantspeedbuffer = 2
 	shine = false
-	player.velocity.y = -player.jump_impulse
 	player.attacksfx.play()
 	animation_player.play("tumble")
 	player.attackbox.disabled = false
@@ -29,6 +29,8 @@ func physics_update(delta: float) -> void:
 		player.velocity.x = player.attack_impulse * 3
 	if player.face:
 		player.velocity.x = -player.attack_impulse * 3
+	if !player.currentstate == "tumble":
+		player.velocity.y = -player.jump_impulse
 	realvelocity = player.velocity / 60
 	player.speedpart.emitting = false
 	player.trail()

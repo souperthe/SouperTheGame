@@ -45,7 +45,7 @@ script = ExtResource( 2 )
 [node name="Funnyboulder" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 12 )
-frame = 15
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -67,5 +67,10 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackdetect"]
 shape = SubResource( 14 )
 
+[node name="trailtimer" type="Timer" parent="."]
+wait_time = 0.08
+one_shot = true
+
 [connection signal="body_entered" from="detect" to="." method="_on_detect_body_entered"]
 [connection signal="body_entered" from="attackdetect" to="." method="_on_attackdetect_body_entered"]
+[connection signal="timeout" from="trailtimer" to="." method="_on_trailtimer_timeout"]

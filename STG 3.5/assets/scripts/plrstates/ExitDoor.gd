@@ -19,6 +19,7 @@ func enter(_msg := {}) -> void:
 	
 func physics_update(_delta: float) -> void:
 	footstepsfx()
+	player.velocity.y += 5
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
 	if fadetowhite and player.modulate.r8 < 255:
 		var amount = 5

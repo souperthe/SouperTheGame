@@ -81,6 +81,10 @@ func _physics_process(delta):
 	
 	
 func trail():
+	if !$trailtimer.time_left > 0:
+		$trailtimer.start()
+	
+func createtrail():
 	var dashtrail = preload("res://assets/objects/playerdashtrail.tscn")
 	var ghost: AnimatedSprite = dashtrail.instance()
 	var animator = $Funnyboulder
@@ -90,7 +94,7 @@ func trail():
 	ghost.global_position = global_position
 	ghost.scale.x = animator.scale.x
 	ghost.scale.y = animator.scale.y
-	ghost.z_index = animator.z_index - 1
+	ghost.z_index = self.z_index - 1
 	#ghost.position.y += -4.301
 	ghost.frames = animator.frames
 	ghost.animation = animator.animation
@@ -147,4 +151,9 @@ func _on_attackdetect_body_entered(body):
 		goofysound()
 		global.addcombo()
 		$Funnyboulder.modulate.a8 = 0
+	pass # Replace with function body.
+
+
+func _on_trailtimer_timeout():
+	createtrail()
 	pass # Replace with function body.

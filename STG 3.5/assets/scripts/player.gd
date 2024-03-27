@@ -251,6 +251,7 @@ func restartlevel():
 
 func get_input_direction() -> float:
 	var direction = Input.get_action_strength(input_right) - Input.get_action_strength(input_left)
+	#var dir = int(Inputs.key_right - Inputs.key_left)
 	
 	if direction < 0:
 		animator.flip_h = true
@@ -637,14 +638,14 @@ func createtrail():
 	ghost.rotation = animator.rotation
 	ghost.scale.x = animator.scale.x
 	ghost.scale.y = animator.scale.y
-	if playercharacter == "S":
-		ghost.modulate.r8 = 255
-		ghost.modulate.g8 = 0
-		ghost.modulate.b8 = 0
-	if playercharacter == "SM":
-		ghost.modulate.r8 = 224
-		ghost.modulate.g8 = 48
-		ghost.modulate.b8 = 0
+	#if playercharacter == "S":
+		#ghost.modulate.r8 = 255
+		#ghost.modulate.g8 = 0
+		#ghost.modulate.b8 = 0
+	#if playercharacter == "SM":
+		#ghost.modulate.r8 = 224
+		#ghost.modulate.g8 = 48
+		#ghost.modulate.b8 = 0
 
 func _on_trailtimer_timeout():
 	createtrail()

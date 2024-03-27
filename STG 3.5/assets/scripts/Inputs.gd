@@ -80,6 +80,7 @@ func _oldprocess(delta):
 	
 func _process(delta):
 	gamepaused = get_tree().paused
+	
 	if Input.is_key_pressed(input_jump) and !gamepaused:
 		canpress_jump = false
 	elif not Input.is_key_pressed(input_jump):

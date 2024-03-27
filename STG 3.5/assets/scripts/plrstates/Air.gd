@@ -4,11 +4,13 @@ extends PlayerState
 export (NodePath) var _animation_player
 onready var animation_player:AnimatedSprite = get_node(_animation_player)
 var notdropkick = true
+var fallfast = false
 
 
 
 func enter(msg := {}) -> void:
 	notdropkick = true
+	fallfast = false
 	animation_player.play("fall")
 	if msg.has("do_jump"):
 		player.velocity.y = -player.jump_impulse
@@ -28,8 +30,10 @@ func physics_update(delta: float) -> void:
 		if !Inputs.key_up:
 			state_machine.transition_to("tumble")
 	if !Inputs.key_jump:
-		 if player.velocity.y < -10:
-			 player.velocity.y = 10
+		if !fallfast:
+			fallfast = true
+			if player.velocity.y < -10:
+				player.velocity.y = 10
 	if player.ladder:
 		if Inputs.key_up or Inputs.key_down:
 			state_machine.transition_to("Ladder")
