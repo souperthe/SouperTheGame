@@ -389,6 +389,7 @@ visible = false
 layer = 127
 
 [node name="deadtext" type="RichTextLabel" parent="PauseLayer"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 316.0
 margin_top = 437.0
 margin_right = 656.0
@@ -571,7 +572,7 @@ material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "hardtumble"
-frame = 1
+frame = 4
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1089,7 +1090,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 28
+frame = 10
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

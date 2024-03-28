@@ -27,6 +27,7 @@ radius = 132.0
 extents = Vector2( 21, 656 )
 
 [node name="imagine" type="Node2D"]
+position = Vector2( 32, 0 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -49,7 +50,7 @@ limit_right = 99936
 limit_bottom = 896
 
 [node name="tod" type="RigidBody2D" parent="."]
-position = Vector2( 864, 64 )
+position = Vector2( 500, 64 )
 rotation = -1.24816
 collision_layer = 3
 collision_mask = 3
@@ -58,15 +59,13 @@ mass = 65535.0
 physics_material_override = SubResource( 2 )
 gravity_scale = 66.83
 can_sleep = false
-linear_velocity = Vector2( -150, 0 )
-applied_force = Vector2( -300, 0 )
 
 [node name="Funnyboulder" type="Sprite" parent="tod"]
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tod"]
-scale = Vector2( 1.5, 1.5 )
+scale = Vector2( 1.2, 1.2 )
 shape = SubResource( 3 )
 
 [node name="collide3" parent="." instance=ExtResource( 3 )]

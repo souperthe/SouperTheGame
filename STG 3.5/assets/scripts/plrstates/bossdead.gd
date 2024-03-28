@@ -24,6 +24,7 @@ func enter(_msg := {}) -> void:
 	player.candoor = 0
 	player.canhurt = false
 	speed = 1050
+	global.info(str("Press ", Inputs.input_attack, " to restart"), 60)
 	#if player.face:
 		#player.velocity.x = -speed
 	#if !player.face:
@@ -42,6 +43,7 @@ func physics_update(delta: float) -> void:
 	if Inputs.just_key_attack:
 			player.restartlevel()
 			player.iframestimer.stop()
+			global.info("", 1)
 	if player.is_on_wall() and not thing:
 		player.velocity.x = -600
 		animation_player.play("hardtumble")

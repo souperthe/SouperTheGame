@@ -7,6 +7,7 @@ var mvsp = (maxspeed + (abs(objplayer.velocity.x) / 8))
 var velocity := Vector2.ZERO
 var speed = 70350
 var pause = false
+var oldspeed = 8 * 7050
 #var dir = Vector2.angle_to_point(position.x, position.y, (objplayer.position.x + objplayer.velocity.x), (objplayer.position.y + objplayer.velocity.y))
 
 
@@ -62,8 +63,7 @@ func _physics_process(delta):
 		var mousepoint = objplayer.get_position()
 		var vector = (mousepoint - self.get_position()).normalized()
 		var goto = (vector * speed * delta)
-		var oldspeed = 8 * 3050
-		var oldgoto = (vector * speed * delta)
+		var oldgoto = (vector * oldspeed * delta)
 		if !global.oldtodmode:
 			velocity = lerp(velocity, goto, 1 * delta)
 		if global.oldtodmode:

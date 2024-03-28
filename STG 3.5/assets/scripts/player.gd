@@ -418,6 +418,7 @@ func reset():
 	global.panicdone = false
 	global.rank = "1/5"
 	global.infotext.rect_position.y = 560
+	global.info("", 1)
 	global.baddieroom = []
 	global.collectablesroom = []
 	global.othersroom = []

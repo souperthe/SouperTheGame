@@ -58,7 +58,6 @@ func _physics_process(_delta):
 		if Input.is_key_pressed(KEY_F4):
 			if !global.oldtodmode:
 				global.oldtodmode = true
-				objplayer.gun = false
 				global.playsmall()
 				global.info("Expert tod mode activated!", 4)
 	$glow.z_index = objplayer.z_index - 1
