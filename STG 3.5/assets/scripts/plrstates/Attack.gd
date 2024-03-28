@@ -8,9 +8,11 @@ var rng = RandomNumberGenerator.new()
 # var a = 2
 # var b = "text"
 
-
+var instantspeedbuffer = 2
+var shine = false
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
+	instantspeedbuffer = 2
 	player.velocity.y = 0
 	player.attackbox.disabled = false
 	player.eattackbox.disabled = false
@@ -24,9 +26,12 @@ func enter(_msg := {}) -> void:
 	
 	
 func physics_update(delta: float) -> void:
+	instantspeedbuffer -= 0.2
 	player.trail()
 	if player.is_on_wall():
 		state_machine.transition_to("bump")
+	if Inputs.just_key_attack and instantspeedbuffer < 0:
+		state_machine.transition_to("tumble")
 	if !player.face:
 		player.velocity.x = player.attack_impulse * 2
 		if Input.is_action_just_pressed(player.input_left):
