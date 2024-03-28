@@ -38,6 +38,8 @@ func hitpart():
 
 
 func _physics_process(_delta):
+	if global.oldtodmode:
+		queue_free()
 	var my_random_number2 = rang.randi_range(1, 6)
 	random = my_random_number2
 	#print(random)

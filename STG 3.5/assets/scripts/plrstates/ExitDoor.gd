@@ -13,6 +13,7 @@ var fadetowhite = false
 func enter(_msg := {}) -> void:
 	animation_player.play("exitdoor")
 	player.velocity.x = 0
+	player.velocity.y = 0
 	player.disabletitlt = true
 	if player.modulate == Color(0, 0, 0, 1):
 		fadetowhite = true

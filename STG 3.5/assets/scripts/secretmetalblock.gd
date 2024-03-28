@@ -18,6 +18,9 @@ func _ready():
 
 
 func _process(delta):
+	if global.oldtodmode:
+		deletetile()
+		queue_free()
 	if is_instance_valid($sprite):
 		$sprite.visible = global.showcolloisions
 		

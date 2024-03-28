@@ -55,6 +55,8 @@ var whiteflash = preload("res://assets/objects/flash.tscn")
 var SaveManager = ConfigFile.new()
 var SaveData = SaveManager.load("user://saveData.ini")
 
+onready var infotext = $infolayer/info
+
 
 signal scenechanged 
 signal reset
@@ -64,7 +66,7 @@ signal reset
 
 
 func _ready():
-	$infolayer/info.rect_position.y = 560
+	infotext.rect_position.y = 560
 	#AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	#OS.window_size.x = 480 /2
 	#OS.window_size.y = 270 / 2

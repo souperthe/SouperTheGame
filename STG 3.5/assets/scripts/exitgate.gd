@@ -60,7 +60,7 @@ func _physics_process(_delta):
 				global.oldtodmode = true
 				objplayer.gun = false
 				global.playsmall()
-				global.info("old tod mode activated", 3)
+				global.info("Expert tod mode activated!", 4)
 	$glow.z_index = objplayer.z_index - 1
 	if cutmusic:
 		music.stopmusic()

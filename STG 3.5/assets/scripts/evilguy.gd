@@ -62,7 +62,7 @@ func _physics_process(delta):
 		var mousepoint = objplayer.get_position()
 		var vector = (mousepoint - self.get_position()).normalized()
 		var goto = (vector * speed * delta)
-		var oldspeed = 8 * 3000
+		var oldspeed = 8 * 3050
 		var oldgoto = (vector * speed * delta)
 		if !global.oldtodmode:
 			velocity = lerp(velocity, goto, 1 * delta)

@@ -47,6 +47,8 @@ func hitpart():
 
 
 func _physics_process(_delta):
+	if global.oldtodmode:
+		queue_free()
 	if animator.animation == ("attack"):
 		dashtrail()
 	thing = position.x < objplayer.position.x

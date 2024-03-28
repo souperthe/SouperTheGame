@@ -17,7 +17,9 @@ func _ready():
 		destory()
 
 
-#func _process(delta):
+func _process(delta):
+	if global.oldtodmode:
+		queue_free()
 	#if overlaps_body(objplayer):
 		#destory()
 		
