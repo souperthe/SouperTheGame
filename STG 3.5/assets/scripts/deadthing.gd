@@ -7,6 +7,7 @@ var gravity = 1600
 var velocity := Vector2.ZERO
 var spinamount = 2
 onready var sprite = $Sprite
+var leave = true
 
 
 # Declare member variables here. Examples:
@@ -26,5 +27,6 @@ func _process(_delta):
 
 
 func _on_VisibilityNotifier2D_screen_exited():
-	queue_free()
+	if leave:
+		queue_free()
 	pass # Replace with function body.

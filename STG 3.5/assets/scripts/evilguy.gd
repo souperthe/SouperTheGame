@@ -7,7 +7,7 @@ var mvsp = (maxspeed + (abs(objplayer.velocity.x) / 8))
 var velocity := Vector2.ZERO
 var speed = 70350
 var pause = false
-var oldspeed = 8 * 7050
+var oldspeed = 8 * 7050 * 1.1
 #var dir = Vector2.angle_to_point(position.x, position.y, (objplayer.position.x + objplayer.velocity.x), (objplayer.position.y + objplayer.velocity.y))
 
 

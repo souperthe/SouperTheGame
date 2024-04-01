@@ -3,6 +3,7 @@ extends Node2D
 
 var done = false
 var tit = false
+var results = false
 var t = 0.0
 # Declare member variables here. Examples:
 # var a = 2
@@ -24,6 +25,11 @@ func _ready():
 
 
 func _process(delta):
+	if !results and $CanvasLayer/ranks.frame > 11:
+		if Inputs.just_key_jump:
+			results()
+			changebg()
+			tit = true
 	if done:
 		if $CanvasLayer/ranks.frame > 11:
 			if not tit:
@@ -74,12 +80,46 @@ func goback():
 	self.add_child(t)
 	t.start()
 	yield(t, "timeout")
-	ct._tin()
-	var e = Timer.new()
-	e.set_wait_time(2)
-	e.set_one_shot(true)
-	self.add_child(e)
-	e.start()
-	yield(e, "timeout")
-	global.room_goto("res://assets/scenes/newTitle.tscn", "door1")
-	ct._tout()
+	if !results:
+		results()
+
+func hurteffect():
+	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position = $CanvasLayer/deadposition.rect_position
+	ghost.amount = 500
+	ghost.scale = Vector2(1,1)
+
+func createdead1(velocityx, rotatespeed):
+	var whiteflash = preload("res://assets/objects/deadthing.tscn")
+	var ghost: KinematicBody2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = $CanvasLayer/deadposition.rect_position.x
+	ghost.position.y = $CanvasLayer/deadposition.rect_position.y
+	ghost.velocity.y = -900 * 2
+	ghost.leave = false
+	ghost.velocity.x = velocityx
+	ghost.spinamount = -1
+	ghost.sprite.texture = load("res://assets/sprites/animated/ranks/rankdead_souper.png")
+	ghost.sprite.scale.x = 1
+	ghost.sprite.scale.y = 1
+	ghost.gravity = 1600 * 2
+	
+func goofysound():
+	var whiteflash = preload("res://assets/objects/sillysfx3d.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.playsound = true
+	ghost.position = $CanvasLayer/deadposition.rect_position
+
+func results():
+	music.playsong("res://assets/sound/music/results.ogg")
+	results = true
+	#global.makeflash()
+	$CanvasLayer/ranks.visible = false
+	createdead1(-900, 5)
+	hurteffect()
+	goofysound()
+	$CanvasLayer/deadposition/punchsoumd.dosound()
+	pass

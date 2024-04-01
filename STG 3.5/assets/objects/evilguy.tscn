@@ -51,7 +51,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=11]
-radius = 13.0
+radius = 19.105
 
 [sub_resource type="AudioStreamRandomPitch" id=13]
 audio_stream = ExtResource( 3 )
@@ -84,7 +84,7 @@ script = ExtResource( 2 )
 material = SubResource( 16 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 12 )
-frame = 12
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -114,6 +114,7 @@ one_shot = true
 anims/flash = SubResource( 17 )
 
 [node name="punchsoumd" parent="." instance=ExtResource( 19 )]
+position = Vector2( -1, -1 )
 
 [connection signal="body_entered" from="detect" to="." method="_on_detect_body_entered"]
 [connection signal="body_entered" from="attackdetect" to="." method="_on_attackdetect_body_entered"]

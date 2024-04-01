@@ -1,4 +1,4 @@
-[gd_scene load_steps=174 format=2]
+[gd_scene load_steps=176 format=2]
 
 [ext_resource path="res://assets/scripts/Combo.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panicnewfix0001.png" type="Texture" id=2]
@@ -79,7 +79,7 @@
 [ext_resource path="res://assets/sprites/HUD/ranknew_6.png" type="Texture" id=77]
 [ext_resource path="res://assets/sprites/HUD/ranknew_4.png" type="Texture" id=78]
 [ext_resource path="res://assets/sprites/HUD/souper fallen new.png" type="Texture" id=79]
-[ext_resource path="res://assets/sound/the best song ever.wav" type="AudioStream" id=80]
+[ext_resource path="res://assets/sound/elevator.wav" type="AudioStream" id=80]
 [ext_resource path="res://assets/sprites/animated/bomb/explode_0010.png" type="Texture" id=81]
 [ext_resource path="res://assets/sprites/animated/static/static_4.png" type="Texture" id=82]
 [ext_resource path="res://assets/sprites/animated/static/static_2.png" type="Texture" id=83]
@@ -137,6 +137,7 @@
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_idlenew_0039.png" type="Texture" id=135]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_idlenew_0040.png" type="Texture" id=136]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_idlenew_0047.png" type="Texture" id=137]
+[ext_resource path="res://assets/sound/sfx/sfx_funny.wav" type="AudioStream" id=138]
 
 [sub_resource type="StyleBoxFlat" id=30]
 bg_color = Color( 0, 0, 0, 1 )
@@ -482,6 +483,9 @@ animations = [ {
 "speed": 24.0
 } ]
 
+[sub_resource type="AudioStreamRandomPitch" id=48]
+audio_stream = ExtResource( 138 )
+
 [sub_resource type="Animation" id=40]
 resource_name = "dostuff"
 length = 2.0
@@ -771,7 +775,6 @@ position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 13
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -810,7 +813,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 2
+frame = 39
 playing = true
 offset = Vector2( 497, -410 )
 
@@ -937,11 +940,9 @@ volume_db = 5.0
 
 [node name="laugh2" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
 stream = SubResource( 44 )
-volume_db = -2.0
 
 [node name="laugh3" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
 stream = SubResource( 45 )
-volume_db = -2.0
 
 [node name="bg" type="TextureRect" parent="HUD/fallen/Control"]
 modulate = Color( 1, 0, 0, 1 )
@@ -958,7 +959,6 @@ centered = false
 
 [node name="song" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
 stream = ExtResource( 80 )
-volume_db = 4.888
 bus = "Music"
 
 [node name="ouch" type="AudioStreamPlayer2D" parent="HUD/fallen/Control"]
@@ -972,6 +972,11 @@ animation = "static"
 frame = 8
 playing = true
 centered = false
+
+[node name="badumtss" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
+stream = SubResource( 48 )
+volume_db = 4.0
+bus = "Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/fallen"]
 anims/dostuff = SubResource( 40 )

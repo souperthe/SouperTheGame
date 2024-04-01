@@ -20,8 +20,8 @@ func enter(_msg := {}) -> void:
 			lastyvel = player.velocity.y
 	player.sfxfire.play()
 	createbullet()
-	if !player.is_on_floor():
-		player.velocity.y = -player.jump_impulse / 2
+	#if !player.is_on_floor():
+		##player.velocity.y = -player.jump_impulse / 2
 	pass # Replace with function body.
 
 
@@ -29,8 +29,8 @@ func enter(_msg := {}) -> void:
 func physics_update(delta: float) -> void:
 	player.velocity.x = lerp(player.velocity.x, 0, player.air_friction * delta)
 	animation_player.play("gunfire")
-	player.velocity.y += player.gravity * delta
-	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
+	#player.velocity.y += player.gravity * delta
+	#player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	if player.animatonframes > 4:
 		state_machine.transition_to(str(laststate))
 		if lastxvel != 0:

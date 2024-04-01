@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=2]
+[gd_scene load_steps=131 format=2]
 
 [ext_resource path="res://assets/scripts/rankcontroller.gd" type="Script" id=1]
 [ext_resource path="res://assets/sound/music/mus_rankdrumroll.wav" type="AudioStream" id=2]
@@ -124,6 +124,7 @@
 [ext_resource path="res://assets/sprites/animated/ranks/rank_4/rank_4_0016.png" type="Texture" id=122]
 [ext_resource path="res://assets/sprites/animated/ranks/rank_4/rank_4_0017.png" type="Texture" id=123]
 [ext_resource path="res://assets/sprites/animated/ranks/rank_4/rank_4_0005.png" type="Texture" id=124]
+[ext_resource path="res://assets/objects/punchsoumd.tscn" type="PackedScene" id=125]
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -263,8 +264,7 @@ stretch_mode = 2
 [node name="ranks" type="AnimatedSprite" parent="rankcontroller/CanvasLayer"]
 position = Vector2( 480, 270 )
 frames = SubResource( 8 )
-animation = "nothing"
-playing = true
+animation = "didntfinish"
 
 [node name="Control" type="Control" parent="rankcontroller/CanvasLayer"]
 margin_right = 960.0
@@ -275,3 +275,18 @@ visible = false
 material = SubResource( 10 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="deadposition" type="Control" parent="rankcontroller/CanvasLayer"]
+margin_left = 166.0
+margin_top = 458.0
+margin_right = 206.0
+margin_bottom = 498.0
+
+[node name="punchsoumd" parent="rankcontroller/CanvasLayer/deadposition" instance=ExtResource( 125 )]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = -90.0
+margin_top = -81.0
+margin_right = -50.0
+margin_bottom = -41.0
+text = "481, 268"
