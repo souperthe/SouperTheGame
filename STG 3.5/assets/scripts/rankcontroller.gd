@@ -12,6 +12,7 @@ var t = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$CanvasLayer/results.rect_position.y = -541
 	$CanvasLayer/ranks.play("nothing")
 	$CanvasLayer/ParallaxBackground/ParallaxLayer/ColorRect.visible = true
 	$CanvasLayer/ParallaxBackground/ParallaxLayer/ColorRect.visible = true
@@ -116,10 +117,23 @@ func goofysound():
 func results():
 	music.playsong("res://assets/sound/music/results.ogg")
 	results = true
+	$AnimationPlayer.play("startresults")
 	#global.makeflash()
+	pass
+	
+func killsouper():
 	$CanvasLayer/ranks.visible = false
 	createdead1(-900, 5)
 	hurteffect()
 	goofysound()
-	$CanvasLayer/deadposition/punchsoumd.dosound()
-	pass
+	$CanvasLayer/deadposition/hurt.play()
+	$CanvasLayer/results/punchsoumd.dosound()
+	#$CanvasLayer/deadposition/punchsoumd.dosound()
+	
+func newbgeffects():
+	global.makeflash()
+	$CanvasLayer/ParallaxBackground/ParallaxLayer/ColorRect.visible = true
+	$CanvasLayer/ParallaxBackground/ParallaxLayer/bg.visible = false
+	$CanvasLayer/ParallaxBackground/ParallaxLayer/spiralthing.active = true
+	$CanvasLayer/ParallaxBackground/ParallaxLayer/spiralthing.visible = true
+	
