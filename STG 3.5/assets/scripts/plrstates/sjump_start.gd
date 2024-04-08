@@ -55,7 +55,7 @@ func physics_update(delta: float) -> void:
 		walk()
 		if player.is_on_floor():
 			state_machine.transition_to("peelland")
-	if Inputs.key_attack or Inputs.key_dash:
+	if Inputs.just_key_attack or Inputs.just_key_dash:
 		if player.playercharacter == "S":
 			player.sjumpreleasesfx.stop()
 			player.sjumpentersfx.stop()
