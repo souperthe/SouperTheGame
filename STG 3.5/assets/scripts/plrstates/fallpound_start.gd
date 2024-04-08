@@ -18,7 +18,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("upperkick")
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
-	player.velocity.x = lerp(player.velocity.x, 0, 2 * delta)
+	#player.velocity.x = lerp(player.velocity.x, 0, 2 * delta)
 	if player.animatonframes == 4:
 		state_machine.transition_to("fallpound_fall")
 # Called every frame. 'delta' is the elapsed time since the previous frame.

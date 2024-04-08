@@ -74,7 +74,7 @@ func playentrance():
 	
 func playescape():
 	global.camera.shake(1)
-	if global.panic == true and panicplaying == false and playmusic:
+	if global.panic == true and panicplaying == false and playmusic and !global.timedlevel:
 		$escapemusic.stream = lap1
 		$escapemusic.play()
 		$Music.volume_db = -80
@@ -138,10 +138,6 @@ func domusic():
 	if roomhandle.currentscene.name == "gbj":
 		if !$Music.stream == failure:
 			$Music.stream = failure
-			$Music.play()
-	if roomhandle.currentscene.name == "boss1":
-		if !$Music.stream == boss1:
-			$Music.stream = boss1
 			$Music.play()
 	if roomhandle.currentscene.name == "city":
 		if !$Music.stream == city:

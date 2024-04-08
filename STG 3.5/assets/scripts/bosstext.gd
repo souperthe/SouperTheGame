@@ -26,11 +26,13 @@ var onwall
 var onceiling 
 var stunned = 100
 var stunned2 = 50
+var gotox = 0
 
 enum {idle,attack,bump,hurt,stun,decide,cutscene}
 var state = idle
 
 var face = false
+var alreadyjumped = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -126,7 +128,13 @@ func statemachine():
 		attack:
 			var speed = 950
 			trail()
-			if animator.animation == ("punch"):
+			if animator.animation == ("punch") or animator.animation == ("tumble"):
+				if !objplayer.is_on_floor():
+					if is_on_floor():
+						if !alreadyjumped and bosshealth < 6:
+							alreadyjumped = true
+							velocity.y = -speed / 1.5
+							animator.play("tumble")
 				if face:
 					velocity.x = -speed
 				if !face:
@@ -135,13 +143,28 @@ func statemachine():
 					velocity.x = -velocity.x / 2
 					velocity.y -= 500
 					animator.play("bump")
+					alreadyjumped = false
 					stun()
 			if animator.animation == ("fp_start"):
 				velocity.x = 0
-				position.x = lerp(position.x, objplayer.position.x, 0.1)
+				velocity.y += 20
+				position.x = lerp(position.x, gotox, 0.1)
 				if is_on_floor():
-					animator.play("sjump_start")
-					stun()
+					if !bosshealth < 6:
+						animator.play("sjump_start")
+						stun()
+					if bosshealth < 6:
+						if !state == stun:
+							createbombs()
+							face = !face
+							createbombs()
+							face = !face
+							createbombs()
+							face = !face
+							createbombs()
+							face = !face
+						animator.play("collect")
+						stun()
 		hurt:
 			animator.play("hurt")
 			stunned -= 1
@@ -164,7 +187,8 @@ func statemachine():
 			if random == 2:
 				state = attack
 				animator.play("fp_start")
-				velocity.y = -900
+				gotox = objplayer.position.x
+				velocity.y = -1000 * 1.5
 			if random == 3:
 				if !state == stun:
 					createbanana()

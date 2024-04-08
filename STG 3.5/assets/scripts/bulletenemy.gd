@@ -12,13 +12,13 @@ onready var sprite  = $Sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$hurtblock.visible = false
+	$hurtblock.visible = false
 	pass # Replace with function body.
 
 
 func _process(_delta):
 	s = velocity.normalized().x
-	#$hurtblock.position.x = s * 50
+	$hurtblock.position.x = s * 50
 	trail()
 	#velocity = move_and_collide_with_snap(velocity, Vector2.UP, true)
 	move_and_slide_with_snap(velocity, Vector2.UP)
@@ -43,8 +43,8 @@ func deadgun():
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	ghost.velocity.y = -700
-	ghost.velocity.x = -s * 100
-	ghost.spinamount = 8
+	ghost.velocity.x = -s * 300
+	ghost.spinamount = 100
 	ghost.sprite.texture = load("res://assets/sprites/player_souper/gunbullet.png")
 	ghost.sprite.scale.x = 0.56
 	ghost.sprite.scale.y = 0.56

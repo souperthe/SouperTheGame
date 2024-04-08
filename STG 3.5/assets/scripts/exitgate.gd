@@ -2,6 +2,8 @@ extends Area2D
 
 export (String) var targetdoor
 export (String) var targetscene
+export (bool) var timed_level = false
+export (float) var timed_level_time = 60
 var overdoor = false
 var player
 var doornotentered = true
@@ -20,6 +22,8 @@ var entering = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if (global.baddieroom.has(global.targetRoom2 + name)):
+		queue_free()
 	var t = Timer.new()
 	t.set_wait_time(0.1)
 	t.set_one_shot(true)
@@ -79,6 +83,8 @@ func _physics_process(_delta):
 			global.cutscene = false
 			global.camerazoom = 1
 			zoomin2 = false
+			if timed_level:
+				killdoor()
 	if global.panic and not dick:
 		$ExitgateOpen.visible = true
 		dick = true
@@ -107,6 +113,7 @@ func _physics_process(_delta):
 			#player.position.x = position.x
 			global.escapeexited = true
 			global.lockcamera = true
+			global.combotimer.paused = true
 			if global.rank == "1/5":
 				music.playsong("res://assets/sound/music/mus_rank1.ogg")
 			if global.rank == "2/5":
@@ -185,6 +192,8 @@ func _on_exitgate_body_exited(body):
 	pass # Replace with function body.
 	
 func exitgate():
+	if timed_level:
+		global.timedlevel = true
 	entering = true
 	player.modulate = Color(0, 0, 0, 1)
 	global.restartlevel = global.targetRoom2
@@ -217,4 +226,69 @@ func exitgate():
 	$slam.play()
 	cutmusic = false
 	$ExitgateOpen.visible = false
+	if timed_level:
+		timedlevel()
+	
+func timedlevel():
+	global.panic = true
+	if !global.hardmode:
+		global.fill.wait_time = timed_level_time
+	if global.hardmode:
+		global.fill.wait_time = timed_level_time / 2
+		
+func killdoor():
+	hurteffect()
+	hurteffect()
+	hurteffect()
+	playcock()
+	explode()
+	createdead2()
+	playcock2()
+	global.baddieroom.append(global.targetRoom2 + name)
+	queue_free()
+		
+		
+func hurteffect():
+	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position = self.position
+	ghost.amount = 1000
+	
+func playcock():
+	var whiteflash = preload("res://assets/objects/cocking.tscn")
+	var ghost: AudioStreamPlayer2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position = self.position
+	ghost.stream = load("res://assets/sound/sfx/sfx_destorymetal.wav")
+	ghost.play()
+	
+func playcock2():
+	var whiteflash = preload("res://assets/objects/cocking.tscn")
+	var ghost: AudioStreamPlayer2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	#ghost.volume_db = -1.189
+	ghost.position = self.position
+	ghost.stream = load("res://assets/sound/sfx/sfx_hitwall.wav")
+	ghost.play()
+	
+func explode():
+	var whiteflash = preload("res://assets/objects/explosion.tscn")
+	var ghost: RigidBody2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y - 32
+	ghost.canhurt = false
+	
+func createdead2():
+	var whiteflash = preload("res://assets/objects/deadthing.tscn")
+	var ghost: KinematicBody2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y
+	ghost.velocity.y = -900
+	randomize()
+	ghost.velocity.x = rand_range(-200,200)
+	ghost.spinamount = rand_range(-10,10)
+	ghost.sprite.texture = load("res://assets/sprites/exitgate_closed.png")
 	

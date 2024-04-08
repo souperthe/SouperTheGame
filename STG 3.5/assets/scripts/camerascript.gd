@@ -8,6 +8,8 @@ var zoommax = 2
 var counter = 0
 var rotates = 0 
 var rotatesamount = 5
+var yoffset = 2
+var smoothingspeed = global.cameraspeed
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -18,18 +20,20 @@ onready var rand = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if roomhandle.currentscene.get_node(global.targetdoor):
-		position.x = roomhandle.currentscene.get_node(global.targetdoor).position.x
-		position.y = roomhandle.currentscene.get_node(global.targetdoor).position.y
-	if !roomhandle.currentscene.get_node(global.targetdoor):
-		position.x = 0
-		position.y = 0
+	position.y = objplayer.position.y - yoffset
+	position.x = objplayer.position.x
+	#if roomhandle.currentscene.get_node(global.targetdoor):
+		#position.x = roomhandle.currentscene.get_node(global.targetdoor).position.x
+		#position.y = roomhandle.currentscene.get_node(global.targetdoor).position.y
+	#if !roomhandle.currentscene.get_node(global.targetdoor):
+		#position.x = 0
+		#position.y = 0
 	pass # Replace with function body.
 
 
 func _process(_delta):
 	global.camera = self
-	var py = objplayer.position.y - 1
+	var py = objplayer.position.y - yoffset
 	var px = objplayer.position.x 
 	rotatesamount = global.camerarotamount
 	if global.panic:
@@ -42,8 +46,7 @@ func _process(_delta):
 		$AnimationPlayer.play("reset")
 		$CanvasLayer/wavy.visible = false
 		rotation_degrees = 0
-	smoothing_speed = global.cameraspeed 
-	smoothing_enabled = global.camerasmoothing
+	smoothingspeed = global.cameraspeed
 	self.offset.x = lerp(self.offset.x, 0, 0.05)
 	self.offset.y = lerp(self.offset.x, 0, 0.05)
 	if not presobjs.player2:
@@ -51,8 +54,12 @@ func _process(_delta):
 		zoom.y = global.camerazoom
 		if !objplayer.currentstate == "bossdead":
 			if !global.lockcamera:
-				position.x = px
-				position.y = py
+				if global.camerasmoothing:
+					position.x = px
+					position.y = lerp(position.y, py, smoothingspeed)
+				if !global.camerasmoothing:
+					position.x = px
+					position.y = py
 		else:
 			if objplayer.animator.animation == "slipland":
 				if !global.lockcamera:

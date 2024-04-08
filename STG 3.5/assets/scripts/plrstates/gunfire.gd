@@ -13,6 +13,8 @@ var lastyvel
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
 	lastxvel = 0
+	animation_player.play("gunfire")
+	animation_player.frame = 0
 	if !player.currentstate == ("gunfire"):
 		laststate = player.currentstate
 		if player.currentstate == ("mach_jump"):

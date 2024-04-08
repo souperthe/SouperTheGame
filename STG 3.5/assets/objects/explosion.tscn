@@ -35,7 +35,6 @@ mode = 1
 script = ExtResource( 12 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 1 )
 animation = "explode"
 
@@ -48,8 +47,9 @@ volume_db = -2.0
 bus = "SFX"
 
 [node name="hurtblock" parent="." instance=ExtResource( 13 )]
+visible = true
 modulate = Color( 1, 1, 1, 0.188235 )
-position = Vector2( -73, -78 )
-scale = Vector2( 4.52, 4.68 )
+position = Vector2( -97, -94 )
+scale = Vector2( 6, 6 )
 
 [connection signal="finished" from="step" to="." method="_on_step_finished"]

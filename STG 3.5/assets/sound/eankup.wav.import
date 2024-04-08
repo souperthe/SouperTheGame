@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://import/eankup.wav-eedd856c08ca9514f262c0353cab03aa.sample"
+
+[deps]
+
+source_file="res://assets/sound/eankup.wav"
+dest_files=[ "res://import/eankup.wav-eedd856c08ca9514f262c0353cab03aa.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=11025.0
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=1

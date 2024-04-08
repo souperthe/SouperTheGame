@@ -10,6 +10,7 @@ var combo = 0
 var publicbuild = 0
 var sisyphusbuild = 0
 var score = 0
+var timedlevel = false
 var secretsfound = 0
 var level = "none"
 var lockcamera = false
@@ -187,7 +188,7 @@ func escapeplaysmall():
 func roomstart():
 	if roomhandle.currentscene.name == "entrance":
 		rankworks = 1
-		srank = 22150
+		srank = 13000
 		arank = (global.srank - (global.srank / 4))
 		brank = (global.srank - ((global.srank / 4) * 2))
 		crank = (global.srank - ((global.srank / 4) * 3))

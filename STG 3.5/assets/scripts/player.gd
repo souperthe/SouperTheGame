@@ -222,11 +222,16 @@ func _physics_process(_delta):
 	if iscrouching:
 		$normal.disabled = true
 		$crouching.disabled = false
+		$hurtblockdetect/standing.disabled = true
+		$hurtblockdetect/crouching.disabled = false
 	if !iscrouching:
 		if currentstate == "Ladder":
 			$normal.disabled = true
+			$hurtblockdetect/standing.disabled = true
 		if !currentstate == "Ladder":
 			$normal.disabled = false
+			$hurtblockdetect/standing.disabled = false
+		$hurtblockdetect/crouching.disabled = true
 		$crouching.disabled = true
 	#print(animatonframes)
 	#f Input.is_action_pressed("2jump") and !twop_active:
@@ -368,12 +373,13 @@ func poundpart():
 
 
 func _on_enemych_body_entered(body):
-	if !$iframes.time_left > 0:
-		body.kill(velocity.x)
+	#if !$iframes.time_left > 0:
+	body.kill(velocity.x)
 	attacksfx.stop()
 	
 func respawn():
 	velocity.y = 0 
+	modulate = Color(1, 1, 1, 1)
 	velocity.x = 0 
 	gototargetdoor()
 	$StateMachine.transition_to("Idle")
@@ -388,6 +394,8 @@ func respawn():
 	
 	
 func reset():
+	$iframes.stop()
+	modulate = Color(1, 1, 1, 1)
 	velocity.y = 0 
 	velocity.x = 0 
 	gototargetdoor()
@@ -413,6 +421,7 @@ func reset():
 	$HUD/HUD/fallen/Control/song.stop()
 	$HUD/HUD/fallen/Control/song.volume_db = 6
 	global.treasure = false
+	global.timedlevel = false
 	global.oldtodmode = false
 	global.moneybag = false
 	global.panicdone = false

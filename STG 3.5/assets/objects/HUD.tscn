@@ -1,4 +1,4 @@
-[gd_scene load_steps=176 format=2]
+[gd_scene load_steps=181 format=2]
 
 [ext_resource path="res://assets/scripts/Combo.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panicnewfix0001.png" type="Texture" id=2]
@@ -138,6 +138,8 @@
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_idlenew_0040.png" type="Texture" id=136]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_idlenew_0047.png" type="Texture" id=137]
 [ext_resource path="res://assets/sound/sfx/sfx_funny.wav" type="AudioStream" id=138]
+[ext_resource path="res://assets/sound/rak2.wav" type="AudioStream" id=139]
+[ext_resource path="res://assets/sound/eankup.wav" type="AudioStream" id=140]
 
 [sub_resource type="StyleBoxFlat" id=30]
 bg_color = Color( 0, 0, 0, 1 )
@@ -283,6 +285,29 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="Animation" id=49]
+resource_name = "rankchanged"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ranks:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.517632, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="AudioStreamRandomPitch" id=50]
+audio_stream = ExtResource( 140 )
+random_pitch = 1.0
+
+[sub_resource type="AudioStreamRandomPitch" id=51]
+audio_stream = ExtResource( 139 )
+random_pitch = 1.0
 
 [sub_resource type="Shader" id=9]
 code = "shader_type canvas_item;
@@ -775,11 +800,23 @@ position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
+frame = 8
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
 position = Vector2( 158, -20 )
 frames = SubResource( 33 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/standard/Score"]
+anims/rankchanged = SubResource( 49 )
+
+[node name="up" type="AudioStreamPlayer" parent="HUD/standard/Score"]
+stream = SubResource( 50 )
+volume_db = -6.0
+
+[node name="down" type="AudioStreamPlayer" parent="HUD/standard/Score"]
+stream = SubResource( 51 )
+volume_db = -6.0
 
 [node name="HonestReaction" type="Control" parent="HUD/standard"]
 margin_left = 819.0
@@ -813,7 +850,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 39
+frame = 37
 playing = true
 offset = Vector2( 497, -410 )
 

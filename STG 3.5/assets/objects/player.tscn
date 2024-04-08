@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=2]
+[gd_scene load_steps=132 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -287,6 +287,14 @@ extents = Vector2( 5.557, 4 )
 [sub_resource type="RectangleShape2D" id=57]
 extents = Vector2( 72.3214, 21.4286 )
 
+[sub_resource type="RectangleShape2D" id=61]
+custom_solver_bias = 1.0
+extents = Vector2( 13.6018, 45.1507 )
+
+[sub_resource type="RectangleShape2D" id=62]
+custom_solver_bias = 1.0
+extents = Vector2( 13.6018, 26.7857 )
+
 [sub_resource type="CircleShape2D" id=20]
 radius = 60.6355
 
@@ -572,7 +580,6 @@ material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "enterdoorfast"
-frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -999,10 +1006,15 @@ shape = SubResource( 4 )
 collision_layer = 512
 collision_mask = 512
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtblockdetect"]
+[node name="standing" type="CollisionShape2D" parent="hurtblockdetect"]
 position = Vector2( 0, 14 )
 scale = Vector2( 0.56, 0.56 )
-shape = SubResource( 4 )
+shape = SubResource( 61 )
+
+[node name="crouching" type="CollisionShape2D" parent="hurtblockdetect"]
+position = Vector2( 0, 30 )
+scale = Vector2( 0.56, 0.56 )
+shape = SubResource( 62 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -1090,7 +1102,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 4
+frame = 22
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

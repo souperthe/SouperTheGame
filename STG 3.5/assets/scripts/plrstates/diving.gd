@@ -37,11 +37,12 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("crouchsliding")
 	if Inputs.just_key_jump:
 		player.attacksfx.play()
+		player.doflash()
 		player.change.play()
-		player.velocity.y = -100 * 10
+		player.velocity.y = -100 * 12
 		player.machbox.disabled = true
 		player.emachbox.disabled = true
-		state_machine.transition_to("fallpound_start")
+		state_machine.transition_to("fallpound_fall")
 		
 func exit():
 	player.machbox.disabled = true

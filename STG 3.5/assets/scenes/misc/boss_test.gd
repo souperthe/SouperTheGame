@@ -11,6 +11,8 @@ var alreadykilled = false
 func _ready():
 	global.bosslevel = 1
 	global.restartlevel = "res://assets/scenes/boss_test.tscn"
+	music.playsong("res://assets/sound/music/ogg/mus_souper_escape.ogg")
+	#music.play
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
