@@ -9,7 +9,7 @@ random_pitch = 1.2
 [node name="enemyesentials" type="Node2D"]
 
 [node name="floorcheck" type="RayCast2D" parent="."]
-position = Vector2( 33, 1 )
+position = Vector2( 28, 1 )
 enabled = true
 cast_to = Vector2( 0, 110 )
 collision_mask = 10

@@ -9,6 +9,7 @@ onready var animation_player:AnimatedSprite = get_node(_animation_player)
 
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
+	player.bangeffect()
 	animation_player.play("bumpwall")
 	player.sfxbump.play()
 	player.hitwall.play()

@@ -39,6 +39,8 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	if player.is_on_wall():
+		player.bangeffect()
+	#	player.punchsound()
 		#speed = abs(player.velocity.x)
 		player.velocity.x = -600
 		animation_player.play("hardtumble")
@@ -66,6 +68,7 @@ func physics_update(delta: float) -> void:
 		if !abs(realvelocity.x) < 2:
 			animation_player.play("hardtumble")
 			player.sfxgrapple.play()
+			player.bangeffect()
 			player.goofysound()
 			animation_player.flip_h = !animation_player.flip_h
 			player.face = !player.face 
@@ -78,6 +81,7 @@ func physics_update(delta: float) -> void:
 			player.hurteffect()
 		if abs(realvelocity.x) < 10:
 			state_machine.transition_to("peelland")
+			player.bangeffect()
 
 
 

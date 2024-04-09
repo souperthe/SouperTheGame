@@ -504,6 +504,9 @@ func makethingnotvisible():
 
 
 func _on_hurtblockdetect_body_entered(_body):
+	#var thing = _body.position.x < position.x
+	#animator.flip_h = thing
+	#face = thing
 	hurtplayer()
 	
 	
@@ -660,8 +663,8 @@ func createtrail():
 	ghost.animation = animator.animation
 	ghost.frame = animator.frame
 	ghost.rotation = animator.rotation
-	ghost.scale.x = animator.scale.x
-	ghost.scale.y = animator.scale.y
+	ghost.scale.x = self.scale.x * animator.scale.x
+	ghost.scale.y = self.scale.y * animator.scale.y
 	#if playercharacter == "S":
 		#ghost.modulate.r8 = 255
 		#ghost.modulate.g8 = 0
@@ -674,3 +677,17 @@ func createtrail():
 func _on_trailtimer_timeout():
 	createtrail()
 	pass # Replace with function body.
+	
+func bangeffect():
+	var whiteflash = preload("res://assets/objects/bangeffect.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y - 15
+	
+func punchsound():
+	var whiteflash = preload("res://assets/objects/punchsoumddelete.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position = self.position
+	ghost.dosound = true

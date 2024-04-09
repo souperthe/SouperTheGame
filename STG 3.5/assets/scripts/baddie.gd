@@ -17,10 +17,11 @@ var gravity = 35
 var velocity := Vector2.ZERO
 var speed = 200
 var a = false
+var canhurt = true
 
 var state = states.normal
 
-var health = 3
+var health = 1
 var stuntimer = 60
 var scaredtimer = 60
 var deadsprite = "res://assets/sprites/animated/testenemy/dead.png"
@@ -55,23 +56,24 @@ func punchsound():
 	
 func kill(sdhagdhqwjdawaw):
 	var yadda = sdhagdhqwjdawaw
-	health -= 1
 	hurteffect()
 	hurteffect()
 	#hurteffect()
 	punchsound()
 	bangeffect()
-	if !state == states.stun:
-		if health != 0:
-			state = states.stun
-			velocity.y = -900
-			velocity.x = yadda 
-			$AnimationPlayer.play("stun")
-			animator.play("stun")
-			global.resetcombo()
-			stuntimer = 60
-		else:
-			dead(yadda)
+	if canhurt:
+		if !state == states.stun:
+			if health > 1:
+				state = states.stun
+				velocity.y = -900
+				velocity.x = yadda 
+				$AnimationPlayer.play("stun")
+				animator.play("stun")
+				global.resetcombo()
+				health -= 1
+				stuntimer = 60
+			else:
+				dead(yadda)
 
 func slopetilt():
 	var raycast = $enemyesentials/tilcheck
@@ -85,7 +87,6 @@ func slopetilt():
 	
 func dead(p):
 	global.addcombo()
-	punchsound()
 	bangeffect()
 	#global.playsound(position, "res://assets/sound/owsfx.tres")
 	global.baddieroom.append(global.targetRoom2 + name)
@@ -103,16 +104,13 @@ func createdead1(velocityx):
 	ghost.spinamount = rand_range(-10,10)
 	randomize()
 	ghost.sprite.texture = load(deadsprite)
+	ghost.sprite.flip_h = animator.flip_h
 	ghost.sprite.scale.x = animator.scale.x
 	ghost.sprite.scale.y = animator.scale.y
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _physics_process(delta):
-	if global.hardmode:
-		if !a:
-			health = 2
-			a = true
 	slopetilt()
 	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
