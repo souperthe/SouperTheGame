@@ -108,8 +108,10 @@ onready var cayatotime = $coyatotime
 onready var iframestimer = $iframes
 onready var uncrouchdetect = $detectcrouch
 onready var sfxinstamach = $instamach4
+onready var sfxslip = $slipping2
 var penisman = false
 var canpenis = true
+var numdirection = 1
 
 
 onready var playerthing = $playernotice
@@ -169,6 +171,7 @@ func _ready():
 
 
 func _physics_process(_delta):
+	#global.playsound(position, "res://assets/sound/sfx/sfx_bananapeel.wav")
 	$mach3part.emitting = currentstate == "Mach3" and is_on_floor()
 	$hurtbox/hurtblock.canhurt = currentstate == "Attack" or currentstate == "tumble"
 	if global.showcolloisions:
@@ -183,6 +186,12 @@ func _physics_process(_delta):
 		#sfxslide.stop()
 		sfxslide.volume_db = lerp(sfxslide.volume_db, -88, 0.1)
 	#trail()
+	if currentstate == "iceslip":
+		if $slipping.playing == false:
+			$slipping.play()
+	if !currentstate == "iceslip":
+		$slipping.stop()
+		
 	if $iframes.time_left == 0:
 		canhurt = true
 	if $iframes.time_left > 0:
@@ -261,9 +270,11 @@ func get_input_direction() -> float:
 	if direction < 0:
 		animator.flip_h = true
 		face = true
+		numdirection = -1
 	if direction > 0:
 		animator.flip_h = false
 		face = false
+		numdirection = 1
 		
 	
 	return direction
@@ -420,6 +431,7 @@ func reset():
 	$HUD/HUD/fallen.visible = false
 	$HUD/HUD/fallen/Control/song.stop()
 	$HUD/HUD/fallen/Control/song.volume_db = 6
+	makethingnotvisible()
 	global.treasure = false
 	global.timedlevel = false
 	global.oldtodmode = false

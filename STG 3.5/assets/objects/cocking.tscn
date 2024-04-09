@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/sound/sfx/sfx_cock.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/scripts/cocking.gd" type="Script" id=2]
 
 [sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 1 )
@@ -10,3 +11,6 @@ random_pitch = 1.05
 stream = SubResource( 1 )
 volume_db = -0.874
 bus = "SFX"
+script = ExtResource( 2 )
+
+[connection signal="finished" from="." to="." method="_on_cocking_finished"]

@@ -113,10 +113,6 @@ func domusic():
 			if !$Music.stream == old:
 				$Music.stream = old
 				$Music.play()
-	if roomhandle.currentscene.name == "snow":
-			if !$Music.stream == snow:
-				$Music.stream = snow
-				$Music.play()
 	if roomhandle.currentscene.name == "mario":
 			if !$Music.stream == load("res://assets/sound/music/ogg/mus_retros.ogg"):
 				$Music.stream = load("res://assets/sound/music/ogg/mus_retros.ogg")

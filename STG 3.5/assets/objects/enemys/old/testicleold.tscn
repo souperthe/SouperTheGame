@@ -1,0 +1,260 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://assets/sound/sfx/sfx_punch4.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/sound/sfx/sfx_punch5.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sound/sfx/sfx_punch1.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sound/sfx/sfx_punch6.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sound/sfx/sfx_punch2.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sound/sfx/sfx_punch3.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0007.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0001.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0006.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0011.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0005.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0013.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0009.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0012.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0014.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0004.png" type="Texture" id=16]
+[ext_resource path="res://assets/shaders/color_flash.tres" type="Material" id=17]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0003.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0008.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0010.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/enemys/testicle/testicle0002.png" type="Texture" id=21]
+[ext_resource path="res://assets/scripts/testicle.gd" type="Script" id=22]
+[ext_resource path="res://assets/sprites/hitpartical0002.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/hitpartical0001.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/hitpartical0003.png" type="Texture" id=25]
+[ext_resource path="res://assets/scripts/randompitch.gd" type="Script" id=26]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "dead",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "idle",
+"speed": 12.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "scared",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "walk",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.5, 27 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 23.0
+
+[sub_resource type="Curve" id=14]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=16]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.00681818 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=15]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Animation" id=18]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/flash_modifier")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource( 22 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = ExtResource( 17 )
+position = Vector2( -1, -17 )
+scale = Vector2( 0.56, 0.56 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 1
+playing = true
+flip_h = true
+
+[node name="collison" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="hitcheck" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="check" type="CollisionShape2D" parent="hitcheck"]
+modulate = Color( 0.360784, 1, 0, 1 )
+shape = SubResource( 3 )
+
+[node name="hitpart3" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 5.0
+speed_scale = 1.2
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+fract_delta = false
+local_coords = false
+draw_order = 1
+texture = ExtResource( 25 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = 296.47
+angular_velocity_random = 1.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 20.0
+angle = 720.0
+angle_random = 1.0
+angle_curve = SubResource( 14 )
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 16 )
+color_ramp = SubResource( 15 )
+
+[node name="hitpart2" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 3
+lifetime = 5.0
+speed_scale = 1.2
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = false
+draw_order = 1
+texture = ExtResource( 23 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = 296.47
+angular_velocity_random = 1.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 20.0
+angle = 720.0
+angle_random = 1.0
+angle_curve = SubResource( 14 )
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 16 )
+color_ramp = SubResource( 15 )
+
+[node name="hitpart1" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 3
+lifetime = 5.0
+speed_scale = 1.2
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = false
+draw_order = 1
+texture = ExtResource( 24 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = 296.47
+angular_velocity_random = 1.0
+orbit_velocity_random = 1.0
+linear_accel = 100.0
+linear_accel_random = 1.0
+radial_accel = 20.0
+angle = 720.0
+angle_random = 1.0
+angle_curve = SubResource( 14 )
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 16 )
+color_ramp = SubResource( 15 )
+
+[node name="hurt1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -6.55
+bus = "SFX"
+script = ExtResource( 26 )
+
+[node name="hurt2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.92
+bus = "SFX"
+script = ExtResource( 26 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -33, 1 )
+enabled = true
+cast_to = Vector2( 0, 110 )
+collision_mask = 2
+collide_with_areas = true
+
+[node name="hurt3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -7.424
+bus = "SFX"
+script = ExtResource( 26 )
+
+[node name="walldec" type="RayCast2D" parent="."]
+position = Vector2( -5, 0 )
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 2
+collide_with_areas = true
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/hurt = SubResource( 18 )
+
+[node name="tilcheck" type="RayCast2D" parent="."]
+position = Vector2( 0, 27 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 1024
+collide_with_areas = true
+
+[node name="hurt4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = -7.424
+bus = "SFX"
+script = ExtResource( 26 )
+
+[node name="hurt5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+volume_db = -7.424
+bus = "SFX"
+script = ExtResource( 26 )
+
+[node name="hurt6" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -7.424
+bus = "SFX"
+script = ExtResource( 26 )
+
+[connection signal="area_entered" from="hitcheck" to="." method="_on_hitcheck_area_entered"]

@@ -23,6 +23,14 @@ func _ready():
 func _process(delta):
 	if global.oldtodmode:
 		queue_free()
+		
+		
+func bangeffect():
+	var whiteflash = preload("res://assets/objects/bangeffect.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x + 32
+	ghost.position.y = self.position.y + 32
 
 	#if overlaps_body(objplayer):
 		#destory()
@@ -34,6 +42,7 @@ func destory():
 	hitpart()
 	deadsound()
 	$sprite.visible = false
+	bangeffect()
 	global.othersroom.append(global.targetRoom2 + name)
 	var t = Timer.new()
 	t.set_wait_time(4)

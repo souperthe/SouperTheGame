@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=332 format=2]
+[gd_resource type="SpriteFrames" load_steps=335 format=2]
 
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0316.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0042.png" type="Texture" id=2]
@@ -331,6 +331,9 @@
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0367.png" type="Texture" id=329]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0347.png" type="Texture" id=330]
 [ext_resource path="res://assets/sprites/player_souper/souperanim_0389.png" type="Texture" id=331]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0392.png" type="Texture" id=332]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0390.png" type="Texture" id=333]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0391.png" type="Texture" id=334]
 
 [resource]
 animations = [ {
@@ -407,7 +410,7 @@ animations = [ {
 "frames": [ ExtResource( 302 ), ExtResource( 293 ), ExtResource( 315 ), ExtResource( 311 ), ExtResource( 309 ), ExtResource( 292 ), ExtResource( 330 ), ExtResource( 295 ), ExtResource( 289 ), ExtResource( 289 ), ExtResource( 289 ), ExtResource( 289 ) ],
 "loop": false,
 "name": "crouchjump",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 66 ), ExtResource( 70 ), ExtResource( 65 ), ExtResource( 68 ), ExtResource( 68 ), ExtResource( 68 ), ExtResource( 68 ), ExtResource( 68 ), ExtResource( 68 ) ],
 "loop": false,
@@ -422,7 +425,7 @@ animations = [ {
 "frames": [ ExtResource( 310 ), ExtResource( 326 ) ],
 "loop": true,
 "name": "dive",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [ ExtResource( 294 ), ExtResource( 298 ) ],
 "loop": true,
@@ -452,7 +455,7 @@ animations = [ {
 "frames": [ ExtResource( 227 ), ExtResource( 193 ), ExtResource( 243 ) ],
 "loop": false,
 "name": "fp_fall",
-"speed": 20.0
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 209 ), ExtResource( 184 ), ExtResource( 212 ), ExtResource( 101 ), ExtResource( 101 ) ],
 "loop": false,
@@ -483,6 +486,11 @@ animations = [ {
 "loop": true,
 "name": "hurt",
 "speed": 24.0
+}, {
+"frames": [ ExtResource( 333 ), ExtResource( 334 ), ExtResource( 332 ) ],
+"loop": true,
+"name": "iceslip",
+"speed": 17.0
 }, {
 "frames": [ ExtResource( 133 ), ExtResource( 102 ) ],
 "loop": true,

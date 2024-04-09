@@ -1,0 +1,238 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/objects/switchblockalt.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/scenedoorlocked.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/metalblock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/iceblock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/FallZone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/slipiceblock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/sprites/uparrow.png" type="Texture" id=12]
+[ext_resource path="res://assets/objects/collectables/smallcollectable.tscn" type="PackedScene" id=13]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="collide" parent="." instance=ExtResource( 5 )]
+position = Vector2( -64, 0 )
+scale = Vector2( 1, 16 )
+
+[node name="collide2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 512, 0 )
+scale = Vector2( 1, 8 )
+
+[node name="door1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 256, 256 )
+
+[node name="switchblockalt" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 480 )
+
+[node name="switchblockalt2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 480 )
+
+[node name="switchblockalt3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 480 )
+
+[node name="switchblockalt4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, 480 )
+
+[node name="switchblockalt5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 480 )
+
+[node name="switchblockalt6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 480 )
+
+[node name="switchblockalt7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 192, 480 )
+
+[node name="switchblockalt8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 224, 480 )
+
+[node name="switchblockalt9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, 480 )
+
+[node name="switchblockalt10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 480 )
+
+[node name="switchblockalt11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 320, 480 )
+
+[node name="switchblockalt12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 352, 480 )
+
+[node name="switchblockalt13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 384, 480 )
+
+[node name="switchblockalt14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 480 )
+
+[node name="switchblockalt15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 448, 480 )
+
+[node name="switchblockalt16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 480, 480 )
+
+[node name="collide3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, 1024 )
+scale = Vector2( 20, 1 )
+
+[node name="DoorLocked" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256, 980 )
+
+[node name="camera" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1600, 672 )
+limit_left = -64
+limit_top = 256
+limit_bottom = 100000000
+
+[node name="collide4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 512, 512 )
+scale = Vector2( 12, 3 )
+
+[node name="metalblock" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1280, 960 )
+
+[node name="metalblock2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1472, 960 )
+
+[node name="collide5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1280, 704 )
+scale = Vector2( 4, 4 )
+
+[node name="collide6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1280, 1024 )
+scale = Vector2( 12, 1 )
+
+[node name="collide7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1984, 1088 )
+scale = Vector2( 1, 12 )
+
+[node name="collide8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2560, 1024 )
+scale = Vector2( 12, 1 )
+
+[node name="collide9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2560, 1088 )
+scale = Vector2( 1, 12 )
+
+[node name="iceblock" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2048, 1152 )
+
+[node name="iceblock2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2112, 1152 )
+
+[node name="iceblock3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2176, 1152 )
+
+[node name="iceblock4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2240, 1152 )
+
+[node name="iceblock5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2304, 1152 )
+
+[node name="iceblock6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2368, 1152 )
+
+[node name="iceblock7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2432, 1152 )
+
+[node name="iceblock8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2496, 1152 )
+
+[node name="fallzone" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2048, 1280 )
+scale = Vector2( 8, 1 )
+
+[node name="collide10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3328, 768 )
+scale = Vector2( 8, 12 )
+
+[node name="iceblock9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3840, 768 )
+
+[node name="iceblock10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4224, 960 )
+scale = Vector2( 2, 1 )
+
+[node name="collide11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4352, 256 )
+scale = Vector2( 8, 16 )
+
+[node name="collide12" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4352, 1472 )
+scale = Vector2( 24, 1 )
+
+[node name="iceblock11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3840, 1472 )
+
+[node name="iceblock12" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3904, 1472 )
+
+[node name="iceblock13" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3968, 1472 )
+
+[node name="iceblock14" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4032, 1472 )
+
+[node name="iceblock15" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4096, 1472 )
+
+[node name="iceblock16" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4160, 1472 )
+
+[node name="iceblock17" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4224, 1472 )
+
+[node name="iceblock18" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4288, 1472 )
+
+[node name="Uparrow" type="Sprite" parent="."]
+position = Vector2( 640, 896 )
+rotation = 1.5708
+z_index = -2
+texture = ExtResource( 12 )
+
+[node name="collide13" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4736, 1408 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope" parent="." instance=ExtResource( 10 )]
+position = Vector2( 4992, 1408 )
+scale = Vector2( -2, 1 )
+
+[node name="collide14" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5888, 1024 )
+scale = Vector2( 4, 8 )
+
+[node name="platform" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5120, 1344 )
+scale = Vector2( 2, 1 )
+
+[node name="platform2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5376, 1248 )
+scale = Vector2( 2, 1 )
+
+[node name="platform3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5632, 1152 )
+scale = Vector2( 2, 1 )
+
+[node name="smallcollectable" parent="." instance=ExtResource( 13 )]
+position = Vector2( 5152, 1312 )
+
+[node name="smallcollectable2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 5216, 1312 )
+
+[node name="smallcollectable3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 5408, 1216 )
+
+[node name="smallcollectable4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 5472, 1216 )
+
+[node name="smallcollectable5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 5664, 1120 )
+
+[node name="smallcollectable6" parent="." instance=ExtResource( 13 )]
+position = Vector2( 5728, 1120 )

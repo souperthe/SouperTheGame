@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=2]
+[gd_scene load_steps=128 format=2]
 
 [ext_resource path="res://assets/sound/sfx/sfx_slide.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -79,6 +79,8 @@
 [ext_resource path="res://assets/sound/sfx/sfx_sjump_releasesm.wav" type="AudioStream" id=77]
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
 [ext_resource path="res://assets/objects/hurtblock.tscn" type="PackedScene" id=79]
+[ext_resource path="res://assets/sound/sfx/sfx_dropkickdash.wav" type="AudioStream" id=80]
+[ext_resource path="res://assets/sound/sfx/sfx_slipping.wav" type="AudioStream" id=81]
 [ext_resource path="res://assets/scripts/plrstates/Nothing.gd" type="Script" id=93]
 [ext_resource path="res://assets/scripts/plrstates/MachClimb.gd" type="Script" id=94]
 [ext_resource path="res://assets/sound/sfx/sfx_swing.wav" type="AudioStream" id=134]
@@ -321,6 +323,24 @@ audio_stream = ExtResource( 74 )
 [sub_resource type="RectangleShape2D" id=56]
 extents = Vector2( 7, 20 )
 
+[sub_resource type="AudioStreamRandomPitch" id=58]
+audio_stream = ExtResource( 80 )
+
+[sub_resource type="Animation" id=59]
+resource_name = "doflash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("animation:material:shader_param/flash_modifier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 material = SubResource( 45 )
 z_index = 2
@@ -546,7 +566,6 @@ color_ramp = SubResource( 33 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 64 )
 animation = "hurt"
-frame = 29
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1059,7 +1078,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 65 )
 animation = "idle"
-frame = 25
+frame = 27
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1105,6 +1124,31 @@ collision_mask = 512
 
 [node name="hurtblock" parent="hurtbox" instance=ExtResource( 79 )]
 position = Vector2( 28, 0 )
+
+[node name="instamach4" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 58 )
+volume_db = 3.051
+bus = "SFX"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/doflash = SubResource( 59 )
+
+[node name="fallzonetimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="bossdeadtimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="trailtimer" type="Timer" parent="."]
+wait_time = 0.08
+one_shot = true
+
+[node name="slipping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 81 )
+volume_db = 2.0
+bus = "SFX"
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
 [connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]

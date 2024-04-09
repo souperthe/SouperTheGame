@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/sprites/banana.png" type="Texture" id=1]
 [ext_resource path="res://assets/scripts/banana.gd" type="Script" id=2]
-[ext_resource path="res://assets/sound/sfx/sfx_bananapeel.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/scripts/randompitch.gd" type="Script" id=4]
+[ext_resource path="res://assets/sound/sfx/sfx_bananapeelrandom.tres" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 9 )
@@ -36,6 +35,5 @@ shape = SubResource( 2 )
 stream = ExtResource( 3 )
 volume_db = 0.441
 bus = "SFX"
-script = ExtResource( 4 )
 
 [connection signal="body_entered" from="plrcheck" to="." method="_on_plrcheck_body_entered"]

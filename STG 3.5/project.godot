@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "Baddie",
+"language": "GDScript",
+"path": "res://assets/scripts/baddie.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Boss",
 "language": "GDScript",
 "path": "res://assets/scripts/bosstext.gd"
@@ -150,6 +155,7 @@ _global_script_classes=[ {
 "path": "res://assets/scripts/stateMachine.gd"
 } ]
 _global_script_class_icons={
+"Baddie": "",
 "Boss": "",
 "ChatMessage": "",
 "Collision": "",

@@ -21,7 +21,7 @@ func enter(_msg := {}) -> void:
 	player.turntimer.stop()
 	player.fpfallsfx.stop()
 	player.candoor = 0
-	speed = 1050
+	speed = abs(player.velocity.x)
 	bounces = false
 	#if player.face:
 		#player.velocity.x = -speed
@@ -39,6 +39,7 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	if player.is_on_wall():
+		#speed = abs(player.velocity.x)
 		player.velocity.x = -600
 		animation_player.play("hardtumble")
 		animation_player.frame = randi() % 6

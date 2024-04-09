@@ -11,6 +11,8 @@ func _ready():
 func _physics_process(_delta):
 	if canhurt:
 		$CollisionShape2D.disabled = false
+		modulate.a8 = 255
 	if !canhurt:
 		$CollisionShape2D.disabled = true
+		modulate.a8 = 125
 

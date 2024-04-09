@@ -15,5 +15,13 @@ centered = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
+[node name="baddie" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="baddie"]
+polygon = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
 [connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="baddie" to="." method="_on_baddie_body_entered"]

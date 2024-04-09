@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
@@ -80,6 +80,9 @@
 [ext_resource path="res://assets/scripts/plrstates/enterdoor.gd" type="Script" id=78]
 [ext_resource path="res://assets/shaders/color_flash.tres" type="Material" id=79]
 [ext_resource path="res://assets/scripts/plrstates/upwall.gd" type="Script" id=80]
+[ext_resource path="res://assets/scripts/plrstates/iceslip.gd" type="Script" id=81]
+[ext_resource path="res://assets/sound/sfx/sfx_slipping.wav" type="AudioStream" id=82]
+[ext_resource path="res://assets/sound/sfx/sfx_bananapeel.wav" type="AudioStream" id=83]
 [ext_resource path="res://assets/objects/HUD.tscn" type="PackedScene" id=88]
 [ext_resource path="res://assets/scripts/plrstates/Nothing.gd" type="Script" id=93]
 [ext_resource path="res://assets/scripts/plrstates/MachClimb.gd" type="Script" id=94]
@@ -354,6 +357,9 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
+[sub_resource type="AudioStreamRandomPitch" id=63]
+audio_stream = ExtResource( 83 )
+
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 material = SubResource( 45 )
 z_index = 2
@@ -579,7 +585,8 @@ color_ramp = SubResource( 33 )
 material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "enterdoorfast"
+animation = "iceslip"
+frame = 2
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -765,6 +772,10 @@ _animation_player = NodePath("../../animation")
 
 [node name="upwall" type="Node" parent="StateMachine"]
 script = ExtResource( 80 )
+_animation_player = NodePath("../../animation")
+
+[node name="iceslip" type="Node" parent="StateMachine"]
+script = ExtResource( 81 )
 _animation_player = NodePath("../../animation")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -1102,7 +1113,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 22
+frame = 25
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1168,6 +1179,16 @@ one_shot = true
 [node name="trailtimer" type="Timer" parent="."]
 wait_time = 0.08
 one_shot = true
+
+[node name="slipping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 82 )
+volume_db = 2.0
+bus = "SFX"
+
+[node name="slipping2" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 63 )
+volume_db = 2.0
+bus = "SFX"
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
 [connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]

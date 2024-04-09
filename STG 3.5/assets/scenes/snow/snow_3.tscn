@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://assets/objects/FallZone.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/objects/iceblock.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/objects/secretblock.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/objects/slipiceblock.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=14]
 
 [node name="Node2D" type="Node2D"]
 
@@ -283,3 +285,88 @@ position = Vector2( -2752, 512 )
 
 [node name="banana2" parent="." instance=ExtResource( 7 )]
 position = Vector2( -3424, 608 )
+
+[node name="iceblock11" parent="." instance=ExtResource( 13 )]
+position = Vector2( -5888, 448 )
+
+[node name="iceblock12" parent="." instance=ExtResource( 13 )]
+position = Vector2( -5824, 448 )
+
+[node name="iceblock13" parent="." instance=ExtResource( 13 )]
+position = Vector2( -5760, 448 )
+
+[node name="iceblock14" parent="." instance=ExtResource( 13 )]
+position = Vector2( -5696, 448 )
+
+[node name="iceblock15" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6144, 704 )
+
+[node name="iceblock16" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6080, 704 )
+
+[node name="iceblock17" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6016, 704 )
+
+[node name="iceblock18" parent="." instance=ExtResource( 13 )]
+position = Vector2( -5952, 704 )
+
+[node name="collide21" parent="." instance=ExtResource( 4 )]
+position = Vector2( -6912, 64 )
+scale = Vector2( 4, 12 )
+
+[node name="iceblock19" parent="." instance=ExtResource( 13 )]
+position = Vector2( -5888, 704 )
+
+[node name="iceblock20" parent="." instance=ExtResource( 13 )]
+position = Vector2( -5824, 704 )
+
+[node name="iceblock21" parent="." instance=ExtResource( 13 )]
+position = Vector2( -5760, 704 )
+
+[node name="iceblock22" parent="." instance=ExtResource( 13 )]
+position = Vector2( -5696, 704 )
+
+[node name="iceblock23" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6656, 704 )
+
+[node name="iceblock24" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6592, 704 )
+
+[node name="iceblock25" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6528, 704 )
+
+[node name="iceblock26" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6464, 704 )
+
+[node name="iceblock27" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6400, 704 )
+
+[node name="iceblock28" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6336, 704 )
+
+[node name="iceblock29" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6272, 704 )
+
+[node name="iceblock30" parent="." instance=ExtResource( 13 )]
+position = Vector2( -6208, 704 )
+
+[node name="collide22" parent="." instance=ExtResource( 4 )]
+position = Vector2( -5120, 512 )
+scale = Vector2( 1, 12 )
+
+[node name="collide23" parent="." instance=ExtResource( 4 )]
+position = Vector2( -5696, 768 )
+scale = Vector2( 1, 12 )
+
+[node name="collide24" parent="." instance=ExtResource( 4 )]
+position = Vector2( -6912, 0 )
+scale = Vector2( 40, 1 )
+
+[node name="collide25" parent="." instance=ExtResource( 4 )]
+position = Vector2( -5376, 384 )
+
+[node name="Hallway" parent="." instance=ExtResource( 14 )]
+position = Vector2( -5632, 864 )
+scale = Vector2( 16, 2 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/snow/snow_4.tscn"

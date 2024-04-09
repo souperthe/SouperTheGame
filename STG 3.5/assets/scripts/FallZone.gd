@@ -35,3 +35,9 @@ func _on_Area2D_area_entered(_area):
 func dorespawn():
 	objplayer.fall()
 	
+
+
+func _on_baddie_body_entered(body):
+	if body is Baddie:
+		body.dead(1000000)
+	pass # Replace with function body.

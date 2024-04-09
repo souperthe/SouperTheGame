@@ -207,6 +207,18 @@ func makeflash():
 	var ghost: CanvasLayer = whiteflash.instance()
 	add_child(ghost)
 	
+#func sfx3d(x,y,sound):
+	#playcock(x,y,sound)
+	
+func playsound(pos,sound):
+	var whiteflash = preload("res://assets/objects/cocking.tscn")
+	var ghost: AudioStreamPlayer2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.stream = load(sound)
+	ghost.position = pos
+	ghost.play()
+	#pass
+	
 func ranks():
 	if score > drank:
 		rank = "1/5"
@@ -276,7 +288,6 @@ func load_save():
 	
 	
 
-	
 	
 	
 	
