@@ -1202,9 +1202,6 @@ position = Vector2( 960, 384 )
 [node name="escapesmallcollectable118" parent="." instance=ExtResource( 18 )]
 position = Vector2( 960, 448 )
 
-[node name="EnemyDummy2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 3584, -2016 )
-
 [node name="escapesmallcollectable119" parent="." instance=ExtResource( 18 )]
 position = Vector2( 608, -2080 )
 
@@ -1288,3 +1285,27 @@ position = Vector2( 544, -448 )
 
 [node name="escapesmallcollectable146" parent="." instance=ExtResource( 18 )]
 position = Vector2( 544, -384 )
+
+[node name="testicle" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3584, -2016 )
+escape = true
+
+[node name="prick" parent="testicle" instance=ExtResource( 15 )]
+position = Vector2( 3456, -64 )
+escape = true
+
+[node name="prick" parent="." instance=ExtResource( 15 )]
+position = Vector2( 8384, -2016 )
+escape = true
+
+[node name="prick2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 928, -2112 )
+escape = true
+
+[node name="prick3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 640, -800 )
+escape = true
+
+[node name="testicle2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 640, 480 )
+escape = true

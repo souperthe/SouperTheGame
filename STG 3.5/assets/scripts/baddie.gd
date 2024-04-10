@@ -9,6 +9,7 @@ enum states {
 	normal,
 	stun,
 	scared,
+	inactive,
 	other
 }
 var direction = false
@@ -18,6 +19,8 @@ var velocity := Vector2.ZERO
 var speed = 200
 var a = false
 var canhurt = true
+export var escape = false
+var spawned = false
 
 var state = states.normal
 
@@ -29,8 +32,15 @@ onready var animator = $animator
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if (global.baddieroom.has(global.targetRoom2 + name)):
-		queue_free()
+	if escape:
+		state = states.inactive
+		if !global.panic:
+			queue_free()
+		if (global.escaperoom.has(global.targetRoom2 + name)):
+			queue_free()
+	if !escape:
+		if (global.baddieroom.has(global.targetRoom2 + name)):
+			queue_free()
 	pass # Replace with function body.
 
 func hurteffect():
@@ -42,6 +52,13 @@ func hurteffect():
 
 func bangeffect():
 	var whiteflash = preload("res://assets/objects/bangeffect.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y - 15
+	
+func portalffect():
+	var whiteflash = preload("res://assets/objects/enemyportal.tscn")
 	var ghost: Node2D = whiteflash.instance()
 	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
@@ -89,7 +106,10 @@ func dead(p):
 	global.addcombo()
 	bangeffect()
 	#global.playsound(position, "res://assets/sound/owsfx.tres")
-	global.baddieroom.append(global.targetRoom2 + name)
+	if escape:
+		global.escaperoom.append(global.targetRoom2 + name)
+	if !escape:
+		global.baddieroom.append(global.targetRoom2 + name)
 	createdead1(p)
 	queue_free()
 
@@ -111,9 +131,19 @@ func createdead1(velocityx):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _physics_process(delta):
+	$CollisionShape2D.disabled = state == states.inactive
 	slopetilt()
-	velocity.y += gravity
-	velocity = move_and_slide(velocity, Vector2.UP)
+	if global.panic:
+		if escape:
+			if $enemyesentials.onscreen:
+				if !spawned:
+					spawned = true
+					state = states.normal
+					visible = true
+					portalffect()
+	if state != states.inactive:
+		velocity.y += gravity
+		velocity = move_and_slide(velocity, Vector2.UP)
 	match(state):
 		states.stun:
 			velocity.x = lerp(velocity.x, 0, 0.02)
@@ -131,6 +161,10 @@ func _physics_process(delta):
 			if scaredtimer < 0:
 				state = states.normal
 				animator.play("default")
+		states.inactive:
+			velocity = Vector2(0,0)
+			animator.play("stun")
+			visible = false
 		
 	
 func wander():
@@ -165,3 +199,6 @@ func getscared():
 			velocity.y = -900 / 2.5
 			state = states.scared
 #	pass
+
+
+

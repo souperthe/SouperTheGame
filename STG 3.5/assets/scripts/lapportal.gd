@@ -59,6 +59,7 @@ func _on_lapportal_body_entered(body):
 			player = body
 			wentin = true
 			$AudioStreamPlayer2D.play()
+			global.escaperoom = []
 			global.addscore(1000)
 			numberthing("+1000")
 			cangoin = false
@@ -97,5 +98,4 @@ func changescene():
 	global.lockcamera = false
 	global.laps += 1
 	global.fill.paused = false
-	global.escaperoom = []
 

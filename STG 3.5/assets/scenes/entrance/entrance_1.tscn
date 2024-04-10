@@ -420,3 +420,19 @@ position = Vector2( 2592, 382 )
 
 [node name="secretblock8" parent="." instance=ExtResource( 19 )]
 position = Vector2( 2624, 382 )
+
+[node name="prick" parent="." instance=ExtResource( 14 )]
+position = Vector2( 320, 318 )
+escape = true
+
+[node name="prick2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 704, 318 )
+escape = true
+
+[node name="prick3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3776, 126 )
+escape = true
+
+[node name="prick4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6560, 190 )
+escape = true

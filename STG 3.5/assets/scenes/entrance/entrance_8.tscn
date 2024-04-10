@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/objects/collectables/escapesmallcollectable.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/scenes/entrance/house_TILE.tres" type="TileSet" id=12]
+[ext_resource path="res://assets/objects/enemys/forkdevil.tscn" type="PackedScene" id=13]
 
 [node name="Node2D" type="Node2D"]
 
@@ -405,3 +406,7 @@ position = Vector2( 448, 160 )
 
 [node name="escapesmallcollectable55" parent="." instance=ExtResource( 11 )]
 position = Vector2( 448, 224 )
+
+[node name="prick" parent="." instance=ExtResource( 13 )]
+position = Vector2( -132, -1075 )
+escape = true

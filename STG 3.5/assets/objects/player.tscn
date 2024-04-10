@@ -586,7 +586,7 @@ material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "iceslip"
-frame = 2
+frame = 1
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1113,7 +1113,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 8
+frame = 13
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1169,7 +1169,7 @@ bus = "SFX"
 anims/doflash = SubResource( 59 )
 
 [node name="fallzonetimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 
 [node name="bossdeadtimer" type="Timer" parent="."]

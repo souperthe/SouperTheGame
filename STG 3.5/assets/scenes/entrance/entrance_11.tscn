@@ -155,3 +155,11 @@ position = Vector2( 1088, 96 )
 
 [node name="lapexit" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1792, 96 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 544, 128 )
+escape = true
+
+[node name="Enemy3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 768, 128 )
+escape = true

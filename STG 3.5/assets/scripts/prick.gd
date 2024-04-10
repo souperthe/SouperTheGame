@@ -20,7 +20,7 @@ func _ready():
 #	pass
 func _physics_process(delta):
 	$enemyesentials/hurtblock.visible = global.showcolloisions
-	$enemyesentials/hurtblock.canhurt = !state == states.scared and !state == states.stun
+	$enemyesentials/hurtblock.canhurt = !state == states.scared and !state == states.stun and !state == states.inactive
 	match(state):
 		states.normal:
 			if is_on_floor():

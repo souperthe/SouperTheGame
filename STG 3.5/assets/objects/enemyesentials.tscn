@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/sound/sfx/sfx_gasp.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/scripts/enemyesentials.gd" type="Script" id=2]
 
 [sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 1 )
-random_pitch = 1.2
 
 [node name="enemyesentials" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="floorcheck" type="RayCast2D" parent="."]
 position = Vector2( 28, 1 )
@@ -31,18 +32,24 @@ collide_with_areas = true
 [node name="getscaredr" type="RayCast2D" parent="."]
 rotation = 1.5708
 enabled = true
-cast_to = Vector2( 0, -200 )
+cast_to = Vector2( 0, -350 )
 collision_mask = 16384
 collide_with_areas = true
 
 [node name="getscaredl" type="RayCast2D" parent="."]
 rotation = 1.5708
 enabled = true
-cast_to = Vector2( 0, 200 )
+cast_to = Vector2( 0, 350 )
 collision_mask = 16384
 collide_with_areas = true
 
 [node name="gasp" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 1 )
-volume_db = -10.0
+volume_db = -5.0
 pitch_scale = 1.1
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( -5, -5, 10, 10 )
+
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

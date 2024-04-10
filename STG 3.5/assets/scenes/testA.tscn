@@ -39,7 +39,8 @@ position = Vector2( 0, -784 )
 scale = Vector2( 79, 1 )
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1167, 218 )
+position = Vector2( 1285, 409 )
+escape = true
 
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1160, 488 )

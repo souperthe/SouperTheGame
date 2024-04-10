@@ -77,6 +77,7 @@ position = Vector2( 0, 1120 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 448, 1056 )
+escape = true
 
 [node name="escapesmallcollectable48" parent="." instance=ExtResource( 11 )]
 position = Vector2( 32, 1088 )
@@ -140,12 +141,15 @@ position = Vector2( 576, 640 )
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 320, 640 )
+escape = true
 
 [node name="Enemy2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 320, 160 )
+escape = true
 
 [node name="Enemy4" parent="." instance=ExtResource( 13 )]
 position = Vector2( 960, 464 )
+escape = true
 
 [node name="escapesmallcollectable7" parent="." instance=ExtResource( 11 )]
 position = Vector2( 832, 256 )

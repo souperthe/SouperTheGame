@@ -1054,3 +1054,47 @@ position = Vector2( -5536, -112 )
 [node name="collide34" parent="." instance=ExtResource( 4 )]
 position = Vector2( -5504, -448 )
 scale = Vector2( 1, 6 )
+
+[node name="prick" parent="." instance=ExtResource( 11 )]
+position = Vector2( -3523, -757 )
+escape = true
+
+[node name="prick2" parent="." instance=ExtResource( 11 )]
+position = Vector2( -455, -870 )
+escape = true
+
+[node name="prick3" parent="." instance=ExtResource( 11 )]
+position = Vector2( -5746, -561 )
+escape = true
+
+[node name="testicle" parent="." instance=ExtResource( 14 )]
+position = Vector2( -5292, 158 )
+escape = true
+
+[node name="testicle2" parent="." instance=ExtResource( 14 )]
+position = Vector2( -5122, 162 )
+escape = true
+
+[node name="testicle3" parent="." instance=ExtResource( 14 )]
+position = Vector2( -4787, 160 )
+escape = true
+
+[node name="testicle4" parent="." instance=ExtResource( 14 )]
+position = Vector2( -4960, 165 )
+escape = true
+
+[node name="testicle5" parent="." instance=ExtResource( 14 )]
+position = Vector2( -4625, 163 )
+escape = true
+
+[node name="testicle6" parent="." instance=ExtResource( 14 )]
+position = Vector2( -4423, 159 )
+escape = true
+
+[node name="prick4" parent="." instance=ExtResource( 11 )]
+position = Vector2( -2875, 200 )
+escape = true
+
+[node name="testicle7" parent="." instance=ExtResource( 14 )]
+position = Vector2( -369, 393 )
+escape = true

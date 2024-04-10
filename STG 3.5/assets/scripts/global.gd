@@ -256,7 +256,7 @@ func delete_tile_at(position):
 
 func info(text,time):
 	$infolayer/infoanimation.play("enter")
-	$infolayer/info.bbcode_text = str("[center][wave]", text)
+	$infolayer/info.bbcode_text = str("[center]", text)
 	$infolayer/infotime.wait_time = time
 	$infolayer/infotime.start()
 

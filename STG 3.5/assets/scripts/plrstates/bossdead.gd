@@ -24,7 +24,7 @@ func enter(_msg := {}) -> void:
 	player.candoor = 0
 	player.canhurt = false
 	speed = 1050
-	global.info(str("Press ", Inputs.input_attack, " to restart"), 60)
+	global.info(str("[wave]Press ", Inputs.input_attack, " to restart"), 60)
 	#if player.face:
 		#player.velocity.x = -speed
 	#if !player.face:
