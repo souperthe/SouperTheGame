@@ -91,10 +91,11 @@ func playtutorial():
 	$Music.play()
 	
 func _process(_delta):
-	if global.phonescreen:
-		musicvolume = lerp(musicvolume, -89, 0.005)
-	if !global.phonescreen:
-		musicvolume = lerp(musicvolume, 2, 0.1)
+	if !global.hardmode:
+		if global.phonescreen:
+			musicvolume = lerp(musicvolume, -89, 0.005)
+		if !global.phonescreen:
+			musicvolume = lerp(musicvolume, 2, 0.1)
 	if playmusic:
 		#domusic()
 		if global.panic:

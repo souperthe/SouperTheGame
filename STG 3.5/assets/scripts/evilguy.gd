@@ -157,10 +157,17 @@ func goofysound():
 	ghost.position.y = self.position.y
 	
 	
-
+func bangeffect(pos1):
+	var whiteflash = preload("res://assets/objects/bangeffect.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = pos1.x
+	ghost.position.y = pos1.y
 
 func _on_attackdetect_body_entered(body):
 	if $Funnyboulder.modulate.a8 == 255:
+		bangeffect(body.position)
+		body.queue_free()
 		createdead1(body.velocity.x, body.velocity.x / 170)
 		goofysound()
 		hurteffect()

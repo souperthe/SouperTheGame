@@ -159,6 +159,7 @@ func hurt():
 	playcock()
 	playcock2()
 	hurteffect()
+	global.phonescreen = false
 	queue_free()
 	
 func hurt2():
@@ -166,6 +167,7 @@ func hurt2():
 	createdead1()
 	playcock()
 	hurteffect()
+	global.phonescreen = false
 	queue_free()
 	
 	
