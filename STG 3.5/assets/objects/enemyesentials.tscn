@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/sound/sfx/sfx_gasp.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/scripts/enemyesentials.gd" type="Script" id=2]
@@ -6,13 +6,15 @@
 [sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 1 )
 
+[sub_resource type="RectangleShape2D" id=2]
+
 [node name="enemyesentials" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="floorcheck" type="RayCast2D" parent="."]
 position = Vector2( 28, 1 )
 enabled = true
-cast_to = Vector2( 0, 110 )
+cast_to = Vector2( 0, 100 )
 collision_mask = 10
 
 [node name="walldec" type="RayCast2D" parent="."]
@@ -51,5 +53,14 @@ pitch_scale = 1.1
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 rect = Rect2( -5, -5, 10, 10 )
 
+[node name="lavacheck" type="Area2D" parent="."]
+position = Vector2( 0, 17 )
+collision_layer = 4194304
+collision_mask = 4194304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lavacheck"]
+shape = SubResource( 2 )
+
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="body_entered" from="lavacheck" to="." method="_on_lavacheck_body_entered"]

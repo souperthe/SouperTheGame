@@ -34,8 +34,8 @@ onready var animator = $animator
 func _ready():
 	if escape:
 		state = states.inactive
-		if !global.panic:
-			queue_free()
+		#if !global.panic:
+			#queue_free()
 		if (global.escaperoom.has(global.targetRoom2 + name)):
 			queue_free()
 	if !escape:
@@ -73,14 +73,14 @@ func punchsound():
 	
 func kill(sdhagdhqwjdawaw):
 	var yadda = sdhagdhqwjdawaw
-	hurteffect()
-	hurteffect()
 	#hurteffect()
 	punchsound()
-	bangeffect()
 	if canhurt:
 		if !state == states.stun:
 			if health > 1:
+				bangeffect()
+				hurteffect()
+				hurteffect()
 				state = states.stun
 				velocity.y = -900
 				velocity.x = yadda 
@@ -103,6 +103,8 @@ func slopetilt():
 		animator.rotation = 0
 	
 func dead(p):
+	hurteffect()
+	hurteffect()
 	global.addcombo()
 	bangeffect()
 	#global.playsound(position, "res://assets/sound/owsfx.tres")

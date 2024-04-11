@@ -21,11 +21,11 @@ func physics_update(delta: float) -> void:
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
 	player.velocity.y += player.gravity * delta
 	if player.cango and sound_has_played:
-		if Input.is_action_just_released(player.input_run):
+		if !Inputs.key_dash:
 			state_machine.transition_to("Mach2")
 			#state_machine.transition_to("Mach3")
 	else:
-		if Input.is_action_just_released(player.input_run):
+		if !Inputs.key_dash:
 			state_machine.transition_to("MachTurn")
 			#state_machine.transition_to("Mach2")
 			

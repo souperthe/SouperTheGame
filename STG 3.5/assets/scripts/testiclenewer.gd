@@ -28,3 +28,6 @@ func _physics_process(delta):
 				animator.play("walk")
 			else:
 				animator.play("default")
+			if !is_on_floor():
+				animator.play("fall")
+				velocity.x = lerp(velocity.x, 0, 3 * delta)
