@@ -18,6 +18,7 @@ var tutorialsong = load("res://assets/sound/music/ogg/mus_tut.ogg")
 var old = load("res://assets/ignore/loop1.mp3")
 var musicvolume = 2
 var playmusic = true
+var musicvolume2 = 1
 var temp = 0
 
 
@@ -95,7 +96,7 @@ func _process(_delta):
 		if global.phonescreen:
 			musicvolume = lerp(musicvolume, -89, 0.005)
 		if !global.phonescreen:
-			musicvolume = lerp(musicvolume, 2, 0.1)
+			musicvolume = lerp(musicvolume, musicvolume2 * 2, 0.1)
 	if playmusic:
 		#domusic()
 		if global.panic:

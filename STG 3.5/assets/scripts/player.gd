@@ -16,6 +16,7 @@ var defaultscale = 0.56
 var haskey = false
 var gun = false
 var iscrouching = false
+var temp = 0
 
 
 
@@ -624,6 +625,8 @@ func _on_detectcrouch_body_exited(body):
 		canuncrouch = true
 	pass # Replace with function body.
 func fall():
+	temp = music.musicaudio.get_playback_position();
+	music.musicaudio.playing = false
 	cutscene()
 	goofysound()
 	$HUD/HUD/fallen.dothing()
@@ -631,7 +634,7 @@ func fall():
 	#global.makeflash()
 	$HUD/HUD/fallen.visible = true
 	global.combotimer.paused = true
-	music.musicvolume = -88
+	#music.musicvolume2 = 0
 	if !global.panic:
 		$HUD/HUD/fallen/Control/song.play()
 	$HUD/HUD/fallen/Control/song.volume_db = 6
@@ -642,7 +645,9 @@ func _on_fallzone_timer_timeout():
 	presobjs.player2respawn()
 	respawn()
 	global.combotimer.paused = false
-	music.musicvolume = 2
+	music.musicaudio.playing = true
+	music.musicaudio.seek(temp)
+	#music.musicvolume2 = 1
 	$HUD/HUD/fallen/AnimationPlayer.play("fade")
 	
 	pass # Replace with function body.

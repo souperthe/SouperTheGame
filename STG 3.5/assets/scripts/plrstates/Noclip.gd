@@ -24,7 +24,7 @@ func physics_update(delta: float) -> void:
 		player.formenter.play()
 	animation_player.play("noclip")
 	player.form = true
-	player.velocity.x = lerp(player.velocity.x, player.get_input_direction() * player.speed, player.acceleration * delta)
+	#player.velocity.x = lerp(player.velocity.x, player.get_input_direction() * player.speed, player.acceleration * delta)
 	if Inputs.key_right:
 		player.position.x += 10
 		if Inputs.key_dash:
@@ -49,9 +49,12 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Air", {do_jump = true})
 	if Inputs.just_key_attack:
 		state_machine.transition_to("Attack")
+	if Inputs.just_key_dash:
+		state_machine.transition_to("Mach2")
 		
 		
 func exit() -> void:
+	player.get_input_direction()
 	player.form = false
 	player.canhurt = true
 
