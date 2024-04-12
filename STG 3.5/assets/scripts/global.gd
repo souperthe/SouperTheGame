@@ -69,8 +69,8 @@ signal reset
 func _ready():
 	infotext.rect_position.y = 560
 	#AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
-	OS.window_size.x = 480 /2
-	OS.window_size.y = 270 / 2
+	#OS.window_size.x = 480 /2
+	#OS.window_size.y = 270 / 2
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/objects/switchblockalt.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=2]
@@ -7,17 +7,20 @@
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/objects/metalblock.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/objects/iceblock.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/objects/FallZone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/hurtblock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/objects/slipiceblock.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/sprites/uparrow.png" type="Texture" id=12]
 [ext_resource path="res://assets/objects/collectables/smallcollectable.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/objects/switchblock.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/objects/FallZone.tscn" type="PackedScene" id=16]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="collide" parent="." instance=ExtResource( 5 )]
-position = Vector2( -64, 0 )
+position = Vector2( -64, -160 )
 scale = Vector2( 1, 16 )
 
 [node name="collide2" parent="." instance=ExtResource( 5 )]
@@ -76,17 +79,18 @@ position = Vector2( 448, 480 )
 position = Vector2( 480, 480 )
 
 [node name="collide3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 0, 1024 )
-scale = Vector2( 20, 1 )
+position = Vector2( -608, 1024 )
+scale = Vector2( 30, 1 )
 
 [node name="DoorLocked" parent="." instance=ExtResource( 3 )]
 position = Vector2( 256, 980 )
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1600, 672 )
-limit_left = -64
+position = Vector2( 5376, 960 )
+limit_left = -96
 limit_top = 256
-limit_bottom = 100000000
+limit_right = 6400
+limit_bottom = 1600
 
 [node name="collide4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 512, 512 )
@@ -99,8 +103,8 @@ position = Vector2( 1280, 960 )
 position = Vector2( 1472, 960 )
 
 [node name="collide5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1280, 704 )
-scale = Vector2( 4, 4 )
+position = Vector2( 1280, 448 )
+scale = Vector2( 4, 8 )
 
 [node name="collide6" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1280, 1024 )
@@ -117,34 +121,6 @@ scale = Vector2( 12, 1 )
 [node name="collide9" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2560, 1088 )
 scale = Vector2( 1, 12 )
-
-[node name="iceblock" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2048, 1152 )
-
-[node name="iceblock2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2112, 1152 )
-
-[node name="iceblock3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2176, 1152 )
-
-[node name="iceblock4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2240, 1152 )
-
-[node name="iceblock5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2304, 1152 )
-
-[node name="iceblock6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2368, 1152 )
-
-[node name="iceblock7" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2432, 1152 )
-
-[node name="iceblock8" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2496, 1152 )
-
-[node name="fallzone" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2048, 1280 )
-scale = Vector2( 8, 1 )
 
 [node name="collide10" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3328, 768 )
@@ -236,3 +212,104 @@ position = Vector2( 5664, 1120 )
 
 [node name="smallcollectable6" parent="." instance=ExtResource( 13 )]
 position = Vector2( 5728, 1120 )
+
+[node name="collide15" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1984, 800 )
+scale = Vector2( 30, 1 )
+
+[node name="collide16" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2048, 1152 )
+scale = Vector2( 8, 1 )
+
+[node name="hurtblock" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2048, 1120 )
+
+[node name="hurtblock2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2080, 1120 )
+
+[node name="hurtblock3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2112, 1120 )
+
+[node name="hurtblock4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2144, 1120 )
+
+[node name="hurtblock5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2176, 1120 )
+
+[node name="hurtblock6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2208, 1120 )
+
+[node name="hurtblock7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2240, 1120 )
+
+[node name="hurtblock8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2272, 1120 )
+
+[node name="hurtblock9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2304, 1120 )
+
+[node name="hurtblock10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2336, 1120 )
+
+[node name="hurtblock11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2368, 1120 )
+
+[node name="hurtblock12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2400, 1120 )
+
+[node name="hurtblock13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2432, 1120 )
+
+[node name="hurtblock14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2464, 1120 )
+
+[node name="hurtblock15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2496, 1120 )
+
+[node name="hurtblock16" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2528, 1120 )
+
+[node name="switchblock" parent="." instance=ExtResource( 14 )]
+position = Vector2( -64, 864 )
+
+[node name="switchblock2" parent="." instance=ExtResource( 14 )]
+position = Vector2( -64, 896 )
+
+[node name="switchblock3" parent="." instance=ExtResource( 14 )]
+position = Vector2( -64, 928 )
+
+[node name="switchblock4" parent="." instance=ExtResource( 14 )]
+position = Vector2( -64, 960 )
+
+[node name="switchblock5" parent="." instance=ExtResource( 14 )]
+position = Vector2( -64, 992 )
+
+[node name="collide17" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1536, 320 )
+scale = Vector2( 44, 3 )
+
+[node name="collide18" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4864, 512 )
+scale = Vector2( 28, 4 )
+
+[node name="collide19" parent="." instance=ExtResource( 5 )]
+position = Vector2( 6144, 1024 )
+scale = Vector2( 8, 2 )
+
+[node name="Hallway" parent="." instance=ExtResource( 15 )]
+position = Vector2( 0, 96 )
+scale = Vector2( 16, 1 )
+targetdoor = "door2"
+targetscene = "res://assets/scenes/snow/snow_3.tscn"
+
+[node name="collide20" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3776, 1536 )
+scale = Vector2( 1, 12 )
+
+[node name="collide21" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4352, 1536 )
+scale = Vector2( 1, 12 )
+
+[node name="fallzone" parent="." instance=ExtResource( 16 )]
+position = Vector2( 3840, 1664 )
+scale = Vector2( 8, 1 )

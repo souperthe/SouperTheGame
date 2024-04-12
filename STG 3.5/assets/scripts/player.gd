@@ -175,6 +175,7 @@ func _physics_process(_delta):
 	#global.playsound(position, "res://assets/sound/sfx/sfx_bananapeel.wav")
 	$mach3part.emitting = currentstate == "Mach3" and is_on_floor()
 	$hurtbox/hurtblock.canhurt = currentstate == "Attack" or currentstate == "tumble"
+	#$hurtbox/hurtblock/collide/CollisionShape2D.disabled = true
 	if global.showcolloisions:
 		$hurtbox/hurtblock.visible = currentstate == "Attack"
 	if !global.showcolloisions:

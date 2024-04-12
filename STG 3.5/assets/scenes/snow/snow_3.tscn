@@ -363,10 +363,13 @@ position = Vector2( -6912, 0 )
 scale = Vector2( 40, 1 )
 
 [node name="collide25" parent="." instance=ExtResource( 4 )]
-position = Vector2( -5376, 384 )
+position = Vector2( -5312, 384 )
 
 [node name="Hallway" parent="." instance=ExtResource( 14 )]
 position = Vector2( -5632, 864 )
 scale = Vector2( 16, 2 )
 targetdoor = "door1"
 targetscene = "res://assets/scenes/snow/snow_4.tscn"
+
+[node name="door2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -5376, 832 )

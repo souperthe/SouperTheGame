@@ -20,7 +20,7 @@ func enter(_msg := {}) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
-	player.trail()
+	#player.trail()
 	if !player.face:
 		player.velocity.x = 1050
 	if player.face:

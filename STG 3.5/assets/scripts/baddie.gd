@@ -134,6 +134,8 @@ func createdead1(velocityx):
 
 func _physics_process(delta):
 	$CollisionShape2D.disabled = state == states.inactive
+	if global.oldtodmode:
+		queue_free()
 	slopetilt()
 	if global.panic:
 		if escape:

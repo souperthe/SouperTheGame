@@ -1060,7 +1060,7 @@ position = Vector2( -3523, -757 )
 escape = true
 
 [node name="prick2" parent="." instance=ExtResource( 11 )]
-position = Vector2( -455, -870 )
+position = Vector2( -752, -816 )
 escape = true
 
 [node name="prick3" parent="." instance=ExtResource( 11 )]

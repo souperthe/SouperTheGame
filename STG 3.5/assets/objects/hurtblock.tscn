@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/sprites/animated/hurtblock/hurtblock_0008.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 12 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
