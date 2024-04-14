@@ -15,6 +15,7 @@ var realvelocity
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
 	canbounce = false
+	animation_player.frame = 0
 	animation_player.play("slip")
 	player.velocity.y = -player.jump_impulse
 	player.mach3.stop()
@@ -42,6 +43,7 @@ func physics_update(delta: float) -> void:
 		player.bangeffect()
 	#	player.punchsound()
 		#speed = abs(player.velocity.x)
+		#speed = speed / 2
 		player.velocity.x = -600
 		animation_player.play("hardtumble")
 		animation_player.frame = randi() % 6
