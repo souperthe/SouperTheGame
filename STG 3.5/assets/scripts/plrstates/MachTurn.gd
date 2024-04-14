@@ -5,6 +5,7 @@ export (NodePath) var _animation_player
 onready var animation_player:AnimatedSprite = get_node(_animation_player)
 # Declare member variables here. Examples:
 var done = 0
+var pressing
 # var b = "text"
 
 
@@ -23,17 +24,21 @@ func _ready():
 	pass # Replace with function body.
 	
 func physics_update(delta: float) -> void:
+	pressing = Inputs.key_left or Inputs.key_right
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide_with_snap(player.velocity, player.snap_vector, Vector2.UP)
 	player.velocity.x = lerp(player.velocity.x, 0, 8 * delta)
 	
 	if player.animatonframes > 3:
-		if !is_zero_approx(player.get_input_direction()):
+		if pressing:
 			if player.is_on_floor():
-				state_machine.transition_to("Mach2", {do_turn = true})
+				state_machine.transition_to("Mach2")
+				player.get_input_direction()
 			if !player.is_on_floor():
 				state_machine.transition_to("machfall")
-		if is_zero_approx(player.get_input_direction()):
+				#player.face = !player.face
+				#animation_player.flip_h = !animation_player.flip_h
+		if !pressing:
 			state_machine.transition_to("Idle")
 
 

@@ -585,8 +585,7 @@ color_ramp = SubResource( 33 )
 material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "iceslip"
-frame = 1
+animation = "machfall2"
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1113,7 +1112,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 9
+frame = 27
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

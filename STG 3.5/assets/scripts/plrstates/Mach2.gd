@@ -32,8 +32,8 @@ func enter(msg := {}) -> void:
 		player.velocity.x = speed
 	if player.face:
 		player.velocity.x = -speed
-	if msg.has("do_turn"):
-		player.get_input_direction()
+	#if msg.has("do_turn"):
+		#player.get_input_direction()
 	pass
 	
 func physics_update(delta: float) -> void:

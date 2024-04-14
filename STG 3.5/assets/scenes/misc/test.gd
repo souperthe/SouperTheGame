@@ -43,11 +43,12 @@ func creategu2():
 	var enemy5 = preload("res://assets/objects/guncollect.tscn")
 	var enemy6 = preload("res://assets/objects/evilguy.tscn")
 	var enemy7 = preload("res://assets/objects/bosstext.tscn")
-	var array = [enemy1,enemy3,enemy4]
+	var array = [enemy1,enemy3]
 	var nth = array.size()
 	var albert_simmons = array[randi() % nth]
 	if nth > 0:
 		nth -= 1
 	var spawn = albert_simmons.instance()
-	call_deferred("add_child", spawn)
+	roomhandle.currentscene.call_deferred("add_child", spawn)
+	spawn.position = self.position
 
