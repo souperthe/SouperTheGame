@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=2]
+[gd_scene load_steps=166 format=2]
 
 [ext_resource path="res://assets/scripts/rankcontroller.gd" type="Script" id=1]
 [ext_resource path="res://assets/sound/music/mus_rankdrumroll.wav" type="AudioStream" id=2]
@@ -132,6 +132,30 @@
 [ext_resource path="res://assets/sprites/treasure.png" type="Texture" id=130]
 [ext_resource path="res://assets/sprites/moneybag.png" type="Texture" id=131]
 [ext_resource path="res://assets/objects/spiralthing.tscn" type="PackedScene" id=132]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0013.png" type="Texture" id=133]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0015.png" type="Texture" id=134]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0008.png" type="Texture" id=135]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0001.png" type="Texture" id=136]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0003.png" type="Texture" id=137]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0010.png" type="Texture" id=138]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0004.png" type="Texture" id=139]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0002.png" type="Texture" id=140]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0012.png" type="Texture" id=141]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0014.png" type="Texture" id=142]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0017.png" type="Texture" id=143]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0006.png" type="Texture" id=144]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0016.png" type="Texture" id=145]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0019.png" type="Texture" id=146]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0020.png" type="Texture" id=147]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0005.png" type="Texture" id=148]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0011.png" type="Texture" id=149]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0009.png" type="Texture" id=150]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0007.png" type="Texture" id=151]
+[ext_resource path="res://assets/sprites/animated/ranks/rank_6/mypenis_0018.png" type="Texture" id=152]
+[ext_resource path="res://assets/scripts/results.gd" type="Script" id=153]
+[ext_resource path="res://assets/tres_files/scoretext.tres" type="DynamicFont" id=154]
+[ext_resource path="res://assets/fonts/comicz.ttf" type="DynamicFontData" id=155]
+[ext_resource path="res://assets/sprites/tiles/hubroom_floor2.png" type="Texture" id=156]
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -187,6 +211,11 @@ animations = [ {
 "name": "rank5",
 "speed": 12.0
 }, {
+"frames": [ ExtResource( 136 ), ExtResource( 140 ), ExtResource( 137 ), ExtResource( 139 ), ExtResource( 148 ), ExtResource( 144 ), ExtResource( 151 ), ExtResource( 135 ), ExtResource( 150 ), ExtResource( 138 ), ExtResource( 149 ), ExtResource( 141 ), ExtResource( 133 ), ExtResource( 142 ), ExtResource( 134 ), ExtResource( 145 ), ExtResource( 143 ), ExtResource( 152 ), ExtResource( 146 ), ExtResource( 147 ) ],
+"loop": false,
+"name": "rank6",
+"speed": 12.0
+}, {
 "frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 18 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 20 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "ranktest",
@@ -240,6 +269,34 @@ shader_param/first_color = Color( 1, 1, 1, 1 )
 shader_param/second_color = Color( 0.529412, 0.529412, 0.529412, 1 )
 shader_param/angle_radians = 0.0
 
+[sub_resource type="Shader" id=12]
+code = "shader_type canvas_item;
+
+uniform vec2 motion = vec2(0.0);
+uniform float scale = 1.0;
+uniform vec2 offset = vec2(0.0);
+
+void vertex(){
+	UV = (VERTEX + offset + TIME * motion) * TEXTURE_PIXEL_SIZE * (1.0/scale);
+}"
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = SubResource( 12 )
+shader_param/motion = Vector2( -20, -20 )
+shader_param/scale = 1.0
+shader_param/offset = Vector2( 0, 0 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 18
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 3
+extra_spacing_char = 1
+extra_spacing_space = 1
+font_data = ExtResource( 155 )
+
 [sub_resource type="Animation" id=11]
 resource_name = "startresults"
 length = 7.0
@@ -250,18 +307,30 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1.5, 2.1, 2.3, 2.5, 3.3, 3.9 ),
-"transitions": PoolRealArray( 5.65685, 1, 1, 1, 0.466517, 1 ),
+"times": PoolRealArray( 1.5, 2, 2.1, 2.3, 2.5, 3.3, 3.9 ),
+"transitions": PoolRealArray( 5.65685, 1, 1, 1, 1, 0.466517, 1 ),
 "update": 0,
-"values": [ Vector2( 418, -541 ), Vector2( 418, 10 ), Vector2( 418, 0 ), Vector2( 418, 0 ), Vector2( 418, 0 ), Vector2( 240, 0 ) ]
+"values": [ Vector2( 480, -541 ), Vector2( 480, -305.34 ), Vector2( 430, 120 ), Vector2( 480, 0 ), Vector2( 480, 0 ), Vector2( 480, 0 ), Vector2( 240, 0 ) ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/results:rect_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( -0.7, 1.5, 2, 2.1, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 2.1, 3.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -271,6 +340,18 @@ tracks/1/keys = {
 "args": [  ],
 "method": "newbgeffects"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/results:modulate")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 3.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="rankroom" type="Node2D"]
@@ -311,8 +392,7 @@ stretch_mode = 2
 [node name="ranks" type="AnimatedSprite" parent="rankcontroller/CanvasLayer"]
 position = Vector2( 480, 270 )
 frames = SubResource( 8 )
-animation = "rank1"
-frame = 19
+animation = "rank6"
 
 [node name="Control" type="Control" parent="rankcontroller/CanvasLayer"]
 margin_right = 960.0
@@ -335,8 +415,9 @@ stream = ExtResource( 127 )
 
 [node name="results" type="Control" parent="rankcontroller/CanvasLayer"]
 margin_left = 240.0
-margin_right = 720.0
+margin_right = 719.999
 margin_bottom = 540.0
+script = ExtResource( 153 )
 
 [node name="TextureRect" type="TextureRect" parent="rankcontroller/CanvasLayer/results"]
 anchor_right = 1.0
@@ -351,17 +432,105 @@ position = Vector2( 261.5, 540 )
 position = Vector2( 248.878, 53 )
 texture = ExtResource( 128 )
 
+[node name="bg" type="TextureRect" parent="rankcontroller/CanvasLayer/results/Score"]
+modulate = Color( 0.616667, 0, 1, 1 )
+show_behind_parent = true
+material = SubResource( 13 )
+margin_left = -175.0
+margin_top = -6.0
+margin_right = 169.0
+margin_bottom = 82.0
+texture = ExtResource( 156 )
+expand = true
+stretch_mode = 2
+
 [node name="Ranknew1" type="Sprite" parent="rankcontroller/CanvasLayer/results"]
-position = Vector2( 78.8782, 224 )
+position = Vector2( 241, 468 )
 texture = ExtResource( 129 )
 
 [node name="Moneybag" type="Sprite" parent="rankcontroller/CanvasLayer/results"]
-position = Vector2( 239.878, 224 )
+position = Vector2( 151.878, 224 )
 texture = ExtResource( 130 )
 
 [node name="Moneybag2" type="Sprite" parent="rankcontroller/CanvasLayer/results"]
-position = Vector2( 399.878, 224 )
+position = Vector2( 311.878, 224 )
 texture = ExtResource( 131 )
+
+[node name="scoretext" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
+margin_left = 78.0
+margin_top = 52.0
+margin_right = 410.0
+margin_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_constants/shadow_as_outline = 0
+custom_fonts/normal_font = ExtResource( 154 )
+bbcode_enabled = true
+bbcode_text = "[center][wave]hello"
+text = "hello"
+
+[node name="highestcombo" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
+margin_left = 32.0
+margin_top = 320.0
+margin_right = 447.0
+margin_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_constants/shadow_as_outline = 0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "Highest Combo: blahblah"
+text = "Highest Combo: blahblah"
+
+[node name="timespent" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
+margin_left = 32.0
+margin_top = 384.0
+margin_right = 447.0
+margin_bottom = 416.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_constants/shadow_as_outline = 0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "Time Spent:"
+text = "Time Spent:"
+
+[node name="combobreaks" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
+margin_left = 32.0
+margin_top = 352.0
+margin_right = 447.0
+margin_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_constants/shadow_as_outline = 0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "Combo Breaks:"
+text = "Combo Breaks:"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="rankcontroller"]
 anims/startresults = SubResource( 11 )

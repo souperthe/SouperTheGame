@@ -110,10 +110,12 @@ func _physics_process(_delta):
 			player.cutscene()
 			player.animator.play("enterdoor")
 			player.animator.flip_h = false
+			player.canhurt = false
 			#player.position.x = position.x
 			global.escapeexited = true
 			global.lockcamera = true
 			global.combotimer.paused = true
+			global.countdown = false
 			if global.rank == "1/5":
 				music.playsong("res://assets/sound/music/mus_rank1.ogg")
 			if global.rank == "2/5":

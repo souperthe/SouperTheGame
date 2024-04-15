@@ -439,6 +439,11 @@ func reset():
 	global.oldtodmode = false
 	global.moneybag = false
 	global.panicdone = false
+	global.combobreaks = 0
+	global.countdown = true
+	global.highestcombo = 0
+	global.previouscombo = 0
+	global.leveltime = 0
 	global.rank = "1/5"
 	global.infotext.rect_position.y = 560
 	global.info("", 1)

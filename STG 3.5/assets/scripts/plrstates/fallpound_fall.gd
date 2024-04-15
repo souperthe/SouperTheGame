@@ -21,7 +21,7 @@ func enter(_msg := {}) -> void:
 	
 func physics_update(delta: float) -> void:
 	move = int(Inputs.key_right) - int(Inputs.key_left)
-	player.velocity.x = lerp(player.velocity.x, move * player.attack_impulse, 0.1)
+	player.velocity.x = lerp(player.velocity.x, move * player.attack_impulse * 2, 0.1)
 	player.trail()
 	player.velocity.y += player.gravity * delta * 3
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)

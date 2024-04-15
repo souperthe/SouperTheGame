@@ -63,6 +63,8 @@ func rankanimation():
 		$CanvasLayer/ranks.play("rank4")
 	if global.rank == "5/5":
 		$CanvasLayer/ranks.play("rank5")
+	if global.rank == "6/5":
+		$CanvasLayer/ranks.play("rank6")
 	
 func startrankthing():
 	rankanimation()

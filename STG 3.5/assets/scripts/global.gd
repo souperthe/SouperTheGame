@@ -14,6 +14,7 @@ var timedlevel = false
 var secretsfound = 0
 var level = "none"
 var lockcamera = false
+var combobreaks = 0
 var moneybag = false
 var combodropped = false
 var restartlevel = "res://assets/scenes/test.tscn"
@@ -58,6 +59,12 @@ var SaveData = SaveManager.load("user://saveData.ini")
 
 onready var infotext = $infolayer/info
 
+var leveltime = 0
+var playingas = "Souper"
+var countdown = true
+var highestcombo = 0
+var previouscombo = 0
+
 
 signal scenechanged 
 signal reset
@@ -76,6 +83,9 @@ func _ready():
 	
 	
 func _physics_process(_delta):
+	combocheck()
+	if countdown:
+		leveltime += _delta
 	$infolayer/info.visible = !hidehud or !cutscene
 	if !OS.has_feature("32") and !OS.has_feature("Andriod"):
 		update_activity()
@@ -119,6 +129,13 @@ func congratplay():
 		$winner/image.visible = true
 	if !sisyphusbuild:
 		$winner/image.visible = false
+		
+		
+func combocheck():
+	if !combo == previouscombo:
+		if combo > highestcombo:
+			highestcombo = combo
+		previouscombo = combo
 
 
 func _on_Timer_timeout():
@@ -126,6 +143,8 @@ func _on_Timer_timeout():
 	addscore(combo)
 	combodropped = true
 	combo = 0
+	combobreaks += 1
+	#combocheck()
 	
 func update_activity() -> void:
 	var activity = Discord.Activity.new()
@@ -152,7 +171,7 @@ func update_activity() -> void:
 	assets.set_large_image("big")
 	assets.set_large_text("Souper The Game")
 	assets.set_small_image("soupercon")
-	assets.set_small_text(str("Playing as ", "Souper"))
+	assets.set_small_text(str("Playing as ", playingas))
 	
 	var _timestamps = activity.get_timestamps()
 	#timestamps.set_start(OS.get_unix_time() + 100)

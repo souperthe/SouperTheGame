@@ -1,4 +1,4 @@
-[gd_scene load_steps=181 format=2]
+[gd_scene load_steps=182 format=2]
 
 [ext_resource path="res://assets/scripts/Combo.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/HUD/tv_expression/tv_panicnewfix0001.png" type="Texture" id=2]
@@ -236,7 +236,7 @@ extra_spacing_top = -1
 extra_spacing_char = -3
 font_data = ExtResource( 55 )
 
-[sub_resource type="Shader" id=41]
+[sub_resource type="Shader" id=52]
 code = "shader_type canvas_item;
 
 uniform vec2 motion = vec2(0.0);
@@ -248,7 +248,7 @@ void vertex(){
 }"
 
 [sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 41 )
+shader = SubResource( 52 )
 shader_param/motion = Vector2( -30, -30 )
 shader_param/scale = 1.0
 shader_param/offset = Vector2( 0, 0 )
@@ -485,6 +485,17 @@ audio_stream = ExtResource( 90 )
 
 [sub_resource type="AudioStreamRandomPitch" id=45]
 audio_stream = ExtResource( 89 )
+
+[sub_resource type="Shader" id=41]
+code = "shader_type canvas_item;
+
+uniform vec2 motion = vec2(0.0);
+uniform float scale = 1.0;
+uniform vec2 offset = vec2(0.0);
+
+void vertex(){
+	UV = (VERTEX + offset + TIME * motion) * TEXTURE_PIXEL_SIZE * (1.0/scale);
+}"
 
 [sub_resource type="ShaderMaterial" id=42]
 shader = SubResource( 41 )
@@ -800,7 +811,7 @@ position = Vector2( -55, 410 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 14
+frame = 5
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -850,7 +861,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 8
+frame = 4
 playing = true
 offset = Vector2( 497, -410 )
 
