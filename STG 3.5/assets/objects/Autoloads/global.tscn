@@ -62,7 +62,6 @@ audio_stream = ExtResource( 5 )
 script = ExtResource( 1 )
 
 [node name="debugmenu" parent="." instance=ExtResource( 2 )]
-layer = 127
 
 [node name="border" parent="." instance=ExtResource( 7 )]
 

@@ -132,6 +132,7 @@ func menu():
 			show.position.x = 459
 			if Input.is_action_just_pressed("confirm"):
 				if canselect:
+					objplayer.changestate("Nothing")
 					$AnimationPlayer.play("fadein")
 					canselect = false
 					$song.stop()
