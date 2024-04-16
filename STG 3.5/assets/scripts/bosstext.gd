@@ -156,14 +156,10 @@ func statemachine():
 					if bosshealth < 6:
 						if !state == stun:
 							createbombs()
-							face = !face
-							createbombs()
-							face = !face
-							createbombs()
-							face = !face
-							createbombs()
-							face = !face
-						animator.play("collect")
+							velocity.y = -jump_impulse * 1.5
+							gotox = objplayer.position.x
+							velocity.x = 0
+						animator.play("jump")
 						stun()
 		hurt:
 			animator.play("hurt")
@@ -176,7 +172,10 @@ func statemachine():
 			if is_on_wall():
 				velocity.x = -velocity.x
 		stun:
-			velocity.x = lerp(velocity.x, 0, 0.02)
+			if animator.animation != "jump":
+				velocity.x = lerp(velocity.x, 0, 0.02)
+			if animator.animation == "jump":
+				position.x = lerp(position.x, gotox, 0.1)
 			stunned2 -= 1
 			if stunned2 < 0:
 				state = idle

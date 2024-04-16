@@ -449,11 +449,11 @@ position = Vector2( 241, 468 )
 texture = ExtResource( 129 )
 
 [node name="Moneybag" type="Sprite" parent="rankcontroller/CanvasLayer/results"]
-position = Vector2( 151.878, 224 )
+position = Vector2( 162.878, 224 )
 texture = ExtResource( 130 )
 
 [node name="Moneybag2" type="Sprite" parent="rankcontroller/CanvasLayer/results"]
-position = Vector2( 311.878, 224 )
+position = Vector2( 322.878, 224 )
 texture = ExtResource( 131 )
 
 [node name="scoretext" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
@@ -477,9 +477,9 @@ text = "hello"
 
 [node name="highestcombo" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
 margin_left = 32.0
-margin_top = 320.0
+margin_top = 302.0
 margin_right = 447.0
-margin_bottom = 352.0
+margin_bottom = 334.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -496,9 +496,9 @@ text = "Highest Combo: blahblah"
 
 [node name="timespent" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
 margin_left = 32.0
-margin_top = 384.0
+margin_top = 366.0
 margin_right = 447.0
-margin_bottom = 416.0
+margin_bottom = 398.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -515,9 +515,9 @@ text = "Time Spent:"
 
 [node name="combobreaks" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
 margin_left = 32.0
-margin_top = 352.0
+margin_top = 334.0
 margin_right = 447.0
-margin_bottom = 384.0
+margin_bottom = 366.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1

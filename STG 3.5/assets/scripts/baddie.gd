@@ -124,6 +124,7 @@ func createdead1(velocityx):
 	ghost.velocity.y = -1000
 	ghost.velocity.x = velocityx
 	ghost.spinamount = rand_range(-10,10)
+	ghost.sprite.rotation_degrees = rand_range(-360,360)
 	randomize()
 	ghost.sprite.texture = load(deadsprite)
 	ghost.sprite.flip_h = animator.flip_h

@@ -153,9 +153,9 @@ func update_activity() -> void:
 		activity.set_details("In the Menus")
 	if !roomhandle.currentscene.name ==  "menu":
 		if global.hardmode:
-			activity.set_details("In a level, with Tod mode.")
+			activity.set_details("In a level, playing tod mode.")
 		if !global.hardmode:
-			activity.set_details("In a level, with standard.")
+			activity.set_details("In a level, playing normally.")
 	if roomhandle.currentscene.name ==  "menu":
 		activity.set_state("The most epic game of all time..")
 	if !roomhandle.currentscene.name ==  "menu":

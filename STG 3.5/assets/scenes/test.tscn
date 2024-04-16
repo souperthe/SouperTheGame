@@ -376,3 +376,9 @@ position = Vector2( 512, 0 )
 
 [node name="moneybag" parent="." instance=ExtResource( 27 )]
 position = Vector2( 1216, 128 )
+
+[node name="secretflag2" parent="." instance=ExtResource( 21 )]
+position = Vector2( 3424, 96 )
+
+[node name="secretflag3" parent="." instance=ExtResource( 21 )]
+position = Vector2( 3520, 96 )

@@ -26,11 +26,14 @@ func _ready():
 
 
 func _process(delta):
-	if !results and $CanvasLayer/ranks.frame > 11:
-		if Inputs.just_key_jump:
+	if !results:
+		if Inputs.just_key_attack:
+			playanimation()
 			results()
 			changebg()
 			tit = true
+			$CanvasLayer/ranks.playing = false
+			$CanvasLayer/ranks.frame = 15
 	if done:
 		if $CanvasLayer/ranks.frame > 11:
 			if not tit:
@@ -50,6 +53,10 @@ func rankanimation():
 	self.add_child(t)
 	t.start()
 	yield(t, "timeout")
+	if !results:
+		playanimation()
+	
+func playanimation():
 	objplayer.animator.play("nothing")
 	$CanvasLayer/ranks.visible = true
 	$CanvasLayer/ranks.play("didntfinish")

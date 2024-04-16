@@ -51,6 +51,7 @@ func physics_update(delta: float) -> void:
 		player.face = !player.face 
 		player.sfxgrapple.play()
 		player.goofysound()
+		player.punchsound()
 		#speed = speed / 1.5
 		#peed = speed + speed
 		player.velocity.y = -0
@@ -72,6 +73,7 @@ func physics_update(delta: float) -> void:
 			player.sfxgrapple.play()
 			player.bangeffect()
 			player.goofysound()
+			player.punchsound()
 			animation_player.flip_h = !animation_player.flip_h
 			player.face = !player.face 
 			#speed = speed / 1.5

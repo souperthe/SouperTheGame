@@ -5,6 +5,7 @@ extends Area2D
 # var a = 2
 # var b = "text"
 var found = false
+var a = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +24,9 @@ func numberthing(amount):
 	ghost.position.y = self.position.y - 64
 	ghost.number = str(amount)
 	
+	
 func _process(delta):
+	a = float(0.1 * global.secretsfound / 2)
 	if overlaps_body(objplayer):
 		if !found:
 			found = true
@@ -33,4 +36,6 @@ func _process(delta):
 			global.collectablesroom.append(global.targetRoom2 + name)
 			$AnimatedSprite.play("found")
 			$yay.play()
+			$yay.pitch_scale = $yay.pitch_scale + a
+			#OS.alert(str(a), "yea")
 	pass
