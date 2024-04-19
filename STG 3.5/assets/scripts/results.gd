@@ -41,5 +41,6 @@ func _process(delta):
 		$Moneybag2.modulate = Color8(0,0,0,255)
 	$highestcombo.bbcode_text = str("[center]Highest Combo: ", global.highestcombo)
 	$timespent.bbcode_text = str("[center]Time Spent: ", timet)
+	$secret.bbcode_text = str("[center]Secrets Found: ", global.secretsfound)
 	$combobreaks.bbcode_text = str("[center]Combo Breaks: ", global.combobreaks)
 #	pass

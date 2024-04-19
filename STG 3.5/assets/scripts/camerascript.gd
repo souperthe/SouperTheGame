@@ -10,6 +10,7 @@ var rotates = 0
 var rotatesamount = 5
 var yoffset = 2
 var smoothingspeed = global.cameraspeed
+var shakeamount = 2
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -36,6 +37,12 @@ func _process(_delta):
 	var py = objplayer.position.y - yoffset
 	var px = objplayer.position.x 
 	rotatesamount = global.camerarotamount
+	if $shake.time_left > 0:
+		randomize()
+		self.offset = Vector2(
+				rand.randi_range(-shakeamount, shakeamount),
+				rand.randi_range(-shakeamount, shakeamount)	
+	)
 	if global.panic:
 		escapetilt()
 		var idkanymore = cos(rotates)
@@ -87,6 +94,16 @@ func shake(amount):
 		rand.randi_range(-amount, amount),
 		rand.randi_range(-amount, amount)	
 	)
+	
+func shake2(amount, time):
+	randomize()
+	$shake.wait_time = time
+	$shake.start()
+	shakeamount = amount
+	#self.offset = Vector2(
+		#rand.randi_range(-amount, amount),
+		#rand.randi_range(-amount, amount)	
+	#)
 	
 			
 		

@@ -113,6 +113,7 @@ func dead(p):
 	if !escape:
 		global.baddieroom.append(global.targetRoom2 + name)
 	createdead1(p)
+	global.camera.shake2(5, 0.05)
 	queue_free()
 
 func createdead1(velocityx):
@@ -123,7 +124,8 @@ func createdead1(velocityx):
 	ghost.position.y = self.position.y
 	ghost.velocity.y = -1000
 	ghost.velocity.x = velocityx
-	ghost.spinamount = rand_range(-10,10)
+	#ghost.spinamount = rand_range(-10,10) / 2
+	ghost.spinamount = 0
 	ghost.sprite.rotation_degrees = rand_range(-360,360)
 	randomize()
 	ghost.sprite.texture = load(deadsprite)

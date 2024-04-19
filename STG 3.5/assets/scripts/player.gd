@@ -389,6 +389,8 @@ func _on_enemych_body_entered(body):
 	#if !$iframes.time_left > 0:
 	body.kill(velocity.x)
 	attacksfx.stop()
+	#if body is Baddie:
+		#hitwall.play()
 	
 func respawn():
 	velocity.y = 0 

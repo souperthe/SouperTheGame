@@ -68,7 +68,7 @@ func physics_update(_delta: float) -> void:
 	if Inputs.just_key_attack:
 		if Inputs.key_up:
 			state_machine.transition_to("upperkick")
-			player.velocity.y = -player.jump_impulse * 1.3
+			player.velocity.y = -16 * 60
 		if !Inputs.key_up:
 			state_machine.transition_to("Attack")
 

@@ -40,6 +40,8 @@ func physics_update(delta: float) -> void:
 		hasntlanded = false
 		player.velocity.y = -player.jump_impulse
 		state_machine.transition_to("Air")
+		if global.camera:
+			global.camera.shake2(5, 0.2)
 		player.machbox.disabled = true
 		player.emachbox.disabled = true
 		

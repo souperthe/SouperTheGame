@@ -42,6 +42,7 @@ func destory():
 	hitpart()
 	deadsound()
 	$sprite.visible = false
+	global.camera.shake2(6, 0.2)
 	bangeffect()
 	global.othersroom.append(global.targetRoom2 + name)
 	var t = Timer.new()

@@ -247,7 +247,7 @@ func ranks():
 		rank = "3/5"
 	if score > arank:
 		rank = "4/5"
-	if score > srank and treasure and secretsfound > 2:
+	if score > srank and treasure and secretsfound > 3:
 		if !laps == 0:
 			if !combodropped:
 				rank = "6/5"

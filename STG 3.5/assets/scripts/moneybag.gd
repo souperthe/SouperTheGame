@@ -67,6 +67,7 @@ func collect():
 	global.resetcombo()
 	global.collectablesroom.append(global.targetRoom2 + name)
 	global.moneybag = true
+	global.playsound(self.position, "res://assets/sound/sfx/sfx_money.wav")
 	queue_free()
 	
 

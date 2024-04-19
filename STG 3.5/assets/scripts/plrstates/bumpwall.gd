@@ -14,6 +14,8 @@ func enter(_msg := {}) -> void:
 	player.sfxbump.play()
 	player.hitwall.play()
 	player.mach3.stop()
+	if global.camera:
+		global.camera.shake2(2, 0.2)
 
 func physics_update(_delta: float) -> void:
 	player.velocity.y = 0

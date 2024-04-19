@@ -52,6 +52,7 @@ func physics_update(delta: float) -> void:
 		player.sfxgrapple.play()
 		player.goofysound()
 		player.punchsound()
+		global.camera.shake2(5, 0.1)
 		#speed = speed / 1.5
 		#peed = speed + speed
 		player.velocity.y = -0
@@ -74,6 +75,7 @@ func physics_update(delta: float) -> void:
 			player.bangeffect()
 			player.goofysound()
 			player.punchsound()
+			global.camera.shake2(5, 0.1)
 			animation_player.flip_h = !animation_player.flip_h
 			player.face = !player.face 
 			#speed = speed / 1.5
@@ -85,6 +87,7 @@ func physics_update(delta: float) -> void:
 			player.hurteffect()
 		if abs(realvelocity.x) < 10:
 			state_machine.transition_to("peelland")
+			global.camera.shake2(5, 0.1)
 			player.bangeffect()
 
 

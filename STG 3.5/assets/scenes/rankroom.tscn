@@ -445,7 +445,7 @@ expand = true
 stretch_mode = 2
 
 [node name="Ranknew1" type="Sprite" parent="rankcontroller/CanvasLayer/results"]
-position = Vector2( 241, 468 )
+position = Vector2( 240, 480 )
 texture = ExtResource( 129 )
 
 [node name="Moneybag" type="Sprite" parent="rankcontroller/CanvasLayer/results"]
@@ -477,9 +477,9 @@ text = "hello"
 
 [node name="highestcombo" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
 margin_left = 32.0
-margin_top = 302.0
+margin_top = 287.0
 margin_right = 447.0
-margin_bottom = 334.0
+margin_bottom = 319.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -496,9 +496,9 @@ text = "Highest Combo: blahblah"
 
 [node name="timespent" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
 margin_left = 32.0
-margin_top = 366.0
+margin_top = 351.0
 margin_right = 447.0
-margin_bottom = 398.0
+margin_bottom = 383.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -515,9 +515,9 @@ text = "Time Spent:"
 
 [node name="combobreaks" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
 margin_left = 32.0
-margin_top = 334.0
+margin_top = 319.0
 margin_right = 447.0
-margin_bottom = 366.0
+margin_bottom = 351.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -531,6 +531,25 @@ custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "Combo Breaks:"
 text = "Combo Breaks:"
+
+[node name="secret" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
+margin_left = 32.0
+margin_top = 383.0
+margin_right = 447.0
+margin_bottom = 415.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_constants/shadow_as_outline = 0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "Time Spent:"
+text = "Time Spent:"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="rankcontroller"]
 anims/startresults = SubResource( 11 )

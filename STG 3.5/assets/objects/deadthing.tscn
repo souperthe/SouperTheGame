@@ -26,7 +26,7 @@ void fragment() {
 resource_local_to_scene = true
 shader = SubResource( 3 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
-shader_param/flash_modifier = 0.0
+shader_param/flash_modifier = 1.0
 
 [sub_resource type="Animation" id=5]
 resource_name = "flash"
@@ -57,7 +57,7 @@ scale = Vector2( 0.56, 0.56 )
 texture = ExtResource( 37 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-rect = Rect2( -15, -15, 30, 30 )
+rect = Rect2( -84, -84, 168, 168 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/flash = SubResource( 5 )
