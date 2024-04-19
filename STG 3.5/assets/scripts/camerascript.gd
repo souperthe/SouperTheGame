@@ -43,6 +43,8 @@ func _process(_delta):
 				rand.randi_range(-shakeamount, shakeamount),
 				rand.randi_range(-shakeamount, shakeamount)	
 	)
+	else:
+		self.offset = Vector2(0,0)
 	if global.panic:
 		escapetilt()
 		var idkanymore = cos(rotates)
@@ -65,8 +67,12 @@ func _process(_delta):
 					position.x = px
 					position.y = lerp(position.y, py, smoothingspeed)
 				if !global.camerasmoothing:
-					position.x = px
-					position.y = py
+					if objplayer.currentstate == "MachTurn":
+						position.x = lerp(position.x, px, 0.5)
+						position.y = py
+					if !objplayer.currentstate == "MachTurn":
+						position.x = px
+						position.y = py
 		else:
 			if objplayer.animator.animation == "slipland":
 				if !global.lockcamera:

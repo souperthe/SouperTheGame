@@ -47,9 +47,13 @@ volume_db = -2.0
 bus = "SFX"
 
 [node name="hurtblock" parent="." instance=ExtResource( 13 )]
-visible = true
+visible = false
 modulate = Color( 1, 1, 1, 0.188235 )
 position = Vector2( -97, -94 )
 scale = Vector2( 6, 6 )
 
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+
 [connection signal="finished" from="step" to="." method="_on_step_finished"]
+[connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_exited"]

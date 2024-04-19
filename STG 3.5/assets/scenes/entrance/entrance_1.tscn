@@ -131,7 +131,7 @@ scale = Vector2( -5, 2 )
 
 [node name="collide10" parent="." instance=ExtResource( 3 )]
 position = Vector2( 3744, 318 )
-scale = Vector2( 10, 500 )
+scale = Vector2( 10, 6 )
 
 [node name="platform5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 4544, 254 )
@@ -142,7 +142,7 @@ position = Vector2( 4832, 350 )
 scale = Vector2( 2.5, 1 )
 
 [node name="Area2D" parent="." instance=ExtResource( 10 )]
-position = Vector2( 4052, 698 )
+position = Vector2( 4055, 572 )
 scale = Vector2( 28, 6.16 )
 
 [node name="platform7" parent="." instance=ExtResource( 8 )]
@@ -151,7 +151,7 @@ scale = Vector2( 2.5, 1 )
 
 [node name="collide11" parent="." instance=ExtResource( 3 )]
 position = Vector2( 5440, 318 )
-scale = Vector2( 19.5, 500 )
+scale = Vector2( 19.5, 6 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2848, 160 )

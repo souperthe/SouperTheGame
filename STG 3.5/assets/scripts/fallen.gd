@@ -18,7 +18,7 @@ func dothing():
 	#$Control/ouch.play()
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("dostuff")
-	
+	#global.camera.shake2(10, 0.5)
 	$Control/ouch.position = objplayer.position
 	if !global.panic:
 		playlaugh()

@@ -226,6 +226,7 @@ func exitgate():
 		presobjs.createtod()
 	entering = false
 	$slam.play()
+	global.camera.shake2(10, 0.4)
 	cutmusic = false
 	$ExitgateOpen.visible = false
 	if timed_level:

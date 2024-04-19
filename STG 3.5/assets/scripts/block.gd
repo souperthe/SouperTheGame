@@ -41,6 +41,7 @@ func deletetile():
 func destory():
 	global.resetcombo()
 	$CollisionShape2D.queue_free()
+	global.camera.shake2(1, 0.2)
 	hitpart()
 	deadsound()
 	$sprite.visible = false

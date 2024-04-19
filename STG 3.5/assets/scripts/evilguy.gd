@@ -126,6 +126,7 @@ func _on_detect_body_entered(body):
 			body.changestate("bossdead")
 			global.cutscene = true
 			global.makeflash()
+			global.camera.shake2(6, 0.5)
 			#kill()
 			$Funnyboulder.modulate.a8 = 0
 	pass # Replace with function body.
@@ -171,6 +172,7 @@ func _on_attackdetect_body_entered(body):
 		createdead1(body.velocity.x, body.velocity.x / 170)
 		goofysound()
 		hurteffect()
+		global.camera.shake2(5, 0.05)
 		$punchsoumd.dosound()
 		hurteffect()
 		$AnimationPlayer.play("flash")
