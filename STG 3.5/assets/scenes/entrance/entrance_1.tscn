@@ -436,3 +436,7 @@ escape = true
 [node name="prick4" parent="." instance=ExtResource( 14 )]
 position = Vector2( 6560, 190 )
 escape = true
+
+[node name="Enemy10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1734, 438 )
+escape = true
