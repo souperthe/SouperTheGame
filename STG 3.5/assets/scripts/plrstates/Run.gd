@@ -27,6 +27,8 @@ func physics_update(delta: float) -> void:
 	
 	if Inputs.just_key_down:
 		state_machine.transition_to("crouch")
+	if !player.canuncrouch:
+		state_machine.transition_to("crouch")
 	if animation_player.animation == "landwalk":
 		if player.animatonframes > 3:
 			animation_player.play("move")

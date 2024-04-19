@@ -352,7 +352,7 @@ animations = [ {
 "frames": [ ExtResource( 275 ), ExtResource( 286 ), ExtResource( 123 ), ExtResource( 265 ), ExtResource( 279 ), ExtResource( 257 ), ExtResource( 283 ), ExtResource( 263 ) ],
 "loop": true,
 "name": "assburn",
-"speed": 12.0
+"speed": 17.0
 }, {
 "frames": [ ExtResource( 54 ) ],
 "loop": true,
@@ -515,7 +515,7 @@ animations = [ {
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 97 ), ExtResource( 149 ), ExtResource( 134 ), ExtResource( 177 ), ExtResource( 142 ), ExtResource( 171 ), ExtResource( 100 ), ExtResource( 140 ), ExtResource( 138 ), ExtResource( 167 ), ExtResource( 147 ), ExtResource( 147 ), ExtResource( 147 ) ],
-"loop": true,
+"loop": false,
 "name": "jump",
 "speed": 17.0
 }, {

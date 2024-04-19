@@ -218,6 +218,7 @@ func startgame():
 		global.level = "entrance"
 		ct._tout()
 		global.room_goto("res://assets/scenes/entrance/entrance_1.tscn", "door1")
+		global.showcolloisions = false
 		objplayer.reset()
 		global.emit_signal("reset")
 		if presobjs.player2:
@@ -249,6 +250,7 @@ func startgametod():
 		global.level = "entrance"
 		ct._tout()
 		global.room_goto("res://assets/scenes/entrance/entrance_1.tscn", "door1")
+		global.showcolloisions = false
 		objplayer.reset()
 		global.emit_signal("reset")
 		if presobjs.player2:

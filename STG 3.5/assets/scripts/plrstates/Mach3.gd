@@ -75,6 +75,8 @@ func physics_update(delta: float) -> void:
 		player.mach4.stop()
 	if player.is_on_floor() and Inputs.key_down:
 		state_machine.transition_to("crouchsliding")
+	if !player.canuncrouch:
+		state_machine.transition_to("crouchsliding")
 	if !player.is_on_floor() and Inputs.just_key_down:
 		state_machine.transition_to("diving")
 		player.mach4.stop()

@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 var timertime = 2
-var gravity = 35
+var gravity = 50
 var velocity := Vector2.ZERO
 
 
@@ -18,6 +18,8 @@ func _ready():
 
 
 func _process(delta):
+	if !is_on_floor() and $Area2D.overlaps_body(objplayer):
+		explode()
 	if is_on_floor():
 		velocity.x = lerp(velocity.x, 0, 10 * delta)
 	velocity.y += gravity
@@ -25,8 +27,8 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
+	global.camera.shake2(5, 0.2)
 	explode()
-	queue_free()
 	pass # Replace with function body.
 	
 func explode():
@@ -35,3 +37,4 @@ func explode():
 	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
+	queue_free()

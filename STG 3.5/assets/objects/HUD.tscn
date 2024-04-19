@@ -807,11 +807,11 @@ text = "123123123"
 scroll_active = false
 
 [node name="key" type="AnimatedSprite" parent="HUD/standard/Score"]
-position = Vector2( -55, 410 )
-scale = Vector2( 0.9, 0.9 )
+position = Vector2( -75, 430 )
+scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 8
+frame = 13
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -828,6 +828,16 @@ volume_db = -6.0
 [node name="down" type="AudioStreamPlayer" parent="HUD/standard/Score"]
 stream = SubResource( 51 )
 volume_db = -6.0
+
+[node name="greenkey" type="AnimatedSprite" parent="HUD/standard/Score"]
+visible = false
+modulate = Color( 0, 1, 0.160784, 1 )
+position = Vector2( -28, 430 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 29 )
+animation = "key"
+frame = 4
+playing = true
 
 [node name="HonestReaction" type="Control" parent="HUD/standard"]
 margin_left = 819.0
@@ -861,7 +871,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 12
+frame = 32
 playing = true
 offset = Vector2( 497, -410 )
 

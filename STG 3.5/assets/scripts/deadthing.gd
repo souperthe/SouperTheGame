@@ -17,6 +17,7 @@ var leave = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$runpart.emitting = true
 	$AnimationPlayer.play("flash")
 	pass # Replace with function body.
 

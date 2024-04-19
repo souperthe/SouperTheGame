@@ -113,7 +113,8 @@ func dead(p):
 	if !escape:
 		global.baddieroom.append(global.targetRoom2 + name)
 	createdead1(p)
-	global.camera.shake2(5, 0.05)
+	global.camera.shake2(rand_range(5,10), 0.1)
+	randomize()
 	queue_free()
 
 func createdead1(velocityx):

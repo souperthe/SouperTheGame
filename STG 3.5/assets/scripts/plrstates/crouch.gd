@@ -33,7 +33,7 @@ func physics_update(delta: float) -> void:
 		animation_player.play("crouchdone")
 	if not player.is_on_floor():
 		state_machine.transition_to("crouchair")
-	if Inputs.just_key_jump:
+	if Inputs.just_key_jump and player.canuncrouch:
 		state_machine.transition_to("crouchair", {do_jump = true})
 		animation_player.play("crouchjump")
 #	pass

@@ -26,6 +26,7 @@ var onwall
 var onceiling 
 var stunned = 100
 var stunned2 = 50
+var attackbuffer = 60
 var gotox = 0
 
 enum {idle,attack,bump,hurt,stun,decide,cutscene}
@@ -67,7 +68,9 @@ func _process(delta):
 	if bosshealth < 0:
 		bosshealth += abs(bosshealth)
 	var my_random_number2 = rang.randi_range(1, 4)
+	rang.randomize()
 	random = my_random_number2
+	#randomize()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP, true)
 	grounded = is_on_floor()
@@ -123,6 +126,7 @@ func statemachine():
 		idle:
 			faceplayer()
 			animator.play("idle")
+			attackbuffer = 60
 			if !objplayer.currentstate == ("cutscene"):
 				state = decide
 		attack:
@@ -135,6 +139,7 @@ func statemachine():
 							alreadyjumped = true
 							velocity.y = -speed / 1.5
 							animator.play("tumble")
+							global.playsound(self.position, "res://assets/sound/sfx/sfx_jump.wav")
 				if face:
 					velocity.x = -speed
 				if !face:
@@ -143,6 +148,7 @@ func statemachine():
 					velocity.x = -velocity.x / 2
 					velocity.y -= 500
 					animator.play("bump")
+					global.playsound(self.position, "res://assets/sound/sfx/sfx_bump.wav")
 					alreadyjumped = false
 					stun()
 			if animator.animation == ("fp_start"):
@@ -159,13 +165,17 @@ func statemachine():
 							velocity.y = -jump_impulse * 1.5
 							gotox = objplayer.position.x
 							velocity.x = 0
+							creatdick()
 						animator.play("jump")
+						global.playsound(self.position, "res://assets/sound/sfx/sfx_jump.wav")
 						stun()
+						stunned2 = 100
 		hurt:
 			animator.play("hurt")
 			stunned -= 1
 			velocity.x = lerp(velocity.x, 0, 0.02)
 			if stunned < 0:
+				attackbuffer = 60
 				state = idle
 			if is_on_floor():
 				velocity.y -= 500
@@ -180,24 +190,36 @@ func statemachine():
 			if stunned2 < 0:
 				state = idle
 		decide:
-			if random == 1:
+			attackbuffer -= 2
+			if attackbuffer < 0:
+				decide()
+				
+				
+				
+func decide():
+	if random == 1:
 				state = attack
 				animator.play("punch")
-			if random == 2:
+				global.playsound(self.position, "res://assets/sound/sfx/sfx_swing.wav")
+	if random == 2:
 				state = attack
 				animator.play("fp_start")
+				global.playsound(self.position, "res://assets/sound/sfx/sfx_jump.wav")
 				gotox = objplayer.position.x
 				velocity.y = -1000 * 1.5
-			if random == 3:
+	if random == 3:
 				if !state == stun:
 					createbanana()
 				animator.play("gunfire")
+				global.playsound(self.position, "res://assets/sound/sfx/sfx_gunfire.wav")
 				stun()
-			if random == 4:
+	if random == 4:
 				if !state == stun:
 					createbombs()
 				animator.play("collect")
+				global.playsound(self.position, "res://assets/sound/sfx/sfx_swish.wav")
 				stun()
+	
 				
 				
 func createbanana():
@@ -219,13 +241,24 @@ func createbombs():
 	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
-	ghost.velocity.y = 500
-	var speed = 980
+	ghost.velocity.y = -25
+	var speed = 100
+	var raniamount = rand_range(1,10)
+	randomize()
+	ghost.gravity = 10
 	if face:
-		ghost.velocity.x = -speed
+		ghost.velocity.x = -raniamount * speed
 	if !face:
-		ghost.velocity.x = speed
-			
+		ghost.velocity.x = raniamount * speed
+		
+func creatdick():
+	var dashtrail = preload("res://assets/objects/enemys/forkdevil.tscn")
+	var ghost: KinematicBody2D = dashtrail.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y
+	ghost.velocity.y = 500
+	
 func createdead1(velocityx, rotatespeed):
 	var whiteflash = preload("res://assets/objects/deadthing.tscn")
 	var ghost: KinematicBody2D = whiteflash.instance()

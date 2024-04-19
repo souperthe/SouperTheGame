@@ -27,6 +27,7 @@ func physics_update(delta: float) -> void:
 	if Inputs.just_key_attack:
 		if Inputs.key_up:
 			state_machine.transition_to("upperkick")
+			player.velocity.y += -4 * 60
 		if !Inputs.key_up:
 			state_machine.transition_to("tumble")
 	if !Inputs.key_jump:
@@ -41,7 +42,8 @@ func physics_update(delta: float) -> void:
 		player.velocity.x = lerp(player.velocity.x, player.get_input_direction() * player.speed, player.acceleration * delta)
 	else:
 		player.velocity.x = lerp(player.velocity.x, 0, player.air_friction * delta)
-	
+	if !player.canuncrouch:
+		state_machine.transition_to("crouch")
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	if animation_player.animation == ("jump"):

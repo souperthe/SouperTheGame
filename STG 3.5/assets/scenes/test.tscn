@@ -382,3 +382,21 @@ position = Vector2( 3424, 96 )
 
 [node name="secretflag3" parent="." instance=ExtResource( 21 )]
 position = Vector2( 3520, 96 )
+
+[node name="secretflag4" parent="." instance=ExtResource( 21 )]
+position = Vector2( 3616, 96 )
+
+[node name="secretflag5" parent="." instance=ExtResource( 21 )]
+position = Vector2( 3712, 96 )
+
+[node name="secretflag6" parent="." instance=ExtResource( 21 )]
+position = Vector2( 3808, 96 )
+
+[node name="secretflag7" parent="." instance=ExtResource( 21 )]
+position = Vector2( 3904, 96 )
+
+[node name="secretflag8" parent="." instance=ExtResource( 21 )]
+position = Vector2( 4000, 96 )
+
+[node name="secretflag9" parent="." instance=ExtResource( 21 )]
+position = Vector2( 4096, 96 )

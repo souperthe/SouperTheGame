@@ -7,7 +7,7 @@ func enter(_msg := {}) -> void:
 	if !player.is_on_floor():
 		player.velocity.y += -17 * 60
 	if player.is_on_floor():
-		player.velocity.y += -10 * 60
+		player.velocity.y += -15 * 60
 	animation_player.play("upperkick")
 	player.sjumpentersfx.play()
 	player.velocity.y = -player.jump_impulse

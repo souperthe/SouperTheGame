@@ -36,7 +36,7 @@ position = Vector2( 3, -7 )
 scale = Vector2( 0.56, 0.56 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 9
+frame = 10
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -48,5 +48,10 @@ one_shot = true
 [node name="step" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )
 bus = "SFX"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
