@@ -33,7 +33,7 @@ collide_with_areas = true
 
 [node name="getscaredr" type="RayCast2D" parent="."]
 rotation = 1.5708
-scale = Vector2( 20, 1 )
+scale = Vector2( 40, 1 )
 enabled = true
 cast_to = Vector2( 0, -350 )
 collision_mask = 16384
@@ -41,7 +41,7 @@ collide_with_areas = true
 
 [node name="getscaredl" type="RayCast2D" parent="."]
 rotation = 1.5708
-scale = Vector2( 20, 1 )
+scale = Vector2( 40, 1 )
 enabled = true
 cast_to = Vector2( 0, 350 )
 collision_mask = 16384

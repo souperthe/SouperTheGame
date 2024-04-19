@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=2]
+[gd_scene load_steps=169 format=2]
 
 [ext_resource path="res://assets/scripts/rankcontroller.gd" type="Script" id=1]
 [ext_resource path="res://assets/sound/music/mus_rankdrumroll.wav" type="AudioStream" id=2]
@@ -125,7 +125,7 @@
 [ext_resource path="res://assets/sprites/animated/ranks/rank_4/rank_4_0017.png" type="Texture" id=123]
 [ext_resource path="res://assets/sprites/animated/ranks/rank_4/rank_4_0005.png" type="Texture" id=124]
 [ext_resource path="res://assets/objects/punchsoumd.tscn" type="PackedScene" id=125]
-[ext_resource path="res://assets/sprites/animated/hurtblock/hurtblock_0001.png" type="Texture" id=126]
+[ext_resource path="res://assets/sprites/images.png" type="Texture" id=126]
 [ext_resource path="res://assets/sound/sfx/sfx_hurtnew.wav" type="AudioStream" id=127]
 [ext_resource path="res://assets/sprites/HUD/pausemenu/score.png" type="Texture" id=128]
 [ext_resource path="res://assets/sprites/HUD/ranknew_1.png" type="Texture" id=129]
@@ -269,6 +269,23 @@ shader_param/first_color = Color( 1, 1, 1, 1 )
 shader_param/second_color = Color( 0.529412, 0.529412, 0.529412, 1 )
 shader_param/angle_radians = 0.0
 
+[sub_resource type="Shader" id=15]
+code = "shader_type canvas_item;
+
+uniform vec2 motion = vec2(0.0);
+uniform float scale = 1.0;
+uniform vec2 offset = vec2(0.0);
+
+void vertex(){
+	UV = (VERTEX + offset + TIME * motion) * TEXTURE_PIXEL_SIZE * (1.0/scale);
+}"
+
+[sub_resource type="ShaderMaterial" id=16]
+shader = SubResource( 15 )
+shader_param/motion = Vector2( 30, 30 )
+shader_param/scale = 0.5
+shader_param/offset = Vector2( 0, 0 )
+
 [sub_resource type="Shader" id=12]
 code = "shader_type canvas_item;
 
@@ -296,6 +313,23 @@ extra_spacing_top = 3
 extra_spacing_char = 1
 extra_spacing_space = 1
 font_data = ExtResource( 155 )
+
+[sub_resource type="Animation" id=17]
+resource_name = "yes"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:material:shader_param/motion")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30, 30 ), Vector2( 30, -30 ), Vector2( 30, 30 ) ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "startresults"
@@ -419,7 +453,17 @@ margin_right = 719.999
 margin_bottom = 540.0
 script = ExtResource( 153 )
 
+[node name="TextureRect2" type="TextureRect" parent="rankcontroller/CanvasLayer/results"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -10.0
+margin_right = 11.001
+texture = ExtResource( 126 )
+stretch_mode = 2
+
 [node name="TextureRect" type="TextureRect" parent="rankcontroller/CanvasLayer/results"]
+material = SubResource( 16 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 126 )
@@ -491,7 +535,7 @@ custom_constants/shadow_offset_y = 5
 custom_constants/shadow_as_outline = 0
 custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
-bbcode_text = "Highest Combo: blahblah"
+bbcode_text = "[center]Highest Combo: blahblah"
 text = "Highest Combo: blahblah"
 
 [node name="timespent" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
@@ -510,7 +554,7 @@ custom_constants/shadow_offset_y = 5
 custom_constants/shadow_as_outline = 0
 custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
-bbcode_text = "Time Spent:"
+bbcode_text = "[center]Time Spent:"
 text = "Time Spent:"
 
 [node name="combobreaks" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
@@ -529,7 +573,7 @@ custom_constants/shadow_offset_y = 5
 custom_constants/shadow_as_outline = 0
 custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
-bbcode_text = "Combo Breaks:"
+bbcode_text = "[center]Combo Breaks:"
 text = "Combo Breaks:"
 
 [node name="secret" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
@@ -548,8 +592,12 @@ custom_constants/shadow_offset_y = 5
 custom_constants/shadow_as_outline = 0
 custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
-bbcode_text = "Time Spent:"
+bbcode_text = "[center]Time Spent:"
 text = "Time Spent:"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rankcontroller/CanvasLayer/results"]
+playback_speed = 0.01
+anims/yes = SubResource( 17 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="rankcontroller"]
 anims/startresults = SubResource( 11 )
