@@ -389,7 +389,9 @@ func _on_enemych_body_entered(body):
 	#if !$iframes.time_left > 0:
 	body.kill(velocity.x)
 	attacksfx.stop()
-	#if body is Baddie:
+	if body is Baddie:
+		var thing = velocity.normalized()
+		position.x -= thing.x * 25
 		#hitwall.play()
 	
 func respawn():
@@ -409,6 +411,8 @@ func respawn():
 	
 	
 func reset():
+	ct._treset()
+	ct._freset()
 	$iframes.stop()
 	modulate = Color(1, 1, 1, 1)
 	velocity.y = 0 

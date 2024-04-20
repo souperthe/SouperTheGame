@@ -29,6 +29,11 @@ func _fout():
 func _fin():
 	$fadetrans.fade_in()
 	$fadetrans.visible = true
+	
+	
+func _freset():
+	$fadetrans.fade_out()
+	$fadetrans.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -13,3 +13,6 @@ func fade_in():
  
 func fade_out():
 	animation_player.play("fadeout")
+	
+func reset():
+	animation_player.play("reset")

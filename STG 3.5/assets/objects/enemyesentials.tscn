@@ -35,7 +35,7 @@ collide_with_areas = true
 rotation = 1.5708
 scale = Vector2( 40, 1 )
 enabled = true
-cast_to = Vector2( 0, -350 )
+cast_to = Vector2( 0, -450 )
 collision_mask = 16384
 collide_with_areas = true
 
@@ -43,7 +43,7 @@ collide_with_areas = true
 rotation = 1.5708
 scale = Vector2( 40, 1 )
 enabled = true
-cast_to = Vector2( 0, 350 )
+cast_to = Vector2( 0, 450 )
 collision_mask = 16384
 collide_with_areas = true
 

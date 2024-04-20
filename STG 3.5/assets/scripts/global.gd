@@ -65,6 +65,7 @@ var playingas = "Souper"
 var countdown = true
 var highestcombo = 0
 var previouscombo = 0
+var timet = "2136723181"
 
 
 signal scenechanged 
@@ -84,6 +85,11 @@ func _ready():
 	
 	
 func _physics_process(_delta):
+	var time = global.leveltime
+	var minutes := int(time / 60)
+	var seconds := fmod(time, 60)
+	var _milliseconds := fmod(time, 1) * 100
+	timet = (str("%01d:%02d" % [minutes, seconds]))
 	combocheck()
 	if countdown:
 		leveltime += _delta

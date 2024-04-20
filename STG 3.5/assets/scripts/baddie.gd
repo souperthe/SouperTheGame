@@ -98,7 +98,7 @@ func slopetilt():
 		var normal = raycast.get_collision_normal()
 		#animator.rotation = normal.angle() + deg2rad(90)
 		animator.rotation = lerp(animator.rotation, normal.angle() + deg2rad(90), 0.3)
-		#self.rotation = normal.angle() + deg2rad(90)
+		#self.rotation = norm1l.angle() + deg2rad(90)
 	else:
 		animator.rotation = 0
 	
