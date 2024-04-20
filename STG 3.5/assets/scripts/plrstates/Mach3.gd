@@ -46,7 +46,7 @@ func physics_update(delta: float) -> void:
 	if player.face:
 		player.velocity.x = -speed
 	
-	speed += 6
+	speed += 6 * delta
 	#animation_player.speed_scale = speed / 1200
 	player.trail()
 	player.velocity.y += player.gravity * delta

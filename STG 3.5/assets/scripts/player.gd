@@ -440,6 +440,7 @@ func reset():
 	global.timedlevel = false
 	global.oldtodmode = false
 	global.moneybag = false
+	global.greenkey = false
 	global.panicdone = false
 	global.combobreaks = 0
 	global.countdown = true

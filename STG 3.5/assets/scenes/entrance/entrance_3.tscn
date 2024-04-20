@@ -336,7 +336,7 @@ position = Vector2( 5632, -160 )
 position = Vector2( 3072, 160 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 4864, -224 )
+position = Vector2( 4864, -160 )
 
 [node name="escapesmallcollectable48" parent="." instance=ExtResource( 13 )]
 position = Vector2( 5120, -192 )
@@ -445,7 +445,7 @@ position = Vector2( 3377, -44 )
 escape = true
 
 [node name="Enemy6" parent="." instance=ExtResource( 11 )]
-position = Vector2( 4954, -417 )
+position = Vector2( 5120, -480 )
 escape = true
 
 [node name="Enemy7" parent="." instance=ExtResource( 11 )]

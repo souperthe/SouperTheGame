@@ -19,6 +19,7 @@ func _process(_delta):
 	$ranks.scale.x = lerp($ranks.scale.x, 1, 3 * _delta)
 	$ranks.scale.y = lerp($ranks.scale.y, 1, 3 * _delta)
 	$key.visible = objplayer.haskey
+	$greenkey.visible = global.greenkey
 	$scoretext.text = (str(global.score))
 	if global.rank == "1/5":
 		$ranks.frame = 0

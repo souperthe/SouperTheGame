@@ -47,10 +47,10 @@ func physics_update(delta: float) -> void:
 	if !player.is_on_floor():
 		player.speedpart.emitting = false
 	if player.playercharacter == "S":
-		speed += 1
+		speed += 1 * delta
 	if player.playercharacter == "SM":
 		if player.is_on_floor():
-			speed += 1
+			speed += 1 * delta
 	player.trail()
 	player.velocity.y += player.gravity * delta
 	var was_on_floor = player.is_on_floor()

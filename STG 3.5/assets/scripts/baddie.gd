@@ -123,10 +123,10 @@ func createdead1(velocityx):
 	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
-	ghost.velocity.y = -1000
+	ghost.velocity.y = rand_range(-1000,-1050)
 	ghost.velocity.x = velocityx
-	#ghost.spinamount = rand_range(-10,10) / 2
-	ghost.spinamount = 0
+	ghost.spinamount = rand_range(-10,10) / 4
+	#ghost.spinamount = 0
 	ghost.sprite.rotation_degrees = rand_range(-360,360)
 	randomize()
 	ghost.sprite.texture = load(deadsprite)

@@ -282,7 +282,7 @@ void vertex(){
 
 [sub_resource type="ShaderMaterial" id=16]
 shader = SubResource( 15 )
-shader_param/motion = Vector2( 30, 30 )
+shader_param/motion = Vector2( 0, -30 )
 shader_param/scale = 0.5
 shader_param/offset = Vector2( 0, 0 )
 

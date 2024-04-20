@@ -41,6 +41,7 @@ var arank = 0
 var brank = 0
 var crank = 0
 var drank = 0
+var greenkey = false
 var camerarotamount = 3
 var rank = "5/5"
 var treasure = false
@@ -247,7 +248,7 @@ func ranks():
 		rank = "3/5"
 	if score > arank:
 		rank = "4/5"
-	if score > srank and treasure and secretsfound > 3:
+	if score > srank and treasure and moneybag and secretsfound > 3:
 		if !laps == 0:
 			if !combodropped:
 				rank = "6/5"

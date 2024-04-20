@@ -46,12 +46,12 @@ func _physics_process(delta):
 		$AnimatedSprite.play("outdoor")
 	if overdoor and player.candoor and doornotentered:
 		if Inputs.just_key_up:
-			if objplayer.haskey == true:
+			if global.greenkey == true:
 				global.othersroom.append(global.targetRoom2 + name)
 				player.makethingnotvisible()
 				$AnimatedSprite.play("outdoor")
 				global.targetdoor = targetdoor
-				objplayer.haskey = false
+				global.greenkey = false
 				doornotentered = true
 				player.enterdoor()
 				player.position.x = position.x
@@ -61,7 +61,7 @@ func _physics_process(delta):
 			if unlocked:
 				player.makethingnotvisible()
 				global.targetdoor = targetdoor
-				objplayer.haskey = false
+				global.greenkey = false
 				doornotentered = true
 				player.enterdoor()
 				player.position.x = position.x
@@ -77,3 +77,20 @@ func _on_timer_timeout():
 	global.room_goto(targetscene, targetdoor)
 	ct._tout()
 	player.exitdoor()
+
+
+func _on_GreenDoorLocked_body_entered(body):
+	if body is Player:
+		if doornotentered and global.greenkey or unlocked:
+			body.makethingvisible()
+		player = body
+		overdoor = true
+	pass # Replace with function body.
+
+
+func _on_GreenDoorLocked_body_exited(body):
+	if body is Player:
+		if doornotentered and global.greenkey or unlocked:
+			body.makethingnotvisible()
+		overdoor = false
+	pass # Replace with function body.
