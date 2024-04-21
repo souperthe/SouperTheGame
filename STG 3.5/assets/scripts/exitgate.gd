@@ -3,7 +3,7 @@ extends Area2D
 export (String) var targetdoor
 export (String) var targetscene
 export (bool) var timed_level = false
-export (float) var timed_level_time = 60
+export (int) var timed_level_time = 60
 var overdoor = false
 var player
 var doornotentered = true
@@ -93,7 +93,7 @@ func _physics_process(_delta):
 		#music.temp = 0
 		exitgate()
 		enter = false
-	if global.panic and overdoor and player.candoor and doornotentered:
+	if global.panic and overdoor and player.candoor and doornotentered and !timed_level:
 		if Inputs.just_key_up:
 			global.makeflash()
 			global.panic = false

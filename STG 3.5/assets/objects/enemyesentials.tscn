@@ -53,7 +53,7 @@ volume_db = -5.0
 pitch_scale = 1.1
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-rect = Rect2( -5, -5, 10, 10 )
+rect = Rect2( 0, 0, 0, 0 )
 
 [node name="lavacheck" type="Area2D" parent="."]
 position = Vector2( 0, 17 )

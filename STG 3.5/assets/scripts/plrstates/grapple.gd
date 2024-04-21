@@ -41,7 +41,7 @@ func physics_update(delta: float) -> void:
 		if canwallclimb:
 			state_machine.transition_to("Mach2")
 			player.velocity.y = 0
-			player.position.y - 64
+			player.position.y -= 64
 		if !canwallclimb:
 			state_machine.transition_to("Idle")
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)

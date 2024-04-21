@@ -26,7 +26,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	pass # Replace with function body.
 
 
-func _on_lavacheck_body_entered(body):
+func _on_lavacheck_body_entered(_body):
 	owner.dead(0)
 	owner.punchsound()
 	pass # Replace with function body.

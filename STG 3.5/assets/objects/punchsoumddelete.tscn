@@ -47,10 +47,3 @@ stream = ExtResource( 7 )
 volume_db = -4.0
 bus = "SFX"
 script = ExtResource( 1 )
-
-[connection signal="finished" from="hurt1" to="." method="_on_hurt1_finished"]
-[connection signal="finished" from="hurt2" to="." method="_on_hurt2_finished"]
-[connection signal="finished" from="hurt3" to="." method="_on_hurt3_finished"]
-[connection signal="finished" from="hurt4" to="." method="_on_hurt4_finished"]
-[connection signal="finished" from="hurt5" to="." method="_on_hurt5_finished"]
-[connection signal="finished" from="hurt6" to="." method="_on_hurt6_finished"]

@@ -98,7 +98,7 @@ onready var sfxburn = $burn
 onready var sfxfoot = $realste
 onready var sfxburnscream = $burnscream
 onready var sfxspinng = $swooshing
-onready var collide = $CollisionShape2D2
+onready var collide = $normal
 onready var upthing = $thing
 onready var darkeffect = $darkeffect
 onready var sfxfire = $gunfire
@@ -617,12 +617,12 @@ func _on_iframes_timeout():
 	pass # Replace with function body.
 
 
-func _on_detectcrouch_area_exited(area):
+func _on_detectcrouch_area_exited(_area):
 	canuncrouch = true
 	pass # Replace with function body.
 
 
-func _on_detectcrouch_area_entered(area):
+func _on_detectcrouch_area_entered(_area):
 	canuncrouch = false
 	pass # Replace with function body.
 

@@ -18,7 +18,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func _physics_process(delta):
+func _physics_process(_delta):
 	$enemyesentials/hurtblock.visible = global.showcolloisions
 	$enemyesentials/hurtblock.canhurt = is_on_floor() and !state == states.scared and !state == states.stun and !state == states.inactive
 	match(state):

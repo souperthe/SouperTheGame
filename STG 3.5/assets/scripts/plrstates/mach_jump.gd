@@ -31,6 +31,7 @@ func physics_update(delta: float) -> void:
 	if Inputs.just_key_attack:
 		if Inputs.key_up:
 			state_machine.transition_to("upperkick")
+			player.velocity.y += -4 * 60
 			player.mach3.stop()
 			player.machbox.disabled = true
 			player.emachbox.disabled = true

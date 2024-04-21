@@ -34,8 +34,8 @@ onready var animator = $animator
 func _ready():
 	if escape:
 		state = states.inactive
-		#if !global.panic:
-			#queue_free()
+		if !global.panic:
+			queue_free()
 		if (global.escaperoom.has(global.targetRoom2 + name)):
 			queue_free()
 	if !escape:
@@ -84,6 +84,7 @@ func kill(sdhagdhqwjdawaw):
 				state = states.stun
 				velocity.y = -900
 				velocity.x = yadda 
+				canhurt = false
 				$AnimationPlayer.play("stun")
 				animator.play("stun")
 				global.resetcombo()
@@ -125,7 +126,7 @@ func createdead1(velocityx):
 	ghost.position.y = self.position.y
 	ghost.velocity.y = rand_range(-1000,-1050)
 	ghost.velocity.x = velocityx
-	ghost.spinamount = rand_range(-10,10) / 4
+	ghost.spinamount = rand_range(-200,200)
 	#ghost.spinamount = 0
 	ghost.sprite.rotation_degrees = rand_range(-360,360)
 	randomize()
@@ -136,7 +137,7 @@ func createdead1(velocityx):
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	$CollisionShape2D.disabled = state == states.inactive
 	if global.oldtodmode:
 		queue_free()
@@ -160,12 +161,13 @@ func _physics_process(delta):
 				velocity.y = -speed * 2
 			if stuntimer < 0:
 				state = states.normal
+				canhurt = true
 				animator.play("default")
 				$AnimationPlayer.play("New Anim")
 		states.scared:
 			velocity.x = 0
 			animator.play("scared")
-			scaredtimer -= 0.5
+			scaredtimer -= 0.3
 			if scaredtimer < 0:
 				state = states.normal
 				animator.play("default")

@@ -22,8 +22,8 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _process(_delta):
-	$Sprite.rotation_degrees += spinamount
+func _physics_process(_delta):
+	$Sprite.rotation_degrees += spinamount * _delta
 	velocity.y += gravity * _delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 

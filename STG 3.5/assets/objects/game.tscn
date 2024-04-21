@@ -17,12 +17,12 @@ margin_bottom = -244.0
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "hello stg devs ...or [wave]modders[/wave]
-this is the [tornado]souper the game[/tornado] of the game there is many secrets involving the game you will find out soon, one of thoose secrets is the [wave amp=50.0 freq=100 connected=1]\"the\"[/wave] in STG. it secretly means [shake rate=1000.0 level=15 connected=1]souper[/shake]
+this is the [tornado]souper the game[/tornado] of the game there is many secrets involving the game you will find out soon, one of thoose secrets is the [wave amp=50.0 freq=100 connected=1]\"the\"[/wave] in STG. it secretly means [rainbow rate=1.0 level=1 connected=1]souper[/rainbow]
 thank you for reading
 
 
 
-[shake]i absolutely hate this engine sometimes and i genuinely wanna switch this whole game to unity at somepoint[/shake]
+[shake rate=1000.0 level=15 connected=1]i absolutely hate this engine sometimes and i genuinely wanna switch this whole game to unity eventually[/shake]
 -superthe"
 text = "hello stg devs ...or modders
 this is the souper the game of the game there is many secrets involving the game you will find out soon, one of thoose secrets is the \"the\" in STG. it secretly means souper
@@ -30,5 +30,5 @@ thank you for reading
 
 
 
-i absolutely hate this engine sometimes and i genuinely wanna switch this whole game to unity at somepoint
+i absolutely hate this engine sometimes and i genuinely wanna switch this whole game to unity eventually
 -superthe"

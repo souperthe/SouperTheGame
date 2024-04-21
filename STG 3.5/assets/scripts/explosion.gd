@@ -19,7 +19,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _process(delta):
+func _process(_delta):
 	if !canhurt:
 		if is_instance_valid($hurtblock):
 			$hurtblock.queue_free()

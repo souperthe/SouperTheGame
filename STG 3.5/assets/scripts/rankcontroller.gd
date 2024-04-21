@@ -33,7 +33,7 @@ func _process(delta):
 			changebg()
 			tit = true
 			$CanvasLayer/ranks.playing = false
-			$CanvasLayer/ranks.frame = 15
+			$CanvasLayer/ranks.frame = 17
 	if done:
 		if $CanvasLayer/ranks.frame > 11:
 			if not tit:
@@ -110,7 +110,7 @@ func createdead1(velocityx, rotatespeed):
 	ghost.velocity.y = -900 * 2
 	ghost.leave = false
 	ghost.velocity.x = velocityx
-	ghost.spinamount = -1
+	ghost.spinamount = -2 * 60
 	ghost.sprite.texture = load("res://assets/sprites/animated/ranks/rankdead_souper.png")
 	ghost.sprite.scale.x = 1
 	ghost.sprite.scale.y = 1
@@ -132,7 +132,7 @@ func results():
 	
 func killsouper():
 	$CanvasLayer/ranks.visible = false
-	createdead1(-900, 5)
+	createdead1(-900, 5 * 60)
 	hurteffect()
 	goofysound()
 	$CanvasLayer/deadposition/hurt.play()

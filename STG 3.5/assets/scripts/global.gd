@@ -208,6 +208,9 @@ func addscore(amount):
 func playsmall():
 	$collectsmall.play()
 	
+func playsmallnew():
+	$collectnew.play()
+	
 func escapeplaysmall():
 	$collectescapesmall.play()
 	
@@ -237,8 +240,8 @@ func makeflash():
 	#playcock(x,y,sound)
 	
 func playsound(pos,sound):
-	var whiteflash = preload("res://assets/objects/cocking.tscn")
-	var ghost: AudioStreamPlayer2D = whiteflash.instance()
+	var thing = preload("res://assets/objects/cocking.tscn")
+	var ghost: AudioStreamPlayer2D = thing.instance()
 	roomhandle.currentscene.add_child(ghost)
 	ghost.stream = load(sound)
 	ghost.position = pos

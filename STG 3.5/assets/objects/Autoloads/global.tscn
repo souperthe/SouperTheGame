@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/scripts/global.gd" type="Script" id=1]
 [ext_resource path="res://assets/objects/debugmenu.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/sound/sfx/sfx_comboend.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/fonts/COMIC.TTF" type="DynamicFontData" id=9]
 [ext_resource path="res://assets/fonts/new_dynamicfont2.tres" type="DynamicFont" id=10]
+[ext_resource path="res://assets/sound/sfx/sfx_bite.wav" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=6]
 size = 32
@@ -57,6 +58,9 @@ audio_stream = ExtResource( 6 )
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
 audio_stream = ExtResource( 5 )
+
+[sub_resource type="AudioStreamRandomPitch" id=7]
+audio_stream = ExtResource( 11 )
 
 [node name="global" type="Node"]
 script = ExtResource( 1 )
@@ -135,6 +139,10 @@ volume_db = -12.857
 
 [node name="comboend" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -12.857
+
+[node name="collectnew" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 7 )
 volume_db = -12.857
 
 [connection signal="timeout" from="infolayer/infotime" to="." method="_on_infotime_timeout"]

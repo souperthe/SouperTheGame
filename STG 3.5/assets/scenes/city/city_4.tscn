@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/scenes/city/bg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="collide30" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, 1376 )
+scale = Vector2( 1, -15 )
+
+[node name="collide31" parent="." instance=ExtResource( 1 )]
+position = Vector2( -128, 1472 )
+scale = Vector2( 1, -20 )
+
+[node name="camera" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2176, 192 )
+limit_right = 2176
+limit_bottom = 544
+
+[node name="door1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 96, 544 )
+
+[node name="collide" parent="." instance=ExtResource( 1 )]
+position = Vector2( 320, 416 )
+scale = Vector2( 21, 1 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
+
+[node name="collide2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -192, 192 )
+scale = Vector2( 20, 1 )
+
+[node name="collide-slope" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1536, 352 )
+scale = Vector2( 2, 1 )
+
+[node name="platform" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1088, 192 )
+scale = Vector2( 5, 1 )
+
+[node name="collide3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1920, 224 )
+scale = Vector2( 4, 1 )
+
+[node name="collide-slope2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1664, 288 )
+scale = Vector2( 2, 1 )
+
+[node name="collide-slope3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1792, 224 )
+scale = Vector2( 2, 1 )
+
+[node name="collide32" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2112, 928 )
+scale = Vector2( 1, -20 )
+
+[node name="Hallway" parent="." instance=ExtResource( 7 )]
+position = Vector2( -96, 640 )
+scale = Vector2( 12, 1 )
+targetdoor = "door2"
+targetscene = "res://assets/scenes/city/city_3.tscn"
+
+[node name="collide4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, -320 )
+scale = Vector2( 1, 5 )
+
+[node name="collide5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -64, -320 )
+scale = Vector2( 1, 8 )

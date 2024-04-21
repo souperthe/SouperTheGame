@@ -14,7 +14,7 @@ var sound_has_played = false
 #nc _ready():
 
 	
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	player.disabletitlt = true
 	player.machbox.disabled = false
 	player.emachbox.disabled = false

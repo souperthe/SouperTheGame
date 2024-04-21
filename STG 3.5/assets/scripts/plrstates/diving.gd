@@ -18,7 +18,7 @@ func enter(_msg := {}) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if player.currentstate == "diving":
 		player.machbox.disabled = false
 		player.emachbox.disabled = false

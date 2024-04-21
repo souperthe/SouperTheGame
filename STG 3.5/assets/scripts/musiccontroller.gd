@@ -100,7 +100,7 @@ func _process(_delta):
 	if playmusic:
 		#domusic()
 		if global.panic:
-			if !global.laps == 0:
+			if !global.laps == 0 and !global.timedlevel:
 				if !$escapemusic.stream == lap2:
 					$escapemusic.stream = lap2
 					$escapemusic.play()

@@ -13,7 +13,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _process(_delta):
+func _physics_process(delta):
 	if Input.is_action_just_pressed("player2"):
 		if enabled:
 			if !presobjs.player2:
@@ -24,13 +24,14 @@ func _process(_delta):
 	$Control/plrspos.text = (str("PLAYER POSITION: ", objplayer.position))
 	$Control/plrsvol.text = (str("PLAYER VELOCITY: ",objplayer.velocity / 60))
 	$Control/plranimation.text = (str("PLAYER ANIMATION: ",objplayer.animator.animation))
-	$Control/plranimation2.text = (str("PLAYER CHARACTER: ",objplayer.playercharacter))
+	$Control/plranimation2.text = (str("GAME DELTA: ",delta))
 	$Control.visible = enabled
 	$Control/smoothamount.visible = global.camerasmoothing
 	global.cameraspeed = float($Control/smoothamount.text)
 	Engine.time_scale = float($Control/gamespeed.text)
 	if Input.is_action_just_pressed("debugmenu"):
 		enabled = !enabled
+		#$AudioStreamPlayer.play()
 
 
 

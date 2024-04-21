@@ -265,6 +265,7 @@ position = Vector2( 6752, 256 )
 
 [node name="exitgate" parent="." instance=ExtResource( 16 )]
 position = Vector2( 512, 414 )
+timed_level_time = 200
 
 [node name="collide17" parent="." instance=ExtResource( 3 )]
 position = Vector2( -512, 478 )

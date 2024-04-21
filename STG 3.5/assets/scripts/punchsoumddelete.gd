@@ -29,7 +29,7 @@ func dosound():
 		$hurt1.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	rang.randomize()
 	var my_random_number2 = rang.randi_range(1, 6)
 	randomize()

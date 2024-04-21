@@ -475,3 +475,8 @@ texture = ExtResource( 12 )
 [node name="Hallway" parent="." instance=ExtResource( 19 )]
 position = Vector2( 2976, -800 )
 scale = Vector2( 12, 1 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/city/city_4.tscn"
+
+[node name="door2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3168, -704 )

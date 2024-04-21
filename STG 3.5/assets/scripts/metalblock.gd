@@ -20,7 +20,7 @@ func _ready():
 		destory()
 
 
-func _process(delta):
+func _process(_delta):
 	if global.oldtodmode:
 		queue_free()
 		

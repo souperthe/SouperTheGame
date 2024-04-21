@@ -13,7 +13,7 @@ var canjump = true
 
 
 # Called when the node enters the scene tree for the first time.
-func enter(msg := {}) -> void:
+func enter(_msg := {}) -> void:
 	if !player.currentstate == ("diving"):
 		lastxvel = player.velocity.x
 	animation_player.play("mach2")

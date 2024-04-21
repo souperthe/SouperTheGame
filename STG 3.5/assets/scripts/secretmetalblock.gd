@@ -17,7 +17,7 @@ func _ready():
 		destory()
 
 
-func _process(delta):
+func _process(_delta):
 	if global.oldtodmode:
 		deletetile()
 		queue_free()
@@ -55,7 +55,7 @@ func destory():
 	yield(t, "timeout")
 	queue_free()
 
-func kill(blahblah):
+func kill(_blahblah):
 	destory()
 	
 	

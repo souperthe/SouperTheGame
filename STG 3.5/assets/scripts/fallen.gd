@@ -11,7 +11,7 @@ var rand2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-func _process(delta):
+func _process(_delta):
 	var rand = rang.randi_range(2, 3)
 	rand2 = rand
 func dothing():

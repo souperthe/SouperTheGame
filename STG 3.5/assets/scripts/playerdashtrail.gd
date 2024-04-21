@@ -13,7 +13,7 @@ func _ready():
 	#material.get_shader().set_shader_param(flash_modifier, 0)
 	#modulate = colors[make_color_hsv(randi() % colors.size())]
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	playing = false
 	
 	
