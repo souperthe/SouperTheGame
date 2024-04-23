@@ -391,7 +391,7 @@ func _on_enemych_body_entered(body):
 	attacksfx.stop()
 	if body is Baddie:
 		var thing = velocity.normalized()
-		position.x -= thing.x * 25
+		position.x -= thing.x * 50
 		#hitwall.play()
 	
 func respawn():

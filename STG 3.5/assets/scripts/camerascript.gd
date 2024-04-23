@@ -33,6 +33,10 @@ func _ready():
 
 
 func _process(_delta):
+	#limit_bottom = 10000000
+	#limit_right = 10000000
+	#limit_left = -10000000
+	#limit_top = -10000000
 	global.camera = self
 	var py = objplayer.position.y - yoffset
 	var px = objplayer.position.x 

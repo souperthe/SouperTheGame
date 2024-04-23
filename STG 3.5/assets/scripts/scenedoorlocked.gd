@@ -68,6 +68,7 @@ func _physics_process(delta):
 				yield(get_tree().create_timer(0.5), "timeout")
 				ct._tin()
 				timer.start()
+				timer.wait_time = global.doortime
 
 
 
