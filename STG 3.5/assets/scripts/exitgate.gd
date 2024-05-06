@@ -64,6 +64,7 @@ func _physics_process(_delta):
 				global.oldtodmode = true
 				objplayer.gun = false
 				global.playsmall()
+				music.playsong("res://assets/sound/todfuckedupevil.mp3")
 				global.info("[shake rate=20.0 level=5 connected=1]Expert tod mode activated![/shake]", 4)
 	$glow.z_index = objplayer.z_index - 1
 	if cutmusic:

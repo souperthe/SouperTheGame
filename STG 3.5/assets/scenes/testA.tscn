@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/laportalexit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/objects/enemys/testicle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=5]
@@ -8,6 +9,7 @@
 [ext_resource path="res://assets/objects/doors/obj_door2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/lapportal.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
 
@@ -307,3 +309,11 @@ position = Vector2( 3864, 303 )
 
 [node name="Enemy80" parent="." instance=ExtResource( 4 )]
 position = Vector2( 4040, 295 )
+
+[node name="lapportal" parent="." instance=ExtResource( 10 )]
+position = Vector2( -512, 0 )
+targetscene = "res://assets/scenes/entrance/entrance_11.tscn"
+onescape = false
+
+[node name="lapexit" parent="." instance=ExtResource( 2 )]
+position = Vector2( -512, -256 )

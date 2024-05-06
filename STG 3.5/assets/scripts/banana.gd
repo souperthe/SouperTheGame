@@ -18,6 +18,8 @@ func _ready():
 	pass # Replace with function body.
 	
 func _physics_process(_delta):
+	if global.oldtodmode:
+		queue_free()
 	if slipped:
 		$sprite.rotation_degrees += 8
 	_physic()

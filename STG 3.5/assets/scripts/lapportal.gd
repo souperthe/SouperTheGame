@@ -5,6 +5,7 @@ var wentin = false
 var done = false
 export (String) var targetscene
 var cangoin = false
+export (bool) var onescape = true
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -16,11 +17,11 @@ func _ready():
 
 
 func _process(delta):
-	cangoin = global.panic
+	cangoin = global.panic or !onescape
 	$Red.rotation_degrees += 2
-	if global.panic:
+	if cangoin:
 		$Red.modulate.a8 = 255
-	if !global.panic:
+	if !cangoin:
 		$Red.modulate.a8 = 100
 	if wentin:
 		var amount = 6
@@ -96,6 +97,7 @@ func changescene():
 	global.camerazoom = 1
 	global.cutscene = false
 	global.lockcamera = false
-	global.laps += 1
+	if onescape:
+		global.laps += 1
 	global.fill.paused = false
 

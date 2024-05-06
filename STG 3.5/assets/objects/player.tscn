@@ -586,7 +586,7 @@ material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "assburn"
-frame = 3
+frame = 6
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1113,7 +1113,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 18
+frame = 8
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1183,6 +1183,7 @@ one_shot = true
 [node name="slipping" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 82 )
 volume_db = 2.0
+pitch_scale = 1.2
 bus = "SFX"
 
 [node name="slipping2" type="AudioStreamPlayer2D" parent="."]

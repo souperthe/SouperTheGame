@@ -7,7 +7,7 @@ var mvsp = (maxspeed + (abs(objplayer.velocity.x) / 8))
 var velocity := Vector2.ZERO
 var speed = 70350
 var pause = false
-var oldspeed = 8 * 7050 * 1.1
+var oldspeed = 8 * 7050 * 3
 #var dir = Vector2.angle_to_point(position.x, position.y, (objplayer.position.x + objplayer.velocity.x), (objplayer.position.y + objplayer.velocity.y))
 
 
@@ -67,7 +67,7 @@ func _physics_process(delta):
 		if !global.oldtodmode:
 			velocity = lerp(velocity, goto, 1 * delta)
 		if global.oldtodmode:
-			velocity = oldgoto
+			velocity = lerp(velocity, oldgoto, 1.5 * delta)
 		if $detect.overlaps_body(objplayer):
 			if $Funnyboulder.modulate.a8 == 255:
 				velocity = Vector2(0,0)
@@ -80,7 +80,10 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, 0, 5 * delta)
 		velocity.y = lerp(velocity.y, 0, 5 * delta)
 	if $Funnyboulder.modulate.a8 < 255:
-		$Funnyboulder.modulate.a8 += 3
+		if global.oldtodmode:
+			$Funnyboulder.modulate.a8 += 1
+		if !global.oldtodmode:
+			$Funnyboulder.modulate.a8 += 3
 	
 #func _on_evilguy_body_entered(body):
 	#if body is Player:
