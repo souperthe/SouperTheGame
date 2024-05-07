@@ -127,6 +127,8 @@ func _on_detect_body_entered(body):
 		if $Funnyboulder.modulate.a8 == 255:
 			#body.hurtplayer()
 			body.changestate("bossdead")
+			if global.oldtodmode:
+				body.sfxburnscream.play()
 			global.cutscene = true
 			global.makeflash()
 			global.camera.shake2(6, 0.5)

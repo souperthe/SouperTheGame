@@ -66,7 +66,7 @@ func physics_update(delta: float) -> void:
 		#animation_player.play("mach3jump")
 		##player.velocity.y = -player.jump_impulse
 	if player.is_on_wall():
-		#state_machine.transition_to("bumpwall")
+		state_machine.transition_to("bumpwall")
 		player.face = !player.face
 		player.hitwall.play()
 		player.mach4.stop()

@@ -34,7 +34,8 @@ func _on_Maxiumize_pressed():
 	#OS.alert("You know what to do.", " ")
 	OS.window_maximized = !OS.window_maximized
 	if OS.window_maximized:
-		OS.set_window_position(OS.get_screen_position(OS.get_current_screen()) +  OS.get_screen_size()*0.5 - OS.get_window_size()*0.5)
+		OS.window_size.y -= 36
+		#OS.set_window_position(OS.get_screen_position(OS.get_current_screen()) +  OS.get_screen_size()*0.5 - OS.get_window_size()*0.5)
 	pass # Replace with function body.
 
 

@@ -543,7 +543,8 @@ color_ramp = SubResource( 33 )
 [node name="mach3part" type="CPUParticles2D" parent="."]
 position = Vector2( 0, 36 )
 scale = Vector2( 0.7, 0.7 )
-emitting = false
+z_index = -1
+z_as_relative = false
 amount = 500
 lifetime = 2.0
 randomness = 1.0
@@ -552,8 +553,9 @@ local_coords = false
 texture = ExtResource( 42 )
 emission_shape = 2
 emission_rect_extents = Vector2( 10, 1 )
-spread = 0.0
-gravity = Vector2( 0, 5 )
+spread = 180.0
+gravity = Vector2( 0, 500 )
+initial_velocity = 271.6
 scale_amount = 0.4
 scale_amount_curve = SubResource( 28 )
 color_ramp = SubResource( 26 )
@@ -586,6 +588,7 @@ material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "assburn"
+frame = 2
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1112,7 +1115,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 27
+frame = 15
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]

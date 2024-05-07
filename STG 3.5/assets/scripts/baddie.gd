@@ -105,7 +105,8 @@ func slopetilt():
 func dead(p):
 	hurteffect()
 	hurteffect()
-	global.addcombo()
+	if $enemyesentials.onscreen:
+		global.addcombo()
 	bangeffect()
 	#global.playsound(position, "res://assets/sound/owsfx.tres")
 	if escape:

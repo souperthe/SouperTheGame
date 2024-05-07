@@ -99,10 +99,10 @@ icon_align = 1
 margin_left = 896.0
 margin_right = 921.0
 margin_bottom = 31.0
-focus_mode = 0
+focus_mode = 1
 custom_fonts/font = ExtResource( 2 )
 shortcut_in_tooltip = false
-enabled_focus_mode = 0
+enabled_focus_mode = 1
 text = "O"
 flat = true
 

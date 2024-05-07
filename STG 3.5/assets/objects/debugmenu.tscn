@@ -182,7 +182,9 @@ margin_top = -349.0
 margin_right = 491.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 150, 52.5 )
-window_title = "Open a File"
+popup_exclusive = true
+window_title = "pick a room"
+resizable = true
 mode = 0
 
 [node name="spawn" type="AudioStreamPlayer" parent="."]
