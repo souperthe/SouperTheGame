@@ -492,8 +492,8 @@ func gototargetdoor():
 	#var nextroom:Node = roomhandle.currentscene
 	if roomhandle.currentscene:
 		if roomhandle.currentscene.get_node(global.targetdoor):
-			position.x = roomhandle.currentscene.get_node(global.targetdoor).position.x
-			position.y = roomhandle.currentscene.get_node(global.targetdoor).position.y - 15
+			position.x = roomhandle.m * roomhandle.currentscene.get_node(global.targetdoor).position.x
+			position.y = roomhandle.m * roomhandle.currentscene.get_node(global.targetdoor).position.y - 15
 		if !roomhandle.currentscene.get_node(global.targetdoor):
 			position.x = position.x
 			position.y = position.x
@@ -672,7 +672,7 @@ func trail():
 func createtrail():
 	var dashtrail = preload("res://assets/objects/playerdashtrail.tscn")
 	var ghost: AnimatedSprite = dashtrail.instance()
-	roomhandle.currentscene.add_child(ghost)
+	presobjs.add_child(ghost)
 	ghost.playing = false
 	ghost.flip_h = animator.flip_h
 	ghost.global_position = global_position

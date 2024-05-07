@@ -28,13 +28,13 @@ func _on_test_pressed():
 
 
 func _on_Maxiumize_pressed():
-	music.stopmusic()
-	roomhandle.scenegoto("res://assets/scenes/dark.tscn")
-	OS.shell_open("CMD.exe")
-	OS.alert("You know what to do.", " ")
-	#OS.window_maximized = !OS.window_maximized
-	#if OS.window_maximized:
-	#	OS.set_window_position(OS.get_screen_position(OS.get_current_screen()) +  OS.get_screen_size()*0.5 - OS.get_window_size()*0.5)
+	#music.stopmusic()
+	#roomhandle.scenegoto("res://assets/scenes/dark.tscn")
+	#OS.shell_open("CMD.exe")
+	#OS.alert("You know what to do.", " ")
+	OS.window_maximized = !OS.window_maximized
+	if OS.window_maximized:
+		OS.set_window_position(OS.get_screen_position(OS.get_current_screen()) +  OS.get_screen_size()*0.5 - OS.get_window_size()*0.5)
 	pass # Replace with function body.
 
 
