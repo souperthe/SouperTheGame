@@ -586,7 +586,6 @@ material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
 animation = "assburn"
-frame = 6
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
@@ -1113,7 +1112,7 @@ material = SubResource( 22 )
 scale = Vector2( 0.255, 0.255 )
 frames = ExtResource( 1 )
 animation = "idle"
-frame = 16
+frame = 27
 playing = true
 
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
@@ -1159,6 +1158,7 @@ collision_mask = 512
 
 [node name="hurtblock" parent="hurtbox" instance=ExtResource( 76 )]
 position = Vector2( 28, 0 )
+assignedtoplayer = true
 
 [node name="instamach4" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 58 )

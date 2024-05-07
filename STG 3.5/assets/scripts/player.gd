@@ -98,7 +98,7 @@ onready var sfxburn = $burn
 onready var sfxfoot = $realste
 onready var sfxburnscream = $burnscream
 onready var sfxspinng = $swooshing
-onready var collide = $CollisionShape2D2
+#onready var collide = $CollisionShape2D2
 onready var upthing = $thing
 onready var darkeffect = $darkeffect
 onready var sfxfire = $gunfire
@@ -493,7 +493,7 @@ func gototargetdoor():
 	if roomhandle.currentscene:
 		if roomhandle.currentscene.get_node(global.targetdoor):
 			position.x = roomhandle.m * roomhandle.currentscene.get_node(global.targetdoor).position.x
-			position.y = roomhandle.m * roomhandle.currentscene.get_node(global.targetdoor).position.y - 15
+			position.y = roomhandle.m * roomhandle.currentscene.get_node(global.targetdoor).position.y - 5
 		if !roomhandle.currentscene.get_node(global.targetdoor):
 			position.x = position.x
 			position.y = position.x

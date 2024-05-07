@@ -87,8 +87,8 @@ func _ready():
 	
 	
 func _physics_process(delta):
-	#OS.window_size.x = lerp(OS.window_size.x, windowsize.x, 5 * delta)
-	#OS.window_size.y = lerp(OS.window_size.y, windowsize.y, 5 * delta)
+	OS.window_size.x = lerp(OS.window_size.x, windowsize.x, 5 * delta)
+	OS.window_size.y = lerp(OS.window_size.y, windowsize.y, 5 * delta)
 	var time = global.leveltime
 	var minutes := int(time / 60)
 	var seconds := fmod(time, 60)

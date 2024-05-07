@@ -40,8 +40,8 @@ func scenegoto(selectedscene):
 		rng.randomize()
 		if global.oldtodmode:
 			m = currentscene.scale.x
-			if my_random_number == 1:
-				objplayer.scale.x = -1
+			#if my_random_number == 1:
+				#objplayer.scale.x = -1
 				#currentscene.rotation_degrees = 90
 			#if my_random_number == 0:
 				#currentscene.modulate = Color8(0,0,0,255)

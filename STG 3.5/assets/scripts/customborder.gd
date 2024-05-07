@@ -16,6 +16,8 @@ func _ready():
 
 
 func _process(_delta):
+	#if global.camera:
+		#$CanvasLayer/options/HBoxContainer/TextureRect.texture.viewport_path = global.camera
 	var lerpamount = 0.3
 	optionon = get_viewport().get_mouse_position().y < 40
 	if OS.window_fullscreen:
