@@ -21,7 +21,7 @@ func _physics_process(_delta):
 	if global.oldtodmode:
 		queue_free()
 	if slipped:
-		$sprite.rotation_degrees += 8
+		$sprite.rotation_degrees = 8
 	_physic()
 	
 
@@ -35,7 +35,7 @@ func _physic():
 func kill():
 	global.othersroom.append(global.targetRoom2 + name)
 	slipped = true
-	velocity.y -= 900
+	#velocity.y -= 900
 	$CollisionShape2D.queue_free()
 	$plrcheck/CollisionShape2D.queue_free()
 	yield(get_tree().create_timer(4.0), "timeout")
