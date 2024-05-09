@@ -21,8 +21,10 @@ shader = SubResource( 9 )
 script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
 
 [node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -64,6 +66,17 @@ position = Vector2( 502, 285 )
 texture = ExtResource( 4 )
 texture_scale = 50.0
 mode = 1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+margin_right = 960.0
+margin_bottom = 540.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

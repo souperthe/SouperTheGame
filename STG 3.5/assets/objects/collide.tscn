@@ -21,6 +21,14 @@ position = Vector2( 32, 32 )
 shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0.835294, 0.537255, 1, 0.392157 )
 texture = ExtResource( 2 )
 centered = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.835294, 0.537255, 1, 0.392157 )
+margin_right = 64.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+stretch_mode = 2

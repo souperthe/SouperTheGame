@@ -374,7 +374,7 @@ animations = [ {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 24 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 25 ) ],
 "loop": false,
 "name": "change",
-"speed": 24.0
+"speed": 18.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -811,7 +811,7 @@ position = Vector2( -75, 430 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 13
+frame = 7
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -836,7 +836,7 @@ position = Vector2( -28, 430 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 4
+frame = 13
 playing = true
 
 [node name="HonestReaction" type="Control" parent="HUD/standard"]
@@ -869,9 +869,10 @@ texture = ExtResource( 15 )
 
 [node name="tv" type="AnimatedSprite" parent="HUD/standard/HonestReaction"]
 position = Vector2( -457, 410 )
+scale = Vector2( 1, 1 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 27
+frame = 48
 playing = true
 offset = Vector2( 497, -410 )
 

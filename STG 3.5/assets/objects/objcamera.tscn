@@ -146,6 +146,7 @@ tracks/1/keys = {
 }
 
 [node name="camera" type="Camera2D"]
+visible = false
 rotating = true
 current = true
 limit_smoothed = true

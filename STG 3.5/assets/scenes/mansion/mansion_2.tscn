@@ -1,0 +1,179 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/darkcircle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/metalblock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/objects/switchblock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/switchblockalt.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/hurtblock.tscn" type="PackedScene" id=10]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="collide9" parent="." instance=ExtResource( 1 )]
+position = Vector2( -768, 192 )
+scale = Vector2( 24, 1 )
+
+[node name="Hallway" parent="." instance=ExtResource( 4 )]
+position = Vector2( 128, 64 )
+scale = Vector2( -2, 4 )
+targetdoor = "door2"
+targetscene = "res://assets/scenes/mansion/mansion_1.tscn"
+
+[node name="collide11" parent="." instance=ExtResource( 1 )]
+position = Vector2( -256, 0 )
+scale = Vector2( 8, 1 )
+
+[node name="door1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 160 )
+
+[node name="camera" parent="." instance=ExtResource( 3 )]
+visible = true
+position = Vector2( -480, -1344 )
+limit_left = -1344
+limit_top = -1344
+limit_right = 0
+limit_bottom = 256
+
+[node name="darkcircle" parent="." instance=ExtResource( 5 )]
+visible = false
+position = Vector2( -928, 160 )
+
+[node name="collide12" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1280, 0 )
+scale = Vector2( 8, 1 )
+
+[node name="collide13" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1344, -1024 )
+scale = Vector2( 1, 17 )
+
+[node name="collide10" parent="." instance=ExtResource( 1 )]
+position = Vector2( -768, 64 )
+scale = Vector2( 1, 2 )
+
+[node name="collide14" parent="." instance=ExtResource( 1 )]
+position = Vector2( -704, 128 )
+
+[node name="collide15" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1024, -768 )
+scale = Vector2( 1, 10 )
+
+[node name="metalblock" parent="." instance=ExtResource( 6 )]
+position = Vector2( -1024, -128 )
+
+[node name="metalblock2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -1024, -64 )
+
+[node name="collide16" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1152, -1024 )
+scale = Vector2( 10, 1 )
+
+[node name="collide17" parent="." instance=ExtResource( 1 )]
+position = Vector2( -960, -768 )
+scale = Vector2( 9, 1 )
+
+[node name="platform" parent="." instance=ExtResource( 7 )]
+position = Vector2( -1280, -768 )
+scale = Vector2( 4, 1 )
+
+[node name="collide18" parent="." instance=ExtResource( 1 )]
+position = Vector2( -256, -1280 )
+scale = Vector2( 1, 21 )
+
+[node name="switchblock" parent="." instance=ExtResource( 8 )]
+position = Vector2( -384, -768 )
+
+[node name="switchblock2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -352, -768 )
+
+[node name="switchblock3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -320, -768 )
+
+[node name="switchblock4" parent="." instance=ExtResource( 8 )]
+position = Vector2( -288, -768 )
+
+[node name="collide19" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1792, -1280 )
+scale = Vector2( 20, 1 )
+
+[node name="switchblockalt" parent="." instance=ExtResource( 9 )]
+position = Vector2( -544, -1216 )
+
+[node name="switchblockalt2" parent="." instance=ExtResource( 9 )]
+position = Vector2( -544, -1184 )
+
+[node name="switchblockalt3" parent="." instance=ExtResource( 9 )]
+position = Vector2( -544, -1152 )
+
+[node name="switchblockalt4" parent="." instance=ExtResource( 9 )]
+position = Vector2( -544, -1120 )
+
+[node name="switchblockalt5" parent="." instance=ExtResource( 9 )]
+position = Vector2( -544, -1088 )
+
+[node name="switchblockalt6" parent="." instance=ExtResource( 9 )]
+position = Vector2( -544, -1056 )
+
+[node name="switchblock5" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1280, -1024 )
+
+[node name="switchblock6" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1248, -1024 )
+
+[node name="switchblock7" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1216, -1024 )
+
+[node name="switchblock8" parent="." instance=ExtResource( 8 )]
+position = Vector2( -1184, -1024 )
+
+[node name="hurtblock" parent="." instance=ExtResource( 10 )]
+position = Vector2( -512, -1312 )
+
+[node name="hurtblock2" parent="." instance=ExtResource( 10 )]
+position = Vector2( -480, -1312 )
+
+[node name="hurtblock3" parent="." instance=ExtResource( 10 )]
+position = Vector2( -448, -1312 )
+
+[node name="hurtblock4" parent="." instance=ExtResource( 10 )]
+position = Vector2( -416, -1312 )
+
+[node name="hurtblock5" parent="." instance=ExtResource( 10 )]
+position = Vector2( -384, -1312 )
+
+[node name="hurtblock6" parent="." instance=ExtResource( 10 )]
+position = Vector2( -352, -1312 )
+
+[node name="hurtblock7" parent="." instance=ExtResource( 10 )]
+position = Vector2( -320, -1312 )
+
+[node name="hurtblock8" parent="." instance=ExtResource( 10 )]
+position = Vector2( -288, -1312 )
+
+[node name="collide20" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1984, -1024 )
+scale = Vector2( 10, 1 )
+
+[node name="collide21" parent="." instance=ExtResource( 1 )]
+position = Vector2( -512, -1344 )
+scale = Vector2( 4, 0.5 )
+
+[node name="collide22" parent="." instance=ExtResource( 1 )]
+position = Vector2( -544, -1344 )
+scale = Vector2( 0.5, 1 )
+
+[node name="collide23" parent="." instance=ExtResource( 1 )]
+position = Vector2( -256, -1344 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Hallway2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1504, -1216 )
+scale = Vector2( 2, 6 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/mansion/mansion_3.tscn"
+
+[node name="door2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1344, -1056 )

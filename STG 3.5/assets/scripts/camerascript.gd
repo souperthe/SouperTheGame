@@ -25,6 +25,7 @@ onready var rand = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = true
 	limitleft = limit_left
 	limitright = limit_left
 	limittop = limit_top
