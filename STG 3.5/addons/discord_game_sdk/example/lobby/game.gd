@@ -24,3 +24,18 @@ func _on_members_changed() -> void:
 func _on_text_entered(new_text):
 	$lobby.send_message(new_text)
 	find_node("line_edit").clear()
+
+func create_lobby():
+	var transaction := Discord.lobby_manager.get_lobby_create_transaction()
+
+	transaction.set_capacity(2)
+	transaction.set_type(Discord.LobbyType.Private)
+	transaction.set_locked(false)
+
+	var result = yield(Discord.lobby_manager.create_lobby(transaction), "result")
+	if result.result != Discord.Result.Ok:
+		push_error(result.result)
+		return
+
+	var lobby = result.data	
+	Discord.lobby_manager.send_lobby_message(lobby.get_id(), "hello people!")

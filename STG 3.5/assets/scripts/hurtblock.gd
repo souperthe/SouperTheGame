@@ -3,6 +3,7 @@ extends RigidBody2D
 
 var canhurt = 1
 onready var colcheck = $CollisionShape2D
+export (bool) var assignedtoplayer
 
 
 func _ready():

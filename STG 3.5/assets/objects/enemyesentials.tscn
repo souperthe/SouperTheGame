@@ -63,6 +63,15 @@ collision_mask = 4194304
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lavacheck"]
 shape = SubResource( 2 )
 
+[node name="hurtcheck" type="Area2D" parent="."]
+position = Vector2( 0, 17 )
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtcheck"]
+shape = SubResource( 2 )
+
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="body_entered" from="lavacheck" to="." method="_on_lavacheck_body_entered"]
+[connection signal="body_entered" from="hurtcheck" to="." method="_on_hurtcheck_body_entered"]

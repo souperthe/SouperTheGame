@@ -18,6 +18,7 @@ func enter(msg := {}) -> void:
 	player.machcancel.play()
 	player.mach3.stop()
 	player.candoor = 0
+	#player.face = !player.face
 	
 	
 func _ready():

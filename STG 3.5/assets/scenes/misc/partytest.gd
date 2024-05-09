@@ -9,7 +9,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	global.hidehud = true
-	music.playtitle()
+	music.playsong("res://assets/sound/elevator.wav")
 	pass # Replace with function body.
 
 

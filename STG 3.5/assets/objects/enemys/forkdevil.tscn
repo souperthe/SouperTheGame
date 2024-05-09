@@ -81,6 +81,7 @@ script = ExtResource( 10 )
 position = Vector2( 0, -18 )
 scale = Vector2( 0.56, 0.56 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -93,6 +94,7 @@ shape = SubResource( 2 )
 modulate = Color( 1, 1, 1, 0.423529 )
 position = Vector2( 25, 3 )
 scale = Vector2( 0.6, 0.6 )
+assignedtoplayer = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/New Anim" = SubResource( 3 )

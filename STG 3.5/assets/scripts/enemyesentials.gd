@@ -30,3 +30,10 @@ func _on_lavacheck_body_entered(_body):
 	owner.dead(0)
 	owner.punchsound()
 	pass # Replace with function body.
+
+
+func _on_hurtcheck_body_entered(body):
+	if not body.assignedtoplayer:
+		owner.dead(0)
+		owner.punchsound()
+	pass # Replace with function body.

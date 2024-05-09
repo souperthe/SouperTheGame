@@ -47,10 +47,10 @@ func physics_update(delta: float) -> void:
 	if !player.is_on_floor():
 		player.speedpart.emitting = false
 	if player.playercharacter == "S":
-		speed += 1 * delta
+		speed += 50 * delta
 	if player.playercharacter == "SM":
 		if player.is_on_floor():
-			speed += 1 * delta
+			speed += 50 * delta
 	player.trail()
 	player.velocity.y += player.gravity * delta
 	var was_on_floor = player.is_on_floor()
@@ -61,13 +61,13 @@ func physics_update(delta: float) -> void:
 	if !player.face and player.is_on_floor():
 		if player.velocity.x > mach3speed:
 			state_machine.transition_to("Mach3")
-		if Inputs.key_left:
+		if Inputs.just_key_left:
 			state_machine.transition_to("MachTurn", {one = true})
 		player.velocity.x = speed
 	if player.face and player.is_on_floor():
 		if player.velocity.x < -mach3speed:
 			state_machine.transition_to("Mach3")
-		if Inputs.key_right:
+		if Inputs.just_key_right:
 			state_machine.transition_to("MachTurn", {one = true})
 		player.velocity.x = -speed
 	if canjump and Inputs.just_key_jump:

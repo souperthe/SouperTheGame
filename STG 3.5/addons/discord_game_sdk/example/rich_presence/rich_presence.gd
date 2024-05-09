@@ -1,6 +1,6 @@
 extends Node2D
 
-func _process(delta):
+func _ready():
 	update_activity()
 
 func update_activity() -> void:

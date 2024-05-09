@@ -11,6 +11,10 @@ var rotatesamount = 5
 var yoffset = 2
 var smoothingspeed = global.cameraspeed
 var shakeamount = 2
+var limitleft
+var limitright
+var limittop
+var limitbottom
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -21,6 +25,10 @@ onready var rand = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	limitleft = limit_left
+	limitright = limit_left
+	limittop = limit_top
+	limitbottom = limit_bottom
 	position.y = objplayer.position.y - yoffset
 	position.x = objplayer.position.x
 	#if roomhandle.currentscene.get_node(global.targetdoor):
@@ -33,10 +41,15 @@ func _ready():
 
 
 func _process(_delta):
+	#limit_bottom = 10000000
+	#limit_right = 10000000
+	#limit_left = -10000000
+	#limit_top = -10000000
 	global.camera = self
-	var py = objplayer.position.y - yoffset
-	var px = objplayer.position.x 
+	var py = roomhandle.m * objplayer.position.y - yoffset
+	var px = roomhandle.m * objplayer.position.x 
 	rotatesamount = global.camerarotamount
+	scale.x = roomhandle.m
 	if $shake.time_left > 0:
 		randomize()
 		self.offset = Vector2(

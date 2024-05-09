@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://import/todfuckedupevil.mp3-a1cbac1d2b0e5a7cd22476ada1984080.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/todfuckedupevil.mp3"
+dest_files=[ "res://import/todfuckedupevil.mp3-a1cbac1d2b0e5a7cd22476ada1984080.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

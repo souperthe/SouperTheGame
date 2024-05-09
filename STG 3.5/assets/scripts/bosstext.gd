@@ -37,6 +37,8 @@ var alreadyjumped = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if global.hardmode:
+		bosshealth = bosshealth * 2
 	punchurt.disabled = true
 	faceplayer()
 	pass # Replace with function body.

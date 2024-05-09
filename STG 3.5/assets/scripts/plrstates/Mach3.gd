@@ -46,7 +46,7 @@ func physics_update(delta: float) -> void:
 	if player.face:
 		player.velocity.x = -speed
 	
-	speed += 6 * delta
+	speed += 100 * delta
 	#animation_player.speed_scale = speed / 1200
 	player.trail()
 	player.velocity.y += player.gravity * delta
@@ -67,6 +67,7 @@ func physics_update(delta: float) -> void:
 		##player.velocity.y = -player.jump_impulse
 	if player.is_on_wall():
 		state_machine.transition_to("bumpwall")
+		player.face = !player.face
 		player.hitwall.play()
 		player.mach4.stop()
 		player.hurteffect()

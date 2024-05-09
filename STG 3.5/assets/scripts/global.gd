@@ -11,7 +11,9 @@ var publicbuild = 0
 var sisyphusbuild = 0
 var score = 0
 var timedlevel = false
+var windowsize = Vector2(960,540)
 var secretsfound = 0
+var doortime = 0.3
 var level = "none"
 var lockcamera = false
 var combobreaks = 0
@@ -84,7 +86,9 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
 	
-func _physics_process(_delta):
+func _physics_process(delta):
+	#OS.window_size.x = lerp(OS.window_size.x, windowsize.x, 5 * delta)
+	#OS.window_size.y = lerp(OS.window_size.y, windowsize.y, 5 * delta)
 	var time = global.leveltime
 	var minutes := int(time / 60)
 	var seconds := fmod(time, 60)
@@ -92,7 +96,7 @@ func _physics_process(_delta):
 	timet = (str("%01d:%02d" % [minutes, seconds]))
 	combocheck()
 	if countdown:
-		leveltime += _delta
+		leveltime += delta
 	$infolayer/info.visible = !hidehud or !cutscene
 	if !OS.has_feature("32") and !OS.has_feature("Andriod"):
 		update_activity()

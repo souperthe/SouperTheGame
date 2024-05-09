@@ -88,7 +88,7 @@ func _process(delta):
 		
 	if Input.is_key_pressed(input_attack) and !gamepaused:
 		canpress_attack = false
-	elif not Input.is_key_pressed(input_attack):
+	else:
 		canpress_attack = true
 		
 	if Input.is_key_pressed(input_dash) and !gamepaused:

@@ -2,6 +2,7 @@ extends PlayerState
 
 var lastxvel
 var laststate
+var speed
 export (NodePath) var _animation_player
 onready var animation_player:AnimatedSprite = get_node(_animation_player)
 # Declare member variables here. Examples:
@@ -15,6 +16,7 @@ func enter(_msg := {}) -> void:
 	if !player.currentstate == ("diving"):
 		laststate = player.currentstate
 		lastxvel = player.velocity.x
+	speed = abs(player.velocity.x)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -28,8 +30,13 @@ func physics_update(_delta: float) -> void:
 	player.trail()
 	#player.velocity.y = abs(lastxvel / 1.2)
 	#player.velocity.y = abs(lastxvel / 1.2)
+	if player.face:
+		player.velocity.x = -speed
+	if !player.face:
+		player.velocity.x = speed
 	if player.is_on_wall():
 		player.goofysound()
+		#player.face = !player.face
 		state_machine.transition_to("bump")
 		player.machbox.disabled = true
 		player.emachbox.disabled = true

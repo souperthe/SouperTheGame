@@ -2,6 +2,8 @@ extends Node
 
 export var scene: PackedScene
 var currentscene:Node
+var m = 1
+var rng = RandomNumberGenerator.new()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -34,6 +36,15 @@ func scenegoto(selectedscene):
 			self.remove_child(c)
 			c.queue_free()
 		add_child(spawnedscene)
+		var my_random_number = rng.randi_range(0.0, 1.0)
+		rng.randomize()
+		if global.oldtodmode:
+			m = currentscene.scale.x
+			#if my_random_number == 1:
+				#objplayer.scale.x = -1
+				#currentscene.rotation_degrees = 90
+			#if my_random_number == 0:
+				#currentscene.modulate = Color8(0,0,0,255)
 		if music.playmusic:
 			music.domusic()
 	else:

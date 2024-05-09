@@ -15,6 +15,7 @@ var snow = load("res://assets/sound/music/snow_finished.mp3")
 var lap1 = load("res://assets/sound/music/ogg/mus_souper_escapenew.ogg")
 var lap2 = load("res://assets/sound/music/lap2ishitmyself.mp3")
 var tutorialsong = load("res://assets/sound/music/ogg/mus_tut.ogg")
+var manorsong = load("res://assets/sound/music/ogg/mus_mansion.ogg")
 var old = load("res://assets/ignore/loop1.mp3")
 var musicvolume = 2
 var playmusic = true
@@ -140,6 +141,10 @@ func domusic():
 	if roomhandle.currentscene.name == "city":
 		if !$Music.stream == city:
 			$Music.stream = city
+			$Music.play()
+	if roomhandle.currentscene.name == "manor":
+		if !$Music.stream == manorsong:
+			$Music.stream = manorsong
 			$Music.play()
 
 	

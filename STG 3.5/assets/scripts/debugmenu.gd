@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var plr = preload("res://assets/objects/player2.tscn")
 var enabled = false
+var selectedroom
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -91,11 +92,18 @@ func _on_noclip_pressed():
 
 
 func _on_spawnboombox2_pressed():
-	global.room_goto(global.targetRoom2, global.targetdoor)
-	objplayer.reset()
+	$Control/FileDialog.popup()
+	#global.room_goto(global.targetRoom2, global.targetdoor)
+	#objplayer.reset()
 	pass # Replace with function body.
 
 
 func _on_spawnboombox3_pressed():
 	objplayer.fall()
+	pass # Replace with function body.
+
+
+func _on_FileDialog_file_selected(path):
+	selectedroom = path
+	global.room_goto(path, "door1")
 	pass # Replace with function body.
