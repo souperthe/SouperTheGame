@@ -45,20 +45,24 @@ stretch_mode = 2
 [node name="mask" type="Sprite" parent="CanvasLayer/Control/BackBufferCopy2"]
 modulate = Color( 1, 1, 1, 0.796078 )
 material = SubResource( 10 )
-position = Vector2( 449, 187 )
-scale = Vector2( 80, 80 )
+position = Vector2( 540, 187 )
 texture = ExtResource( 3 )
 
 [node name="mask" type="Sprite" parent="CanvasLayer/Control/BackBufferCopy2/mask"]
+modulate = Color( 1, 1, 1, 0.796078 )
+material = SubResource( 10 )
+scale = Vector2( 0.95, 0.95 )
+texture = ExtResource( 3 )
+
+[node name="mask" type="Sprite" parent="CanvasLayer/Control/BackBufferCopy2/mask/mask"]
 material = SubResource( 10 )
 scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="CanvasLayer/Control"]
-position = Vector2( 487.5, 288 )
-scale = Vector2( 31.4688, 19 )
+position = Vector2( 502, 285 )
 texture = ExtResource( 4 )
-energy = 0.5
+texture_scale = 50.0
 mode = 1
 
 [node name="Timer" type="Timer" parent="."]
