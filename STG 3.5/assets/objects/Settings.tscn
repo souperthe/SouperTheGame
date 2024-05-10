@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/sprites/pattern.png" type="Texture" id=1]
 [ext_resource path="res://assets/scripts/Settingsnew.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/alphebet2.png" type="Texture" id=3]
 [ext_resource path="res://addons/BitmapTextureFont/main.gd" type="Script" id=4]
 [ext_resource path="res://assets/sprites/HUD/pausemenu/selectshower.png" type="Texture" id=5]
-[ext_resource path="res://assets/fonts/alphebet 3.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/HUD/pointerglove.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/tvpattern.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/controllerpattern.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/soundpattern.png" type="Texture" id=9]
@@ -40,14 +40,20 @@ size = Vector2( 32, 32 )
 monospace = false
 
 [sub_resource type="BitmapFont" id=8]
-textures = [ ExtResource( 6 ) ]
-chars = PoolIntArray( 104, 0, 678, 0, 29, 42, 0, 0, 29, 120, 0, 338, 0, 38, 42, 0, 0, 38, 112, 0, 175, 0, 28, 42, 0, 0, 28, 105, 0, 971, 0, 32, 42, 0, 0, 32, 121, 0, 720, 0, 33, 42, 0, 0, 33, 97, 0, 421, 0, 39, 42, 0, 0, 39, 113, 0, 88, 0, 32, 42, 0, 0, 32, 122, 0, 761, 0, 33, 42, 0, 0, 33, 98, 0, 467, 0, 29, 42, 0, 0, 29, 114, 0, 385, 0, 31, 42, 0, 0, 31, 106, 0, 7, 0, 29, 42, 0, 0, 29, 107, 0, 846, 0, 32, 42, 0, 0, 32, 99, 0, 593, 0, 31, 42, 0, 0, 31, 115, 0, 258, 0, 29, 42, 0, 0, 29, 108, 0, 889, 0, 28, 42, 0, 0, 28, 100, 0, 636, 0, 33, 42, 0, 0, 33, 116, 0, 550, 0, 36, 42, 0, 0, 36, 101, 0, 1008, 0, 34, 42, 0, 0, 34, 109, 0, 800, 0, 37, 42, 0, 0, 37, 117, 0, 213, 0, 36, 42, 0, 0, 36, 102, 0, 1050, 0, 42, 42, 0, 0, 42, 110, 0, 509, 0, 32, 42, 0, 0, 32, 118, 0, 128, 0, 38, 42, 0, 0, 38, 103, 0, 927, 0, 36, 42, 0, 0, 36, 119, 0, 295, 0, 40, 42, 0, 0, 40, 111, 0, 47, 0, 30, 42, 0, 0, 30 )
-height = 42.0
+textures = [ ExtResource( 3 ) ]
+chars = PoolIntArray( 32, 0, 6, 32, 32, 32, 0, 0, 32, 104, 0, 517, 0, 22, 32, 0, 0, 22, 120, 0, 258, 0, 29, 32, 0, 0, 29, 112, 0, 133, 0, 22, 32, 0, 0, 22, 105, 0, 740, 0, 24, 32, 0, 0, 24, 121, 0, 548, 0, 26, 32, 0, 0, 26, 97, 0, 321, 0, 30, 32, 0, 0, 30, 113, 0, 67, 0, 24, 32, 0, 0, 24, 122, 0, 580, 0, 25, 32, 0, 0, 25, 98, 0, 356, 0, 22, 32, 0, 0, 22, 114, 0, 293, 0, 24, 32, 0, 0, 24, 106, 0, 5, 0, 22, 32, 0, 0, 22, 107, 0, 644, 0, 25, 32, 0, 0, 25, 99, 0, 452, 0, 23, 32, 0, 0, 23, 115, 0, 196, 0, 23, 32, 0, 0, 23, 108, 0, 677, 0, 22, 32, 0, 0, 22, 100, 0, 485, 0, 25, 32, 0, 0, 25, 116, 0, 419, 0, 28, 32, 0, 0, 28, 101, 0, 768, 0, 26, 32, 0, 0, 26, 109, 0, 610, 0, 28, 32, 0, 0, 28, 117, 0, 162, 0, 28, 32, 0, 0, 28, 102, 0, 800, 0, 32, 32, 0, 0, 32, 110, 0, 388, 0, 24, 32, 0, 0, 24, 118, 0, 98, 0, 29, 32, 0, 0, 29, 103, 0, 706, 0, 28, 32, 0, 0, 28, 119, 0, 225, 0, 30, 32, 0, 0, 30, 111, 0, 36, 0, 22, 32, 0, 0, 22 )
+height = 32.0
 script = ExtResource( 4 )
-texture = ExtResource( 6 )
-characterMap = "joqvpuswxrabntcdhyzmklgief"
-size = Vector2( 42, 42 )
+texture = ExtResource( 3 )
+characterMap = "joqvpuswxrabntcdhyzmklgief "
+size = Vector2( 32, 32 )
 monospace = false
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = SubResource( 6 )
+shader_param/motion = Vector2( 15, -25 )
+shader_param/scale = 1.0
+shader_param/offset = Vector2( 0, 0 )
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -241,25 +247,182 @@ texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="Inputs"]
+[node name="thing" type="Control" parent="Inputs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="attack" type="RichTextLabel" parent="Inputs/thing"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -480.0
-margin_top = -101.0
+margin_top = -202.0
 margin_right = 480.0
-margin_bottom = 147.0
+margin_bottom = -166.0
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
-bbcode_text = "[center]Junder
-construction
+bbcode_text = "[center]Jattack"
+text = "Jattack"
 
-leave"
-text = "Junder
-construction
+[node name="jump" type="RichTextLabel" parent="Inputs/thing"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -162.0
+margin_right = 480.0
+margin_bottom = -126.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]jump"
+text = "jump"
 
-leave"
+[node name="dash" type="RichTextLabel" parent="Inputs/thing"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -122.0
+margin_right = 480.0
+margin_bottom = -86.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]Jdash"
+text = "Jdash"
+
+[node name="shoot" type="RichTextLabel" parent="Inputs/thing"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -82.0
+margin_right = 480.0
+margin_bottom = -46.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]Jshoot"
+text = "Jshoot"
+
+[node name="up" type="RichTextLabel" parent="Inputs/thing"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -42.0
+margin_right = 480.0
+margin_bottom = -6.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]up"
+text = "up"
+
+[node name="down" type="RichTextLabel" parent="Inputs/thing"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -2.0
+margin_right = 480.0
+margin_bottom = 34.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]Jdown"
+text = "Jdown"
+
+[node name="left" type="RichTextLabel" parent="Inputs/thing"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = 38.0
+margin_right = 480.0
+margin_bottom = 74.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]left"
+text = "left"
+
+[node name="right" type="RichTextLabel" parent="Inputs/thing"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = 78.0
+margin_right = 480.0
+margin_bottom = 114.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]Jright"
+text = "Jright"
+
+[node name="pause" type="RichTextLabel" parent="Inputs/thing"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = 118.0
+margin_right = 480.0
+margin_bottom = 154.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]pause"
+text = "pause"
+
+[node name="reset" type="RichTextLabel" parent="Inputs/thing"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = 182.0
+margin_right = 480.0
+margin_bottom = 218.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]reset to default"
+text = "reset to default"
+
+[node name="Pointerglove" type="Sprite" parent="Inputs/thing"]
+position = Vector2( 341, 44 )
+rotation = -1.5708
+scale = Vector2( 0.56, 0.56 )
+texture = ExtResource( 6 )
+flip_v = true
+
+[node name="pressanykey" type="Control" parent="Inputs"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -152.0
+margin_top = -173.5
+margin_right = 152.0
+margin_bottom = 173.5
+
+[node name="ColorRect2" type="ColorRect" parent="Inputs/pressanykey"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_top = -2.0
+margin_right = 3.0
+margin_bottom = 3.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="TextureRect" parent="Inputs/pressanykey"]
+material = SubResource( 9 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+stretch_mode = 2
 
 [node name="Sound" type="Control" parent="."]
 visible = false
