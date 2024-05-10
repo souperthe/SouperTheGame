@@ -31,6 +31,14 @@ func _on_key_area_entered(area):
 		global.playsmall()
 
 
+func createkeyfollow():
+	var dashtrail = preload("res://assets/objects/floatingkey.tscn")
+	var ghost: Node2D = dashtrail.instance()
+	presobjs.add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y
+	ghost.green = true
+
 func _on_greenkey_area_entered(area):
 	if not global.greenkey:
 		global.othersroom.append(global.targetRoom2 + name)
@@ -38,4 +46,5 @@ func _on_greenkey_area_entered(area):
 		global.greenkey = true
 		queue_free()
 		global.playsmall()
+		createkeyfollow()
 	pass # Replace with function body.

@@ -8,6 +8,7 @@ var velocity := Vector2.ZERO
 var spinamount = 2
 onready var sprite = $Sprite
 var leave = true
+var partical = true
 
 
 # Declare member variables here. Examples:
@@ -17,7 +18,10 @@ var leave = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$runpart.emitting = true
+	if partical:
+		$runpart.emitting = true
+	if !partical:
+		$runpart.queue_free()
 	$AnimationPlayer.play("flash")
 	pass # Replace with function body.
 

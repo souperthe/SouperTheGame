@@ -22,6 +22,13 @@ func _process(delta):
 	pass
 
 
+func createkeyfollow():
+	var dashtrail = preload("res://assets/objects/floatingkey.tscn")
+	var ghost: Node2D = dashtrail.instance()
+	presobjs.add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y
+
 func _on_key_area_entered(area):
 	if not objplayer.haskey:
 		global.othersroom.append(global.targetRoom2 + name)
@@ -29,3 +36,4 @@ func _on_key_area_entered(area):
 		objplayer.haskey = true
 		queue_free()
 		global.playsmall()
+		createkeyfollow()
