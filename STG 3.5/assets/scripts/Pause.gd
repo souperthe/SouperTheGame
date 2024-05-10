@@ -54,14 +54,14 @@ func menu():
 		paused = !paused
 		song()
 	if Input.is_action_just_pressed("pause") or Inputs.just_key_attack:
-		if settings:
+		if settings and $Settings.selectedmenu == $Settings.menus.main:
 			$Settings.visible = false
-			$Settings.playconfirm()
+			#$Settings.playconfirm()
 			$Settings.settingson = 0
 			$Settings.canselect = 0
 			$Settings.selection = 1
-			$Settings.volume = 0
-			$Settings.volumenabled = false
+			#$Settings.volume = 0
+			#$Settings.volumenabled = false
 			settings = false
 			canpause = true
 			canselect = true
@@ -104,7 +104,7 @@ func menu():
 			if Input.is_action_just_pressed("confirm"):
 				if canselect:
 					$Settings.visible = true
-					$Settings.playconfirm()
+					$Settings.reset()
 					$Settings.settingson = 1
 					$Settings.canselect = 1
 					$Settings.selection = 1

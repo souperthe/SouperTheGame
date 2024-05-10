@@ -127,6 +127,7 @@ func options():
 				$Settings.visible = true
 				$Settings.settingson = 1
 				$Settings.selection = 1
+				$Settings.reset()
 				settings = true
 				canselect = false
 				var t = Timer.new()
@@ -136,15 +137,15 @@ func options():
 				t.start()
 				yield(t, "timeout")
 				$Settings.canselect = 1
-		if Inputs.just_key_pause or Input.is_action_just_pressed("attack"):
-			if settings:
+		if Inputs.just_key_pause or Inputs.just_key_attack:
+			if $Settings.selectedmenu == $Settings.menus.main and settings:
 				$Settings.visible = false
 				$sillysfx.sound()
 				$Settings.settingson = 0
 				$Settings.canselect = 0
 				$Settings.selection = 1
-				$Settings.volume = 0
-				$Settings.volumenabled = false
+				#$Settings.volume = 0
+				#$Settings.volumenabled = false
 				settings = false
 				canselect = true
 	if selection == 2:

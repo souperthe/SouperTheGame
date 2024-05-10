@@ -15,6 +15,7 @@ var input_up = KEY_UP
 var input_left = KEY_LEFT
 var input_down = KEY_DOWN
 var input_right = KEY_RIGHT
+var input_enter = KEY_ENTER
 
 
 ## PLAYER 1
@@ -38,6 +39,8 @@ var key_shoot = false
 var just_key_shoot = false
 var key_pause = false
 var just_key_pause = false
+var key_enter = false
+var just_key_enter = false
 
 
 var cando = false
@@ -51,6 +54,7 @@ var canpress_attack = true
 var canpress_pause = true
 var canpress_shoot = true
 var canpress_dash = true
+var canpress_enter = true
 
 
 var canpress_right = true
@@ -79,24 +83,30 @@ func _oldprocess(delta):
 	pass
 	
 func _process(delta):
+	input()
 	gamepaused = false
 	
-	if Input.is_key_pressed(input_jump) and !gamepaused:
+	if Input.is_key_pressed(input_jump) :
 		canpress_jump = false
 	elif not Input.is_key_pressed(input_jump):
 		canpress_jump = true
 		
-	if Input.is_key_pressed(input_attack) and !gamepaused:
+	if Input.is_key_pressed(input_enter) :
+		canpress_enter = false
+	elif not Input.is_key_pressed(input_enter):
+		canpress_enter = true
+		
+	if Input.is_key_pressed(input_attack):
 		canpress_attack = false
 	else:
 		canpress_attack = true
 		
-	if Input.is_key_pressed(input_dash) and !gamepaused:
+	if Input.is_key_pressed(input_dash):
 		canpress_dash = false
 	elif not Input.is_key_pressed(input_dash):
 		canpress_dash = true
 		
-	if Input.is_key_pressed(input_shoot) and !gamepaused:
+	if Input.is_key_pressed(input_shoot) :
 		canpress_shoot = false
 	elif not Input.is_key_pressed(input_shoot):
 		canpress_shoot = true
@@ -128,9 +138,10 @@ func _process(delta):
 	elif not Input.is_key_pressed(input_right):
 		canpress_right = true
 	
-func _input(event):
+func input():
 	# actions
 	just_key_jump = Input.is_physical_key_pressed(input_jump) and canpress_jump
+	canpress_jump = false
 	key_jump = Input.is_physical_key_pressed(input_jump)
 	just_key_attack = Input.is_physical_key_pressed(input_attack) and canpress_attack
 	key_attack = Input.is_physical_key_pressed(input_attack)
@@ -140,6 +151,8 @@ func _input(event):
 	key_shoot = Input.is_physical_key_pressed(input_shoot)
 	just_key_pause = Input.is_physical_key_pressed(input_pause) and canpress_pause
 	key_pause = Input.is_physical_key_pressed(input_pause)
+	just_key_enter = Input.is_physical_key_pressed(input_enter) and canpress_enter
+	key_enter = Input.is_physical_key_pressed(input_enter)
 	# directional
 	just_key_up = Input.is_physical_key_pressed(input_up) and canpress_up
 	key_up = Input.is_physical_key_pressed(input_up)

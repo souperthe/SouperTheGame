@@ -30,7 +30,7 @@ func physics_update(delta: float) -> void:
 	player.trail()
 	if player.is_on_wall():
 		state_machine.transition_to("bump")
-	if Inputs.just_key_attack and instantspeedbuffer < 0:
+	if Inputs.just_key_attack:
 		state_machine.transition_to("tumble")
 	if !player.face:
 		player.velocity.x = player.attack_impulse * 2

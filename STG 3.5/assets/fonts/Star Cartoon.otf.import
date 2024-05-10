@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://lvly5x4v7s4p"
+path="res://.godot/imported/Star Cartoon.otf-b9d2cbdcf5e9c2d49e5398a855109492.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/Star Cartoon.otf"
+dest_files=["res://.godot/imported/Star Cartoon.otf-b9d2cbdcf5e9c2d49e5398a855109492.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
