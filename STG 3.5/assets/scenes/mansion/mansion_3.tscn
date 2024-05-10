@@ -19,8 +19,8 @@ scale = Vector2( 20, 1 )
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
 visible = true
-position = Vector2( 352, 1344 )
-limit_left = -288
+position = Vector2( -64, 1056 )
+limit_left = -480
 limit_top = 32
 limit_right = 960
 limit_bottom = 1344
@@ -70,15 +70,11 @@ scale = Vector2( 2, 1 )
 
 [node name="collide26" parent="." instance=ExtResource( 1 )]
 position = Vector2( 320, 992 )
-scale = Vector2( 8, 1 )
+scale = Vector2( 9, 1 )
 
 [node name="collide27" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 1312 )
 scale = Vector2( 20, 1 )
-
-[node name="collide28" parent="." instance=ExtResource( 1 )]
-position = Vector2( 320, 1056 )
-scale = Vector2( 10, 1 )
 
 [node name="door2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 960, 1280 )
@@ -98,8 +94,8 @@ position = Vector2( 768, 928 )
 scale = Vector2( 2, 1 )
 
 [node name="collide31" parent="." instance=ExtResource( 1 )]
-position = Vector2( -256, 1184 )
-scale = Vector2( 4, 2 )
+position = Vector2( -448, 1184 )
+scale = Vector2( 7, 2 )
 
 [node name="collide-slope3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 128, 1184 )
@@ -114,5 +110,5 @@ position = Vector2( -512, 832 )
 scale = Vector2( 8, 1 )
 
 [node name="collide33" parent="." instance=ExtResource( 1 )]
-position = Vector2( -320, 864 )
+position = Vector2( -512, 864 )
 scale = Vector2( 1, 12 )

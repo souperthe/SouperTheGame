@@ -24,7 +24,7 @@ func _ready():
 	pass # Replace with function body.
 
 func reset():
-	selection = 1
+	selection = 1000
 	selectedmenu = menus.main
 	canselect = false
 	$Timer.start()
@@ -45,15 +45,19 @@ func _process(delta):
 			menus.video:
 				if Inputs.just_key_pause or Inputs.just_key_attack:
 					selectedmenu = menus.main
+					$sillysfx.sound()
 			menus.game:
 				if Inputs.just_key_pause or Inputs.just_key_attack:
 					selectedmenu = menus.main
+					$sillysfx.sound()
 			menus.inputs:
 				if Inputs.just_key_pause or Inputs.just_key_attack:
 					selectedmenu = menus.main
+					$sillysfx.sound()
 			menus.sound:
 				if Inputs.just_key_pause or Inputs.just_key_attack:
 					selectedmenu = menus.main
+					$sillysfx.sound()
 	if canselect and settingson and selectedmenu == menus.main:
 		if selection > 4:
 			selection = 1
@@ -61,8 +65,10 @@ func _process(delta):
 			selection = 4
 		if Inputs.just_key_up:
 			selection -= 1
+			$AudioStreamPlayer.play()
 		if Inputs.just_key_down:
 			selection += 1
+			$AudioStreamPlayer.play()
 		var offset = Vector2(20,18)
 		match(selection):
 			1:
@@ -74,6 +80,7 @@ func _process(delta):
 			4:
 				pointer.rect_position = $Main/RichTextLabel4.rect_position + offset
 		if Inputs.just_key_enter or Inputs.just_key_jump:
+			$sillysfx.sound()
 			match(selection):
 				1:
 					selectedmenu = menus.video

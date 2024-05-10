@@ -33,7 +33,7 @@ func physics_update(delta: float) -> void:
 	if player.animatonframes > 3:
 		if pressing:
 			if player.is_on_floor():
-				state_machine.transition_to("Mach2")
+				state_machine.transition_to("Mach2", {do_turn = true})
 				player.get_input_direction()
 			if !player.is_on_floor():
 				state_machine.transition_to("machfall")
@@ -41,7 +41,6 @@ func physics_update(delta: float) -> void:
 				#animation_player.flip_h = !animation_player.flip_h
 		if !pressing:
 			state_machine.transition_to("Idle")
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

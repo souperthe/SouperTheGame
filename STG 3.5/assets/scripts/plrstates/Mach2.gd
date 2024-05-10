@@ -14,6 +14,7 @@ var canjump = true
 
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
+	#player.get_input_direction()
 	if !player.currentstate == ("diving"):
 		lastxvel = player.velocity.x
 	animation_player.play("mach2")
@@ -32,8 +33,8 @@ func enter(_msg := {}) -> void:
 		player.velocity.x = speed
 	if player.face:
 		player.velocity.x = -speed
-	#if msg.has("do_turn"):
-		#player.get_input_direction()
+	if _msg.has("do_turn"):
+		player.get_input_direction()
 	pass
 	
 func physics_update(delta: float) -> void:

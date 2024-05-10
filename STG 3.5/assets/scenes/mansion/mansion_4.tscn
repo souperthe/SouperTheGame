@@ -16,7 +16,7 @@ position = Vector2( -256, 192 )
 scale = Vector2( 12, 1 )
 
 [node name="collide30" parent="." instance=ExtResource( 4 )]
-position = Vector2( -384, 0 )
+position = Vector2( -480, 0 )
 scale = Vector2( 10, 1 )
 
 [node name="Hallway" parent="." instance=ExtResource( 2 )]
