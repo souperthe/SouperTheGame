@@ -109,17 +109,19 @@ func _process(_delta):
 			
 			
 func shake(amount):
-	randomize()
-	self.offset = Vector2(
+	if global.shake_effects:
+		randomize()
+		self.offset = Vector2(
 		rand.randi_range(-amount, amount),
 		rand.randi_range(-amount, amount)	
-	)
+		)
 	
 func shake2(amount, time):
-	randomize()
-	$shake.wait_time = time
-	$shake.start()
-	shakeamount = amount
+	if global.shake_effects:
+		randomize()
+		$shake.wait_time = time
+		$shake.start()
+		shakeamount = amount
 	#self.offset = Vector2(
 		#rand.randi_range(-amount, amount),
 		#rand.randi_range(-amount, amount)	

@@ -172,6 +172,7 @@ func _ready():
 
 
 func _physics_process(_delta):
+	$HUD.visible = global.settingshowhud
 	#global.playsound(position, "res://assets/sound/sfx/sfx_bananapeel.wav")
 	$mach3part.emitting = currentstate == "Mach3" and is_on_floor()
 	$hurtbox/hurtblock.canhurt = currentstate == "Attack" or currentstate == "tumble"
@@ -391,7 +392,8 @@ func _on_enemych_body_entered(body):
 	attacksfx.stop()
 	if body is Baddie:
 		var thing = velocity.normalized()
-		position.x -= thing.x * 25
+		if global.hit_offset:
+			position.x -= thing.x * 35
 		#hitwall.play()
 	
 func respawn():
@@ -638,6 +640,15 @@ func _on_detectcrouch_body_exited(body):
 		canuncrouch = true
 	pass # Replace with function body.
 func fall():
+	if global.fall_cutscene:
+		dofall()
+	if !global.fall_cutscene:
+		goofysound()
+		respawn()
+		global.camera.shake2(6, 0.5)
+		$HUD/HUD/fallen/Control/ouch.play()
+	
+func dofall():
 	temp = music.musicaudio.get_playback_position();
 	music.musicaudio.playing = false
 	cutscene()

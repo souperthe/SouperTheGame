@@ -55,6 +55,11 @@ var hidehudtween = false
 var cinematicbar = false
 var phonescreen = false
 var oldtodmode = false
+var settingshowhud = true
+var resolutions_selection = 0
+var shake_effects = true
+var hit_offset = true
+var fall_cutscene = true
 
 var whiteflash = preload("res://assets/objects/flash.tscn")
 var SaveManager = ConfigFile.new()
@@ -164,7 +169,7 @@ func update_activity() -> void:
 		activity.set_details("In the Menus")
 	if !roomhandle.currentscene.name ==  "menu":
 		if global.hardmode:
-			activity.set_details("In a level, playing tod mode.")
+			activity.set_details("In a level, playing unusually.")
 		if !global.hardmode:
 			activity.set_details("In a level, playing normally.")
 	if roomhandle.currentscene.name ==  "menu":
@@ -179,7 +184,7 @@ func update_activity() -> void:
 				activity.set_state(str("Rank: ", global.rank, ",", "  Score: ", global.score, ", ", "Combo: ", global.combo))
 
 	var assets = activity.get_assets()
-	assets.set_large_image("big")
+	assets.set_large_image("stg_new_discord_rpc")
 	assets.set_large_text("Souper The Game")
 	assets.set_small_image("soupercon")
 	assets.set_small_text(str("Playing as ", playingas))

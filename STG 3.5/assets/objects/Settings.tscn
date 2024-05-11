@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/sprites/pattern.png" type="Texture" id=1]
 [ext_resource path="res://assets/scripts/Settingsnew.gd" type="Script" id=2]
@@ -49,6 +49,14 @@ texture = ExtResource( 3 )
 characterMap = "joqvpuswxrabntcdhyzmklgief "
 size = Vector2( 32, 32 )
 monospace = false
+
+[sub_resource type="DynamicFont" id=14]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -1
+font_data = ExtResource( 12 )
 
 [sub_resource type="BitmapFont" id=13]
 textures = [ ExtResource( 3 ) ]
@@ -216,20 +224,62 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -480.0
-margin_top = -101.0
-margin_right = 480.0
-margin_bottom = 147.0
-custom_fonts/normal_font = SubResource( 8 )
+margin_left = -120.0
+margin_top = -77.0
+margin_right = 840.0
+margin_bottom = -40.0
+custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
-bbcode_text = "[center]Junder
-construction
+bbcode_text = "screen size"
+text = "screen size"
 
-leave"
-text = "Junder
-construction
+[node name="VSYNC" type="RichTextLabel" parent="Video"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -37.0
+margin_right = 840.0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "VSync"
+text = "VSync"
 
-leave"
+[node name="FULLSCREEN" type="RichTextLabel" parent="Video"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = 3.0
+margin_right = 840.0
+margin_bottom = 40.0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "Fullscreen"
+text = "Fullscreen"
+
+[node name="SHOWHUD" type="RichTextLabel" parent="Video"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = 43.0
+margin_right = 840.0
+margin_bottom = 80.0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "Show HUD"
+text = "Show HUD"
+
+[node name="Pointerglove" type="Sprite" parent="Video"]
+position = Vector2( 312, 225 )
+rotation = -1.5708
+scale = Vector2( 0.56, 0.56 )
+texture = ExtResource( 6 )
+flip_v = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -249,27 +299,57 @@ texture = ExtResource( 1 )
 expand = true
 stretch_mode = 2
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="Game"]
+[node name="shake" type="RichTextLabel" parent="Game"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -480.0
-margin_top = -101.0
-margin_right = 480.0
-margin_bottom = 147.0
-custom_fonts/normal_font = SubResource( 8 )
+margin_left = -137.0
+margin_top = -62.0
+margin_right = 823.0
+margin_bottom = -25.0
+custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
-bbcode_text = "[center]Junder
-construction
+bbcode_text = "shake effects"
+text = "shake effects"
 
-leave"
-text = "Junder
-construction
+[node name="hitoff" type="RichTextLabel" parent="Game"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.0
+margin_top = -22.0
+margin_right = 823.0
+margin_bottom = 15.0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "hit offset"
+text = "hit offset"
 
-leave"
+[node name="fallcutscene" type="RichTextLabel" parent="Game"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.0
+margin_top = 18.0
+margin_right = 823.0
+margin_bottom = 55.0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "fall cutscene"
+text = "fall cutscene"
+
+[node name="Pointerglove" type="Sprite" parent="Game"]
+position = Vector2( 295, 241 )
+rotation = -1.5708
+scale = Vector2( 0.56, 0.56 )
+texture = ExtResource( 6 )
+flip_v = true
 
 [node name="Inputs" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -496,7 +576,6 @@ bbcode_text = "[center]Press enter to confirm"
 text = "Press enter to confirm"
 
 [node name="Sound" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -517,17 +596,39 @@ anchor_bottom = 0.5
 margin_left = -480.0
 margin_top = -101.0
 margin_right = 480.0
-margin_bottom = 147.0
+margin_bottom = -67.0
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
-bbcode_text = "[center]Junder
-construction
+bbcode_text = "[center]master"
+text = "master"
 
-leave"
-text = "Junder
-construction
+[node name="RichTextLabel6" type="RichTextLabel" parent="Sound"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -704.0
+margin_top = -101.0
+margin_right = 256.0
+margin_bottom = -67.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]sfx"
+text = "sfx"
 
-leave"
+[node name="RichTextLabel7" type="RichTextLabel" parent="Sound"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -264.0
+margin_top = -101.0
+margin_right = 696.0
+margin_bottom = -67.0
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]music"
+text = "music"
 
 [node name="sillysfx" parent="." instance=ExtResource( 10 )]
 

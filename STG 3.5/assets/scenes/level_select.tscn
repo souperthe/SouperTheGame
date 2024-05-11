@@ -1,26 +1,45 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/scripts/test.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/pattern.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/levelselect.png" type="Texture" id=3]
-[ext_resource path="res://addons/BitmapTextureFont/main.gd" type="Script" id=4]
-[ext_resource path="res://assets/fonts/alphebet2.png" type="Texture" id=5]
+[ext_resource path="res://assets/objects/sillysfx.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/objects/spiralthing.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/scripts/level_select2.gd" type="Script" id=6]
+[ext_resource path="res://assets/fonts/comicz.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/sprites/player_souper/souperanim_0001.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/animated/tod/tod_0001.png" type="Texture" id=10]
 
-[sub_resource type="BitmapFont" id=1]
-textures = [ ExtResource( 5 ) ]
-chars = PoolIntArray( 32, 0, 6, 32, 32, 32, 0, 0, 32, 104, 0, 517, 0, 22, 32, 0, 0, 22, 120, 0, 258, 0, 29, 32, 0, 0, 29, 112, 0, 133, 0, 22, 32, 0, 0, 22, 105, 0, 740, 0, 24, 32, 0, 0, 24, 121, 0, 548, 0, 26, 32, 0, 0, 26, 97, 0, 321, 0, 30, 32, 0, 0, 30, 113, 0, 67, 0, 24, 32, 0, 0, 24, 122, 0, 580, 0, 25, 32, 0, 0, 25, 98, 0, 356, 0, 22, 32, 0, 0, 22, 114, 0, 293, 0, 24, 32, 0, 0, 24, 106, 0, 5, 0, 22, 32, 0, 0, 22, 107, 0, 644, 0, 25, 32, 0, 0, 25, 99, 0, 452, 0, 23, 32, 0, 0, 23, 115, 0, 196, 0, 23, 32, 0, 0, 23, 108, 0, 677, 0, 22, 32, 0, 0, 22, 100, 0, 485, 0, 25, 32, 0, 0, 25, 116, 0, 419, 0, 28, 32, 0, 0, 28, 101, 0, 768, 0, 26, 32, 0, 0, 26, 109, 0, 610, 0, 28, 32, 0, 0, 28, 117, 0, 162, 0, 28, 32, 0, 0, 28, 102, 0, 800, 0, 32, 32, 0, 0, 32, 110, 0, 388, 0, 24, 32, 0, 0, 24, 118, 0, 98, 0, 29, 32, 0, 0, 29, 103, 0, 706, 0, 28, 32, 0, 0, 28, 119, 0, 225, 0, 30, 32, 0, 0, 30, 111, 0, 36, 0, 22, 32, 0, 0, 22 )
-height = 32.0
-script = ExtResource( 4 )
-texture = ExtResource( 5 )
-characterMap = "joqvpuswxrabntcdhyzmklgief "
-size = Vector2( 32, 32 )
-monospace = false
+[sub_resource type="DynamicFont" id=13]
+size = 25
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -1
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 19
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -1
+font_data = ExtResource( 7 )
 
 [node name="menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="spiralthing" parent="." instance=ExtResource( 5 )]
+modulate = Color( 1, 1, 1, 0.141176 )
+position = Vector2( 480, 270 )
+scale = Vector2( 15, 15 )
+active = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 visible = false
@@ -59,7 +78,47 @@ margin_left = -480.0
 margin_top = 125.0
 margin_right = 480.0
 margin_bottom = 161.0
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 13 )
 bbcode_enabled = true
-bbcode_text = "[center]house"
-text = "house"
+bbcode_text = "[center]2"
+text = "2"
+
+[node name="Tod0001" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 35, 509 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 10 )
+
+[node name="souper" type="Sprite" parent="."]
+position = Vector2( 101, 506 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 9 )
+
+[node name="text2" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -359.0
+margin_top = 237.0
+margin_right = 59.0
+margin_bottom = 298.0
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_text = "press z to switch character"
+text = "press z to switch character"
+
+[node name="text3" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -358.0
+margin_top = 213.0
+margin_right = 60.0
+margin_bottom = 274.0
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_text = "press z to switch character"
+text = "press z to switch character"
+
+[node name="sillysfx" parent="." instance=ExtResource( 4 )]
+position = Vector2( 290, 613 )

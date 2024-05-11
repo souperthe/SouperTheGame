@@ -18,6 +18,13 @@ var inputcanselect = true
 var pressanykey = false
 var chooseninput
 var modifyinginput = "attack"
+var videoselection = 0
+
+var resolutions = []
+var resolutions_selection = 0
+var resolutions_amount = 0
+
+var game_selection = 0
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -26,10 +33,19 @@ var modifyinginput = "attack"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	resolutions.append(OS.get_screen_size() / 1.1)
+	resolutions.append(OS.get_screen_size() / 1.2)
+	resolutions.append(OS.get_screen_size() / 1.5)
+	resolutions.append(OS.get_screen_size() / 2)
+	resolutions.append(OS.get_screen_size() / 2.5)
+	resolutions.append(OS.get_screen_size() / 4)
+	resolutions.append(OS.get_screen_size() / 8)
+	resolutions_amount = resolutions.size()
 	pass # Replace with function body.
 
 func reset():
 	inputselection = 1
+	videoselection = 0
 	selection = 1000
 	selectedmenu = menus.main
 	canselect = false
@@ -50,10 +66,97 @@ func _process(_delta):
 			menus.main:
 				pass
 			menus.video:
+				var pointerthing = $Video/Pointerglove
+				$Video/RichTextLabel5.bbcode_text = str("Resolution: ", OS.window_size)
+				$Video/VSYNC.bbcode_text = str("Vsync: ", OS.vsync_enabled)
+				$Video/FULLSCREEN.bbcode_text = str("Fullscreen: ", OS.window_fullscreen)
+				$Video/SHOWHUD.bbcode_text = str("Show HUD: ", global.settingshowhud)
+				if Inputs.just_key_down:
+					videoselection += 1
+					$AudioStreamPlayer.play()
+				if Inputs.just_key_up:
+					videoselection -= 1
+					$AudioStreamPlayer.play()
+				var cantchange = OS.window_fullscreen or OS.window_maximized
+				match(cantchange):
+					true:
+						$Video/RichTextLabel5.modulate = Color8(128,128,128,255)
+					false:
+						$Video/RichTextLabel5.modulate = Color8(255,255,255,255)
+				var video_offset = Vector2(-55, 27)
+				match(videoselection):
+					0:
+						pointerthing.position = $Video/RichTextLabel5.rect_position + video_offset
+						if !OS.window_fullscreen and !OS.window_maximized:
+							if Inputs.just_key_left:
+								global.resolutions_selection += 1
+								$AudioStreamPlayer.play()
+							if Inputs.just_key_right:
+								global.resolutions_selection -= 1
+								$AudioStreamPlayer.play()
+							if global.resolutions_selection < 1:
+								global.resolutions_selection = resolutions_amount
+							if global.resolutions_selection > resolutions_amount:
+								global.resolutions_selection = 1
+							OS.window_size = resolutions[global.resolutions_selection - 1]
+					1:
+						pointerthing.position = $Video/VSYNC.rect_position + video_offset
+						if Inputs.just_key_jump:
+							OS.vsync_enabled = !OS.vsync_enabled
+							$sillysfx.sound()
+					2:
+						pointerthing.position = $Video/FULLSCREEN.rect_position + video_offset
+						if Inputs.just_key_jump:
+							OS.window_fullscreen = !OS.window_fullscreen
+							$sillysfx.sound()
+							if !OS.window_fullscreen:
+								global.resolutions_selection = 4
+								OS.window_size = resolutions[global.resolutions_selection - 1]
+					3:
+						pointerthing.position = $Video/SHOWHUD.rect_position + video_offset
+						if Inputs.just_key_jump:
+							global.settingshowhud = !global.settingshowhud
+							$sillysfx.sound()
+				#OS.window_size = OS.get_screen_size() / 2
+				if videoselection < 0:
+					videoselection = 3
+				if videoselection > 3:
+					videoselection = 0
 				if Inputs.just_key_pause or Inputs.just_key_attack:
 					selectedmenu = menus.main
 					$sillysfx.sound()
 			menus.game:
+				var pointerthing2 = $Game/Pointerglove
+				var pointer_offset = Vector2(-55, 27)
+				$Game/shake.bbcode_text = str("Shake effects: ", global.shake_effects)
+				$Game/hitoff.bbcode_text = str("Hit knockback: ", global.hit_offset)
+				$Game/fallcutscene.bbcode_text = str("Fall Cutscene: ", global.fall_cutscene)
+				match(game_selection):
+					0:
+						pointerthing2.position = $Game/shake.rect_position + pointer_offset
+						if Inputs.just_key_jump:
+							global.shake_effects = !global.shake_effects
+							$sillysfx.sound()
+					1:
+						pointerthing2.position = $Game/hitoff.rect_position + pointer_offset
+						if Inputs.just_key_jump:
+							global.hit_offset = !global.hit_offset
+							$sillysfx.sound()
+					2:
+						pointerthing2.position = $Game/fallcutscene.rect_position + pointer_offset
+						if Inputs.just_key_jump:
+							global.fall_cutscene = !global.fall_cutscene
+							$sillysfx.sound()
+				if Inputs.just_key_down:
+					game_selection += 1
+					$AudioStreamPlayer.play()
+				if Inputs.just_key_up:
+					game_selection -= 1
+					$AudioStreamPlayer.play()
+				if game_selection < 0:
+					game_selection = 2
+				if game_selection > 2:
+					game_selection = 0
 				if Inputs.just_key_pause or Inputs.just_key_attack:
 					selectedmenu = menus.main
 					$sillysfx.sound()

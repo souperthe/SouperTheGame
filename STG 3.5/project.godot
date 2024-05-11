@@ -238,7 +238,9 @@ second_button/url="https://discord.gg/WjvYVP9WJv"
 window/size/width=960
 window/size/height=540
 window/size/borderless=true
+window/size/fullscreen=true
 window/dpi/allow_hidpi=true
+window/vsync/vsync_via_compositor=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
