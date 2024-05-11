@@ -21,7 +21,7 @@ size_flags_vertical = 3
 margin_right = 960.0
 margin_bottom = 20.0
 
-[node name="create_game" type="Button" parent="VBoxContainer/buttons"]
+[node name="yea" type="Button" parent="VBoxContainer/buttons"]
 margin_right = 93.0
 margin_bottom = 20.0
 text = "create_game"
@@ -82,5 +82,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="VBoxContainer/buttons/create_game" to="." method="_on_create_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/buttons/yea" to="." method="_on_yea_pressed"]
 [connection signal="text_entered" from="VBoxContainer/HBoxContainer2/VBoxContainer/line_edit" to="." method="_on_text_entered"]

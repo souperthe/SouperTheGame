@@ -44,5 +44,6 @@ anims/float = SubResource( 2 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 3 )
+bus = "SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_treasure_body_entered"]

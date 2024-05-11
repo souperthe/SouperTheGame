@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://import/mus_mansion2.ogg-1e1a938068f0269bf91a12448eedc890.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/music/ogg/mus_mansion2.ogg"
+dest_files=[ "res://import/mus_mansion2.ogg-1e1a938068f0269bf91a12448eedc890.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

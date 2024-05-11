@@ -21,12 +21,15 @@ var a = false
 var canhurt = true
 export var escape = false
 var spawned = false
+var sprite_size = Vector2(0.56,0.56)
 
 var state = states.normal
 
 var health = 1
+var maxhealth = 1
 var stuntimer = 60
 var scaredtimer = 60
+var flungvelocity = 0
 var deadsprite = "res://assets/sprites/animated/testenemy/dead.png"
 onready var animator = $animator
 
@@ -41,6 +44,7 @@ func _ready():
 	if !escape:
 		if (global.baddieroom.has(global.targetRoom2 + name)):
 			queue_free()
+	maxhealth = health
 	pass # Replace with function body.
 
 func hurteffect():
@@ -82,8 +86,9 @@ func kill(sdhagdhqwjdawaw):
 				hurteffect()
 				hurteffect()
 				state = states.stun
-				velocity.y = -900
-				velocity.x = yadda 
+				velocity.y = -600
+				velocity.x = yadda * 2
+				flungvelocity = yadda
 				canhurt = false
 				$AnimationPlayer.play("stun")
 				animator.play("stun")
@@ -133,13 +138,17 @@ func createdead1(velocityx):
 	randomize()
 	ghost.sprite.texture = load(deadsprite)
 	ghost.sprite.flip_h = animator.flip_h
-	ghost.sprite.scale.x = animator.scale.x
-	ghost.sprite.scale.y = animator.scale.y
+	ghost.sprite.scale.x = sprite_size.x
+	ghost.sprite.scale.y = sprite_size.y
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _physics_process(_delta):
+	$enemyesentials/enemyhealth.visible = health < maxhealth
+	$animator.scale = lerp($animator.scale, sprite_size, 8 * _delta)
 	$CollisionShape2D.disabled = state == states.inactive
+	$enemyesentials/enemyhealth/pivot/BackBufferCopy/ProgressBar.value = health
+	$enemyesentials/enemyhealth/pivot/BackBufferCopy/ProgressBar.max_value = maxhealth
 	if global.oldtodmode:
 		queue_free()
 	slopetilt()
@@ -160,6 +169,12 @@ func _physics_process(_delta):
 			stuntimer -= 0.5
 			if is_on_floor():
 				velocity.y = -speed * 2
+				$animator.scale = Vector2(0.56 + 0.1, 0.56 - 0.1)
+			if is_on_wall():
+				velocity.x = -flungvelocity / 2
+				$animator.scale = Vector2(0.56 - 0.4, 0.56 + 0.4)
+				global.playsound(position, "res://assets/sound/sfx/sfx_grapple.wav")
+				#$AnimationPlayer.play("squash")
 			if stuntimer < 0:
 				state = states.normal
 				canhurt = true
@@ -196,6 +211,7 @@ func getscared():
 			scaredtimer = 60
 			velocity.y = -900 / 2.5
 			state = states.scared
+			$animator.scale = Vector2(0.56 + 0.1, 0.56 - 0.1)
 	if $enemyesentials/getscaredl.is_colliding():
 		if !state == states.scared:
 			direction = !direction
@@ -209,6 +225,7 @@ func getscared():
 			scaredtimer = 60
 			velocity.y = -900 / 2.5
 			state = states.scared
+			$animator.scale = Vector2(0.56 - 0.5, 0.56 + 0.5)
 #	pass
 
 

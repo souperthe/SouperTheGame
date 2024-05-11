@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/sprites/pattern.png" type="Texture" id=1]
 [ext_resource path="res://assets/scripts/Settingsnew.gd" type="Script" id=2]
@@ -97,6 +97,12 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 extra_spacing_top = -1
 font_data = ExtResource( 12 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -594,9 +600,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -480.0
-margin_top = -101.0
+margin_top = -141.0
 margin_right = 480.0
-margin_bottom = -67.0
+margin_bottom = -107.0
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 bbcode_text = "[center]master"
@@ -608,9 +614,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -704.0
-margin_top = -101.0
+margin_top = -141.0
 margin_right = 256.0
-margin_bottom = -67.0
+margin_bottom = -107.0
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 bbcode_text = "[center]sfx"
@@ -622,13 +628,55 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -264.0
-margin_top = -101.0
+margin_top = -141.0
 margin_right = 696.0
-margin_bottom = -67.0
+margin_bottom = -107.0
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 bbcode_text = "[center]music"
 text = "music"
+
+[node name="sfxprogess" type="ProgressBar" parent="Sound"]
+margin_left = 242.0
+margin_top = 459.0
+margin_right = 527.0
+margin_bottom = 482.0
+rect_rotation = -90.0
+custom_styles/fg = SubResource( 15 )
+custom_styles/bg = SubResource( 16 )
+min_value = -88.0
+max_value = 0.0
+percent_visible = false
+
+[node name="masterprogress" type="ProgressBar" parent="Sound"]
+margin_left = 458.0
+margin_top = 459.0
+margin_right = 743.0
+margin_bottom = 482.0
+rect_rotation = -90.0
+custom_styles/fg = SubResource( 15 )
+custom_styles/bg = SubResource( 16 )
+min_value = -88.0
+max_value = 0.0
+percent_visible = false
+
+[node name="musicprogress" type="ProgressBar" parent="Sound"]
+margin_left = 682.0
+margin_top = 459.0
+margin_right = 967.0
+margin_bottom = 482.0
+rect_rotation = -90.0
+custom_styles/fg = SubResource( 15 )
+custom_styles/bg = SubResource( 16 )
+min_value = -88.0
+max_value = 0.0
+percent_visible = false
+
+[node name="Pointerglove" type="Sprite" parent="Sound"]
+position = Vector2( 249, 80 )
+scale = Vector2( 0.56, 0.56 )
+texture = ExtResource( 6 )
+flip_v = true
 
 [node name="sillysfx" parent="." instance=ExtResource( 10 )]
 

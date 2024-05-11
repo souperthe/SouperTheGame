@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/scripts/baddie.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/animated/testenemy/alive.png" type="Texture" id=2]
@@ -40,21 +40,6 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "squash"
-tracks/0/type = "value"
-tracks/0/path = NodePath("animator:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.233259, 1 ),
-"update": 0,
-"values": [ Vector2( 0.3, 0.8 ), Vector2( 0.56, 0.56 ) ]
-}
-
 [sub_resource type="Animation" id=4]
 resource_name = "stun"
 length = 0.6
@@ -90,7 +75,6 @@ shape = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/New Anim" = SubResource( 3 )
-anims/squash = SubResource( 5 )
 anims/stun = SubResource( 4 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

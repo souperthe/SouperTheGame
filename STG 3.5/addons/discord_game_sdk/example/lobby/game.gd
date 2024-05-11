@@ -39,3 +39,16 @@ func create_lobby():
 
 	var lobby = result.data	
 	Discord.lobby_manager.send_lobby_message(lobby.get_id(), "hello people!")
+
+
+func _on_yea_pressed():
+	var activity = Discord.Activity.new()
+	activity.set_type(Discord.ActivityActionType.Join)
+	var transaction := Discord.lobby_manager.get_lobby_create_transaction()
+
+	transaction.set_capacity(2)
+	transaction.set_type(Discord.LobbyType.Private)
+	var result = yield(Discord.lobby_manager.create_lobby(transaction), "result")
+	var lobby = result.data	
+	Discord.lobby_manager.send_lobby_message(lobby.get_id(), "hello people!")
+	pass # Replace with function body.

@@ -4,7 +4,10 @@ var onscreen = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var anchorY = -56
+var frequency = 0.1
+var amplitude = 20
+var timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +15,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func _process(delta):
+	$enemyhealth/pivot.position.y = anchorY + sin(timer*frequency)*15
+	#$enemyhealth/pivot.scale.y = 1 + (sin(timer*frequency)*15 / 45)
+	timer += 0.5
 #	pass
 
 

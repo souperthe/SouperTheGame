@@ -80,6 +80,7 @@ script = ExtResource( 3 )
 [node name="speech" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 3 )
 max_distance = 500.0
+bus = "SFX"
 script = ExtResource( 12 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -177,6 +178,7 @@ __meta__ = {
 stream = SubResource( 8 )
 max_distance = 500.0
 attenuation = 0.406126
+bus = "SFX"
 
 [connection signal="body_entered" from="playerdetect" to="." method="_on_playerdetect_body_entered"]
 [connection signal="body_exited" from="playerdetect" to="." method="_on_playerdetect_body_exited"]

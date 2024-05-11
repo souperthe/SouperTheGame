@@ -456,6 +456,7 @@ margin_bottom = 498.0
 
 [node name="hurt" type="AudioStreamPlayer2D" parent="rankcontroller/CanvasLayer/deadposition"]
 stream = ExtResource( 127 )
+bus = "SFX"
 
 [node name="results" type="Control" parent="rankcontroller/CanvasLayer"]
 margin_left = 240.0

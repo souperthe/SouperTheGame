@@ -81,7 +81,6 @@ script = ExtResource( 10 )
 position = Vector2( 0, -18 )
 scale = Vector2( 0.56, 0.56 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -102,3 +101,4 @@ anims/stun = SubResource( 4 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+bus = "SFX"

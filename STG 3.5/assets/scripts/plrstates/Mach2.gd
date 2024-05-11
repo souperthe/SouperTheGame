@@ -33,8 +33,8 @@ func enter(_msg := {}) -> void:
 		player.velocity.x = speed
 	if player.face:
 		player.velocity.x = -speed
-	if _msg.has("do_turn"):
-		player.get_input_direction()
+	#if _msg.has("do_turn"):
+		#player.get_input_direction()
 	pass
 	
 func physics_update(delta: float) -> void:
@@ -64,13 +64,18 @@ func physics_update(delta: float) -> void:
 			state_machine.transition_to("Mach3")
 		if Inputs.just_key_left:
 			state_machine.transition_to("MachTurn", {one = true})
-		player.velocity.x = speed
+		#player.velocity.x = speed
 	if player.face and player.is_on_floor():
 		if player.velocity.x < -mach3speed:
 			state_machine.transition_to("Mach3")
 		if Inputs.just_key_right:
 			state_machine.transition_to("MachTurn", {one = true})
-		player.velocity.x = -speed
+		#player.velocity.x = -speed
+	match(player.face):
+		false:
+			player.velocity.x = speed
+		true:
+			player.velocity.x = -speed
 	if canjump and Inputs.just_key_jump:
 		state_machine.transition_to("mach_jump", {do_jump = true})
 	if player.is_on_wall():

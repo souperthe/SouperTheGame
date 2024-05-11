@@ -129,6 +129,7 @@ texture = ExtResource( 4 )
 [node name="collectsmall" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 1 )
 volume_db = -14.857
+bus = "SFX"
 
 [node name="panicfill" type="Timer" parent="."]
 wait_time = 5.0
@@ -136,14 +137,17 @@ wait_time = 5.0
 [node name="collectescapesmall" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 2 )
 volume_db = -12.857
+bus = "SFX"
 
 [node name="comboend" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -12.857
+bus = "SFX"
 
 [node name="collectnew" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 7 )
 volume_db = -12.857
+bus = "SFX"
 
 [connection signal="timeout" from="infolayer/infotime" to="." method="_on_infotime_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

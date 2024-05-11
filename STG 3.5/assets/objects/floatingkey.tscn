@@ -33,4 +33,5 @@ script = ExtResource( 16 )
 scale = Vector2( 0.56, 0.56 )
 frames = SubResource( 1 )
 animation = "key"
+frame = 1
 playing = true

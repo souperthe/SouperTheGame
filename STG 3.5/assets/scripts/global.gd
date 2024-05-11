@@ -73,6 +73,9 @@ var countdown = true
 var highestcombo = 0
 var previouscombo = 0
 var timet = "2136723181"
+var musicvolume = 0
+var sfxvolume = 0
+var mastervolume = 0
 
 
 signal scenechanged 
@@ -83,6 +86,8 @@ signal reset
 
 
 func _ready():
+	var activity = Discord.Activity.new()
+	activity.set_type(Discord.ActivityType.Playing)
 	infotext.rect_position.y = 560
 	#AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	#OS.window_size.x = 480 /2
@@ -92,6 +97,9 @@ func _ready():
 	
 	
 func _physics_process(delta):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), musicvolume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), sfxvolume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), mastervolume)
 	#OS.window_size.x = lerp(OS.window_size.x, windowsize.x, 5 * delta)
 	#OS.window_size.y = lerp(OS.window_size.y, windowsize.y, 5 * delta)
 	var time = global.leveltime
@@ -164,7 +172,6 @@ func _on_Timer_timeout():
 	
 func update_activity() -> void:
 	var activity = Discord.Activity.new()
-	activity.set_type(Discord.ActivityType.Playing)
 	if roomhandle.currentscene.name ==  "menu":
 		activity.set_details("In the Menus")
 	if !roomhandle.currentscene.name ==  "menu":

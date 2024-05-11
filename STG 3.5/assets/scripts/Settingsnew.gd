@@ -25,6 +25,8 @@ var resolutions_selection = 0
 var resolutions_amount = 0
 
 var game_selection = 0
+var sound_selection = 0
+var soundselected = false
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -250,9 +252,73 @@ func _process(_delta):
 					selectedmenu = menus.main
 					$sillysfx.sound()
 			menus.sound:
-				if Inputs.just_key_pause or Inputs.just_key_attack:
-					selectedmenu = menus.main
+				var pointer2 = $Sound/Pointerglove
+				var offset = 5
+				if Inputs.just_key_right:
+					if !soundselected:
+						sound_selection += 1
+						$AudioStreamPlayer.play()
+				if Inputs.just_key_left:
+					if !soundselected:
+						sound_selection -= 1
+						$AudioStreamPlayer.play()
+				if sound_selection > 2:
+					sound_selection = 0
+				if sound_selection < 0:
+					sound_selection = 2
+				pointer2.visible = !soundselected
+				pointer2.position.y = $Sound/sfxprogess.rect_position.y - 390
+				$Sound/sfxprogess.value = global.sfxvolume * 2
+				$Sound/masterprogress.value = global.mastervolume * 2
+				$Sound/musicprogress.value = global.musicvolume * 2
+				match(sound_selection):
+					0:
+						pointer2.position.x = $Sound/sfxprogess.rect_position.x + offset
+						#pointer2.position.y = $Sound/sfxprogess.rect_position.y - 360
+					1:
+						pointer2.position.x = $Sound/masterprogress.rect_position.x + offset
+					2:
+						pointer2.position.x = $Sound/musicprogress.rect_position.x + offset
+				if Inputs.just_key_jump:
+					soundselected = true
 					$sillysfx.sound()
+				var changeamount = 0.5
+				if soundselected:
+					match(sound_selection):
+						0:
+							if Inputs.key_up:
+								global.sfxvolume += changeamount
+							if Inputs.key_down:
+								global.sfxvolume -= changeamount
+							if global.sfxvolume > 0:
+								global.sfxvolume = 0
+							if global.sfxvolume < -88:
+								global.sfxvolume = -88
+						1:
+							if Inputs.key_up:
+								global.mastervolume += changeamount
+							if Inputs.key_down:
+								global.mastervolume -= changeamount
+							if global.mastervolume > 0:
+								global.mastervolume = 0
+							if global.mastervolume < -88:
+								global.mastervolume = -88
+						2:
+							if Inputs.key_up:
+								global.musicvolume += changeamount
+							if Inputs.key_down:
+								global.musicvolume -= changeamount
+							if global.musicvolume > 0:
+								global.musicvolume = 0
+							if global.musicvolume < -88:
+								global.musicvolume = -88
+					if Inputs.just_key_attack:
+						soundselected = false
+						$sillysfx.sound()
+				if Inputs.just_key_pause or Inputs.just_key_attack:
+					if !soundselected:
+						selectedmenu = menus.main
+						$sillysfx.sound()
 	if canselect and settingson and selectedmenu == menus.main:
 		if selection > 4:
 			selection = 1
