@@ -48,12 +48,12 @@ func menu():
 			$CenterContainer/RightBar/restart.modulate.a8 = 125
 	if !global.level == "hub":
 			$CenterContainer/RightBar/restart.modulate.a8 = 255
-	if Input.is_action_just_pressed("pause") and canpause:
+	if Inputs.just_key_pause and canpause:
 		get_tree().paused = !get_tree().paused
 		self.visible = !self.visible
 		paused = !paused
 		song()
-	if Input.is_action_just_pressed("pause") or Inputs.just_key_attack:
+	if Inputs.just_key_pause or Inputs.just_key_attack:
 		if settings and $Settings.selectedmenu == $Settings.menus.main:
 			$Settings.visible = false
 			#$Settings.playconfirm()
@@ -66,11 +66,11 @@ func menu():
 			canpause = true
 			canselect = true
 		
-	if Input.is_action_just_pressed("move_up"):
+	if Inputs.just_key_up:
 		if paused and canselect:
 			$move.play()
 			selection -= 1
-	if Input.is_action_just_pressed("move_down"):
+	if Inputs.just_key_down:
 		if paused and canselect:
 			selection += 1
 			$move.play()
@@ -88,7 +88,7 @@ func menu():
 			$CenterContainer/RightBar/restart.use_parent_material = true
 			show.position.y = 126
 			show.position.x = -138
-			if Input.is_action_just_pressed("confirm"):
+			if Inputs.just_key_enter:
 				if canselect:
 					get_tree().paused = !get_tree().paused
 					self.visible = !self.visible
@@ -101,7 +101,7 @@ func menu():
 			$CenterContainer/RightBar/restart.use_parent_material = true
 			show.position.y = 602
 			show.position.x = 186
-			if Input.is_action_just_pressed("confirm"):
+			if Inputs.just_key_enter:
 				if canselect:
 					$Settings.visible = true
 					$Settings.reset()
@@ -118,7 +118,7 @@ func menu():
 			$CenterContainer/RightBar/restart.use_parent_material = false
 			show.position.y = 603
 			show.position.x = 329
-			if Input.is_action_just_pressed("confirm"):
+			if Inputs.just_key_enter:
 				if global.level == "hub":
 					pass
 				if !global.level == "hub":
@@ -130,7 +130,7 @@ func menu():
 			$CenterContainer/RightBar/restart.use_parent_material = true
 			show.position.y = 593
 			show.position.x = 459
-			if Input.is_action_just_pressed("confirm"):
+			if Inputs.just_key_enter:
 				if canselect:
 					objplayer.changestate("Nothing")
 					$AnimationPlayer.play("fadein")

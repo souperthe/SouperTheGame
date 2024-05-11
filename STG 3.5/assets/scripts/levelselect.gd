@@ -17,14 +17,14 @@ func _ready():
 
 func _process(delta):
 	global.hardmode = $hardmode.pressed
-	if Input.is_action_just_pressed(objplayer.input_run):
+	if Inputs.just_key_dash:
 		$hardmode.pressed = !$hardmode.pressed
 		$move.play()
-	if Input.is_action_just_pressed("move_left"):
+	if Inputs.just_key_left:
 		if canselect:
 			selection -= 1
 			$move.play()
-	if Input.is_action_just_pressed("move_right"):
+	if Inputs.just_key_right:
 		if canselect:
 			selection += 1
 			$move.play()

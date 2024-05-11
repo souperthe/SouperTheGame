@@ -54,7 +54,7 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	if !player.face:
-		if Input.is_action_just_pressed(player.input_left):
+		if Inputs.just_key_left:
 			player.attackbox.disabled = true
 			player.eattackbox.disabled = true
 			state_machine.transition_to("Idle")
@@ -63,7 +63,7 @@ func physics_update(delta: float) -> void:
 			player.sjumpentersfx.play()
 			player.velocity.y = 0
 	if player.face:
-		if Input.is_action_just_pressed(player.input_right):
+		if Inputs.just_key_right:
 			player.velocity.y = 0
 			player.attackbox.disabled = true
 			player.eattackbox.disabled = true

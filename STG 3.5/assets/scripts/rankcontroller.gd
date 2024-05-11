@@ -4,7 +4,9 @@ extends Node2D
 var done = false
 var tit = false
 var results = false
+var results2 = false
 var t = 0.0
+var a = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -26,6 +28,7 @@ func _ready():
 
 
 func _process(delta):
+	$CanvasLayer/results/scoretext2.bbcode_text = str("Press ", OS.get_scancode_string(Inputs.input_dash), " to exit")
 	if !results:
 		if Inputs.just_key_attack:
 			playanimation()
@@ -34,6 +37,9 @@ func _process(delta):
 			tit = true
 			$CanvasLayer/ranks.playing = false
 			$CanvasLayer/ranks.frame = 17
+	if results2:
+		if Inputs.just_key_dash:
+			goback2()
 	if done:
 		if $CanvasLayer/ranks.frame > 11:
 			if not tit:
@@ -92,6 +98,9 @@ func goback():
 	yield(t, "timeout")
 	if !results:
 		results()
+		
+func goback2():
+	global.room_goto("res://assets/scenes/newTitle.tscn", "door1")
 
 func hurteffect():
 	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
@@ -145,4 +154,5 @@ func newbgeffects():
 	$CanvasLayer/ParallaxBackground/ParallaxLayer/bg.visible = false
 	$CanvasLayer/ParallaxBackground/ParallaxLayer/spiralthing.active = true
 	$CanvasLayer/ParallaxBackground/ParallaxLayer/spiralthing.visible = true
+	results2 = true
 	

@@ -22,7 +22,7 @@ static func free_children(node: Node) -> void:
 	for idx in node.get_child_count():
 		node.free()
 		
-func _process(delta):
+func _process(_delta):
 	currentscene = currentscene
 
 
@@ -36,7 +36,7 @@ func scenegoto(selectedscene):
 			self.remove_child(c)
 			c.queue_free()
 		add_child(spawnedscene)
-		var my_random_number = rng.randi_range(0.0, 1.0)
+		var _my_random_number = rng.randi_range(0.0, 1.0)
 		rng.randomize()
 		if global.oldtodmode:
 			m = currentscene.scale.x

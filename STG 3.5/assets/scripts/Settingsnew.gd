@@ -16,6 +16,8 @@ var selectedmenu = menus.main
 var inputselection = 0
 var inputcanselect = true
 var pressanykey = false
+var chooseninput
+var modifyinginput = "attack"
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -36,7 +38,7 @@ func reset():
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var pointer = $Main/pointer
 	if settingson:
 		$Main.visible = selectedmenu == menus.main
@@ -59,24 +61,64 @@ func _process(delta):
 				var selectoffset = Vector2(360,30)
 				var selectpointer = $Inputs/thing/Pointerglove
 				$Inputs/pressanykey.visible = pressanykey
+				if !inputselection == 10:
+					if Inputs.just_key_jump:
+						#$Inputs/pressanykey.visible = true
+						pressanykey = true
+				if pressanykey:
+					#$Inputs/pressanykey.visible = true
+					$Inputs/pressanykey/modfying.bbcode_text = str("[center]Modfying... ", modifyinginput)
+					$Inputs/pressanykey/RichTextLabel.bbcode_text = str("[center]", OS.get_scancode_string(chooseninput))
+					if Inputs.just_key_enter:
+						$sillysfx.sound()
+						#$Inputs/pressanykey.visible = false
+						match(modifyinginput):
+							"attack":
+								Inputs.input_attack = chooseninput
+							"jump":
+								Inputs.input_jump = chooseninput
+							"dash":
+								Inputs.input_dash = chooseninput
+							"shoot":
+								Inputs.input_shoot = chooseninput
+							"pause":
+								Inputs.input_pause = chooseninput
+							"up":
+								Inputs.input_up = chooseninput
+							"down":
+								Inputs.input_down = chooseninput
+							"left":
+								Inputs.input_left = chooseninput
+							"right":
+								Inputs.input_right = chooseninput
+						pressanykey = false
 				match(inputselection):
 					1:
+						modifyinginput = "attack"
 						selectpointer.position = $Inputs/thing/attack.rect_position + selectoffset
 					2:
+						modifyinginput = "jump"
 						selectpointer.position = $Inputs/thing/jump.rect_position + selectoffset
 					3:
+						modifyinginput = "dash"
 						selectpointer.position = $Inputs/thing/dash.rect_position + selectoffset
 					4:
+						modifyinginput = "shoot"
 						selectpointer.position = $Inputs/thing/shoot.rect_position + selectoffset
 					5:
+						modifyinginput = "up"
 						selectpointer.position = $Inputs/thing/up.rect_position + selectoffset
 					6:
+						modifyinginput = "down"
 						selectpointer.position = $Inputs/thing/down.rect_position + selectoffset
 					7:
+						modifyinginput = "left"
 						selectpointer.position = $Inputs/thing/left.rect_position + selectoffset
 					8:
+						modifyinginput = "right"
 						selectpointer.position = $Inputs/thing/right.rect_position + selectoffset
 					9:
+						modifyinginput = "pause"
 						selectpointer.position = $Inputs/thing/pause.rect_position + selectoffset
 					10:
 						selectpointer.position = $Inputs/thing/reset.rect_position + selectoffset + Vector2(-150, 0)
@@ -101,7 +143,7 @@ func _process(delta):
 				if !pressanykey and Inputs.just_key_down:
 					inputselection += 1
 					$AudioStreamPlayer.play()
-				if Inputs.just_key_pause or Inputs.just_key_attack:
+				if !pressanykey and (Inputs.just_key_pause or Inputs.just_key_attack):
 					selectedmenu = menus.main
 					$sillysfx.sound()
 			menus.sound:
@@ -129,7 +171,7 @@ func _process(delta):
 				pointer.rect_position = $Main/RichTextLabel3.rect_position + offset
 			4:
 				pointer.rect_position = $Main/RichTextLabel4.rect_position + offset
-		if Inputs.just_key_enter or Inputs.just_key_jump:
+		if Inputs.just_key_jump:
 			$sillysfx.sound()
 			match(selection):
 				1:
@@ -149,3 +191,8 @@ func _process(delta):
 func _on_Timer_timeout():
 	canselect = true
 	pass # Replace with function body.
+	
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.scancode != KEY_ENTER:
+			chooseninput = event.scancode

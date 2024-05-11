@@ -58,10 +58,10 @@ func _process(_delta):
 	pass
 	
 func inputs():
-	if Input.is_action_just_pressed("move_up"):
+	if Inputs.just_key_up:
 		$move.play()
 		selection += -1
-	if Input.is_action_just_pressed("move_down"):
+	if Inputs.just_key_down:
 		$move.play()
 		selection += 1
 	if selection > maxthings:
@@ -109,7 +109,7 @@ func options():
 		$things/settings.modulate = uncolored
 		$things/quit.modulate = uncolored
 		$things/levelselect.modulate = uncolored
-		if Input.is_action_just_pressed("confirm"):
+		if Inputs.just_key_enter:
 			if canselect:
 				if !doFileExists:
 					startgame()
@@ -121,7 +121,7 @@ func options():
 		$things/settings.modulate = colored
 		$things/quit.modulate = uncolored
 		$things/levelselect.modulate = uncolored
-		if Input.is_action_just_pressed("confirm"):
+		if Inputs.just_key_enter:
 			if canselect:
 				$sillysfx.sound()
 				$Settings.visible = true
@@ -153,26 +153,26 @@ func options():
 		$things/settings.modulate = uncolored
 		$things/quit.modulate = colored
 		$things/levelselect.modulate = uncolored
-		if Input.is_action_just_pressed("confirm"):
+		if Inputs.just_key_enter:
 			get_tree().quit()
 	if selection == 3:
 		$things/play.modulate = uncolored
 		$things/settings.modulate = uncolored
 		$things/quit.modulate = uncolored
 		$things/levelselect.modulate = colored
-		if Input.is_action_just_pressed("confirm"):
+		if Inputs.just_key_enter:
 			startlvlselect()
 			
 func demoselection():
 	selectmode = true
 	canselect = false
-	if Input.is_action_just_pressed("move_left"):
+	if Inputs.just_key_left:
 		$move.play()
 		modeelection += -1
-	if Input.is_action_just_pressed("move_right"):
+	if Inputs.just_key_right:
 		$move.play()
 		modeelection += 1
-	if Input.is_action_just_pressed("confirm") and $modeselect.rect_position.y < 5:
+	if Inputs.just_key_enter and $modeselect.rect_position.y < 5:
 		$sillysfx.sound()
 		modedick = true
 		if modeelection == 0:

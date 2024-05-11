@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/sprites/pattern.png" type="Texture" id=1]
 [ext_resource path="res://assets/scripts/Settingsnew.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/sprites/soundpattern.png" type="Texture" id=9]
 [ext_resource path="res://assets/objects/sillysfx.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/sound/sfx/sfx_select.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/fonts/comicz.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -49,11 +50,45 @@ characterMap = "joqvpuswxrabntcdhyzmklgief "
 size = Vector2( 32, 32 )
 monospace = false
 
+[sub_resource type="BitmapFont" id=13]
+textures = [ ExtResource( 3 ) ]
+chars = PoolIntArray( 32, 0, 6, 32, 32, 32, 0, 0, 32, 104, 0, 517, 0, 22, 32, 0, 0, 22, 120, 0, 258, 0, 29, 32, 0, 0, 29, 112, 0, 133, 0, 22, 32, 0, 0, 22, 105, 0, 740, 0, 24, 32, 0, 0, 24, 121, 0, 548, 0, 26, 32, 0, 0, 26, 97, 0, 321, 0, 30, 32, 0, 0, 30, 113, 0, 67, 0, 24, 32, 0, 0, 24, 122, 0, 580, 0, 25, 32, 0, 0, 25, 98, 0, 356, 0, 22, 32, 0, 0, 22, 114, 0, 293, 0, 24, 32, 0, 0, 24, 106, 0, 5, 0, 22, 32, 0, 0, 22, 107, 0, 644, 0, 25, 32, 0, 0, 25, 99, 0, 452, 0, 23, 32, 0, 0, 23, 115, 0, 196, 0, 23, 32, 0, 0, 23, 108, 0, 677, 0, 22, 32, 0, 0, 22, 100, 0, 485, 0, 25, 32, 0, 0, 25, 116, 0, 419, 0, 28, 32, 0, 0, 28, 101, 0, 768, 0, 26, 32, 0, 0, 26, 109, 0, 610, 0, 28, 32, 0, 0, 28, 117, 0, 162, 0, 28, 32, 0, 0, 28, 102, 0, 800, 0, 32, 32, 0, 0, 32, 110, 0, 388, 0, 24, 32, 0, 0, 24, 118, 0, 98, 0, 29, 32, 0, 0, 29, 103, 0, 706, 0, 28, 32, 0, 0, 28, 119, 0, 225, 0, 30, 32, 0, 0, 30, 111, 0, 36, 0, 22, 32, 0, 0, 22 )
+height = 32.0
+script = ExtResource( 4 )
+texture = ExtResource( 3 )
+characterMap = "joqvpuswxrabntcdhyzmklgief "
+size = Vector2( 32, 32 )
+monospace = false
+
 [sub_resource type="ShaderMaterial" id=9]
 shader = SubResource( 6 )
 shader_param/motion = Vector2( 15, -25 )
 shader_param/scale = 1.0
 shader_param/offset = Vector2( 0, 0 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -1
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -1
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 19
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -1
+font_data = ExtResource( 12 )
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -386,10 +421,10 @@ margin_left = -480.0
 margin_top = 182.0
 margin_right = 480.0
 margin_bottom = 218.0
-custom_fonts/normal_font = SubResource( 8 )
+custom_fonts/normal_font = SubResource( 13 )
 bbcode_enabled = true
-bbcode_text = "[center]reset to default"
-text = "reset to default"
+bbcode_text = "[center]reset to defaults"
+text = "reset to defaults"
 
 [node name="Pointerglove" type="Sprite" parent="Inputs/thing"]
 position = Vector2( 341, 44 )
@@ -423,6 +458,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 8 )
 stretch_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Inputs/pressanykey"]
+margin_top = 196.0
+margin_right = 302.0
+margin_bottom = 348.0
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[center]Z"
+text = "Z"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Inputs/pressanykey"]
+margin_top = 89.0
+margin_right = 302.0
+margin_bottom = 213.0
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "[center][wave]Press any key.."
+text = "Press any key.."
+
+[node name="modfying" type="RichTextLabel" parent="Inputs/pressanykey"]
+margin_top = 33.0
+margin_right = 302.0
+margin_bottom = 157.0
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_enabled = true
+bbcode_text = "[center]Modfying attack..."
+text = "Modfying attack..."
+
+[node name="modfying2" type="RichTextLabel" parent="Inputs/pressanykey"]
+margin_top = 305.0
+margin_right = 302.0
+margin_bottom = 429.0
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_enabled = true
+bbcode_text = "[center]Press enter to confirm"
+text = "Press enter to confirm"
 
 [node name="Sound" type="Control" parent="."]
 visible = false

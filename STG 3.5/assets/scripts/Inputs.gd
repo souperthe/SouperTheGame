@@ -17,6 +17,8 @@ var input_down = KEY_DOWN
 var input_right = KEY_RIGHT
 var input_enter = KEY_ENTER
 
+var controller_attack = JOY_XBOX_A
+
 
 ## PLAYER 1
 ## directional
@@ -72,7 +74,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _oldprocess(delta):
+func _oldprocess(_delta):
 	canpress_jump = bool(justpressedtime > 0 and not justpressedtime < 0)
 	if a:
 		justpressedtime -= 1
@@ -82,7 +84,7 @@ func _oldprocess(delta):
 		cando = false
 	pass
 	
-func _process(delta):
+func _process(_elta):
 	input()
 	gamepaused = false
 	

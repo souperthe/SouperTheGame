@@ -34,7 +34,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("tumble")
 	if !player.face:
 		player.velocity.x = player.attack_impulse * 2
-		if Input.is_action_just_pressed(player.input_left):
+		if Inputs.just_key_left:
 			player.attackbox.disabled = true
 			player.eattackbox.disabled = true
 			state_machine.transition_to("Idle")
@@ -43,7 +43,7 @@ func physics_update(delta: float) -> void:
 			player.sjumpentersfx.play()
 	if player.face:
 		player.velocity.x = -player.attack_impulse * 2
-		if Input.is_action_just_pressed(player.input_right):
+		if Inputs.just_key_right:
 			player.attackbox.disabled = true
 			player.eattackbox.disabled = true
 			state_machine.transition_to("Idle")

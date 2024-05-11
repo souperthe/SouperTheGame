@@ -266,8 +266,8 @@ func restartlevel():
 
 
 func get_input_direction() -> float:
-	var direction = Input.get_action_strength(input_right) - Input.get_action_strength(input_left)
-	#var dir = int(Inputs.key_right - Inputs.key_left)
+	#var direction = Input.get_action_strength(input_right) - Input.get_action_strength(input_left)
+	var direction = int(Inputs.key_right) - int(Inputs.key_left)
 	
 	if direction < 0:
 		animator.flip_h = true
@@ -278,7 +278,7 @@ func get_input_direction() -> float:
 		face = false
 		numdirection = 1
 		
-	
+	#OS.alert(str(direction), str(direction))
 	return direction
 
 

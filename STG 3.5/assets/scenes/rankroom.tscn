@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=2]
+[gd_scene load_steps=170 format=2]
 
 [ext_resource path="res://assets/scripts/rankcontroller.gd" type="Script" id=1]
 [ext_resource path="res://assets/sound/music/mus_rankdrumroll.wav" type="AudioStream" id=2]
@@ -282,7 +282,7 @@ void vertex(){
 
 [sub_resource type="ShaderMaterial" id=16]
 shader = SubResource( 15 )
-shader_param/motion = Vector2( 0, -30 )
+shader_param/motion = Vector2( 30, 30 )
 shader_param/scale = 0.5
 shader_param/offset = Vector2( 0, 0 )
 
@@ -330,6 +330,16 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 30, 30 ), Vector2( 30, -30 ), Vector2( 30, 30 ) ]
 }
+
+[sub_resource type="DynamicFont" id=18]
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = 3
+extra_spacing_char = 1
+extra_spacing_space = 1
+font_data = ExtResource( 155 )
 
 [sub_resource type="Animation" id=11]
 resource_name = "startresults"
@@ -598,6 +608,25 @@ text = "Time Spent:"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="rankcontroller/CanvasLayer/results"]
 playback_speed = 0.01
 anims/yes = SubResource( 17 )
+
+[node name="scoretext2" type="RichTextLabel" parent="rankcontroller/CanvasLayer/results"]
+margin_left = 1.0
+margin_top = 513.0
+margin_right = 480.0
+margin_bottom = 593.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+size_flags_stretch_ratio = 0.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_constants/shadow_as_outline = 0
+custom_fonts/normal_font = SubResource( 18 )
+bbcode_enabled = true
+bbcode_text = "Press Shift to exit"
+text = "Press Shift to exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="rankcontroller"]
 anims/startresults = SubResource( 11 )
