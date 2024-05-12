@@ -70,5 +70,8 @@ func collect():
 	global.resetcombo()
 	global.collectablesroom.append(global.targetRoom2 + name)
 	global.treasure = true
+	var rng = global.randi_range(1,3)
+	if rng == 3:
+		player.voicepositive()
 	queue_free()
 	

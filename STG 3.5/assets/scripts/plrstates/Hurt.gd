@@ -28,6 +28,9 @@ func enter(_msg := {}) -> void:
 		player.velocity.x = -player.jump_impulse / 1.2
 	if player.face:
 		player.velocity.x = player.jump_impulse / 1.2
+	var rng = global.randi_range(1,5)
+	if rng == 4:
+		player.voicenegative()
 	pass
 	
 func physics_update(delta: float) -> void:

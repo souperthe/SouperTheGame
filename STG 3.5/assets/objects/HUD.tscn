@@ -812,7 +812,7 @@ position = Vector2( -75, 430 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 14
+frame = 9
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -837,7 +837,6 @@ position = Vector2( -28, 430 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 5
 playing = true
 
 [node name="HonestReaction" type="Control" parent="HUD/standard"]
@@ -872,7 +871,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 25
+frame = 40
 playing = true
 offset = Vector2( 497, -410 )
 
@@ -996,12 +995,15 @@ anchor_bottom = 1.0
 [node name="laugh" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
 stream = SubResource( 43 )
 volume_db = 5.0
+bus = "SFX"
 
 [node name="laugh2" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
 stream = SubResource( 44 )
+bus = "SFX"
 
 [node name="laugh3" type="AudioStreamPlayer" parent="HUD/fallen/Control"]
 stream = SubResource( 45 )
+bus = "SFX"
 
 [node name="bg" type="TextureRect" parent="HUD/fallen/Control"]
 modulate = Color( 1, 0, 0, 1 )
@@ -1023,6 +1025,7 @@ bus = "Music"
 [node name="ouch" type="AudioStreamPlayer2D" parent="HUD/fallen/Control"]
 position = Vector2( 480, 540 )
 stream = SubResource( 39 )
+bus = "SFX"
 
 [node name="static" type="AnimatedSprite" parent="HUD/fallen/Control"]
 scale = Vector2( 2, 1.5 )

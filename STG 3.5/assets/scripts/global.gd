@@ -95,11 +95,10 @@ func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
+
+	
 	
 func _physics_process(delta):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), musicvolume)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), sfxvolume)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), mastervolume)
 	#OS.window_size.x = lerp(OS.window_size.x, windowsize.x, 5 * delta)
 	#OS.window_size.y = lerp(OS.window_size.y, windowsize.y, 5 * delta)
 	var time = global.leveltime
@@ -160,6 +159,14 @@ func combocheck():
 		if combo > highestcombo:
 			highestcombo = combo
 		previouscombo = combo
+		
+func randi_range(from, to):
+	if from > to:
+		var old_from = from
+		from = to
+		to = old_from
+	randomize()
+	return int(floor(rand_range(from , to + 1)))
 
 
 func _on_Timer_timeout():

@@ -393,7 +393,8 @@ func _on_enemych_body_entered(body):
 	if body is Baddie:
 		var thing = velocity.normalized()
 		if global.hit_offset:
-			position.x -= thing.x * 35
+			if !body.state == body.states.stun:
+				position.x -= thing.x * 35
 		#hitwall.play()
 	
 func respawn():
@@ -720,3 +721,23 @@ func punchsound():
 	roomhandle.currentscene.add_child(ghost)
 	ghost.position = self.position
 	ghost.dosound = true
+	
+func voicenegative():
+	var rng = global.randi_range(1,3)
+	match(rng):
+		1:
+			$n1.play()
+		2:
+			$n2.play()
+		3:
+			$n2.play()
+			
+func voicepositive():
+	var rng = global.randi_range(1,3)
+	match(rng):
+		1:
+			$p1.play()
+		2:
+			$p2.play()
+		3:
+			$p2.play()

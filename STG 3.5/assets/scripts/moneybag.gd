@@ -68,6 +68,9 @@ func collect():
 	global.collectablesroom.append(global.targetRoom2 + name)
 	global.moneybag = true
 	global.playsound(self.position, "res://assets/sound/sfx/sfx_money.wav")
+	var rng = global.randi_range(1,3)
+	if rng == 3:
+		player.voicepositive()
 	queue_free()
 	
 

@@ -47,4 +47,7 @@ func _on_greenkey_area_entered(area):
 		queue_free()
 		global.playsmall()
 		createkeyfollow()
+		var rng = global.randi_range(1,3)
+		if rng == 3:
+			objplayer.voicepositive()
 	pass # Replace with function body.

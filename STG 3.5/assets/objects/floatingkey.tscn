@@ -26,6 +26,7 @@ animations = [ {
 } ]
 
 [node name="floatingkey" type="Node2D"]
+pause_mode = 1
 z_index = 2
 script = ExtResource( 16 )
 
@@ -33,5 +34,5 @@ script = ExtResource( 16 )
 scale = Vector2( 0.56, 0.56 )
 frames = SubResource( 1 )
 animation = "key"
-frame = 1
+frame = 8
 playing = true

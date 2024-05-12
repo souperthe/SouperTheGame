@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://import/negative2.wav-c622e2e18a75fc6361eda4a7db84a1af.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/negative2.wav"
+dest_files=[ "res://import/negative2.wav-c622e2e18a75fc6361eda4a7db84a1af.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=11025.0
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=10000
+compress/mode=1

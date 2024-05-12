@@ -268,9 +268,9 @@ func _process(_delta):
 					sound_selection = 2
 				pointer2.visible = !soundselected
 				pointer2.position.y = $Sound/sfxprogess.rect_position.y - 390
-				$Sound/sfxprogess.value = global.sfxvolume * 2
-				$Sound/masterprogress.value = global.mastervolume * 2
-				$Sound/musicprogress.value = global.musicvolume * 2
+				$Sound/sfxprogess.value = global.sfxvolume * 2.5
+				$Sound/masterprogress.value = global.mastervolume * 2.5
+				$Sound/musicprogress.value = global.musicvolume * 2.5
 				match(sound_selection):
 					0:
 						pointer2.position.x = $Sound/sfxprogess.rect_position.x + offset
@@ -282,7 +282,7 @@ func _process(_delta):
 				if Inputs.just_key_jump:
 					soundselected = true
 					$sillysfx.sound()
-				var changeamount = 0.5
+				var changeamount = 0.1
 				if soundselected:
 					match(sound_selection):
 						0:

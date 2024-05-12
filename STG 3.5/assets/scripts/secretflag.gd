@@ -37,5 +37,8 @@ func _process(delta):
 			$AnimatedSprite.play("found")
 			$yay.play()
 			$yay.pitch_scale = $yay.pitch_scale + a
+			var rng = global.randi_range(1,3)
+			if rng == 3:
+				objplayer.voicepositive()
 			#OS.alert(str(a), "yea")
 	pass
