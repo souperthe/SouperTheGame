@@ -727,17 +727,29 @@ func voicenegative():
 	match(rng):
 		1:
 			$n1.play()
+			$n2.stop()
+			$n3.stop()
 		2:
 			$n2.play()
+			$n1.stop()
+			$n3.stop()
 		3:
-			$n2.play()
+			$n3.play()
+			$n1.stop()
+			$n2.stop()
 			
 func voicepositive():
 	var rng = global.randi_range(1,3)
 	match(rng):
 		1:
 			$p1.play()
+			$p2.stop()
+			$p3.stop()
 		2:
 			$p2.play()
+			$p1.stop()
+			$p3.stop()
 		3:
-			$p2.play()
+			$p3.play()
+			$p1.stop()
+			$p2.stop()

@@ -239,7 +239,7 @@ position = Vector2( 3168, 160 )
 scale = Vector2( 1, 2.5 )
 
 [node name="secretflag" parent="." instance=ExtResource( 21 )]
-position = Vector2( 3328, 96 )
+position = Vector2( 6144, 32 )
 
 [node name="collide-slope25" parent="." instance=ExtResource( 20 )]
 position = Vector2( -33664, 96 )
@@ -291,28 +291,28 @@ position = Vector2( 512, 0 )
 position = Vector2( 1216, 128 )
 
 [node name="secretflag2" parent="." instance=ExtResource( 21 )]
-position = Vector2( 3424, 96 )
+position = Vector2( 6240, 32 )
 
 [node name="secretflag3" parent="." instance=ExtResource( 21 )]
-position = Vector2( 3520, 96 )
+position = Vector2( 6336, 32 )
 
 [node name="secretflag4" parent="." instance=ExtResource( 21 )]
-position = Vector2( 3616, 96 )
+position = Vector2( 6432, 32 )
 
 [node name="secretflag5" parent="." instance=ExtResource( 21 )]
-position = Vector2( 3712, 96 )
+position = Vector2( 6528, 32 )
 
 [node name="secretflag6" parent="." instance=ExtResource( 21 )]
-position = Vector2( 3808, 96 )
+position = Vector2( 6624, 32 )
 
 [node name="secretflag7" parent="." instance=ExtResource( 21 )]
-position = Vector2( 3904, 96 )
+position = Vector2( 6720, 32 )
 
 [node name="secretflag8" parent="." instance=ExtResource( 21 )]
-position = Vector2( 4000, 96 )
+position = Vector2( 6816, 32 )
 
 [node name="secretflag9" parent="." instance=ExtResource( 21 )]
-position = Vector2( 4096, 96 )
+position = Vector2( 6912, 32 )
 
 [node name="collide11" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2560, 96 )
@@ -338,7 +338,7 @@ stream = SubResource( 2 )
 
 [node name="collide12" parent="." instance=ExtResource( 3 )]
 position = Vector2( 4576, 32 )
-scale = Vector2( 20, 1 )
+scale = Vector2( 200, 1 )
 
 [node name="test4" type="Sprite" parent="."]
 position = Vector2( 5380, -4 )
@@ -389,3 +389,141 @@ position = Vector2( -288, -384 )
 
 [node name="key9" parent="." instance=ExtResource( 31 )]
 position = Vector2( -256, -384 )
+
+[node name="secretflag10" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7008, 32 )
+
+[node name="secretflag11" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7104, 32 )
+
+[node name="secretflag12" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7200, 32 )
+
+[node name="secretflag13" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7296, 32 )
+
+[node name="secretflag14" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7392, 32 )
+
+[node name="secretflag15" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7488, 32 )
+
+[node name="secretflag16" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7584, 32 )
+
+[node name="secretflag17" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7680, 32 )
+
+[node name="secretflag18" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7776, 32 )
+
+[node name="secretflag19" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7872, 32 )
+
+[node name="secretflag20" parent="." instance=ExtResource( 21 )]
+position = Vector2( 7968, 32 )
+
+[node name="secretflag21" parent="." instance=ExtResource( 21 )]
+position = Vector2( 8064, 32 )
+
+[node name="secretflag22" parent="." instance=ExtResource( 21 )]
+position = Vector2( 8160, 32 )
+
+[node name="secretflag23" parent="." instance=ExtResource( 21 )]
+position = Vector2( 8256, 32 )
+
+[node name="secretflag24" parent="." instance=ExtResource( 21 )]
+position = Vector2( 8352, 32 )
+
+[node name="secretflag25" parent="." instance=ExtResource( 21 )]
+position = Vector2( 8448, 32 )
+
+[node name="secretflag26" parent="." instance=ExtResource( 21 )]
+position = Vector2( 8544, 32 )
+
+[node name="secretflag27" parent="." instance=ExtResource( 21 )]
+position = Vector2( 8640, 32 )
+
+[node name="secretflag28" parent="." instance=ExtResource( 21 )]
+position = Vector2( 8736, 32 )
+
+[node name="secretflag29" parent="." instance=ExtResource( 21 )]
+position = Vector2( 8832, 32 )
+
+[node name="secretflag30" parent="." instance=ExtResource( 21 )]
+position = Vector2( 8928, 32 )
+
+[node name="secretflag31" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9024, 32 )
+
+[node name="secretflag32" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9120, 32 )
+
+[node name="secretflag33" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9216, 32 )
+
+[node name="secretflag34" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9312, 32 )
+
+[node name="secretflag35" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9408, 32 )
+
+[node name="secretflag36" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9504, 32 )
+
+[node name="secretflag37" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9600, 32 )
+
+[node name="secretflag38" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9696, 32 )
+
+[node name="secretflag39" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9792, 32 )
+
+[node name="secretflag40" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9888, 32 )
+
+[node name="secretflag41" parent="." instance=ExtResource( 21 )]
+position = Vector2( 9984, 32 )
+
+[node name="secretflag42" parent="." instance=ExtResource( 21 )]
+position = Vector2( 10080, 32 )
+
+[node name="secretflag43" parent="." instance=ExtResource( 21 )]
+position = Vector2( 10176, 32 )
+
+[node name="secretflag44" parent="." instance=ExtResource( 21 )]
+position = Vector2( 10272, 32 )
+
+[node name="secretflag45" parent="." instance=ExtResource( 21 )]
+position = Vector2( 10368, 32 )
+
+[node name="secretflag46" parent="." instance=ExtResource( 21 )]
+position = Vector2( 10464, 32 )
+
+[node name="secretflag47" parent="." instance=ExtResource( 21 )]
+position = Vector2( 10560, 32 )
+
+[node name="secretflag48" parent="." instance=ExtResource( 21 )]
+position = Vector2( 10656, 32 )
+
+[node name="secretflag49" parent="." instance=ExtResource( 21 )]
+position = Vector2( 10752, 32 )
+
+[node name="secretflag50" parent="." instance=ExtResource( 21 )]
+position = Vector2( 10848, 32 )
+
+[node name="secretflag51" parent="." instance=ExtResource( 21 )]
+position = Vector2( 10944, 32 )
+
+[node name="secretflag52" parent="." instance=ExtResource( 21 )]
+position = Vector2( 11040, 32 )
+
+[node name="secretflag53" parent="." instance=ExtResource( 21 )]
+position = Vector2( 11136, 32 )
+
+[node name="secretflag54" parent="." instance=ExtResource( 21 )]
+position = Vector2( 11232, 32 )
+
+[node name="collide14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 4608, -32 )

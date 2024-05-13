@@ -10,8 +10,8 @@ onready var animation_player:AnimatedSprite = get_node(_animation_player)
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
 	player.animation2.play("startmach3")
-	if !player.currentstate == ("assburned"):
-		player.voicenegative()
+	#if !player.currentstate == ("assburned"):
+	player.voicenegative()
 	player.attackbox.disabled = false
 	player.eattackbox.disabled = false
 	var jumpheight = 670 * 2
