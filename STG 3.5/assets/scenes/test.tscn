@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/objects/misc/collosion_loopart1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/exitgate.tscn" type="PackedScene" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://assets/objects/lapportal.tscn" type="PackedScene" id=29]
 [ext_resource path="res://assets/objects/enemys/smartertesticle.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/objects/key.tscn" type="PackedScene" id=31]
+[ext_resource path="res://assets/objects/treasure.tscn" type="PackedScene" id=32]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 54.0093
@@ -288,7 +289,7 @@ targetscene = "res://assets/scenes/testA.tscn"
 position = Vector2( 512, 0 )
 
 [node name="moneybag" parent="." instance=ExtResource( 27 )]
-position = Vector2( 1216, 128 )
+position = Vector2( 3328, 0 )
 
 [node name="secretflag2" parent="." instance=ExtResource( 21 )]
 position = Vector2( 6240, 32 )
@@ -527,3 +528,7 @@ position = Vector2( 11232, 32 )
 
 [node name="collide14" parent="." instance=ExtResource( 3 )]
 position = Vector2( 4608, -32 )
+
+[node name="treasure" parent="." instance=ExtResource( 32 )]
+position = Vector2( 3456, 0 )
+treasuresprite = "res://assets/sprites/placeholder treasure.png"
