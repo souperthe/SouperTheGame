@@ -226,9 +226,11 @@ func _physics_process(_delta):
 			$HUD/HUD.visible = false
 			velocity.x = 0
 			velocity.y = 0
-		if !roomhandle.currentscene.name == "menu" and !roomhandle.currentscene.name == ("rankroom"):
+		if !roomhandle.currentscene.name == "menu" and !roomhandle.currentscene.name == ("rankroom") and !roomhandle.currentscene.name == ("gameover"):
 			$HUD/HUD.visible = true
 		if roomhandle.currentscene.name == "rankroom":
+			$HUD/HUD.visible = false
+		if roomhandle.currentscene.name == "gameover":
 			$HUD/HUD.visible = false
 	iscrouching = currentstate == "crouch" or currentstate == "crouchair" or currentstate == "crouchsliding"
 	if iscrouching:

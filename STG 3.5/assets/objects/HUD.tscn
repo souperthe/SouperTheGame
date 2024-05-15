@@ -812,7 +812,7 @@ position = Vector2( -75, 430 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 9
+frame = 4
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -837,6 +837,7 @@ position = Vector2( -28, 430 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
+frame = 10
 playing = true
 
 [node name="HonestReaction" type="Control" parent="HUD/standard"]
@@ -871,7 +872,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 40
+frame = 10
 playing = true
 offset = Vector2( 497, -410 )
 

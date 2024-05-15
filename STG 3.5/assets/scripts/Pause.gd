@@ -12,9 +12,9 @@ func _ready():
 	show.position.x = -138
 	get_tree().paused = false
 func _process(_delta):
-	if roomhandle.currentscene.name == "menu" and roomhandle.currentscene.name == "rankroom":
-		pass
-	if !roomhandle.currentscene.name == "menu" and !roomhandle.currentscene.name == "rankroom":
+	#if roomhandle.currentscene.name == "menu" and roomhandle.currentscene.name == "rankroom":
+	#	pass
+	if !roomhandle.currentscene.name == "menu" and !roomhandle.currentscene.name == "rankroom" and !roomhandle.currentscene.name == "gameover":
 		if enabled:
 			menu()
 	#print(selection)

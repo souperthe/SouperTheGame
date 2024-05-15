@@ -50,6 +50,8 @@ func hurteffect():
 	ghost.amount = 500
 	
 func _physics_process(delta):
+	if roomhandle.currentscene.name == "gameover":
+		queue_free()
 	if global.escapeexited == true:
 		kill()
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -182,6 +184,7 @@ func _on_attackdetect_body_entered(body):
 		hurteffect()
 		$AnimationPlayer.play("flash")
 		global.addcombo()
+		#queue_free()
 		$Funnyboulder.modulate.a8 = 0
 	pass # Replace with function body.
 

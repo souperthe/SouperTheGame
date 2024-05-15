@@ -47,8 +47,8 @@ func _process(_delta):
 		$holder/shakey/time2.bbcode_text = str("[center][shake rate=50.0 level=9 connected=0]", timet, "[/shake][/center]")
 	if global.panicdone:
 		global.camerarotamount = lerp(global.camerarotamount, 6, 0.2 * _delta)
-		if !penis and !is_instance_valid(presobjs.get_node("evilguy")):
-			presobjs.createtod()
+		if !penis:
+			global.room_goto("res://assets/scenes/gameover.tscn", "door1")
 			penis = true
 	if global.panic == true and not idk:
 		global.panicdone = false
