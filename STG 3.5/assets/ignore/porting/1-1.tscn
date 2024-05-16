@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/ignore/porting/clouds_sea.png" type="Texture" id=1]
 [ext_resource path="res://assets/ignore/porting/PipesFoliage.tres" type="TileSet" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://assets/ignore/porting/Pipe.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/objects/enemys/testicle.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/objects/escapephone.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/objects/experttodblocks.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/scripts/pipes.gd" type="Script" id=15]
 
 [node name="mario" type="Node2D"]
 
@@ -431,31 +433,14 @@ scale = Vector2( 215, 1 )
 
 [node name="escapephone" parent="." instance=ExtResource( 13 )]
 position = Vector2( 13056, 896 )
+escapetime = 30
 
 [node name="Section1" type="Node2D" parent="."]
 
 [node name="Pipes" type="Node2D" parent="Section1"]
 
-[node name="Pipe1" parent="Section1/Pipes" instance=ExtResource( 11 )]
-position = Vector2( 1856, 832 )
-
-[node name="Pipe2" parent="Section1/Pipes" instance=ExtResource( 11 )]
-position = Vector2( 2496, 768 )
-
-[node name="Pipe3" parent="Section1/Pipes" instance=ExtResource( 11 )]
-position = Vector2( 3008, 704 )
-
-[node name="Pipe4" parent="Section1/Pipes" instance=ExtResource( 11 )]
-position = Vector2( 3712, 704 )
-
 [node name="Section4" type="Node2D" parent="."]
 position = Vector2( 10176, 832 )
-
-[node name="Pipe" parent="Section4" instance=ExtResource( 11 )]
-position = Vector2( 256, 0 )
-
-[node name="Pipe2" parent="Section4" instance=ExtResource( 11 )]
-position = Vector2( 1280, 0 )
 
 [node name="secretblock89" parent="." instance=ExtResource( 6 )]
 position = Vector2( 7680, 384 )
@@ -629,30 +614,6 @@ scale = Vector2( 2, 2 )
 position = Vector2( 1024, 640 )
 scale = Vector2( 2, 2 )
 
-[node name="collide8" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1792, 768 )
-scale = Vector2( 2, 2 )
-
-[node name="collide9" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2432, 704 )
-scale = Vector2( 2, 3 )
-
-[node name="collide10" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2944, 640 )
-scale = Vector2( 2, 4 )
-
-[node name="collide11" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3648, 640 )
-scale = Vector2( 2, 4 )
-
-[node name="collide12" parent="." instance=ExtResource( 4 )]
-position = Vector2( 10368, 768 )
-scale = Vector2( 2, 2 )
-
-[node name="collide13" parent="." instance=ExtResource( 4 )]
-position = Vector2( 11392, 768 )
-scale = Vector2( 2, 2 )
-
 [node name="Enemy" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1408, 864 )
 
@@ -710,3 +671,60 @@ texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 192, 64, 64, 64 )
+
+[node name="pipes" type="Node2D" parent="."]
+script = ExtResource( 15 )
+
+[node name="collide8" parent="pipes" instance=ExtResource( 4 )]
+position = Vector2( 1792, 768 )
+scale = Vector2( 2, 2 )
+
+[node name="collide9" parent="pipes" instance=ExtResource( 4 )]
+position = Vector2( 2432, 704 )
+scale = Vector2( 2, 3 )
+
+[node name="collide10" parent="pipes" instance=ExtResource( 4 )]
+position = Vector2( 2944, 640 )
+scale = Vector2( 2, 4 )
+
+[node name="collide11" parent="pipes" instance=ExtResource( 4 )]
+position = Vector2( 3648, 640 )
+scale = Vector2( 2, 4 )
+
+[node name="collide12" parent="pipes" instance=ExtResource( 4 )]
+position = Vector2( 10368, 768 )
+scale = Vector2( 2, 2 )
+
+[node name="collide13" parent="pipes" instance=ExtResource( 4 )]
+position = Vector2( 11392, 768 )
+scale = Vector2( 2, 2 )
+
+[node name="Pipe1" parent="pipes" instance=ExtResource( 11 )]
+position = Vector2( 1856, 832 )
+
+[node name="Pipe2" parent="pipes" instance=ExtResource( 11 )]
+position = Vector2( 2496, 768 )
+
+[node name="Pipe3" parent="pipes" instance=ExtResource( 11 )]
+position = Vector2( 3008, 704 )
+
+[node name="Pipe4" parent="pipes" instance=ExtResource( 11 )]
+position = Vector2( 3712, 704 )
+
+[node name="Pipe" parent="pipes" instance=ExtResource( 11 )]
+position = Vector2( 10432, 832 )
+
+[node name="Pipe5" parent="pipes" instance=ExtResource( 11 )]
+position = Vector2( 11456, 832 )
+
+[node name="todblock" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4416, 896 )
+scale = Vector2( 4, 1 )
+
+[node name="todblock2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5504, 896 )
+scale = Vector2( 6, 1 )
+
+[node name="todblock3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 9728, 896 )
+scale = Vector2( 4, 1 )

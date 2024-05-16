@@ -129,6 +129,9 @@ func _on_detect_body_entered(body):
 		if $Funnyboulder.modulate.a8 == 255:
 			#body.hurtplayer()
 			body.changestate("bossdead")
+			var rng = global.randi_range(1,3)
+			if rng == 3:
+				body.voicenegative()
 			#if global.oldtodmode:
 				#body.sfxburnscream.play()
 			global.cutscene = true
