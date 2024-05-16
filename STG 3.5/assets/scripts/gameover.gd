@@ -8,6 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	objplayer.reset()
 	music.stopmusic()
 	$AnimationPlayer.play("gameover")
 	objplayer.animator.play("caught")
@@ -15,6 +16,7 @@ func _ready():
 	objplayer.disabletitlt = true
 	objplayer.cutscene()
 	global.panic = false
+	global.camerazoom = 1
 	#global.camera.shake(3,3)
 	pass # Replace with function body.
 
@@ -26,6 +28,11 @@ func _ready():
 
 func effects():
 	objplayer.animator.play("nothing")
+	global.greenkey = false
+	objplayer.haskey = false
+	var rng = global.randi_range(1,2)
+	if rng == 2:
+		objplayer.voicenegative()
 	deadgun()
 	
 	

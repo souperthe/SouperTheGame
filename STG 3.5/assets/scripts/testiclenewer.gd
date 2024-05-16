@@ -12,9 +12,9 @@ extends Baddie
 func _ready():
 	health = 1
 	deadsprite = "res://assets/sprites/enemys/testicle/testicle0003.png"
-	if global.hardmode:
-		health = 4
-		maxhealth = health
+	#if global.hardmode:
+		#health = 4
+		#maxhealth = health
 	pass # Replace with function body.
 
 
