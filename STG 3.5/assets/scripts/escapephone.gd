@@ -128,7 +128,7 @@ func cutscene2nowait():
 	if !global.hardmode:
 		global.fill.wait_time = escapetime
 	if global.hardmode:
-		global.fill.wait_time = escapetime / 2
+		global.fill.wait_time = escapetime / 4
 	zoomin = false
 	global.cutscene = false
 	player.hardtumble()

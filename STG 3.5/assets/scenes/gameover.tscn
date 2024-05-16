@@ -185,7 +185,6 @@ anchor_bottom = 1.0
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/gameover = SubResource( 1 )
@@ -197,16 +196,18 @@ bus = "SFX"
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 0, 0, 1 )
 
 [node name="Gameover1" type="Sprite" parent="."]
+visible = false
 position = Vector2( 496, 206 )
 texture = ExtResource( 7 )
 
 [node name="Gameover2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 490, 366 )
 texture = ExtResource( 6 )
 
