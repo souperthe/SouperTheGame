@@ -39,7 +39,7 @@ func physics_update(delta: float) -> void:
 			state_machine.transition_to("upperkick")
 	if !player.is_on_floor() and Inputs.just_key_down:
 		state_machine.transition_to("diving")
-	if player.is_on_wall():
+	if player.walled:
 		if player.playercharacter == "SM":
 			state_machine.transition_to("grapple")
 		if player.playercharacter == "S":

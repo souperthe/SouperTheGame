@@ -14,7 +14,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func dosound():
+func adosound():
 	if random == 6:
 		$hurt6.play()
 	if random == 5:
@@ -36,6 +36,6 @@ func _process(_delta):
 	random = my_random_number2
 	if dosound:
 		if !a:
-			dosound()
+			adosound()
 			a = true
 #	pass

@@ -4,6 +4,8 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var dead
+var yes = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,8 +24,42 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func _process(_delta):
+	if dead:
+		if dead.position.y > 540 + 32:
+			if !yes:
+				yes = true
+				#global.playsmallnew()
+				global.playsound(dead.position, "res://assets/sound/sfx/sfx_fallzoneland.wav")
+				objplayer.cutvoices()
+				hurteffect(dead.position)
+				hurteffect(dead.position)
+				hurteffect(dead.position)
+				bangeffect(dead.position)
+				punchsound(dead.position)
+				dead = null
 #	pass
+
+func hurteffect(pos):
+	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position = pos
+	ghost.amount = 1000
+	
+func punchsound(pos):
+	var whiteflash = preload("res://assets/objects/punchsoumddelete.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position = pos
+	ghost.dosound = true
+	
+func bangeffect(pos):
+	var whiteflash = preload("res://assets/objects/bangeffect.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = pos.x
+	ghost.position.y = pos.y - 15
 
 
 func effects():
@@ -44,12 +80,13 @@ func deadgun():
 	ghost.position.y = objplayer.position.y
 	ghost.velocity.y = -700
 	ghost.velocity.x = rand_range(-360,360)
-	ghost.spinamount = rand_range(-200,200)
+	ghost.spinamount = rand_range(-800,800)
 	ghost.sprite.rotation_degrees = rand_range(-360,360)
 	randomize()
 	ghost.sprite.texture = load("res://assets/sprites/player_souper/souperanim_0069.png")
 	ghost.sprite.scale.x = 0.56
 	ghost.sprite.scale.y = 0.56
+	dead = ghost
 	
 func returntotitle():
 	global.room_goto("res://assets/scenes/newTitle.tscn", "door1")

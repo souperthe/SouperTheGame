@@ -1,6 +1,5 @@
-[gd_scene load_steps=146 format=2]
+[gd_scene load_steps=144 format=2]
 
-[ext_resource path="res://assets/tres_files/legacysouper_anims.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_fall.gd" type="Script" id=3]
 [ext_resource path="res://assets/sound/sfx/sfx_fp_fall.wav" type="AudioStream" id=4]
@@ -313,27 +312,6 @@ audio_stream = ExtResource( 39 )
 audio_stream = ExtResource( 47 )
 random_pitch = 1.05
 
-[sub_resource type="Shader" id=42]
-code = "shader_type canvas_item;
-
-uniform vec4 flash_color : hint_color = vec4(1.0);
-uniform float flash_modifier : hint_range(0.0, 1.0) = 0.0;
-
-
-
-
-void fragment() {
-	vec4 color = texture(TEXTURE, UV);
-	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifier);
-	COLOR = color;
-	
-}"
-
-[sub_resource type="ShaderMaterial" id=22]
-shader = SubResource( 42 )
-shader_param/flash_color = Color( 1, 1, 1, 1 )
-shader_param/flash_modifier = 1.0
-
 [sub_resource type="AudioStreamRandomPitch" id=43]
 audio_stream = ExtResource( 63 )
 random_pitch = 1.05
@@ -379,6 +357,9 @@ audio_stream = ExtResource( 87 )
 
 [sub_resource type="AudioStreamRandomPitch" id=69]
 audio_stream = ExtResource( 86 )
+
+[sub_resource type="RectangleShape2D" id=70]
+extents = Vector2( 6, 1 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 material = SubResource( 45 )
@@ -882,13 +863,6 @@ script = ExtResource( 30 )
 [node name="hurtimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -4, 14 )
-scale = Vector2( 0.56, 0.56 )
-shape = SubResource( 4 )
-disabled = true
-
 [node name="swing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 134 )
 volume_db = -5.243
@@ -1126,15 +1100,6 @@ stream = ExtResource( 52 )
 volume_db = -6.0
 bus = "SFX"
 
-[node name="animation2" type="AnimatedSprite" parent="."]
-visible = false
-material = SubResource( 22 )
-scale = Vector2( 0.255, 0.255 )
-frames = ExtResource( 1 )
-animation = "idle"
-frame = 19
-playing = true
-
 [node name="gunfire" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 43 )
 volume_db = -1.676
@@ -1234,6 +1199,12 @@ bus = "SFX"
 stream = SubResource( 69 )
 bus = "SFX"
 
+[node name="walled" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walled"]
+position = Vector2( 14, 20 )
+shape = SubResource( 70 )
+
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]
 [connection signal="body_exited" from="ladderchecker" to="." method="_on_ladderchecker_body_exited"]
 [connection signal="timeout" from="dashtimer" to="StateMachine/MachPrep" method="_on_dashtimer_timeout"]
@@ -1250,3 +1221,7 @@ bus = "SFX"
 [connection signal="timeout" from="fallzonetimer" to="." method="_on_fallzone_timer_timeout"]
 [connection signal="timeout" from="bossdeadtimer" to="." method="_on_bossdeadtimer_timeout"]
 [connection signal="timeout" from="trailtimer" to="." method="_on_trailtimer_timeout"]
+[connection signal="area_entered" from="walled" to="." method="_on_walled_area_entered"]
+[connection signal="area_exited" from="walled" to="." method="_on_walled_area_exited"]
+[connection signal="body_entered" from="walled" to="." method="_on_walled_body_entered"]
+[connection signal="body_exited" from="walled" to="." method="_on_walled_body_exited"]

@@ -15,7 +15,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	$enemyhealth/pivot.position.y = anchorY + sin(timer*frequency)*15
 	#$enemyhealth/pivot.scale.y = 1 + (sin(timer*frequency)*15 / 45)
 	timer += 0.5

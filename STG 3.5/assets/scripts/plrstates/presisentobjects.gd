@@ -30,7 +30,7 @@ func killtod():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), global.musicvolume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), global.sfxvolume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), global.mastervolume)

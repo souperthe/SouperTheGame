@@ -113,6 +113,7 @@ onready var sfxslip = $slipping2
 var penisman = false
 var canpenis = true
 var numdirection = 1
+var walled = false
 
 
 onready var playerthing = $playernotice
@@ -173,6 +174,10 @@ func _ready():
 
 func _physics_process(_delta):
 	$HUD.visible = global.settingshowhud
+	if $animation.flip_h == false:
+		$walled.scale.x = 1
+	if $animation.flip_h == true:
+		$walled.scale.x = -1
 	#global.playsound(position, "res://assets/sound/sfx/sfx_bananapeel.wav")
 	$mach3part.emitting = currentstate == "Mach3" and is_on_floor()
 	$hurtbox/hurtblock.canhurt = currentstate == "Attack" or currentstate == "tumble"
@@ -755,3 +760,33 @@ func voicepositive():
 			$p3.play()
 			$p1.stop()
 			$p2.stop()
+			
+func cutvoices():
+	$p1.stop()
+	$p2.stop()
+	$p3.stop()
+	$n1.stop()
+	$n2.stop()
+	$n3.stop()
+
+
+func _on_walled_area_entered(_area):
+	#walled = true
+	pass # Replace with function body.
+
+
+func _on_walled_area_exited(_area):
+	#walled = false
+	pass # Replace with function body.
+
+
+func _on_walled_body_entered(body):
+	if body is Collision:
+		walled = true
+	pass # Replace with function body.
+
+
+func _on_walled_body_exited(body):
+	if body is Collision:
+		walled = false
+	pass # Replace with function body.

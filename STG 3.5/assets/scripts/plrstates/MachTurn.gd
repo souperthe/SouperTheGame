@@ -35,10 +35,11 @@ func physics_update(delta: float) -> void:
 	if player.animatonframes > 3:
 		if pressing:
 			if player.is_on_floor():
-				state_machine.transition_to("Mach2", {do_turn = true})
 				if !turned:
 					player.get_input_direction()
 					turned = true
+					player.walled = false
+				state_machine.transition_to("Mach2", {do_turn = true})
 		if !pressing:
 			if player.is_on_floor():
 				state_machine.transition_to("Idle")

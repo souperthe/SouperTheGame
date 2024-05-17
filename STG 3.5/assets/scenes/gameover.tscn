@@ -98,9 +98,9 @@ tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 4.5, 4.8 ),
-"transitions": PoolRealArray( 0.3, 1 ),
+"transitions": PoolRealArray( 0.2163, 1 ),
 "update": 0,
-"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 3, 3 ), Vector2( 1, 1 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("Gameover2:scale")
@@ -110,9 +110,9 @@ tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
 "times": PoolRealArray( 5.2, 5.5 ),
-"transitions": PoolRealArray( 0.3, 1 ),
+"transitions": PoolRealArray( 0.2163, 1 ),
 "update": 0,
-"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 3, 3 ), Vector2( 1, 1 ) ]
 }
 tracks/8/type = "method"
 tracks/8/path = NodePath("sillysfx")
@@ -185,6 +185,7 @@ anchor_bottom = 1.0
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/gameover = SubResource( 1 )
@@ -196,18 +197,16 @@ bus = "SFX"
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 0.657412, 0.657412, 0.657412, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 0, 0, 1 )
 
 [node name="Gameover1" type="Sprite" parent="."]
-visible = false
 position = Vector2( 496, 206 )
 texture = ExtResource( 7 )
 
 [node name="Gameover2" type="Sprite" parent="."]
-visible = false
 position = Vector2( 490, 366 )
 texture = ExtResource( 6 )
 

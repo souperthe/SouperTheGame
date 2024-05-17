@@ -21,8 +21,8 @@ func _process(_delta):
 	if global.oldtodmode:
 		deletetile()
 		queue_free()
-	if is_instance_valid($sprite):
-		$sprite.visible = global.showcolloisions
+	#if is_instance_valid($sprite):
+	$sprite.visible = global.showcolloisions
 		
 func deletetile():
 	var position1 = position
@@ -45,7 +45,7 @@ func destory():
 	hitpart()
 	deadsound()
 	deletetile()
-	$sprite.queue_free()
+	$sprite.modulate.a8 = 0
 	global.othersroom.append(global.targetRoom2 + name)
 	var t = Timer.new()
 	t.set_wait_time(4)
