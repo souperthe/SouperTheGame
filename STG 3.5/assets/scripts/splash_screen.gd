@@ -12,8 +12,9 @@ func _ready():
 	$RichTextLabel.visible = false
 	$yay.stop()
 	$RichTextLabel2.visible = false
+	$Sdelogo.visible = false
 	yield(get_tree().create_timer(1.0), "timeout")
-	$anim.play("startnew")
+	$anim.play("startnewnew")
 	
 	
 func gototitle():

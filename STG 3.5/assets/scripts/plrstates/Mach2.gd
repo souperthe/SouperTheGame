@@ -82,6 +82,8 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("bumpwall")
 		#player.hitwall.play()
 		player.mach3.stop()
+	#if player.is_on_wall():
+		#player.walled = true
 	if player.is_on_floor() and Inputs.just_key_up:
 		state_machine.transition_to("sjump_prep")
 		player.mach3.stop()
