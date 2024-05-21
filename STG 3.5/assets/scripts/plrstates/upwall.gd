@@ -6,16 +6,18 @@ onready var animation_player:AnimatedSprite = get_node(_animation_player)
 # var a = 2
 # var b = "text"
 var realvelocity
+var used = 1
 
 
 # Called when the node enters the scene tree for the first time.
 func enter(_msg := {}) -> void:
-	player.velocity.y = -player.jump_impulse * 2
+	player.velocity.y = used * -player.jump_impulse * 2
 	animation_player.play("spinjump")
 	if !player.face:
-		player.velocity.x = 335 * 2
-	if player.face:
 		player.velocity.x = -335 * 2
+	if player.face:
+		player.velocity.x = 335 * 2
+	used -= 0.2
 	#animation_player.flip_h = !animation_player.flip_h
 	#player.face = !player.face
 	player.doflash()
@@ -24,18 +26,21 @@ func enter(_msg := {}) -> void:
 
 func physics_update(delta: float) -> void:
 	realvelocity = player.velocity / 60
-	player.get_input_direction()
+	#player.get_input_direction()
 	player.trail()
 	if Inputs.key_down:
 		 player.velocity.y += player.gravity * delta * 4
 	if !Inputs.key_down:
 		 player.velocity.y += player.gravity * delta
-	walk()
+	var move = -int(Inputs.key_left) - -int(Inputs.key_right)
+	player.velocity.x = lerp(player.velocity.x, move * 8 * 60, 5 * delta)
+	#walk()
 	if Inputs.just_key_attack:
 		player.get_input_direction()
-		if Inputs.key_down:
+		if Inputs.key_up:
 			state_machine.transition_to("upperkick")
-		if !Inputs.key_down:
+			player.velocity.y += -4 * 60
+		if !Inputs.key_up:
 			state_machine.transition_to("tumble")
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP, true)
 	player.mmachbox.disabled = realvelocity.y > 30
@@ -49,7 +54,9 @@ func physics_update(delta: float) -> void:
 				state_machine.transition_to("Mach2")
 			player.get_input_direction()
 			player.sfxfoot.play()
+			used = 1
 		if !Inputs.key_dash:
+			used = 1
 			player.sfxfoot.play()
 			if realvelocity.y < 30:
 				if is_zero_approx(player.get_input_direction()):
@@ -69,11 +76,5 @@ func physics_update(delta: float) -> void:
 				player.emachbox.disabled = true
 	pass
 	
-func walk():
-	var amount = 0.2
-	if Inputs.key_left:
-		player.velocity.x = lerp(player.velocity.x , -player.attack_impulse, amount)
-	if Inputs.key_right:
-		player.velocity.x = lerp(player.velocity.x , player.attack_impulse, amount)
-	if !Inputs.key_left and Inputs.key_right:
-		player.velocity.x = lerp(player.velocity.x , 0, amount)
+#func walk():
+	#var amount = 0.

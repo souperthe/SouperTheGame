@@ -29,6 +29,10 @@ func enter(_msg := {}) -> void:
 		player.velocity.x = -player.speedrun2
 	if player.playercharacter == "SM":
 		player.velocity.y = -player.jump_impulse
+		if !player.face:
+			player.velocity.x = -player.speedrun2
+		if player.face:
+			player.velocity.x = player.speedrun2
 		state_machine.transition_to("upwall")
 	
 func physics_update(delta: float) -> void:
