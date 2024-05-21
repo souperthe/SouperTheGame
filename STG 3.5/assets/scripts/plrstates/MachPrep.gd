@@ -22,11 +22,11 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	if player.cango and sound_has_played:
 		if !Inputs.key_dash:
-			state_machine.transition_to("Mach2")
+			state_machine.transition_to("Mach3")
 			#state_machine.transition_to("Mach3")
 	else:
 		if !Inputs.key_dash:
-			state_machine.transition_to("MachTurn")
+			state_machine.transition_to("Mach2")
 			#state_machine.transition_to("Mach2")
 			
 		

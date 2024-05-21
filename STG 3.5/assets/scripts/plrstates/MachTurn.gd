@@ -36,7 +36,9 @@ func physics_update(delta: float) -> void:
 		if pressing:
 			if player.is_on_floor():
 				if !turned:
-					player.get_input_direction()
+					#player.get_input_direction()
+					player.face = !player.face
+					animation_player.flip_h = !animation_player.flip_h
 					turned = true
 					player.walled = false
 				state_machine.transition_to("Mach2", {do_turn = true})
