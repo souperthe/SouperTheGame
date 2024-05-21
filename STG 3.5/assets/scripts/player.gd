@@ -531,7 +531,8 @@ func _on_hurtblockdetect_body_entered(_body):
 	#var thing = _body.position.x < position.x
 	#animator.flip_h = thing
 	#face = thing
-	hurtplayer()
+	if !_body.forenemy:
+		hurtplayer()
 	
 	
 func scaryname():
@@ -663,6 +664,7 @@ func dofall():
 	goofysound()
 	$HUD/HUD/fallen.dothing()
 	$HUD/HUD/fallen/Control/ouch.play()
+	voicenegative()
 	#global.makeflash()
 	$HUD/HUD/fallen.visible = true
 	global.combotimer.paused = true

@@ -1162,7 +1162,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="trailtimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.07
 one_shot = true
 
 [node name="slipping" type="AudioStreamPlayer2D" parent="."]

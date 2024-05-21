@@ -26,6 +26,7 @@ polygon = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 [node name="hurtblock" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8, 29 )
 scale = Vector2( 1.5, 0.5 )
+forenemy = true
 
 [connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

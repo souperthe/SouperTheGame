@@ -4,6 +4,7 @@ extends RigidBody2D
 var canhurt = 1
 onready var colcheck = $CollisionShape2D
 export (bool) var assignedtoplayer
+export (bool) var forenemy
 
 
 func _ready():
