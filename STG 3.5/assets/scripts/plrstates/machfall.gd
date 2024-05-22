@@ -21,4 +21,6 @@ func physics_update(delta: float) -> void:
 		#state_machine.transition_to("fallpound_start")
 	if player.is_on_floor():
 		state_machine.transition_to("Mach2", {do_turn = true})
-		player.get_input_direction()
+		player.face = !player.face
+		animation_player.flip_h = !animation_player.flip_h
+		

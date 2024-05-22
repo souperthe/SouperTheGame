@@ -78,7 +78,7 @@ func physics_update(delta: float) -> void:
 			player.velocity.x = -speed
 	if canjump and Inputs.just_key_jump:
 		state_machine.transition_to("mach_jump", {do_jump = true})
-	if player.walled:
+	if player.walled or player.is_on_wall():
 		state_machine.transition_to("bumpwall")
 		#player.hitwall.play()
 		player.mach3.stop()

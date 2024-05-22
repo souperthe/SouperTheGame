@@ -359,7 +359,7 @@ audio_stream = ExtResource( 87 )
 audio_stream = ExtResource( 86 )
 
 [sub_resource type="RectangleShape2D" id=70]
-extents = Vector2( 6, 1 )
+extents = Vector2( 4.5, 7.75 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 material = SubResource( 45 )
@@ -1202,7 +1202,7 @@ bus = "SFX"
 [node name="walled" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walled"]
-position = Vector2( 14, 20 )
+position = Vector2( 14.5, 28.25 )
 shape = SubResource( 70 )
 
 [connection signal="body_entered" from="ladderchecker" to="." method="_on_ladderchecker_body_entered"]

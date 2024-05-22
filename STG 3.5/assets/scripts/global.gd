@@ -86,6 +86,7 @@ signal reset
 
 
 func _ready():
+	#Engine.target_fps = 30
 	var activity = Discord.Activity.new()
 	activity.set_type(Discord.ActivityType.Playing)
 	infotext.rect_position.y = 560
