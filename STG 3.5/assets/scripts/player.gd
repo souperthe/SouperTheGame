@@ -412,6 +412,7 @@ func respawn():
 	$StateMachine.transition_to("Idle")
 	fpfallsfx.stop()
 	mach3.stop()
+	cutvoices()
 	machbox.disabled = true
 	emachbox.disabled = true
 	attackbox.disabled = true
@@ -450,6 +451,7 @@ func reset():
 	$HUD/HUD/fallen/Control/song.stop()
 	$HUD/HUD/fallen/Control/song.volume_db = 6
 	makethingnotvisible()
+	cutvoices()
 	global.treasure = false
 	global.timedlevel = false
 	global.oldtodmode = false

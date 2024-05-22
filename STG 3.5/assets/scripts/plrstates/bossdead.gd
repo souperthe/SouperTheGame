@@ -66,6 +66,7 @@ func physics_update(delta: float) -> void:
 		#player.darkeffect.modulate.a8 = lerp(player.darkeffect.modulate.a8, 280, 2 * delta)
 	
 	if player.is_on_floor() and not thing:
+		player.cutvoices()
 		thing = true
 		player.velocity.y = 0
 		player.hitpartical()

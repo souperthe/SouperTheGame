@@ -63,7 +63,7 @@ func _process(_delta):
 		escapetilt()
 		var idkanymore = cos(rotates)
 		if global.panic:
-			rotates += 1 * _delta
+			rotates += 2 * _delta
 			rotation_degrees = (idkanymore * rotatesamount)
 	if !global.panic:
 		$AnimationPlayer.play("reset")

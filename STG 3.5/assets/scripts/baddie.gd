@@ -131,7 +131,7 @@ func createdead1(velocityx):
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	ghost.velocity.y = rand_range(-1000,-1050)
-	ghost.velocity.x = velocityx
+	ghost.velocity.x = velocityx * 1.1
 	ghost.spinamount = rand_range(-200,200)
 	#ghost.spinamount = 0
 	ghost.sprite.rotation_degrees = rand_range(-360,360)

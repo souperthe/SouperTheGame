@@ -22,8 +22,8 @@ static func free_children(node: Node) -> void:
 	for idx in node.get_child_count():
 		node.free()
 		
-func _process(_delta):
-	currentscene = currentscene
+#func _process(_delta):
+	#currentscene = currentscene
 
 
 func scenegoto(selectedscene):
@@ -36,15 +36,8 @@ func scenegoto(selectedscene):
 			self.remove_child(c)
 			c.queue_free()
 		add_child(spawnedscene)
-		var _my_random_number = rng.randi_range(0.0, 1.0)
-		rng.randomize()
-		if global.oldtodmode:
-			m = currentscene.scale.x
-			#if my_random_number == 1:
-				#objplayer.scale.x = -1
-				#currentscene.rotation_degrees = 90
-			#if my_random_number == 0:
-				#currentscene.modulate = Color8(0,0,0,255)
+		#if currentscene.name != "menu":
+			#currentscene.scale = Vector2(0.5,0.5)
 		if music.playmusic:
 			music.domusic()
 	else:
