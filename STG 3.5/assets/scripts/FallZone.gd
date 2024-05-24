@@ -8,10 +8,8 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if OS.is_debug_build():
-		$Fallzone.visible = true
-	if !OS.is_debug_build():
-		$Fallzone.visible = false
+	$Fallzone.queue_free()
+	$hurtblock/AnimatedSprite.queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

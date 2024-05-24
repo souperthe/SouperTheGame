@@ -37,7 +37,7 @@ func _ready():
 	if presobjs.player2:
 		presobjs.player2.reset()
 	objplayer.defaultdir()
-	if disablelvlselect:
+	if !global.levelselect:
 		maxthings = 2
 		$things/levelselect.visible = false
 	music.playtitle()
@@ -45,7 +45,8 @@ func _ready():
 
 
 func _process(_delta):
-	disablelvlselect = !OS.is_debug_build()
+	disablelvlselect = !global.levelselect
+	#disablelvlselect = !OS.is_debug_build()
 	options()
 	movepointer()
 	if canselect:
