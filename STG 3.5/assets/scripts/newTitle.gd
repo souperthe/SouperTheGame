@@ -9,7 +9,7 @@ var maxthings = 3
 var directory = Directory.new();
 var doFileExists = directory.file_exists(global.savepath)
 
-var disablelvlselect = false
+var disablelvlselect = true
 var selectmode = false
 var modeelection = 0
 var modedick = false
@@ -25,6 +25,7 @@ func _ready():
 	ct._treset()
 	ct._fout()
 	$play/AnimationPlayer.play("flash")
+	$play.visible = true
 	$modeselect.rect_position.y = 540
 	$things.visible = true
 	var distance = -45

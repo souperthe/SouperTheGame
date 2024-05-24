@@ -30,8 +30,9 @@ func _physics_process(delta):
 	$Control/smoothamount.visible = global.camerasmoothing
 	global.cameraspeed = float($Control/smoothamount.text)
 	Engine.time_scale = float($Control/gamespeed.text)
-	if Input.is_action_just_pressed("debugmenu"):
-		enabled = !enabled
+	#if Input.is_action_just_pressed("debugmenu"):
+		#if OS.is_debug_build():
+			#enabled = !enabled
 		#$AudioStreamPlayer.play()
 
 
