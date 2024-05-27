@@ -43,6 +43,7 @@ var form : bool
 var ladder := false
 var jump_impulse = 670
 var attack_impulse = 335
+var last_floor_pos = Vector2()
 var gravity = 1600
 var acceleration = 40
 var friction = 60 #60
@@ -173,6 +174,8 @@ func _ready():
 
 
 func _physics_process(_delta):
+	if is_on_floor():
+		last_floor_pos = position
 	$HUD.visible = global.settingshowhud
 	if $animation.flip_h == false:
 		$walled.scale.x = 1
@@ -676,10 +679,18 @@ func dofall():
 	$HUD/HUD/fallen/Control/song.volume_db = 6
 	$HUD/HUD/fallen/AnimationPlayer.play("reset")
 	$fallzonetimer.start()
-
+func portalffect():
+	var whiteflash = preload("res://assets/objects/enemyportal.tscn")
+	var ghost: Node2D = whiteflash.instance()
+	roomhandle.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y - 15
+	
 func _on_fallzone_timer_timeout():
 	presobjs.player2respawn()
 	respawn()
+	position = Vector2(last_floor_pos.x, last_floor_pos.y)
+	portalffect()
 	global.combotimer.paused = false
 	music.musicaudio.playing = true
 	music.musicaudio.seek(temp)

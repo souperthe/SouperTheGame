@@ -282,7 +282,7 @@ func _process(_delta):
 				if Inputs.just_key_jump:
 					soundselected = true
 					$sillysfx.sound()
-				var changeamount = 0.1
+				var changeamount = 0.2
 				if soundselected:
 					match(sound_selection):
 						0:

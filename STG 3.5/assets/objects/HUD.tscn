@@ -296,9 +296,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.517632, 1 ),
+"transitions": PoolRealArray( 2.7991, 1 ),
 "update": 0,
-"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 2.5, 2.5 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="AudioStreamRandomPitch" id=50]
@@ -812,7 +812,7 @@ position = Vector2( -75, 430 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 4
+frame = 13
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -837,7 +837,7 @@ position = Vector2( -28, 430 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 10
+frame = 4
 playing = true
 
 [node name="HonestReaction" type="Control" parent="HUD/standard"]
@@ -872,7 +872,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 10
+frame = 24
 playing = true
 offset = Vector2( 497, -410 )
 

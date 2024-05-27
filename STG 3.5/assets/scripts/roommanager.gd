@@ -37,7 +37,7 @@ func scenegoto(selectedscene):
 			c.queue_free()
 		add_child(spawnedscene)
 		#if currentscene.name != "menu":
-			#currentscene.scale = Vector2(0.5,0.5)
+		#	currentscene.scale = Vector2(2,2)
 		if music.playmusic:
 			music.domusic()
 	else:

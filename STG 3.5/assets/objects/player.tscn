@@ -1,5 +1,6 @@
-[gd_scene load_steps=144 format=2]
+[gd_scene load_steps=145 format=2]
 
+[ext_resource path="res://assets/scripts/plrstates/oldturn.gd" type="Script" id=1]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_start.gd" type="Script" id=2]
 [ext_resource path="res://assets/scripts/plrstates/fallpound_fall.gd" type="Script" id=3]
 [ext_resource path="res://assets/sound/sfx/sfx_fp_fall.wav" type="AudioStream" id=4]
@@ -776,6 +777,10 @@ _animation_player = NodePath("../../animation")
 
 [node name="iceslip" type="Node" parent="StateMachine"]
 script = ExtResource( 81 )
+_animation_player = NodePath("../../animation")
+
+[node name="oldturn" type="Node" parent="StateMachine"]
+script = ExtResource( 1 )
 _animation_player = NodePath("../../animation")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

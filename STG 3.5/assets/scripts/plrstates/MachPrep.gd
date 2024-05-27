@@ -27,8 +27,8 @@ func physics_update(delta: float) -> void:
 			#state_machine.transition_to("Mach3")
 	else:
 		if !Inputs.key_dash:
-			player.attacksfx.play()
-			state_machine.transition_to("Mach2")
+			#player.attacksfx.play()
+			state_machine.transition_to("oldturn")
 			#state_machine.transition_to("Mach2")
 			
 		
