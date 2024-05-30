@@ -117,7 +117,6 @@ func _physics_process(delta):
 	runcinematic()
 	if score < 0:
 		score += abs(score)
-	roomstart()
 	if rankworks:
 		ranks()
 	#print(combo)

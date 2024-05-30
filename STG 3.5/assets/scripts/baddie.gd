@@ -188,8 +188,9 @@ func _physics_process(_delta):
 				state = states.normal
 				animator.play("default")
 		states.inactive:
-			velocity = Vector2(0,0)
-			animator.play("stun")
+			velocity.x = 0
+			velocity.y = 0
+			animator.play("default")
 			visible = false
 		
 	
@@ -211,7 +212,7 @@ func getscared():
 			scaredtimer = 60
 			velocity.y = -900 / 2.5
 			state = states.scared
-			$animator.scale = Vector2(0.56 + 0.1, 0.56 - 0.1)
+			$animator.scale = Vector2(0.56 - 0.3, 0.56 + 0.3)
 	if $enemyesentials/getscaredl.is_colliding():
 		if !state == states.scared:
 			direction = !direction
@@ -225,7 +226,7 @@ func getscared():
 			scaredtimer = 60
 			velocity.y = -900 / 2.5
 			state = states.scared
-			$animator.scale = Vector2(0.56 - 0.5, 0.56 + 0.5)
+			$animator.scale = Vector2(0.56 - 0.3, 0.56 + 0.3)
 #	pass
 
 

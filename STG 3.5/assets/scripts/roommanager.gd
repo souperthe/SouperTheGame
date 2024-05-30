@@ -40,6 +40,7 @@ func scenegoto(selectedscene):
 		#	currentscene.scale = Vector2(2,2)
 		if music.playmusic:
 			music.domusic()
+		global.roomstart()
 	else:
 		add_child(spawnedscene)
 		if music.playmusic:
