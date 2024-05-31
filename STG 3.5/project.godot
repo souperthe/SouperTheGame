@@ -144,6 +144,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://assets/scripts/playerState.gd"
 }, {
+"base": "Resource",
+"class": "SaveSystemTestResource",
+"language": "GDScript",
+"path": "res://addons/save_system/save_system_test/save_system_test_resource.gd"
+}, {
+"base": "Resource",
+"class": "SaveSystemTestSubresource",
+"language": "GDScript",
+"path": "res://addons/save_system/save_system_test/save_system_test_subresource.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -182,6 +192,8 @@ _global_script_class_icons={
 "Member": "",
 "Player": "",
 "PlayerState": "",
+"SaveSystemTestResource": "",
+"SaveSystemTestSubresource": "",
 "State": "",
 "StateMachine": ""
 }
