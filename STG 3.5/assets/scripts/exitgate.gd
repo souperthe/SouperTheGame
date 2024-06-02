@@ -156,8 +156,8 @@ func enterdoor():
 	self.add_child(t)
 	t.start()
 	yield(t, "timeout")
-	if global.level == "entrance":
-		global.write_save("house completed")
+	#if global.level == "entrance":
+		#global.write_save("house completed")
 	$slam.play()
 	$ExitgateOpen.visible = false
 	player.animator.play("nothing")

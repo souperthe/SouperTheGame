@@ -14,6 +14,12 @@ var a = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SaveSystem.set_var(str(global.level, "_played"), true)
+	SaveSystem.set_var(str(global.level, "_score"), global.score)
+	SaveSystem.set_var(str(global.level, "_rank"), global.rank)
+	SaveSystem.set_var(str(global.level, "_combo"), global.combo)
+	SaveSystem.set_var(str(global.level, "_tod"), global.hardmode)
+	SaveSystem.save()
 	$CanvasLayer/results.rect_position.y = -541
 	$CanvasLayer/ranks.play("nothing")
 	$CanvasLayer/ParallaxBackground/ParallaxLayer/ColorRect.visible = true

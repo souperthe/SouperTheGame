@@ -35,14 +35,7 @@ var soundselected = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	resolutions.append(OS.get_screen_size() / 1.1)
-	resolutions.append(OS.get_screen_size() / 1.2)
-	resolutions.append(OS.get_screen_size() / 1.5)
-	resolutions.append(OS.get_screen_size() / 2)
-	resolutions.append(OS.get_screen_size() / 2.5)
-	resolutions.append(OS.get_screen_size() / 4)
-	resolutions.append(OS.get_screen_size() / 8)
-	resolutions_amount = resolutions.size()
+	resolutions_amount = global.resolutions.size()
 	pass # Replace with function body.
 
 func reset():
@@ -100,7 +93,7 @@ func _process(_delta):
 								global.resolutions_selection = resolutions_amount
 							if global.resolutions_selection > resolutions_amount:
 								global.resolutions_selection = 1
-							OS.window_size = resolutions[global.resolutions_selection - 1]
+							OS.window_size = global.resolutions[global.resolutions_selection - 1]
 					1:
 						pointerthing.position = $Video/VSYNC.rect_position + video_offset
 						if Inputs.just_key_jump:
@@ -113,7 +106,7 @@ func _process(_delta):
 							$sillysfx.sound()
 							if !OS.window_fullscreen:
 								global.resolutions_selection = 4
-								OS.window_size = resolutions[global.resolutions_selection - 1]
+								OS.window_size = global.resolutions[global.resolutions_selection - 1]
 					3:
 						pointerthing.position = $Video/SHOWHUD.rect_position + video_offset
 						if Inputs.just_key_jump:
@@ -127,6 +120,9 @@ func _process(_delta):
 				if Inputs.just_key_pause or Inputs.just_key_attack:
 					selectedmenu = menus.main
 					$sillysfx.sound()
+					SaveSystem.set_var("video_fullscreen", OS.window_fullscreen)
+					SaveSystem.set_var("window_resolution", global.resolutions_selection - 1)
+					SaveSystem.save()
 			menus.game:
 				var pointerthing2 = $Game/Pointerglove
 				var pointer_offset = Vector2(-55, 27)
@@ -180,22 +176,31 @@ func _process(_delta):
 						match(modifyinginput):
 							"attack":
 								Inputs.input_attack = chooseninput
+								SaveSystem.set_var("key_attack", chooseninput)
 							"jump":
 								Inputs.input_jump = chooseninput
+								SaveSystem.set_var("key_jump", chooseninput)
 							"dash":
 								Inputs.input_dash = chooseninput
+								SaveSystem.set_var("key_dash", chooseninput)
 							"shoot":
 								Inputs.input_shoot = chooseninput
+								SaveSystem.set_var("key_shoot", chooseninput)
 							"pause":
 								Inputs.input_pause = chooseninput
+								SaveSystem.set_var("key_pause", chooseninput)
 							"up":
 								Inputs.input_up = chooseninput
+								SaveSystem.set_var("key_up", chooseninput)
 							"down":
 								Inputs.input_down = chooseninput
+								SaveSystem.set_var("key_down", chooseninput)
 							"left":
 								Inputs.input_left = chooseninput
+								SaveSystem.set_var("key_left", chooseninput)
 							"right":
 								Inputs.input_right = chooseninput
+								SaveSystem.set_var("key_right", chooseninput)
 						pressanykey = false
 				match(inputselection):
 					1:
@@ -238,6 +243,15 @@ func _process(_delta):
 							Inputs.input_left = KEY_LEFT
 							Inputs.input_right = KEY_RIGHT
 							Inputs.input_pause = KEY_ESCAPE
+							SaveSystem.set_var("key_down", KEY_DOWN)
+							SaveSystem.set_var("key_left", KEY_LEFT)
+							SaveSystem.set_var("key_right", KEY_RIGHT)
+							SaveSystem.set_var("key_up", KEY_UP)
+							SaveSystem.set_var("key_jump", KEY_Z)
+							SaveSystem.set_var("key_shoot", KEY_C)
+							SaveSystem.set_var("key_dash", KEY_SHIFT)
+							SaveSystem.set_var("key_pause", KEY_ESCAPE)
+							SaveSystem.set_var("key_enter", KEY_ENTER)
 				if inputselection > 10:
 					inputselection = 1
 				if inputselection < 1:
@@ -250,6 +264,14 @@ func _process(_delta):
 					$AudioStreamPlayer.play()
 				if !pressanykey and (Inputs.just_key_pause or Inputs.just_key_attack):
 					selectedmenu = menus.main
+					SaveSystem.set_var("key_down", Inputs.input_down)
+					SaveSystem.set_var("key_left", Inputs.input_left)
+					SaveSystem.set_var("key_right", Inputs.input_right)
+					SaveSystem.set_var("key_up", Inputs.input_up)
+					SaveSystem.set_var("key_jump", Inputs.input_jump)
+					SaveSystem.set_var("key_shoot", Inputs.input_shoot)
+					SaveSystem.set_var("key_dash", Inputs.input_dash)
+					SaveSystem.set_var("key_pause", Inputs.input_pause)
 					$sillysfx.sound()
 			menus.sound:
 				var pointer2 = $Sound/Pointerglove
@@ -318,6 +340,9 @@ func _process(_delta):
 				if Inputs.just_key_pause or Inputs.just_key_attack:
 					if !soundselected:
 						selectedmenu = menus.main
+						SaveSystem.set_var("master_volume",global.mastervolume)
+						SaveSystem.set_var("sfx_volume",global.sfxvolume)
+						SaveSystem.set_var("music_volume",global.musicvolume)
 						$sillysfx.sound()
 	if canselect and settingson and selectedmenu == menus.main:
 		if selection > 4:

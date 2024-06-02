@@ -78,6 +78,8 @@ var musicvolume = 0
 var sfxvolume = 0
 var mastervolume = 0
 
+var resolutions = []
+
 
 signal scenechanged 
 signal reset
@@ -87,6 +89,13 @@ signal reset
 
 
 func _ready():
+	resolutions.append(OS.get_screen_size() / 1.1)
+	resolutions.append(OS.get_screen_size() / 1.2)
+	resolutions.append(OS.get_screen_size() / 1.5)
+	resolutions.append(OS.get_screen_size() / 2)
+	resolutions.append(OS.get_screen_size() / 2.5)
+	resolutions.append(OS.get_screen_size() / 4)
+	resolutions.append(OS.get_screen_size() / 8)
 	#Engine.target_fps = 30
 	var activity = Discord.Activity.new()
 	activity.set_type(Discord.ActivityType.Playing)

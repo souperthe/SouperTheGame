@@ -210,7 +210,7 @@ run/disable_stdout=true
 run/disable_stderr=true
 config/use_hidden_project_data_directory=false
 config/use_custom_user_dir=true
-config/custom_user_dir_name="SuperThe"
+config/custom_user_dir_name="Super-Duper Entertainment"
 run/low_processor_mode=true
 boot_splash/image="res://assets/sprites/the square.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
@@ -227,6 +227,7 @@ music="*res://assets/objects/Autoloads/musiccontroller.scn"
 Discord="*res://addons/discord_game_sdk/discord.gd"
 roomhandle="*res://assets/objects/Autoloads/roommanager.scn"
 Inputs="*res://assets/objects/Autoloads/Inputs.tscn"
+SaveSystem="*res://addons/save_system/save_system.gd"
 
 [compression]
 
@@ -262,7 +263,7 @@ convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/BitmapTextureFont/plugin.cfg", "res://addons/discord_game_sdk/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/BitmapTextureFont/plugin.cfg", "res://addons/discord_game_sdk/plugin.cfg", "res://addons/save_system/plugin.cfg" )
 
 [global]
 

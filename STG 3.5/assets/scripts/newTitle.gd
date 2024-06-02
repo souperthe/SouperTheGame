@@ -113,9 +113,9 @@ func options():
 		$things/levelselect.modulate = uncolored
 		if Inputs.just_key_enter:
 			if canselect:
-				if !doFileExists:
+				if !SaveSystem.has("entrance_played"):
 					startgame()
-				if doFileExists:
+				if SaveSystem.has("entrance_played"):
 					$sillysfx.sound()
 					selectmode = true
 	if selection == 1:
