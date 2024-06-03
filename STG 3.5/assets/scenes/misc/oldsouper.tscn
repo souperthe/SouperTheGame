@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/objects/FallZone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/ignore/arrow.png" type="Texture" id=7]
 [ext_resource path="res://assets/objects/escapephone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/lapportal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/laportalexit.tscn" type="PackedScene" id=10]
 
 [node name="oldsouper" type="Node2D"]
 
@@ -53,3 +55,11 @@ flip_h = true
 
 [node name="escapephone" parent="." instance=ExtResource( 8 )]
 position = Vector2( 11200, 384 )
+escapetime = 30
+
+[node name="lapportal" parent="." instance=ExtResource( 9 )]
+position = Vector2( -1024, -448 )
+targetscene = "res://assets/scenes/misc/oldsouper.tscn"
+
+[node name="lapexit" parent="." instance=ExtResource( 10 )]
+position = Vector2( 11168, 128 )
