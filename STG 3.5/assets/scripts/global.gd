@@ -77,6 +77,7 @@ var timet = "2136723181"
 var musicvolume = 0
 var sfxvolume = 0
 var mastervolume = 0
+var speedruntimer = false
 
 var resolutions = []
 

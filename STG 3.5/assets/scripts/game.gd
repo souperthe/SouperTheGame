@@ -30,6 +30,11 @@ func _ready():
 	Inputs.key_pause = SaveSystem.get_var("key_pause")
 	#Inputs.key_down = SaveSystem.get_var("key_down")
 	
+	global.speedruntimer = SaveSystem.get_var("speedruntimer",false)
+	global.fall_cutscene = SaveSystem.get_var("fall_cutscene",true)
+	global.shake_effects = SaveSystem.get_var("shake_effects",true)
+	global.hit_offset = SaveSystem.get_var("hit_offset",true)
+	
 	OS.window_size = global.resolutions[SaveSystem.get_var("window_resolution")]
 	SaveSystem.save()
 	queue_free()

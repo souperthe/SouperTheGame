@@ -110,6 +110,7 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="Main" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -292,9 +293,14 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Game" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -270.0
+margin_right = 480.0
+margin_bottom = 270.0
 
 [node name="bg" type="TextureRect" parent="Game"]
 modulate = Color( 1, 0.756863, 0.756863, 1 )
@@ -311,9 +317,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -137.0
-margin_top = -62.0
+margin_top = -79.0
 margin_right = 823.0
-margin_bottom = -25.0
+margin_bottom = -42.0
 custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "shake effects"
@@ -325,9 +331,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -137.0
-margin_top = -22.0
+margin_top = -39.0
 margin_right = 823.0
-margin_bottom = 15.0
+margin_bottom = -2.0
 custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "hit offset"
@@ -339,13 +345,27 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -137.0
-margin_top = 18.0
+margin_top = 1.0
 margin_right = 823.0
-margin_bottom = 55.0
+margin_bottom = 38.0
 custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "fall cutscene"
 text = "fall cutscene"
+
+[node name="fallcutscene2" type="RichTextLabel" parent="Game"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -137.0
+margin_top = 41.0
+margin_right = 823.0
+margin_bottom = 78.0
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "speedrun timer"
+text = "speedrun timer"
 
 [node name="Pointerglove" type="Sprite" parent="Game"]
 position = Vector2( 295, 241 )
@@ -582,6 +602,7 @@ bbcode_text = "[center]Press enter to confirm"
 text = "Press enter to confirm"
 
 [node name="Sound" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 

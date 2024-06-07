@@ -36,6 +36,11 @@ var soundselected = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	resolutions_amount = global.resolutions.size()
+	$Main.visible = true
+	$Video.visible = true
+	$Game.visible = true
+	$Inputs.visible = true
+	$Sound.visible = true
 	pass # Replace with function body.
 
 func reset():
@@ -129,6 +134,7 @@ func _process(_delta):
 				$Game/shake.bbcode_text = str("Shake effects: ", global.shake_effects)
 				$Game/hitoff.bbcode_text = str("Hit knockback: ", global.hit_offset)
 				$Game/fallcutscene.bbcode_text = str("Fall Cutscene: ", global.fall_cutscene)
+				$Game/fallcutscene2.bbcode_text = str("Speedrun Timer: ", global.speedruntimer)
 				match(game_selection):
 					0:
 						pointerthing2.position = $Game/shake.rect_position + pointer_offset
@@ -145,6 +151,11 @@ func _process(_delta):
 						if Inputs.just_key_jump:
 							global.fall_cutscene = !global.fall_cutscene
 							$sillysfx.sound()
+					3:
+						pointerthing2.position = $Game/fallcutscene2.rect_position + pointer_offset
+						if Inputs.just_key_jump:
+							global.speedruntimer = !global.speedruntimer
+							$sillysfx.sound()
 				if Inputs.just_key_down:
 					game_selection += 1
 					$AudioStreamPlayer.play()
@@ -152,11 +163,15 @@ func _process(_delta):
 					game_selection -= 1
 					$AudioStreamPlayer.play()
 				if game_selection < 0:
-					game_selection = 2
-				if game_selection > 2:
+					game_selection = 3
+				if game_selection > 3:
 					game_selection = 0
 				if Inputs.just_key_pause or Inputs.just_key_attack:
 					selectedmenu = menus.main
+					SaveSystem.set_var("speedruntimer",global.speedruntimer)
+					SaveSystem.set_var("fall_cutscene",global.fall_cutscene)
+					SaveSystem.set_var("shake_effects",global.shake_effects)
+					SaveSystem.set_var("hit_offset",global.hit_offset)
 					$sillysfx.sound()
 			menus.inputs:
 				var selectoffset = Vector2(360,30)
