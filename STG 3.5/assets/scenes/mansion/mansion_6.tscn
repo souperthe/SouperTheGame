@@ -1,37 +1,38 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/objects/collide.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/Hallway.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/objects/darkcircle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/objects/objcamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/objects/doors/obj_door1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/objects/scenedoor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/chandelier.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/objects/platform.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/objects/slope.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/hurtblock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/objects/FallZone.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/objects/key.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/scripts/keyfunctionmanor.gd" type="Script" id=11]
+[ext_resource path="res://assets/objects/keyfunction.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/sound/sfx/sfx_elevatorclose.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/objects/Ladders.tscn" type="PackedScene" id=14]
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+audio_stream = ExtResource( 13 )
+random_pitch = 1.05
 
 [node name="Node2D" type="Node2D"]
 
 [node name="collide40" parent="." instance=ExtResource( 1 )]
 position = Vector2( -512, 512 )
-scale = Vector2( 30, 1 )
+scale = Vector2( 32, 1 )
 script = null
 
 [node name="collide41" parent="." instance=ExtResource( 1 )]
 position = Vector2( -256, 256 )
-scale = Vector2( 16, 1 )
+scale = Vector2( 20, 1 )
 script = null
 
 [node name="door1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, 480 )
-
-[node name="camera" parent="." instance=ExtResource( 4 )]
-visible = true
-position = Vector2( 5920, 224 )
-limit_left = 0
-limit_top = -544
-limit_right = 5920
-limit_bottom = 576
 
 [node name="Hallway" parent="." instance=ExtResource( 2 )]
 position = Vector2( -96, 320 )
@@ -42,109 +43,120 @@ targetscene = "res://assets/scenes/mansion/mansion_5.tscn"
 [node name="darkcircle" parent="." instance=ExtResource( 3 )]
 position = Vector2( 416, 288 )
 
-[node name="collide" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1024, -256 )
-scale = Vector2( 1, 12 )
-
 [node name="collide2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 704, -768 )
+position = Vector2( 1536, 320 )
 scale = Vector2( 1, 16 )
 
-[node name="collide3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1024, -256 )
-scale = Vector2( 8, 1 )
-
-[node name="platform" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1536, -256 )
-scale = Vector2( 8, 1 )
-
-[node name="collide4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2048, -256 )
-scale = Vector2( 8, 1 )
-
-[node name="collide-slope" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2688, -256 )
-scale = Vector2( -2, 1 )
-
-[node name="collide-slope2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2816, -192 )
-scale = Vector2( -2, 1 )
-
-[node name="collide5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2816, -128 )
-scale = Vector2( 8, 1 )
-
-[node name="platform2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3584, -128 )
-scale = Vector2( 4, 1 )
-
-[node name="platform3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 4096, -128 )
-scale = Vector2( 4, 1 )
-
-[node name="collide6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4608, -128 )
-scale = Vector2( 8, 1 )
-
-[node name="collide7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3264, -64 )
-scale = Vector2( 1, 12 )
-
-[node name="collide8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4608, -64 )
-scale = Vector2( 1, 12 )
-
-[node name="fallzone" parent="." instance=ExtResource( 9 )]
-position = Vector2( 3328, 640 )
-scale = Vector2( 20, 1 )
-
-[node name="collide9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2304, -320 )
-
-[node name="collide-slope3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2432, -320 )
-scale = Vector2( -1, 1 )
-
-[node name="collide-slope4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 5376, 0 )
-scale = Vector2( 2, 1 )
-
-[node name="platform4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 5120, -128 )
-scale = Vector2( 2, 1 )
-
-[node name="collide10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5504, 0 )
-scale = Vector2( 4, 1 )
-
-[node name="collide11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4672, 256 )
-scale = Vector2( 15, 1 )
-
-[node name="collide12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5248, 64 )
-scale = Vector2( 10, 1 )
-
-[node name="collide13" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5696, -768 )
-scale = Vector2( 1, 12 )
-
 [node name="collide42" parent="." instance=ExtResource( 1 )]
-position = Vector2( 736, -576 )
+position = Vector2( 1024, -64 )
 scale = Vector2( 78, 1 )
 script = null
 
-[node name="collide14" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5888, 64 )
-scale = Vector2( 1, 12 )
+[node name="collide3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 960, -64 )
+scale = Vector2( 1, 5 )
 
-[node name="collide15" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5376, 512 )
-scale = Vector2( 15, 1 )
+[node name="collide" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 448 )
 
-[node name="collide16" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5312, 320 )
-scale = Vector2( 1, 12 )
+[node name="collide4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1536, 256 )
+scale = Vector2( 8, 1 )
 
-[node name="Door" parent="." instance=ExtResource( 6 )]
-position = Vector2( 5504, 468 )
+[node name="platform" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1344, 256 )
+scale = Vector2( 3, 1 )
+
+[node name="camera" parent="." instance=ExtResource( 4 )]
+visible = true
+position = Vector2( 5760, 384 )
+limit_left = 0
+limit_top = -64
+limit_right = 5760
+limit_bottom = 576
+
+[node name="collide5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1984, 320 )
+scale = Vector2( 1, 16 )
+
+[node name="chandelier" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2432, 256 )
+
+[node name="fallzone" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2048, 608 )
+scale = Vector2( 40, 1 )
+
+[node name="chandelier2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3200, 256 )
+
+[node name="chandelier3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3968, 256 )
+
+[node name="collide6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4608, 256 )
+scale = Vector2( 1, 16 )
+
+[node name="collide7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4864, 256 )
+scale = Vector2( 12, 1 )
+
+[node name="collide8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4608, 512 )
+scale = Vector2( 25, 1 )
+
+[node name="collide9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5632, -64 )
+scale = Vector2( 1, 6 )
+
+[node name="hurtblock" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5600, 224 )
+
+[node name="hurtblock3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5600, 192 )
+
+[node name="hurtblock4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5600, 160 )
+
+[node name="hurtblock5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5600, 128 )
+
+[node name="collide10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5440, 449 )
+scale = Vector2( 1.5, 1 )
+
+[node name="key" parent="." instance=ExtResource( 10 )]
+position = Vector2( 5488, 421 )
+function = true
+function_obj = NodePath("../keyfunctionmanor")
+
+[node name="keyfunctionmanor" parent="." instance=ExtResource( 12 )]
+script = ExtResource( 11 )
+
+[node name="collide11" parent="keyfunctionmanor" instance=ExtResource( 1 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 288, 160 )
+scale = Vector2( 1, 3 )
+
+[node name="slam" type="AudioStreamPlayer2D" parent="keyfunctionmanor/collide11"]
+position = Vector2( 32, 32 )
+stream = SubResource( 1 )
+bus = "SFX"
+
+[node name="Position2D" type="Position2D" parent="keyfunctionmanor"]
+position = Vector2( 416, 0 )
+
+[node name="collide12" parent="keyfunctionmanor" instance=ExtResource( 1 )]
+position = Vector2( 800, -96 )
+scale = Vector2( 1, 3 )
+
+[node name="platform2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4672, 256 )
+scale = Vector2( 3, 1 )
+
+[node name="Ladders" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4352, 384 )
+tile_data = PoolIntArray( -327668, 1, 0, -262132, 0, 0, -196596, 0, 0, -131060, 0, 0, -65524, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0 )
+
+[node name="collide11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5696, 256 )
+scale = Vector2( 20, 1 )

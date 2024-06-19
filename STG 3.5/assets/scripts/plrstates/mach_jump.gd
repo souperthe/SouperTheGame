@@ -40,6 +40,7 @@ func physics_update(delta: float) -> void:
 			player.mach3.stop()
 			player.machbox.disabled = true
 			player.emachbox.disabled = true
+			player.velocity.y = 0
 	if !player.is_on_floor() and Inputs.just_key_down:
 		state_machine.transition_to("diving")
 		player.mach3.stop()

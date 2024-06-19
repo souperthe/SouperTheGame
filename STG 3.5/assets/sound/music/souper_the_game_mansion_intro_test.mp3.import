@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://import/souper_the_game_mansion_intro_test.mp3-e85d1144f9c70c1571ec77741d2c7a94.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/souper_the_game_mansion_intro_test.mp3"
+dest_files=[ "res://import/souper_the_game_mansion_intro_test.mp3-e85d1144f9c70c1571ec77741d2c7a94.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
