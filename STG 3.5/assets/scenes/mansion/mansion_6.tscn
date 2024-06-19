@@ -160,3 +160,12 @@ tile_data = PoolIntArray( -327668, 1, 0, -262132, 0, 0, -196596, 0, 0, -131060, 
 [node name="collide11" parent="." instance=ExtResource( 1 )]
 position = Vector2( 5696, 256 )
 scale = Vector2( 20, 1 )
+
+[node name="Hallway2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5792, 320 )
+scale = Vector2( 2, 6 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/mansion/mansion_7.tscn"
+
+[node name="door2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5760, 480 )

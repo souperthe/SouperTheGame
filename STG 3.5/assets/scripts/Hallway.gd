@@ -20,8 +20,16 @@ func _process(_delta):
 
 	
 func enterscene():
-	ct._fout()
-	global.room_goto(targetscene, targetdoor)
+	if targetscene == "":
+		OS.alert("TARGET SCENE NOT SET", "FIX YOUR SHIT!!")
+		get_tree().quit()
+	else:
+		if targetdoor == "":
+			OS.alert("TARGET DOOR NOT SET", "FIX YOUR SHIT!!")
+			get_tree().quit()
+		else:
+			ct._fout()
+			global.room_goto(targetscene, targetdoor)
 
 
 func _on_Hallway_area_entered(_area):

@@ -37,6 +37,8 @@ func _ready():
 	
 	OS.window_size = global.resolutions[SaveSystem.get_var("window_resolution")]
 	SaveSystem.save()
+	if !OS.window_fullscreen:
+		OS.center_window()
 	queue_free()
 	pass # Replace with function body.
 

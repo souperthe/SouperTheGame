@@ -30,8 +30,8 @@ func hurteffect():
 	var whiteflash = preload("res://assets/objects/hurtpartical.tscn")
 	var ghost: Node2D = whiteflash.instance()
 	roomhandle.currentscene.add_child(ghost)
-	ghost.position.x = self.position.x + 32
-	ghost.position.y = self.position.y + 32
+	ghost.position.x = self.position.x + 128
+	ghost.position.y = self.position.y + 16
 	ghost.amount = 500
 
 func _on_Timer_timeout():
@@ -52,7 +52,7 @@ func createdead1(velocityx, rotatespeed):
 	roomhandle.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x + 128
 	ghost.position.y = self.position.y + 16
-	ghost.velocity.y = -rand_range(-500,-900) / 2
+	ghost.velocity.y = -rand_range(-500,-900) / 1.5
 	ghost.velocity.x = velocityx
 	ghost.spinamount = rotatespeed
 	ghost.sprite.texture = load("res://assets/sprites/white.png")

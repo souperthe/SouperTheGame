@@ -14,7 +14,6 @@ func _ready():
 	animator2.animation = ("change")
 	pass # Replace with function body.
 
-
 func _process(_delta):
 	if player.currentstate == ("peelslip") or player.currentstate == ("peelland") or player.currentstate == ("peelslipbounce"):
 		if !animator.animation == ("judgement"):
