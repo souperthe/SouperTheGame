@@ -587,7 +587,8 @@ color_ramp = SubResource( 33 )
 material = ExtResource( 79 )
 scale = Vector2( 0.56, 0.56 )
 frames = ExtResource( 54 )
-animation = "caught"
+animation = "collect"
+frame = 7
 playing = true
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]

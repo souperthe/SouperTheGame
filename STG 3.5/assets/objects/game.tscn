@@ -16,19 +16,17 @@ margin_right = 961.0
 margin_bottom = -244.0
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
-bbcode_text = "hello stg devs ...or [wave]modders[/wave]
-this is the [tornado]souper the game[/tornado] of the game there is many secrets involving the game you will find out soon, one of thoose secrets is the [wave amp=50.0 freq=100 connected=1]\"the\"[/wave] in STG. it secretly means [rainbow rate=1.0 level=1 connected=1]souper[/rainbow]
-thank you for reading
+bbcode_text = "[center]## DEMO 2 TODO LIST ##[/center]
 
+Finish Planner Manor
+Finish Baking Soda Wonderland
 
+-superthe
+"
+text = "## DEMO 2 TODO LIST ##
 
-[shake rate=1000.0 level=15 connected=1]i absolutely hate this engine sometimes and i genuinely wanna switch this whole game to unity [/shake]
--superthe"
-text = "hello stg devs ...or modders
-this is the souper the game of the game there is many secrets involving the game you will find out soon, one of thoose secrets is the \"the\" in STG. it secretly means souper
-thank you for reading
+Finish Planner Manor
+Finish Baking Soda Wonderland
 
-
-
-i absolutely hate this engine sometimes and i genuinely wanna switch this whole game to unity 
--superthe"
+-superthe
+"

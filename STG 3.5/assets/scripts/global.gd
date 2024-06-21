@@ -178,6 +178,12 @@ func randi_range(from, to):
 		to = old_from
 	randomize()
 	return int(floor(rand_range(from , to + 1)))
+	
+func Approach(num, goal, i):
+	if num < goal:
+		return min(num+i, goal)
+	else:
+		return max(num-i, goal)
 
 
 func _on_Timer_timeout():

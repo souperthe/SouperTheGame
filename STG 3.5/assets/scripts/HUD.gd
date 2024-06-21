@@ -15,7 +15,7 @@ func _ready():
 
 func _process(delta):
 	if global.cutscene:
-		modulate.a8 = lerp(modulate.a8, 0, 7 * delta)
+		modulate.a8 = global.Approach(modulate.a8, 0, 15)
 	if !global.cutscene:
-		modulate.a8 = lerp(modulate.a8, 255, 7 * delta)
+		modulate.a8 = global.Approach(modulate.a8, 255, 15)
 		#$Tween.interpolate_property(self, "modulate:a", modulate.a8, 0.0, 0.3, 0, 1)

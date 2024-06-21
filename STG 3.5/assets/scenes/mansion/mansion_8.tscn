@@ -37,7 +37,9 @@ scale = Vector2( 4, 1 )
 
 [node name="camera" parent="." instance=ExtResource( 5 )]
 visible = true
-position = Vector2( 352, 288 )
+position = Vector2( -3360, 480 )
+limit_left = -4160
+limit_top = 160
 limit_right = 736
 limit_bottom = 704
 
@@ -147,3 +149,32 @@ scale = Vector2( 4, 1 )
 [node name="collide30" parent="." instance=ExtResource( 1 )]
 position = Vector2( -3328, 512 )
 scale = Vector2( 2, 1 )
+
+[node name="collide5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3840, 448 )
+scale = Vector2( 4, 1 )
+
+[node name="collide6" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3328, 320 )
+scale = Vector2( 8, 1 )
+
+[node name="collide7" parent="." instance=ExtResource( 1 )]
+position = Vector2( -4096, 256 )
+scale = Vector2( 14, 1 )
+
+[node name="collide8" parent="." instance=ExtResource( 1 )]
+position = Vector2( -4160, 320 )
+scale = Vector2( 1, 8 )
+
+[node name="collide9" parent="." instance=ExtResource( 1 )]
+position = Vector2( -3840, 512 )
+scale = Vector2( 1, 8 )
+
+[node name="Hallway2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -4096, 736 )
+scale = Vector2( 8, 1 )
+targetdoor = "door1"
+targetscene = "res://assets/scenes/mansion/mansion_9.tscn"
+
+[node name="door2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -3968, 704 )

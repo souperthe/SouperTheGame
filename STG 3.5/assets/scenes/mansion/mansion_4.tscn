@@ -18,7 +18,7 @@ position = Vector2( -512, 192 )
 scale = Vector2( 16, 1 )
 
 [node name="collide30" parent="." instance=ExtResource( 4 )]
-position = Vector2( -256, 0 )
+position = Vector2( -704, 0 )
 scale = Vector2( 35, 1 )
 
 [node name="Hallway" parent="." instance=ExtResource( 2 )]
@@ -80,8 +80,8 @@ position = Vector2( 1024, 256 )
 tile_data = PoolIntArray( 65536, 1, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589824, 0, 0, 655360, 0, 0, 720896, 0, 0, 786432, 0, 0, 851968, 0, 0, 917504, 0, 0, 983040, 0, 0 )
 
 [node name="collide35" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1792, 64 )
-scale = Vector2( 1, 4 )
+position = Vector2( 1792, -512 )
+scale = Vector2( 1, 14 )
 
 [node name="collide" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1728, 704 )
@@ -121,3 +121,20 @@ scale = Vector2( 20, 1 )
 [node name="collide-slope4" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2176, 640 )
 scale = Vector2( 2, -1 )
+
+[node name="collide37" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1472, -512 )
+scale = Vector2( 1, 8 )
+
+[node name="platform2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1536, 64 )
+scale = Vector2( 4, -1 )
+
+[node name="door3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1664, -64 )
+
+[node name="Hallway3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1536, -192 )
+scale = Vector2( 8, 1 )
+targetdoor = "door2"
+targetscene = "res://assets/scenes/mansion/mansion_9.tscn"

@@ -814,7 +814,7 @@ position = Vector2( -75, 430 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 2
+frame = 12
 playing = true
 
 [node name="ranks" type="AnimatedSprite" parent="HUD/standard/Score"]
@@ -839,7 +839,7 @@ position = Vector2( -28, 430 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 29 )
 animation = "key"
-frame = 8
+frame = 3
 playing = true
 
 [node name="HonestReaction" type="Control" parent="HUD/standard"]
@@ -874,7 +874,7 @@ texture = ExtResource( 15 )
 position = Vector2( -457, 410 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 33
+frame = 3
 playing = true
 offset = Vector2( 497, -410 )
 
@@ -987,6 +987,7 @@ anims/escapestart = SubResource( 19 )
 anims/reset = SubResource( 20 )
 
 [node name="fallen" type="Control" parent="HUD"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 86 )
