@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://buh8bwyjq2qat"]
+
+[ext_resource type="Script" path="res://assets/scripts/CollideDebug.gd" id="1_3y7nh"]
+[ext_resource type="Texture2D" uid="uid://dvtb6av71jsq1" path="res://assets/images/blank block.png" id="2_vin5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qioxu"]
+size = Vector2(64, 32)
+
+[node name="CPlatform" type="StaticBody2D"]
+script = ExtResource("1_3y7nh")
+
+[node name="BlankBlock" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 0.486275)
+position = Vector2(32, 16)
+scale = Vector2(1, 0.5)
+texture = ExtResource("2_vin5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 16)
+shape = SubResource("RectangleShape2D_qioxu")
+one_way_collision = true

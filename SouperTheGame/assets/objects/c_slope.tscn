@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c85yqrg6ve0e3"]
+
+[ext_resource type="Script" path="res://assets/scripts/CollideDebug.gd" id="1_0od8f"]
+[ext_resource type="Texture2D" uid="uid://cyomwi83s7at5" path="res://assets/images/blank slope.png" id="2_eiju8"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_rmpcq"]
+points = PackedVector2Array(32, 32, -32, 32, 32, -32)
+
+[node name="CSlope" type="StaticBody2D"]
+script = ExtResource("1_0od8f")
+
+[node name="BlankBlock" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.486275)
+position = Vector2(32, 32)
+texture = ExtResource("2_eiju8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("ConvexPolygonShape2D_rmpcq")
