@@ -21,13 +21,13 @@ global="*res://assets/autoload objects/global.tscn"
 roomhandler="*res://assets/autoload objects/room_manager.tscn"
 plr="*res://assets/autoload objects/player.tscn"
 camera="*res://assets/autoload objects/camera.tscn"
+SInput="*res://assets/autoload objects/input.tscn"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
 
 [rendering]
 

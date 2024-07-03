@@ -43,6 +43,7 @@ func scenegoto(selectedscene):
 		global.startroom()
 	else:
 		add_child(spawnedscene)
+		global.startroom()
 		#if music.playmusic:
 			#music.domusic()
 		

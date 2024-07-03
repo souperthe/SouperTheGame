@@ -19,4 +19,5 @@ func _process(delta):
 func startroom():
 	var door = roomhandler.currentscene.get_node(str("door", targetdoor))
 	plr.position = door.position
+	camera.position = plr.position
 	pass

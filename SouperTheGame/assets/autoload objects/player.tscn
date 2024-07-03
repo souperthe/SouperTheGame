@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=19 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://oait45rdvgrr" path="res://assets/images/souper/souper_0001.png" id="2_837et"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://b3xt2v0tcqty8" path="res://assets/images/souper/souper_0010.png" id="11_py03a"]
 [ext_resource type="Texture2D" uid="uid://bgd8g6aq3bvcb" path="res://assets/images/souper/souper_0011.png" id="12_dw24c"]
 [ext_resource type="Texture2D" uid="uid://crlv5cjpb8dnq" path="res://assets/images/souper/souper_0012.png" id="13_jgp78"]
+[ext_resource type="Texture2D" uid="uid://dsceyfs4q2nnh" path="res://assets/images/souper/souper_0013.png" id="14_bhhnb"]
+[ext_resource type="Texture2D" uid="uid://bn8q2a5ledncr" path="res://assets/images/souper/souper_0014.png" id="15_jbmcw"]
+[ext_resource type="Texture2D" uid="uid://dvvt71ik4fp1u" path="res://assets/images/souper/souper_0015.png" id="16_hxj8y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32s0h"]
 animations = [{
@@ -56,6 +59,20 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_bhhnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jbmcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hxj8y")
+}],
+"loop": true,
+"name": &"mach3",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twd7b"]
@@ -66,8 +83,8 @@ script = ExtResource("1_qa05s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_32s0h")
-animation = &"idle"
-frame_progress = 0.839664
+animation = &"mach3"
+frame_progress = 0.874199
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11.5)
