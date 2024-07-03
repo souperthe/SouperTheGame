@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://coinjlyoo556j"]
+
+[ext_resource type="Script" path="res://assets/scripts/global.gd" id="1_tfpmb"]
+
+[node name="Global" type="Node2D"]
+script = ExtResource("1_tfpmb")
