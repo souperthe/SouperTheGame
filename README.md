@@ -1,6 +1,2 @@
-# Souper The Game
- STG... On Github...
-
-
- hello stg devs
- STG STG STG STG STG STG STG STG STG STG STG STG STG STG
+# Souper The Game (OLD)
+OLD OLD OLD OLD!!
