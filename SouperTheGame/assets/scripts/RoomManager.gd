@@ -28,7 +28,7 @@ static func free_children(node: Node) -> void:
 
 func scenegoto(selectedscene):
 	scene = load(selectedscene)
-	var spawnedscene = scene.instance()
+	var spawnedscene = scene.instantiate()
 	currentscene = spawnedscene
 	if self.get_child_count() > 0:
 		var children = self.get_children()

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b3mfka8apl8cu"]
+
+[node name="door1" type="Node2D"]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+modulate = Color(0.898275, 2.59906e-06, 1.2514e-06, 1)

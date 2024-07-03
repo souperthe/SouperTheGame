@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd6bosmg6u43g"]
+[gd_scene load_steps=3 format=3 uid="uid://bd6bosmg6u43g"]
 
 [ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="1_de4qj"]
+[ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="2_sn5kt"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="CBox" parent="." instance=ExtResource("1_de4qj")]
 position = Vector2(256, 512)
 scale = Vector2(8, 1)
+
+[node name="door1" parent="." instance=ExtResource("2_sn5kt")]
+position = Vector2(512, 480)
