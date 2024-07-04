@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfl0o857rs3e6"]
+
+[ext_resource type="Texture2D" uid="uid://b6biumd1fbs8m" path="res://assets/images/door.png" id="1_4i7d3"]
+
+[node name="framedoor" type="Node2D"]
+z_index = -3
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(2, -45)
+texture = ExtResource("1_4i7d3")

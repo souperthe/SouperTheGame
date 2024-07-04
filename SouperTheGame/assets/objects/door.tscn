@@ -1,6 +1,15 @@
-[gd_scene format=3 uid="uid://b3mfka8apl8cu"]
+[gd_scene load_steps=3 format=3 uid="uid://b3mfka8apl8cu"]
+
+[ext_resource type="Script" path="res://assets/scripts/door.gd" id="1_wlk32"]
+[ext_resource type="Texture2D" uid="uid://cdwvuo7qe7wvv" path="res://assets/images/position.png" id="2_a8ka2"]
 
 [node name="door1" type="Node2D"]
+script = ExtResource("1_wlk32")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 modulate = Color(0.898275, 2.59906e-06, 1.2514e-06, 1)
+
+[node name="Position" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_a8ka2")

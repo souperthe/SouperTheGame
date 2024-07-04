@@ -36,28 +36,34 @@ func _physics_process(delta):
 			if move != 0:
 				animator.scale.x = move
 				animator.play("move")
-				animator.speed_scale = 0.25
+				if is_on_wall():
+					animator.speed_scale = 0.2
+				else:
+					animator.speed_scale = 0.3
 			else:
 				animator.play("idle")
 				animator.speed_scale = 0.15
 			if SInput.just_key_jump:
+				animator.play("jump")
+				animator.speed_scale = 0.3
 				state = states.jump
 				thing = false
 				$jump.play()
 				vsp = -15
-			if !grounded:
+			if !is_on_floor():
 				state = states.jump
+				animator.play("fall")
+				animator.speed_scale = 0.2
 		states.jump:
 			var move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = lerpf(hsp, move * 8, 12 * delta)
 			vsp += grv
 			if !SInput.key_jump:
-				if vsp < 10:
-					if !thing:
-						vsp = abs(vsp / 2)
-					thing = true
-			if grounded:
-				if vsp > 0:
+				if vsp < 2:
+					vsp += 2
+					#print("thing ", vsp)
+			if is_on_floor():
+				#if vsp > 1:
 					state = states.normal
 					$step.play()
 					landdust()

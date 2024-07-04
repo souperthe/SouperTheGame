@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=53 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://oait45rdvgrr" path="res://assets/images/souper/souper_0001.png" id="2_837et"]
 [ext_resource type="Texture2D" uid="uid://xdfxw35g28af" path="res://assets/images/souper/souper_0002.png" id="3_1cw2l"]
+[ext_resource type="Texture2D" uid="uid://j2ha3scfntjc" path="res://assets/images/souper/souper_0041.png" id="3_22llm"]
 [ext_resource type="Texture2D" uid="uid://u6ciauknbihc" path="res://assets/images/souper/souper_0003.png" id="4_eh5lg"]
 [ext_resource type="Texture2D" uid="uid://d03si1bv3l16l" path="res://assets/images/souper/souper_0004.png" id="5_djraj"]
 [ext_resource type="Texture2D" uid="uid://ftewk2pua6br" path="res://assets/images/souper/souper_0005.png" id="6_lan5y"]
@@ -14,28 +15,52 @@
 [ext_resource type="Texture2D" uid="uid://bgd8g6aq3bvcb" path="res://assets/images/souper/souper_0011.png" id="12_dw24c"]
 [ext_resource type="Texture2D" uid="uid://crlv5cjpb8dnq" path="res://assets/images/souper/souper_0012.png" id="13_jgp78"]
 [ext_resource type="Texture2D" uid="uid://dsceyfs4q2nnh" path="res://assets/images/souper/souper_0013.png" id="14_bhhnb"]
+[ext_resource type="Texture2D" uid="uid://rb2xj0u3bisc" path="res://assets/images/souper/souper_0028.png" id="14_jh4p1"]
 [ext_resource type="Texture2D" uid="uid://bn8q2a5ledncr" path="res://assets/images/souper/souper_0014.png" id="15_jbmcw"]
+[ext_resource type="Texture2D" uid="uid://cp5tab7828k25" path="res://assets/images/souper/souper_0029.png" id="15_m1yyl"]
 [ext_resource type="Texture2D" uid="uid://dvvt71ik4fp1u" path="res://assets/images/souper/souper_0015.png" id="16_hxj8y"]
+[ext_resource type="Texture2D" uid="uid://lvhxvwh4vp74" path="res://assets/images/souper/souper_0030.png" id="16_os73a"]
 [ext_resource type="AudioStream" uid="uid://sb6upgx2j8he" path="res://assets/sounds/sfx/sfx_jump.wav" id="17_folkk"]
 [ext_resource type="Texture2D" uid="uid://cnbdv0kptc8nn" path="res://assets/images/souper/souper_0016.png" id="17_plokl"]
+[ext_resource type="Texture2D" uid="uid://by80hbnlhx2ir" path="res://assets/images/souper/souper_0031.png" id="17_xw5k1"]
+[ext_resource type="Texture2D" uid="uid://b4whn1k43udbb" path="res://assets/images/souper/souper_0032.png" id="18_017de"]
 [ext_resource type="Texture2D" uid="uid://c8oehvppru74d" path="res://assets/images/souper/souper_0017.png" id="18_bpbc4"]
 [ext_resource type="AudioStream" uid="uid://cuyk3wo70tguq" path="res://assets/sounds/sfx/sfx_foot1.wav" id="18_bxa2v"]
+[ext_resource type="Texture2D" uid="uid://caxgelxmy1l7t" path="res://assets/images/souper/souper_0033.png" id="19_6jy8g"]
 [ext_resource type="Texture2D" uid="uid://bgciglxxm5ftu" path="res://assets/images/souper/souper_0019.png" id="19_163ob"]
 [ext_resource type="AudioStream" uid="uid://ubfpy335gu45" path="res://assets/sounds/sfx/sfx_foot2.wav" id="19_jjp4p"]
 [ext_resource type="Texture2D" uid="uid://doj5a3rce2g7i" path="res://assets/images/souper/souper_0018.png" id="19_jrqqx"]
 [ext_resource type="AudioStream" uid="uid://dxmklprsx55jk" path="res://assets/sounds/sfx/sfx_foot3.wav" id="20_hxjed"]
 [ext_resource type="Texture2D" uid="uid://cvdjv5j15evrm" path="res://assets/images/souper/souper_0020.png" id="20_juht1"]
+[ext_resource type="Texture2D" uid="uid://dm0fip13irs6" path="res://assets/images/souper/souper_0034.png" id="20_l8o1r"]
 [ext_resource type="Texture2D" uid="uid://bjsxfmcoydjri" path="res://assets/images/souper/souper_0021.png" id="21_d0b62"]
+[ext_resource type="Texture2D" uid="uid://ukrw8mk0sy0l" path="res://assets/images/souper/souper_0035.png" id="21_ogasp"]
 [ext_resource type="AudioStream" uid="uid://bdt1tkyyb4nka" path="res://assets/sounds/sfx/sfx_foot4.wav" id="21_xaina"]
+[ext_resource type="Texture2D" uid="uid://cg8jfijqyntfb" path="res://assets/images/souper/souper_0036.png" id="22_jgset"]
+[ext_resource type="Texture2D" uid="uid://27ukeypeqog7" path="res://assets/images/souper/souper_0037.png" id="23_grs1h"]
 [ext_resource type="Texture2D" uid="uid://dyoip4y2o231g" path="res://assets/images/souper/souper_0022.png" id="23_oml8f"]
+[ext_resource type="Texture2D" uid="uid://b4fg06pmw7k5h" path="res://assets/images/souper/souper_0038.png" id="24_usu2s"]
 [ext_resource type="Texture2D" uid="uid://dlr5pwe0bknv5" path="res://assets/images/souper/souper_0023.png" id="24_ym21d"]
+[ext_resource type="Texture2D" uid="uid://ywbceoucx8yj" path="res://assets/images/souper/souper_0039.png" id="25_lbjtw"]
 [ext_resource type="Texture2D" uid="uid://cd8iuxqyos3xd" path="res://assets/images/souper/souper_0024.png" id="25_xi8n8"]
+[ext_resource type="Texture2D" uid="uid://bkjrew7k47u" path="res://assets/images/souper/souper_0040.png" id="26_8t4tr"]
 [ext_resource type="Texture2D" uid="uid://bejept8ly552l" path="res://assets/images/souper/souper_0025.png" id="26_bnba5"]
 [ext_resource type="Texture2D" uid="uid://bj1vdk20g2woy" path="res://assets/images/souper/souper_0026.png" id="27_gwd85"]
 [ext_resource type="Texture2D" uid="uid://dr57k610fqg2m" path="res://assets/images/souper/souper_0027.png" id="28_wuekh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32s0h"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_8t4tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_22llm")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 60.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_837et")
@@ -75,6 +100,47 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_jh4p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_m1yyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_os73a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xw5k1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_017de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6jy8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_l8o1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ogasp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_jgset")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_grs1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_usu2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_lbjtw")
+}],
+"loop": false,
+"name": &"jump",
 "speed": 60.0
 }, {
 "frames": [{
@@ -162,8 +228,9 @@ script = ExtResource("1_qa05s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_32s0h")
-animation = &"move"
-frame_progress = 0.380875
+animation = &"jump"
+frame = 11
+frame_progress = 1.0
 speed_scale = 0.2
 
 [node name="standing" type="CollisionShape2D" parent="."]
@@ -174,13 +241,16 @@ debug_color = Color(0.964706, 0.427451, 0, 0.419608)
 [node name="crouch" type="CollisionShape2D" parent="."]
 position = Vector2(0, 30)
 shape = SubResource("RectangleShape2D_3e7hx")
+disabled = true
 debug_color = Color(0.964706, 0.427451, 0, 0.419608)
 
 [node name="jump" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_ntr8f")
+bus = &"SFX"
 
 [node name="step" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_khe1f")
 volume_db = 5.0
+bus = &"SFX"
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

@@ -22,6 +22,7 @@ roomhandler="*res://assets/autoload objects/room_manager.tscn"
 plr="*res://assets/autoload objects/player.tscn"
 camera="*res://assets/autoload objects/camera.tscn"
 SInput="*res://assets/autoload objects/input.tscn"
+music_controller="*res://assets/autoload objects/musiccontroller.tscn"
 
 [display]
 

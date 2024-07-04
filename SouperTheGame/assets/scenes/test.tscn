@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd6bosmg6u43g"]
+[gd_scene load_steps=11 format=3 uid="uid://bd6bosmg6u43g"]
 
 [ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="1_de4qj"]
 [ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="2_sn5kt"]
 [ext_resource type="PackedScene" uid="uid://c85yqrg6ve0e3" path="res://assets/objects/c_slope.tscn" id="3_omj8v"]
 [ext_resource type="PackedScene" uid="uid://buh8bwyjq2qat" path="res://assets/objects/c_platform.tscn" id="4_d5rl7"]
+[ext_resource type="PackedScene" uid="uid://cvarg6yntix2h" path="res://assets/objects/cl_bottom.tscn" id="5_15tpe"]
+[ext_resource type="PackedScene" uid="uid://camw81jkecnlk" path="res://assets/objects/cl_left.tscn" id="6_1xcej"]
+[ext_resource type="PackedScene" uid="uid://dseu1ycbuw7vc" path="res://assets/objects/cl_right.tscn" id="7_rpkr4"]
+[ext_resource type="PackedScene" uid="uid://cfpye3bth5qgu" path="res://assets/objects/cl_top.tscn" id="8_3lvr0"]
+[ext_resource type="PackedScene" uid="uid://coy0538b8y6jd" path="res://assets/objects/musicsetter.tscn" id="9_rsqb2"]
+[ext_resource type="PackedScene" uid="uid://dfl0o857rs3e6" path="res://assets/objects/framedoortscn.tscn" id="10_d7yn1"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,7 +18,7 @@ position = Vector2(256, 512)
 scale = Vector2(8, 1)
 
 [node name="door1" parent="." instance=ExtResource("2_sn5kt")]
-position = Vector2(-256, 544)
+position = Vector2(-256, 576)
 
 [node name="CSlope" parent="." instance=ExtResource("3_omj8v")]
 position = Vector2(128, 512)
@@ -33,3 +39,22 @@ scale = Vector2(4, 4)
 [node name="CPlatform2" parent="." instance=ExtResource("4_d5rl7")]
 position = Vector2(640, 256)
 scale = Vector2(2, 1)
+
+[node name="CL_Bottom" parent="." instance=ExtResource("5_15tpe")]
+position = Vector2(256, 640)
+
+[node name="CL_Left" parent="." instance=ExtResource("6_1xcej")]
+position = Vector2(-384, 384)
+
+[node name="CL_Right" parent="." instance=ExtResource("7_rpkr4")]
+position = Vector2(1024, 352)
+
+[node name="CL_Top" parent="." instance=ExtResource("8_3lvr0")]
+position = Vector2(256, 0)
+
+[node name="musicsetter" parent="." instance=ExtResource("9_rsqb2")]
+position = Vector2(256, 256)
+target_song = "res://assets/sounds/music/mus_house.ogg"
+
+[node name="framedoor" parent="." instance=ExtResource("10_d7yn1")]
+position = Vector2(512, 512)
