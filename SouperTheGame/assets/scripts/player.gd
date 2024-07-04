@@ -6,7 +6,10 @@ var grounded = false
 enum states {
 	normal,
 	jump,
-	actor
+	actor,
+	freefallprep,
+	freefalling,
+	freefallland
 }
 var state = states.normal
 var hsp = 0
