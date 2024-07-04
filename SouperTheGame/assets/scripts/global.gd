@@ -16,6 +16,10 @@ func _ready():
 func _process(delta):
 	pass
 	
+func gotoroom(targetroom, selecteddoor):
+	roomhandler.scenegoto(targetroom)
+	targetdoor = selecteddoor
+	
 func startroom():
 	var door = roomhandler.currentscene.get_node(str("door", targetdoor))
 	if is_instance_valid(door):

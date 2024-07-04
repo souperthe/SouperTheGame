@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d04pgsqxnvn3h"]
+
+[ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="1_phbjo"]
+[ext_resource type="PackedScene" uid="uid://dfl0o857rs3e6" path="res://assets/objects/framedoortscn.tscn" id="2_sgffd"]
+[ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="3_b88ea"]
+[ext_resource type="PackedScene" uid="uid://coy0538b8y6jd" path="res://assets/objects/musicsetter.tscn" id="4_gu360"]
+
+[node name="Othertest" type="Node2D"]
+
+[node name="door1" parent="." instance=ExtResource("1_phbjo")]
+position = Vector2(512, 512)
+
+[node name="framedoor" parent="." instance=ExtResource("2_sgffd")]
+position = Vector2(512, 512)
+target_scene = "res://assets/scenes/test.tscn"
+target_door = "2"
+
+[node name="CBox" parent="." instance=ExtResource("3_b88ea")]
+position = Vector2(256, 512)
+scale = Vector2(8, 1)
+
+[node name="musicsetter" parent="." instance=ExtResource("4_gu360")]
+position = Vector2(512, 256)
+target_song = "res://assets/sounds/music/mus_tut.ogg"
+continue_after_last = true

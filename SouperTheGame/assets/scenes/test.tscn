@@ -55,6 +55,12 @@ position = Vector2(256, 0)
 [node name="musicsetter" parent="." instance=ExtResource("9_rsqb2")]
 position = Vector2(256, 256)
 target_song = "res://assets/sounds/music/mus_house.ogg"
+continue_after_last = true
 
 [node name="framedoor" parent="." instance=ExtResource("10_d7yn1")]
+position = Vector2(512, 512)
+target_scene = "res://assets/scenes/othertest.tscn"
+target_door = "1"
+
+[node name="door2" parent="." instance=ExtResource("2_sn5kt")]
 position = Vector2(512, 512)

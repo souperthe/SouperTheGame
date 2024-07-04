@@ -59,8 +59,9 @@ func _physics_process(delta):
 			hsp = lerpf(hsp, move * 8, 12 * delta)
 			vsp += grv
 			if !SInput.key_jump:
-				if vsp < 2:
-					vsp += 2
+				if animator.animation == "jump":
+					if vsp < 2:
+						vsp += 2
 					#print("thing ", vsp)
 			if is_on_floor():
 				#if vsp > 1:
