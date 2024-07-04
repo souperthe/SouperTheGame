@@ -1,11 +1,16 @@
-[gd_scene load_steps=53 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=58 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://oait45rdvgrr" path="res://assets/images/souper/souper_0001.png" id="2_837et"]
+[ext_resource type="Texture2D" uid="uid://c1mc3f5fd662c" path="res://assets/images/souper/souper_0043.png" id="2_waay4"]
 [ext_resource type="Texture2D" uid="uid://xdfxw35g28af" path="res://assets/images/souper/souper_0002.png" id="3_1cw2l"]
 [ext_resource type="Texture2D" uid="uid://j2ha3scfntjc" path="res://assets/images/souper/souper_0041.png" id="3_22llm"]
+[ext_resource type="Texture2D" uid="uid://sgqax34s801g" path="res://assets/images/souper/souper_0044.png" id="3_yqc3o"]
 [ext_resource type="Texture2D" uid="uid://u6ciauknbihc" path="res://assets/images/souper/souper_0003.png" id="4_eh5lg"]
+[ext_resource type="Texture2D" uid="uid://63jgk8ynity3" path="res://assets/images/souper/souper_0045.png" id="4_pikmk"]
 [ext_resource type="Texture2D" uid="uid://d03si1bv3l16l" path="res://assets/images/souper/souper_0004.png" id="5_djraj"]
+[ext_resource type="Texture2D" uid="uid://dc7hamtepa8a1" path="res://assets/images/souper/souper_0046.png" id="5_ybclw"]
+[ext_resource type="Texture2D" uid="uid://bpqm7tr4kx7ch" path="res://assets/images/souper/souper_0047.png" id="6_l7gvm"]
 [ext_resource type="Texture2D" uid="uid://ftewk2pua6br" path="res://assets/images/souper/souper_0005.png" id="6_lan5y"]
 [ext_resource type="Texture2D" uid="uid://bsog8gjvx8rfc" path="res://assets/images/souper/souper_0006.png" id="7_lg6b6"]
 [ext_resource type="Texture2D" uid="uid://cw2t77yse11sp" path="res://assets/images/souper/souper_0007.png" id="8_g8uuc"]
@@ -50,6 +55,26 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32s0h"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_waay4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yqc3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pikmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ybclw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l7gvm")
+}],
+"loop": false,
+"name": &"door",
+"speed": 60.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("26_8t4tr")
@@ -227,10 +252,9 @@ stream_3/weight = 1.0
 script = ExtResource("1_qa05s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
-animation = &"jump"
-frame = 11
-frame_progress = 1.0
+animation = &"idle"
 speed_scale = 0.2
 
 [node name="standing" type="CollisionShape2D" parent="."]
@@ -252,5 +276,22 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_khe1f")
 volume_db = 5.0
 bus = &"SFX"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 512.0
+offset_right = 414.0
+offset_bottom = 540.0
+justification_flags = 235
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

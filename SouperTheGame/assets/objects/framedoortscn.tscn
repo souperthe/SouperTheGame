@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://assets/scripts/framedoortscn.gd" id="1_tjipb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcwlr"]
-size = Vector2(64, 96)
+size = Vector2(128, 96)
 
 [node name="framedoor" type="Node2D"]
 z_index = -3

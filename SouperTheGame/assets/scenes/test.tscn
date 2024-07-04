@@ -47,7 +47,7 @@ position = Vector2(256, 640)
 position = Vector2(-384, 384)
 
 [node name="CL_Right" parent="." instance=ExtResource("7_rpkr4")]
-position = Vector2(1024, 352)
+position = Vector2(1600, 352)
 
 [node name="CL_Top" parent="." instance=ExtResource("8_3lvr0")]
 position = Vector2(256, 0)
@@ -64,3 +64,19 @@ target_door = "1"
 
 [node name="door2" parent="." instance=ExtResource("2_sn5kt")]
 position = Vector2(512, 512)
+
+[node name="framedoor2" parent="." instance=ExtResource("10_d7yn1")]
+position = Vector2(896, 256)
+target_scene = "res://assets/scenes/test2.tscn"
+target_door = "1"
+
+[node name="door3" parent="." instance=ExtResource("2_sn5kt")]
+position = Vector2(896, 256)
+
+[node name="CSlope2" parent="." instance=ExtResource("3_omj8v")]
+position = Vector2(1024, 128)
+scale = Vector2(1, 2)
+
+[node name="CBox4" parent="." instance=ExtResource("1_de4qj")]
+position = Vector2(1088, 128)
+scale = Vector2(8, 1)

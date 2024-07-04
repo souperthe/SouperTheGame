@@ -17,8 +17,9 @@ func _process(delta):
 	pass
 	
 func gotoroom(targetroom, selecteddoor):
-	roomhandler.scenegoto(targetroom)
+	print("ran gotoroom!: ", targetroom, ", ", "door", targetdoor)
 	targetdoor = selecteddoor
+	roomhandler.scenegoto(targetroom)
 	
 func startroom():
 	var door = roomhandler.currentscene.get_node(str("door", targetdoor))

@@ -9,5 +9,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x = target.position.x
-	position.y = lerp(position.y, target.position.y, 15 * delta) - 2
-	pass
+	position.y = target.position.y
