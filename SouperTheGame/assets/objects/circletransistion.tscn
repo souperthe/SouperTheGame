@@ -55,6 +55,7 @@ stream_0/stream = ExtResource("3_ogdqt")
 stream_0/weight = 1.0
 
 [node name="circletransistion" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_xjy8l")
 
 [node name="Control" type="Control" parent="."]

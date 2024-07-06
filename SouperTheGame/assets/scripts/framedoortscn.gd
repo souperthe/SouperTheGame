@@ -22,9 +22,10 @@ func _process(delta):
 			if SInput.just_key_up:
 				plr.state = plr.states.actor
 				plr.animator.play("door")
-				plr.animator.speed_scale = 0.2
+				plr.animator.speed_scale = 0.3
 				plr.vsp = 0
 				plr.hsp = 0
+				plr.doorarrowcheck(false)
 				dooredtarget = plr
 				createtransition()
 				doored = true
@@ -32,3 +33,13 @@ func _process(delta):
 	if doored:
 		#print("doored ", dooredtarget.name)
 		dooredtarget.position.x = lerp(dooredtarget.position.x, position.x, 5 * delta)
+
+
+func _on_area_2d_body_entered(body):
+	if body.name == plr.name:
+		body.doorarrowcheck(true)
+
+
+func _on_area_2d_body_exited(body):
+	if body.name == plr.name:
+		body.doorarrowcheck(false)

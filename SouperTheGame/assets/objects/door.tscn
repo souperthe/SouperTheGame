@@ -15,8 +15,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_a8ka2")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -20.0
 offset_top = -32.0
-offset_right = 64.0
+offset_right = 84.0
 offset_bottom = -9.0
 text = "sdasdas"

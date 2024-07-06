@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bd6bosmg6u43g"]
+[gd_scene load_steps=12 format=3 uid="uid://bd6bosmg6u43g"]
 
 [ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="1_de4qj"]
 [ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="2_sn5kt"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cfpye3bth5qgu" path="res://assets/objects/cl_top.tscn" id="8_3lvr0"]
 [ext_resource type="PackedScene" uid="uid://coy0538b8y6jd" path="res://assets/objects/musicsetter.tscn" id="9_rsqb2"]
 [ext_resource type="PackedScene" uid="uid://dfl0o857rs3e6" path="res://assets/objects/framedoortscn.tscn" id="10_d7yn1"]
+[ext_resource type="PackedScene" uid="uid://cq74uu6e1spnb" path="res://assets/objects/ladder.tscn" id="11_5rkmn"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -50,7 +51,7 @@ position = Vector2(-384, 384)
 position = Vector2(1600, 352)
 
 [node name="CL_Top" parent="." instance=ExtResource("8_3lvr0")]
-position = Vector2(256, 0)
+position = Vector2(256, -256)
 
 [node name="musicsetter" parent="." instance=ExtResource("9_rsqb2")]
 position = Vector2(256, 256)
@@ -74,9 +75,16 @@ target_door = "1"
 position = Vector2(896, 256)
 
 [node name="CSlope2" parent="." instance=ExtResource("3_omj8v")]
-position = Vector2(1024, 128)
-scale = Vector2(1, 2)
+position = Vector2(1024, 192)
 
 [node name="CBox4" parent="." instance=ExtResource("1_de4qj")]
-position = Vector2(1088, 128)
+position = Vector2(1088, 192)
 scale = Vector2(8, 1)
+
+[node name="ladder" parent="." instance=ExtResource("11_5rkmn")]
+position = Vector2(1440, -96)
+scale = Vector2(1, 9)
+
+[node name="CPlatform3" parent="." instance=ExtResource("4_d5rl7")]
+position = Vector2(1280, -64)
+scale = Vector2(4, 1)
