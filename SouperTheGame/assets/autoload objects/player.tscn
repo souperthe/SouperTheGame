@@ -1,6 +1,7 @@
-[gd_scene load_steps=71 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=78 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
+[ext_resource type="Texture2D" uid="uid://c7fty2k6nl4rm" path="res://assets/images/souper/souper_0054.png" id="2_6rl3b"]
 [ext_resource type="Texture2D" uid="uid://oait45rdvgrr" path="res://assets/images/souper/souper_0001.png" id="2_837et"]
 [ext_resource type="Texture2D" uid="uid://c1mc3f5fd662c" path="res://assets/images/souper/souper_0043.png" id="2_waay4"]
 [ext_resource type="Texture2D" uid="uid://xdfxw35g28af" path="res://assets/images/souper/souper_0002.png" id="3_1cw2l"]
@@ -64,9 +65,20 @@
 [ext_resource type="Texture2D" uid="uid://crg7mjvi8nfl" path="res://assets/images/hud/rank_3.png" id="62_jvah8"]
 [ext_resource type="Texture2D" uid="uid://dkby0jtdlia1b" path="res://assets/images/hud/rank_4.png" id="63_yiv4w"]
 [ext_resource type="Texture2D" uid="uid://cwa5nwyx614e6" path="res://assets/images/hud/rank_5.png" id="64_a5km6"]
+[ext_resource type="AudioStream" uid="uid://ccpvydybn3kue" path="res://assets/sounds/sfx/sfx_bump.wav" id="65_sxogs"]
+[ext_resource type="AudioStream" uid="uid://ccoc3ykcwseid" path="res://assets/sounds/sfx/sfx_swing.wav" id="66_nc46l"]
+[ext_resource type="AudioStream" uid="uid://cdgx1mgd4pco5" path="res://assets/sounds/sfx/sfx_swish.wav" id="67_hique"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32s0h"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6rl3b")
+}],
+"loop": true,
+"name": &"bump",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_837et")
@@ -307,7 +319,36 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("59_wo05v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_a5km6")
+}],
+"loop": true,
+"name": &"full",
+"speed": 6.0
 }]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o6kba"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("65_sxogs")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_muhuq"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("66_nc46l")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n1jem"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("67_hique")
+stream_0/weight = 1.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_qa05s")
@@ -315,8 +356,7 @@ script = ExtResource("1_qa05s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
-animation = &"land"
-frame_progress = 1.0
+animation = &"bump"
 speed_scale = 0.3
 
 [node name="standing" type="CollisionShape2D" parent="."]
@@ -367,10 +407,11 @@ offset_bottom = 153.0
 grow_horizontal = 0
 scale = Vector2(1.15, 1.15)
 
-[node name="TextureRect" type="AnimatedSprite2D" parent="CanvasLayer/Control/Control"]
+[node name="rankometer" type="AnimatedSprite2D" parent="CanvasLayer/Control/Control"]
 position = Vector2(3.47821, 8.69565)
 sprite_frames = SubResource("SpriteFrames_pp6uq")
-frame_progress = 0.557313
+animation = &"full"
+frame_progress = 0.887118
 centered = false
 
 [node name="arrow" type="Sprite2D" parent="."]
@@ -383,6 +424,23 @@ visible = false
 position = Vector2(0, -59)
 texture = ExtResource("53_qc4ql")
 
+[node name="othertrailtimer1" type="Timer" parent="."]
+wait_time = 0.09
+one_shot = true
+
+[node name="bump" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_o6kba")
+volume_db = -2.0
+
+[node name="swing" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_muhuq")
+volume_db = -3.0
+
+[node name="swish" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_n1jem")
+volume_db = -3.0
+
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="timeout" from="othertrailtimer1" to="." method="_on_othertrailtimer_1_timeout"]

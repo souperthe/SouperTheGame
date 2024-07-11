@@ -10,7 +10,10 @@ enum states {
 	freefallprep,
 	freefalling,
 	freefallland,
-	ladder
+	ladder,
+	dropkick,
+	bump,
+	punch
 }
 var state = states.normal
 var hsp = 0
@@ -47,10 +50,15 @@ func _ready():
 var thing = false
 	
 func _physics_process(delta):
+	#createothertrail()
 	match(state):
 		states.normal:
 			var move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = move * 10
+			if SInput.just_key_attack:
+				state = states.punch
+				hsp = spriteh * 15
+				$swing.play()
 			if move != 0:
 				spriteh = move
 				if animator.animation != "land":
@@ -84,6 +92,11 @@ func _physics_process(delta):
 			var move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = lerpf(hsp, move * 8, 12 * delta)
 			vsp += grv
+			if SInput.just_key_attack:
+				state = states.dropkick
+				$swing.play()
+				vsp = -12
+				hsp = spriteh * 15
 			if !SInput.key_jump:
 				if animator.animation == "jump":
 					if vsp < 2:
@@ -116,6 +129,37 @@ func _physics_process(delta):
 				thing = false
 				$jump.play()
 				vsp = -15
+		states.dropkick:
+			vsp += grv
+			if is_on_wall():
+				state = states.bump
+				hsp = spriteh * -7
+				$bump.play()
+				$swing.stop()
+				vsp = -7
+			if is_on_floor():
+				#if vsp > 1:
+					state = states.normal
+					animator.play("land")
+					animator.speed_scale = 0.4
+					$step.play()
+					landdust()
+					#vsp = 0
+		states.bump:
+			if animator.animation != "bump":
+				animator.play("bump")
+			vsp += grv
+			if is_on_floor():
+				#if vsp > 1:
+					state = states.normal
+					animator.play("land")
+					animator.speed_scale = 0.4
+					$step.play()
+					landdust()
+					#vsp = 0
+		states.punch:
+			var move = -int(SInput.key_left) - -int(SInput.key_right)
+			hsp = lerpf(hsp, 0, 5 * delta)
 	grounded = is_on_floor()
 	if spriteh == 1:
 		animator.flip_h = false
@@ -137,6 +181,13 @@ func _physics_process(delta):
 	animator.rotation_degrees = lerpf(animator.rotation_degrees, spriteangle, 15 * delta)
 	$CanvasLayer/Control/Label.text = str("(", hsp, ", ", vsp, ")", ", ", state, ", ", animator.animation, ", ", spriteangle)
 	move_and_slide()
+	if global.rank < 6:
+		$CanvasLayer/Control/Control/rankometer.animation = "default"
+		$CanvasLayer/Control/Control/rankometer.speed_scale = 0
+		$CanvasLayer/Control/Control/rankometer.frame = global.rank
+	if global.rank == 6:
+		$CanvasLayer/Control/Control/rankometer.play("full")
+		$CanvasLayer/Control/Control/rankometer.speed_scale = 1
 
 
 func _on_animated_sprite_2d_frame_changed():
@@ -159,4 +210,12 @@ func _on_animated_sprite_2d_animation_finished():
 
 func _on_animated_sprite_2d_animation_changed():
 	animationdone = false
+	pass # Replace with function body.
+
+func createothertrail():
+	if !$othertrailtimer1.time_left > 0:
+		$othertrailtimer1.start()
+
+func _on_othertrailtimer_1_timeout():
+	global.createtrail(self.position, animator, Color8(255,255,255,255))
 	pass # Replace with function body.

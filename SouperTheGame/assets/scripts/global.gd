@@ -6,6 +6,7 @@ var combo = 0
 var targetdoor = "1"
 var targetscene = null
 var showdebug = true
+var rank = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +21,20 @@ func gotoroom(targetroom, selecteddoor):
 	print("ran gotoroom!: ", targetroom, ", ", "door", targetdoor)
 	targetdoor = selecteddoor
 	roomhandler.scenegoto(targetroom)
+	
+func createtrail(targetpos, targetanimator, color):
+	var whiteflash = preload("res://assets/objects/traileffect.tscn")
+	var ghost: Node2D = whiteflash.instantiate()
+	roomhandler.currentscene.add_child(ghost)
+	ghost.position = targetpos
+	ghost.animator.sprite_frames = targetanimator.sprite_frames
+	ghost.animator.animation = targetanimator.animation
+	ghost.animator.frame = targetanimator.frame
+	ghost.animator.flip_h = targetanimator.flip_h
+	ghost.animator.flip_v = targetanimator.flip_v
+	ghost.animator.scale = targetanimator.scale
+	ghost.animator.rotation = targetanimator.rotation
+	ghost.animator.modulate = color
 	
 func startroom():
 	var door = roomhandler.currentscene.get_node(str("door", targetdoor))

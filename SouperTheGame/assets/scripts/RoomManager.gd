@@ -41,8 +41,10 @@ func scenegoto(selectedscene):
 		#if music.playmusic:
 			#music.domusic()
 		global.startroom()
+		global.targetscene = selectedscene
 	else:
 		add_child(spawnedscene)
+		global.targetscene = selectedscene
 		global.startroom()
 		#if music.playmusic:
 			#music.domusic()
