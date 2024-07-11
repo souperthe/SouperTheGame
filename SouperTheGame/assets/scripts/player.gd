@@ -24,6 +24,8 @@ var spriteh = 1
 var lastfloor = Vector2()
 var laddering = false
 var animationdone = false
+var move = 0
+var movedirection = 0
 @onready var doorarrow = $arrow
 
 func landdust():
@@ -53,7 +55,7 @@ func _physics_process(delta):
 	#createothertrail()
 	match(state):
 		states.normal:
-			var move = -int(SInput.key_left) - -int(SInput.key_right)
+			move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = move * 10
 			if SInput.just_key_attack:
 				state = states.punch
@@ -89,14 +91,16 @@ func _physics_process(delta):
 				animator.play("fall")
 				animator.speed_scale = 0.2
 		states.jump:
-			var move = -int(SInput.key_left) - -int(SInput.key_right)
+			move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = lerpf(hsp, move * 8, 12 * delta)
 			vsp += grv
 			if SInput.just_key_attack:
 				state = states.dropkick
 				$swing.play()
 				vsp = -12
-				hsp = spriteh * 15
+				hsp = movedirection * 15
+				if move != 0:
+					spriteh = move
 			if !SInput.key_jump:
 				if animator.animation == "jump":
 					if vsp < 2:
@@ -148,6 +152,7 @@ func _physics_process(delta):
 		states.bump:
 			if animator.animation != "bump":
 				animator.play("bump")
+				animator.speed_scale = 0.3
 			vsp += grv
 			if is_on_floor():
 				#if vsp > 1:
@@ -158,13 +163,16 @@ func _physics_process(delta):
 					landdust()
 					#vsp = 0
 		states.punch:
-			var move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = lerpf(hsp, 0, 5 * delta)
 	grounded = is_on_floor()
 	if spriteh == 1:
 		animator.flip_h = false
 	if spriteh == -1:
 		animator.flip_h = true
+	if move != 0:
+		movedirection = move
+	else:
+		movedirection = spriteh
 	#if is_on_floor():
 		#vsp = 0
 	if is_on_ceiling():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=79 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://c7fty2k6nl4rm" path="res://assets/images/souper/souper_0054.png" id="2_6rl3b"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c1mc3f5fd662c" path="res://assets/images/souper/souper_0043.png" id="2_waay4"]
 [ext_resource type="Texture2D" uid="uid://xdfxw35g28af" path="res://assets/images/souper/souper_0002.png" id="3_1cw2l"]
 [ext_resource type="Texture2D" uid="uid://j2ha3scfntjc" path="res://assets/images/souper/souper_0041.png" id="3_22llm"]
+[ext_resource type="Texture2D" uid="uid://ctx7jurhhit2" path="res://assets/images/souper/souper_0055.png" id="3_ddb74"]
 [ext_resource type="Texture2D" uid="uid://sgqax34s801g" path="res://assets/images/souper/souper_0044.png" id="3_yqc3o"]
 [ext_resource type="Texture2D" uid="uid://u6ciauknbihc" path="res://assets/images/souper/souper_0003.png" id="4_eh5lg"]
 [ext_resource type="Texture2D" uid="uid://63jgk8ynity3" path="res://assets/images/souper/souper_0045.png" id="4_pikmk"]
@@ -74,10 +75,13 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_6rl3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ddb74")
 }],
 "loop": true,
 "name": &"bump",
-"speed": 5.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -357,7 +361,8 @@ script = ExtResource("1_qa05s")
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
 animation = &"bump"
-speed_scale = 0.3
+frame_progress = 0.0305609
+speed_scale = 0.2
 
 [node name="standing" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11.5)
