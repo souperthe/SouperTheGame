@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var targetroom = 0
 var targetdoor = 0
-var door = true
+@export var door :bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("dothing")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://btpoirjmb876p"]
+[gd_scene load_steps=11 format=3 uid="uid://btpoirjmb876p"]
 
 [ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="1_5apo6"]
 [ext_resource type="PackedScene" uid="uid://c85yqrg6ve0e3" path="res://assets/objects/c_slope.tscn" id="2_qvgh1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvarg6yntix2h" path="res://assets/objects/cl_bottom.tscn" id="7_whxec"]
 [ext_resource type="PackedScene" uid="uid://cfpye3bth5qgu" path="res://assets/objects/cl_top.tscn" id="8_6e0le"]
 [ext_resource type="PackedScene" uid="uid://dseu1ycbuw7vc" path="res://assets/objects/cl_right.tscn" id="9_s86w2"]
+[ext_resource type="PackedScene" uid="uid://b0fmapexhgyc1" path="res://assets/objects/hallway.tscn" id="10_1segu"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -62,7 +63,7 @@ scale = Vector2(1, 8)
 
 [node name="CBox6" parent="." instance=ExtResource("1_5apo6")]
 position = Vector2(1600, 0)
-scale = Vector2(4, 1)
+scale = Vector2(8, 1)
 
 [node name="CSlope3" parent="." instance=ExtResource("2_qvgh1")]
 position = Vector2(640, 384)
@@ -83,3 +84,20 @@ position = Vector2(832, -256)
 
 [node name="CL_Right" parent="." instance=ExtResource("9_s86w2")]
 position = Vector2(1856, -128)
+
+[node name="hallway" parent="." instance=ExtResource("10_1segu")]
+position = Vector2(1856, -128)
+scale = Vector2(1, 4)
+target_scene = "res://assets/scenes/test3.tscn"
+target_door = "1"
+
+[node name="CBox8" parent="." instance=ExtResource("1_5apo6")]
+position = Vector2(1152, -256)
+scale = Vector2(7, 1)
+
+[node name="CBox9" parent="." instance=ExtResource("1_5apo6")]
+position = Vector2(1600, -192)
+scale = Vector2(8, 1)
+
+[node name="door2" parent="." instance=ExtResource("3_njppx")]
+position = Vector2(1824, 0)

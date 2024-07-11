@@ -1,6 +1,7 @@
 extends Node2D
 @export var target_scene :String
 @export var target_door :String
+@export var door :bool
 var doored = false
 var dooredtarget = null
 

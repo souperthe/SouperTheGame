@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://dec4iixrcpqvf"]
+
+[ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="1_obw6y"]
+[ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="2_ywum8"]
+[ext_resource type="PackedScene" uid="uid://camw81jkecnlk" path="res://assets/objects/cl_left.tscn" id="3_ycxh4"]
+[ext_resource type="PackedScene" uid="uid://b0fmapexhgyc1" path="res://assets/objects/hallway.tscn" id="4_svho1"]
+[ext_resource type="PackedScene" uid="uid://cfpye3bth5qgu" path="res://assets/objects/cl_top.tscn" id="5_6a1ey"]
+[ext_resource type="PackedScene" uid="uid://dseu1ycbuw7vc" path="res://assets/objects/cl_right.tscn" id="6_irtjc"]
+[ext_resource type="PackedScene" uid="uid://cvarg6yntix2h" path="res://assets/objects/cl_bottom.tscn" id="7_47q11"]
+[ext_resource type="PackedScene" uid="uid://buh8bwyjq2qat" path="res://assets/objects/c_platform.tscn" id="8_xnr8u"]
+[ext_resource type="PackedScene" uid="uid://cq74uu6e1spnb" path="res://assets/objects/ladder.tscn" id="9_v1yml"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CBox6" parent="." instance=ExtResource("1_obw6y")]
+position = Vector2(-64, 192)
+scale = Vector2(8, 1)
+
+[node name="CBox9" parent="." instance=ExtResource("1_obw6y")]
+position = Vector2(-64, 0)
+scale = Vector2(14, 1)
+
+[node name="door1" parent="." instance=ExtResource("2_ywum8")]
+position = Vector2(64, 192)
+
+[node name="CL_Left" parent="." instance=ExtResource("3_ycxh4")]
+position = Vector2(0, 128)
+
+[node name="hallway" parent="." instance=ExtResource("4_svho1")]
+position = Vector2(-32, 64)
+scale = Vector2(1, 4)
+target_scene = "res://assets/scenes/test2.tscn"
+target_door = "2"
+
+[node name="CL_Top" parent="." instance=ExtResource("5_6a1ey")]
+position = Vector2(608, -128)
+
+[node name="CL_Right" parent="." instance=ExtResource("6_irtjc")]
+position = Vector2(960, 192)
+
+[node name="CL_Bottom" parent="." instance=ExtResource("7_47q11")]
+position = Vector2(576, 704)
+
+[node name="CBox7" parent="." instance=ExtResource("1_obw6y")]
+position = Vector2(384, 192)
+scale = Vector2(1, 8)
+
+[node name="CBox8" parent="." instance=ExtResource("1_obw6y")]
+position = Vector2(448, 640)
+scale = Vector2(8, 1)
+
+[node name="CPlatform" parent="." instance=ExtResource("8_xnr8u")]
+position = Vector2(448, 192)
+scale = Vector2(2, 1)
+
+[node name="CBox10" parent="." instance=ExtResource("1_obw6y")]
+position = Vector2(768, 0)
+scale = Vector2(1, 7)
+
+[node name="ladder" parent="." instance=ExtResource("9_v1yml")]
+position = Vector2(512, 160)
+scale = Vector2(1, 15)

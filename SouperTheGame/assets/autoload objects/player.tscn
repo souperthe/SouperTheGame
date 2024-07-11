@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=71 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://oait45rdvgrr" path="res://assets/images/souper/souper_0001.png" id="2_837et"]
@@ -57,7 +57,6 @@
 [ext_resource type="Texture2D" uid="uid://c6pxclqgt5xml" path="res://assets/images/souper/souper_0050.png" id="35_w4ket"]
 [ext_resource type="Texture2D" uid="uid://rr31k4oq543e" path="res://assets/images/souper/souper_0051.png" id="36_22dsm"]
 [ext_resource type="Texture2D" uid="uid://cayq8lqmmirxq" path="res://assets/images/souper/souper_0052.png" id="37_tfrj7"]
-[ext_resource type="Texture2D" uid="uid://jc5n6ca5th6s" path="res://assets/images/souper/souper_0053.png" id="38_xcx2k"]
 [ext_resource type="Texture2D" uid="uid://cgqwh6diui4qa" path="res://assets/images/arrow.png" id="53_qc4ql"]
 [ext_resource type="Texture2D" uid="uid://bc2ltfj7lvxqt" path="res://assets/images/hud/rank_0.png" id="59_wo05v"]
 [ext_resource type="Texture2D" uid="uid://dxe7xkoey2o2n" path="res://assets/images/hud/rank_1.png" id="60_a41vy"]
@@ -199,9 +198,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("37_tfrj7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_xcx2k")
 }],
 "loop": false,
 "name": &"land",
@@ -320,7 +316,6 @@ script = ExtResource("1_qa05s")
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
 animation = &"land"
-frame = 5
 frame_progress = 1.0
 speed_scale = 0.3
 
