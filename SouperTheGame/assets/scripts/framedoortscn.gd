@@ -21,6 +21,7 @@ func _process(delta):
 	if $Area2D.overlaps_body(plr):
 		if plr.state == plr.states.normal:
 			if SInput.just_key_up:
+				$AudioStreamPlayer2D.play()
 				plr.state = plr.states.actor
 				plr.animator.play("door")
 				plr.animator.speed_scale = 0.3

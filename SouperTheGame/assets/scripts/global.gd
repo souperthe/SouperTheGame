@@ -22,6 +22,12 @@ func gotoroom(targetroom, selecteddoor):
 	targetdoor = selecteddoor
 	roomhandler.scenegoto(targetroom)
 	
+func createobject(obj, pos):
+	var whiteflash = load(obj)
+	var ghost = whiteflash.instantiate()
+	roomhandler.currentscene.add_child(ghost)
+	ghost.position = pos
+	
 func createtrail(targetpos, targetanimator, color):
 	var whiteflash = preload("res://assets/objects/traileffect.tscn")
 	var ghost: Node2D = whiteflash.instantiate()

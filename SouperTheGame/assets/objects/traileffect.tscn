@@ -261,7 +261,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0.752941), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -284,7 +284,7 @@ _data = {
 }
 
 [node name="traileffect" type="Node2D"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.823529)
 script = ExtResource("1_lrf2b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

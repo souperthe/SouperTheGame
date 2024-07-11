@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=85 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://c7fty2k6nl4rm" path="res://assets/images/souper/souper_0054.png" id="2_6rl3b"]
@@ -18,13 +18,19 @@
 [ext_resource type="Texture2D" uid="uid://cw2t77yse11sp" path="res://assets/images/souper/souper_0007.png" id="8_g8uuc"]
 [ext_resource type="Texture2D" uid="uid://kqm05un3srk3" path="res://assets/images/souper/souper_0008.png" id="9_qrf2u"]
 [ext_resource type="Texture2D" uid="uid://dblgiqbwpw02r" path="res://assets/images/souper/souper_0009.png" id="10_clq48"]
+[ext_resource type="Texture2D" uid="uid://b4gp2pbsmdlp3" path="res://assets/images/souper/souper_0057.png" id="10_t61yx"]
+[ext_resource type="Texture2D" uid="uid://cmcissg4ryabk" path="res://assets/images/souper/souper_0058.png" id="11_p5yyv"]
 [ext_resource type="Texture2D" uid="uid://b3xt2v0tcqty8" path="res://assets/images/souper/souper_0010.png" id="11_py03a"]
+[ext_resource type="Texture2D" uid="uid://dytqf6rln4mso" path="res://assets/images/souper/souper_0059.png" id="12_81b3a"]
 [ext_resource type="Texture2D" uid="uid://bgd8g6aq3bvcb" path="res://assets/images/souper/souper_0011.png" id="12_dw24c"]
+[ext_resource type="Texture2D" uid="uid://cc2pd4578m4tj" path="res://assets/images/souper/souper_0060.png" id="13_f4tbd"]
 [ext_resource type="Texture2D" uid="uid://crlv5cjpb8dnq" path="res://assets/images/souper/souper_0012.png" id="13_jgp78"]
 [ext_resource type="Texture2D" uid="uid://dsceyfs4q2nnh" path="res://assets/images/souper/souper_0013.png" id="14_bhhnb"]
 [ext_resource type="Texture2D" uid="uid://rb2xj0u3bisc" path="res://assets/images/souper/souper_0028.png" id="14_jh4p1"]
+[ext_resource type="Texture2D" uid="uid://dydwx1vmtqndh" path="res://assets/images/souper/souper_0061.png" id="14_soith"]
 [ext_resource type="Texture2D" uid="uid://bn8q2a5ledncr" path="res://assets/images/souper/souper_0014.png" id="15_jbmcw"]
 [ext_resource type="Texture2D" uid="uid://cp5tab7828k25" path="res://assets/images/souper/souper_0029.png" id="15_m1yyl"]
+[ext_resource type="Texture2D" uid="uid://bs3bm44ekftpa" path="res://assets/images/souper/souper_0062.png" id="15_nchdk"]
 [ext_resource type="Texture2D" uid="uid://dvvt71ik4fp1u" path="res://assets/images/souper/souper_0015.png" id="16_hxj8y"]
 [ext_resource type="Texture2D" uid="uid://lvhxvwh4vp74" path="res://assets/images/souper/souper_0030.png" id="16_os73a"]
 [ext_resource type="AudioStream" uid="uid://sb6upgx2j8he" path="res://assets/sounds/sfx/sfx_jump.wav" id="17_folkk"]
@@ -67,8 +73,8 @@
 [ext_resource type="Texture2D" uid="uid://dkby0jtdlia1b" path="res://assets/images/hud/rank_4.png" id="63_yiv4w"]
 [ext_resource type="Texture2D" uid="uid://cwa5nwyx614e6" path="res://assets/images/hud/rank_5.png" id="64_a5km6"]
 [ext_resource type="AudioStream" uid="uid://ccpvydybn3kue" path="res://assets/sounds/sfx/sfx_bump.wav" id="65_sxogs"]
-[ext_resource type="AudioStream" uid="uid://ccoc3ykcwseid" path="res://assets/sounds/sfx/sfx_swing.wav" id="66_nc46l"]
 [ext_resource type="AudioStream" uid="uid://cdgx1mgd4pco5" path="res://assets/sounds/sfx/sfx_swish.wav" id="67_hique"]
+[ext_resource type="AudioStream" uid="uid://5pfp6o1lhgn7" path="res://assets/sounds/sfx/sfx_swash.wav" id="74_blkh8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32s0h"]
 animations = [{
@@ -104,6 +110,29 @@ animations = [{
 }],
 "loop": false,
 "name": &"door",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_t61yx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p5yyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_81b3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_f4tbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_soith")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_nchdk")
+}],
+"loop": false,
+"name": &"dropkick",
 "speed": 60.0
 }, {
 "frames": [{
@@ -345,7 +374,7 @@ stream_0/weight = 1.0
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_muhuq"]
 random_pitch = 1.1
 streams_count = 1
-stream_0/stream = ExtResource("66_nc46l")
+stream_0/stream = ExtResource("74_blkh8")
 stream_0/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n1jem"]
@@ -360,8 +389,9 @@ script = ExtResource("1_qa05s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
-animation = &"bump"
-frame_progress = 0.0305609
+animation = &"dropkick"
+frame = 5
+frame_progress = 1.0
 speed_scale = 0.2
 
 [node name="standing" type="CollisionShape2D" parent="."]
@@ -430,7 +460,7 @@ position = Vector2(0, -59)
 texture = ExtResource("53_qc4ql")
 
 [node name="othertrailtimer1" type="Timer" parent="."]
-wait_time = 0.09
+wait_time = 0.06
 one_shot = true
 
 [node name="bump" type="AudioStreamPlayer2D" parent="."]
@@ -439,7 +469,7 @@ volume_db = -2.0
 
 [node name="swing" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_muhuq")
-volume_db = -3.0
+volume_db = -5.0
 
 [node name="swish" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_n1jem")

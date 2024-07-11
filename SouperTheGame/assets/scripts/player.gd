@@ -16,6 +16,7 @@ enum states {
 	punch
 }
 var state = states.normal
+var wall = 0
 var hsp = 0
 var vsp = 0
 var grv = 0.6
@@ -52,6 +53,7 @@ func _ready():
 var thing = false
 	
 func _physics_process(delta):
+	wall = get_wall_normal()
 	#createothertrail()
 	match(state):
 		states.normal:
@@ -59,7 +61,7 @@ func _physics_process(delta):
 			hsp = move * 10
 			if SInput.just_key_attack:
 				state = states.punch
-				hsp = spriteh * 15
+				hsp = spriteh * 18
 				$swing.play()
 			if move != 0:
 				spriteh = move
@@ -96,6 +98,8 @@ func _physics_process(delta):
 			vsp += grv
 			if SInput.just_key_attack:
 				state = states.dropkick
+				animator.play("dropkick")
+				animator.speed_scale = 0.25
 				$swing.play()
 				vsp = -12
 				hsp = movedirection * 15
@@ -134,6 +138,7 @@ func _physics_process(delta):
 				$jump.play()
 				vsp = -15
 		states.dropkick:
+			createothertrail()
 			vsp += grv
 			if is_on_wall():
 				state = states.bump
@@ -141,6 +146,7 @@ func _physics_process(delta):
 				$bump.play()
 				$swing.stop()
 				vsp = -7
+				global.createobject("res://assets/objects/bangeffect.tscn", position)
 			if is_on_floor():
 				#if vsp > 1:
 					state = states.normal
@@ -164,6 +170,8 @@ func _physics_process(delta):
 					#vsp = 0
 		states.punch:
 			hsp = lerpf(hsp, 0, 5 * delta)
+			if is_on_wall():
+				hsp = -hsp / 2
 	grounded = is_on_floor()
 	if spriteh == 1:
 		animator.flip_h = false
