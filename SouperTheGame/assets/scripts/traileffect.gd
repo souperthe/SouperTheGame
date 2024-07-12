@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var animator = $AnimatedSprite2D
+@onready var animate = $AnimationPlayer
 
 
 # Called when the node enters the scene tree for the first time.

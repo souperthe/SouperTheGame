@@ -59,10 +59,7 @@ func _physics_process(delta):
 		states.normal:
 			move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = move * 10
-			if SInput.just_key_attack:
-				state = states.punch
-				hsp = spriteh * 18
-				$swing.play()
+			vsp = 0
 			if move != 0:
 				spriteh = move
 				if animator.animation != "land":
@@ -88,6 +85,12 @@ func _physics_process(delta):
 				thing = false
 				$jump.play()
 				vsp = -15
+			if SInput.just_key_attack:
+				state = states.punch
+				hsp = spriteh * 18
+				$swang.play()
+				animator.play("punch")
+				animator.speed_scale = 0.35
 			if !is_on_floor():
 				state = states.jump
 				animator.play("fall")
@@ -145,6 +148,7 @@ func _physics_process(delta):
 				hsp = spriteh * -7
 				$bump.play()
 				$swing.stop()
+				$flashbulb.play()
 				vsp = -7
 				global.createobject("res://assets/objects/bangeffect.tscn", position)
 			if is_on_floor():
@@ -169,9 +173,19 @@ func _physics_process(delta):
 					landdust()
 					#vsp = 0
 		states.punch:
-			hsp = lerpf(hsp, 0, 5 * delta)
+			createothertrail()
+			hsp = lerpf(hsp, 0, 3 * delta)
 			if is_on_wall():
-				hsp = -hsp / 2
+				hsp = -hsp
+				$swing.stop()
+				$flashbulb.play()
+				global.createobject("res://assets/objects/bangeffect.tscn", position)
+			if !is_on_floor():
+				state = states.jump
+				animator.play("fall")
+				$swing.stop()
+			if animationdone:
+				state = states.normal
 	grounded = is_on_floor()
 	if spriteh == 1:
 		animator.flip_h = false
@@ -233,5 +247,5 @@ func createothertrail():
 		$othertrailtimer1.start()
 
 func _on_othertrailtimer_1_timeout():
-	global.createtrail(self.position, animator, Color8(255,255,255,255))
+	global.createtrail(self.position, animator, Color8(255,255,255,255), 1.5)
 	pass # Replace with function body.

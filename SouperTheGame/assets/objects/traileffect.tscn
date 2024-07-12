@@ -284,7 +284,7 @@ _data = {
 }
 
 [node name="traileffect" type="Node2D"]
-modulate = Color(1, 1, 1, 0.823529)
+modulate = Color(1, 1, 1, 0.752941)
 script = ExtResource("1_lrf2b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

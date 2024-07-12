@@ -28,7 +28,7 @@ func createobject(obj, pos):
 	roomhandler.currentscene.add_child(ghost)
 	ghost.position = pos
 	
-func createtrail(targetpos, targetanimator, color):
+func createtrail(targetpos, targetanimator, color, fadespeed):
 	var whiteflash = preload("res://assets/objects/traileffect.tscn")
 	var ghost: Node2D = whiteflash.instantiate()
 	roomhandler.currentscene.add_child(ghost)
@@ -41,6 +41,7 @@ func createtrail(targetpos, targetanimator, color):
 	ghost.animator.scale = targetanimator.scale
 	ghost.animator.rotation = targetanimator.rotation
 	ghost.animator.modulate = color
+	ghost.animate.speed_scale = fadespeed
 	
 func startroom():
 	var door = roomhandler.currentscene.get_node(str("door", targetdoor))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=96 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://c7fty2k6nl4rm" path="res://assets/images/souper/souper_0054.png" id="2_6rl3b"]
@@ -68,13 +68,22 @@
 [ext_resource type="Texture2D" uid="uid://cgqwh6diui4qa" path="res://assets/images/arrow.png" id="53_qc4ql"]
 [ext_resource type="Texture2D" uid="uid://bc2ltfj7lvxqt" path="res://assets/images/hud/rank_0.png" id="59_wo05v"]
 [ext_resource type="Texture2D" uid="uid://dxe7xkoey2o2n" path="res://assets/images/hud/rank_1.png" id="60_a41vy"]
+[ext_resource type="Texture2D" uid="uid://bo2y3eux46huc" path="res://assets/images/souper/souper_0064.png" id="61_2hikk"]
 [ext_resource type="Texture2D" uid="uid://8rup7q8b6a7g" path="res://assets/images/hud/rank_2.png" id="61_w6742"]
 [ext_resource type="Texture2D" uid="uid://crg7mjvi8nfl" path="res://assets/images/hud/rank_3.png" id="62_jvah8"]
+[ext_resource type="Texture2D" uid="uid://bnsv7icn7a3ip" path="res://assets/images/souper/souper_0065.png" id="62_vyhh6"]
+[ext_resource type="Texture2D" uid="uid://clyq4pn5oovpm" path="res://assets/images/souper/souper_0066.png" id="63_w1a8c"]
 [ext_resource type="Texture2D" uid="uid://dkby0jtdlia1b" path="res://assets/images/hud/rank_4.png" id="63_yiv4w"]
 [ext_resource type="Texture2D" uid="uid://cwa5nwyx614e6" path="res://assets/images/hud/rank_5.png" id="64_a5km6"]
+[ext_resource type="Texture2D" uid="uid://d1mpfhxv0567a" path="res://assets/images/souper/souper_0067.png" id="64_lgbyr"]
+[ext_resource type="Texture2D" uid="uid://b77ydhct6bdlc" path="res://assets/images/souper/souper_0068.png" id="65_r5y6a"]
 [ext_resource type="AudioStream" uid="uid://ccpvydybn3kue" path="res://assets/sounds/sfx/sfx_bump.wav" id="65_sxogs"]
+[ext_resource type="Texture2D" uid="uid://458mdtguiofg" path="res://assets/images/souper/souper_0069.png" id="66_glcp8"]
+[ext_resource type="Texture2D" uid="uid://74we2tyg0etr" path="res://assets/images/souper/souper_0070.png" id="67_cioon"]
 [ext_resource type="AudioStream" uid="uid://cdgx1mgd4pco5" path="res://assets/sounds/sfx/sfx_swish.wav" id="67_hique"]
 [ext_resource type="AudioStream" uid="uid://5pfp6o1lhgn7" path="res://assets/sounds/sfx/sfx_swash.wav" id="74_blkh8"]
+[ext_resource type="AudioStream" uid="uid://c7iisje5r50qn" path="res://assets/sounds/sfx/sfx_grapple.wav" id="81_elg0p"]
+[ext_resource type="AudioStream" uid="uid://ccoc3ykcwseid" path="res://assets/sounds/sfx/sfx_swing.wav" id="82_r822q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32s0h"]
 animations = [{
@@ -302,6 +311,32 @@ animations = [{
 "loop": true,
 "name": &"move",
 "speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("61_2hikk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_vyhh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_w1a8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_lgbyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_r5y6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_glcp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_cioon")
+}],
+"loop": false,
+"name": &"punch",
+"speed": 60.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twd7b"]
@@ -383,15 +418,26 @@ streams_count = 1
 stream_0/stream = ExtResource("67_hique")
 stream_0/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ttyog"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("81_elg0p")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5vhx1"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("82_r822q")
+stream_0/weight = 1.0
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_qa05s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
-animation = &"dropkick"
+animation = &"punch"
 frame = 5
-frame_progress = 1.0
 speed_scale = 0.2
 
 [node name="standing" type="CollisionShape2D" parent="."]
@@ -465,7 +511,7 @@ one_shot = true
 
 [node name="bump" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_o6kba")
-volume_db = -2.0
+volume_db = -5.0
 
 [node name="swing" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_muhuq")
@@ -474,6 +520,14 @@ volume_db = -5.0
 [node name="swish" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_n1jem")
 volume_db = -3.0
+
+[node name="flashbulb" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_ttyog")
+volume_db = 5.0
+
+[node name="swang" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_5vhx1")
+volume_db = -5.0
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
