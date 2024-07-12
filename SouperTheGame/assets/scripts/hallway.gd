@@ -9,16 +9,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_area_2d_body_exited(body):
-	pass # Replace with function body.
-
-
-func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	pass # Replace with function body.
 func createtransition():
 	var whiteflash = preload("res://assets/objects/fadetransistion.tscn")
 	var ghost: CanvasLayer = whiteflash.instantiate()

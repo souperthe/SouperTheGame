@@ -7,7 +7,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if overlaps_body(plr):
 		if plr.state == plr.states.normal || plr.state == plr.states.jump:
 			if SInput.just_key_up:

@@ -11,4 +11,4 @@ func _ready():
 func _process(delta):
 	of = clamp(lerpf(of, plr.vsp * 3, 5 * delta), -64, 64)
 	position.x = target.position.x
-	position.y = target.position.y - 30 - of
+	position.y = target.position.y - 30
