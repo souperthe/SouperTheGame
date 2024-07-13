@@ -239,7 +239,6 @@ func _physics_process(delta):
 				$descend.play()
 				vsp = 25
 			if is_on_floor():
-				global.createobject("res://assets/objects/pounddust.tscn", position)
 				state = states.freefallland
 				$descend.stop()
 				$flashbulb.play()
@@ -249,6 +248,7 @@ func _physics_process(delta):
 				animator.play("freefallland")
 				animator.speed_scale = 0.15
 				camera.camerashake(15, 1)
+				global.createobject("res://assets/objects/pounddust.tscn", position, spriteangle)
 		states.freefalling:
 			createothertrail()
 			move = -int(SInput.key_left) - -int(SInput.key_right)
