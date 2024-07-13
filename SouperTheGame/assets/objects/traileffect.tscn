@@ -56,8 +56,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxvmf"]
 shader = ExtResource("2_f5sey")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_modifier = 0.0
+shader_parameter/difference_point = 0.3
+shader_parameter/default_color = Color(1, 1, 1, 1)
+shader_parameter/first_color = Color(1, 0, 0, 1)
+shader_parameter/second_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cavn0"]
 animations = [{
@@ -262,7 +264,7 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.752941), Color(1, 1, 1, 0)]
@@ -281,6 +283,18 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:material:shader_parameter/tint_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g74ab"]
 _data = {
@@ -288,6 +302,7 @@ _data = {
 }
 
 [node name="traileffect" type="Node2D"]
+modulate = Color(1, 1, 1, 0)
 script = ExtResource("1_lrf2b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

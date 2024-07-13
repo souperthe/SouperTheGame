@@ -13,7 +13,7 @@ func _ready():
 func _process(delta):
 	if s_amount > 0:
 		s_amount = global.approach(s_amount, 0, sf_amount)
-		print(s_amount)
+		#print(s_amount)
 		offset.x = randi_range(s_amount, -s_amount)
 		offset.y = randi_range(s_amount, -s_amount)
 	of = clamp(lerpf(of, plr.vsp * 3, 5 * delta), -64, 64)

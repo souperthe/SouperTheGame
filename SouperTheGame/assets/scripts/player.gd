@@ -44,6 +44,15 @@ func stepdust():
 	roomhandler.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
+	
+func rundust():
+	var whiteflash = preload("res://assets/objects/rundust.tscn")
+	var ghost: Node2D = whiteflash.instantiate()
+	roomhandler.currentscene.add_child(ghost)
+	ghost.position.x = self.position.x
+	ghost.position.y = self.position.y
+	ghost.scale.x = spriteh
+	ghost.z_index = self.z_index - 1
 
 
 func _ready():
@@ -194,15 +203,12 @@ func _physics_process(delta):
 		states.punch:
 			createothertrail()
 			hsp = lerpf(hsp, 0, 3 * delta)
+			vsp = 0
 			if is_on_wall():
 				hsp = -hsp
 				$swing.stop()
 				$flashbulb.play()
 				global.createobject("res://assets/objects/bangeffect.tscn", position)
-			if !is_on_floor():
-				state = states.jump
-				animator.play("fall")
-				$swing.stop()
 			if animationdone:
 				state = states.normal
 			if SInput.just_key_attack:
@@ -320,6 +326,11 @@ func _on_animated_sprite_2d_frame_changed():
 				if animator.frame == 2 or animator.frame == 8:
 					$step.play()
 					stepdust()
+		states.dash2:
+			if animator.animation == "mach3":
+				if animator.frame == 2:
+					if is_on_floor():
+						rundust()
 	pass # Replace with function body.
 	
 func doorarrowcheck(what):
@@ -349,5 +360,5 @@ func _on_othertrailtimer_1_timeout():
 
 
 func _on_machtrail_timeout():
-	global.createtrail(self.position, animator, Color8(255,0,0,255), 1)
+	global.createmachtrail(self.position, animator, Color8(255,0,0,255), 2)
 	pass # Replace with function body.

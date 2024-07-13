@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvs4ll60ebsuy"]
+
+[ext_resource type="Script" path="res://assets/scripts/landdust.gd" id="1_dvdbc"]
+[ext_resource type="Texture2D" uid="uid://c3b3b1d6nhx1r" path="res://assets/images/otheranimated/rundust/rundust_0001.png" id="2_v41ye"]
+[ext_resource type="Texture2D" uid="uid://ief7tjk0rdb5" path="res://assets/images/otheranimated/rundust/rundust_0002.png" id="3_4nhj5"]
+[ext_resource type="Texture2D" uid="uid://bxuv46axeexrm" path="res://assets/images/otheranimated/rundust/rundust_0003.png" id="4_8l1jn"]
+[ext_resource type="Texture2D" uid="uid://bxexckooi67jg" path="res://assets/images/otheranimated/rundust/rundust_0004.png" id="5_aevmy"]
+[ext_resource type="Texture2D" uid="uid://dbsb2nypgx2j8" path="res://assets/images/otheranimated/rundust/rundust_0005.png" id="6_xd5li"]
+[ext_resource type="Texture2D" uid="uid://c3wohey7xhp1q" path="res://assets/images/otheranimated/rundust/rundust_0006.png" id="7_ita5l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8wlo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v41ye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4nhj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8l1jn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_aevmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xd5li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ita5l")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="rundust" type="Node2D"]
+z_index = 1
+script = ExtResource("1_dvdbc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_o8wlo")
+frame = 5
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
