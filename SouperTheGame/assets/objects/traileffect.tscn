@@ -1,6 +1,7 @@
-[gd_scene load_steps=57 format=3 uid="uid://b0sktqsqgdkvo"]
+[gd_scene load_steps=58 format=3 uid="uid://b0sktqsqgdkvo"]
 
 [ext_resource type="Script" path="res://assets/scripts/traileffect.gd" id="1_lrf2b"]
+[ext_resource type="Shader" path="res://assets/shaders/traileffect2.gdshader" id="2_f5sey"]
 [ext_resource type="Texture2D" uid="uid://oait45rdvgrr" path="res://assets/images/souper/souper_0001.png" id="2_iwvjm"]
 [ext_resource type="Texture2D" uid="uid://c1mc3f5fd662c" path="res://assets/images/souper/souper_0043.png" id="3_su48l"]
 [ext_resource type="Texture2D" uid="uid://sgqax34s801g" path="res://assets/images/souper/souper_0044.png" id="4_kl6y7"]
@@ -54,6 +55,9 @@
 [ext_resource type="Texture2D" uid="uid://dr57k610fqg2m" path="res://assets/images/souper/souper_0027.png" id="52_2478v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxvmf"]
+shader = ExtResource("2_f5sey")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cavn0"]
 animations = [{
@@ -284,13 +288,14 @@ _data = {
 }
 
 [node name="traileffect" type="Node2D"]
-modulate = Color(1, 1, 1, 0.752941)
 script = ExtResource("1_lrf2b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
+clip_children = 2
 texture_filter = 4
 material = SubResource("ShaderMaterial_gxvmf")
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_cavn0")
 animation = &"mach3"
 speed_scale = 0.3

@@ -13,8 +13,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="CBox6" parent="." instance=ExtResource("1_obw6y")]
-position = Vector2(-64, 192)
-scale = Vector2(8, 1)
+position = Vector2(-1024, 192)
+scale = Vector2(23, 1)
 
 [node name="CBox9" parent="." instance=ExtResource("1_obw6y")]
 position = Vector2(-64, 0)
@@ -39,14 +39,14 @@ position = Vector2(608, -128)
 position = Vector2(960, 192)
 
 [node name="CL_Bottom" parent="." instance=ExtResource("7_47q11")]
-position = Vector2(576, 704)
+position = Vector2(608, 4320)
 
 [node name="CBox7" parent="." instance=ExtResource("1_obw6y")]
 position = Vector2(384, 192)
-scale = Vector2(1, 8)
+scale = Vector2(1, 64)
 
 [node name="CBox8" parent="." instance=ExtResource("1_obw6y")]
-position = Vector2(448, 640)
+position = Vector2(416, 4256)
 scale = Vector2(8, 1)
 
 [node name="CPlatform" parent="." instance=ExtResource("8_xnr8u")]
@@ -59,4 +59,4 @@ scale = Vector2(1, 7)
 
 [node name="ladder" parent="." instance=ExtResource("9_v1yml")]
 position = Vector2(512, 160)
-scale = Vector2(1, 15)
+scale = Vector2(1, 130)

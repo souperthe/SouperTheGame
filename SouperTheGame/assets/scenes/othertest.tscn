@@ -17,7 +17,7 @@ target_door = "2"
 
 [node name="CBox" parent="." instance=ExtResource("3_b88ea")]
 position = Vector2(256, 512)
-scale = Vector2(8, 1)
+scale = Vector2(200, 1)
 
 [node name="musicsetter" parent="." instance=ExtResource("4_gu360")]
 position = Vector2(512, 256)

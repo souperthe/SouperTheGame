@@ -13,7 +13,9 @@ enum states {
 	ladder,
 	dropkick,
 	bump,
-	punch
+	punch,
+	dash1,
+	dash2
 }
 var state = states.normal
 var wall = 0
@@ -89,7 +91,12 @@ func _physics_process(delta):
 				state = states.punch
 				hsp = spriteh * 18
 				$swang.play()
-				animator.play("punch")
+				var rng = randi_range(1,2)
+				match(rng):
+					1:
+						animator.play("punch")
+					2:
+						animator.play("kick")
 				animator.speed_scale = 0.35
 			if !is_on_floor():
 				state = states.jump
@@ -121,6 +128,12 @@ func _physics_process(delta):
 					$step.play()
 					landdust()
 					vsp = 0
+			if SInput.just_key_down:
+				state = states.freefallprep
+				animator.play("freefallprep")
+				animator.speed_scale = 0.4
+				vsp = -12
+				$freefallprep.play()
 		states.ladder:
 			if SInput.key_up:
 				vsp = -8
@@ -152,7 +165,13 @@ func _physics_process(delta):
 				vsp = -7
 				global.createobject("res://assets/objects/bangeffect.tscn", position)
 			if is_on_floor():
-				#if vsp > 1:
+				if SInput.key_dash:
+					state = states.dash2
+					animator.play("land")
+					animator.speed_scale = 0.4
+					$step.play()
+					landdust()
+				else:
 					state = states.normal
 					animator.play("land")
 					animator.speed_scale = 0.4
@@ -186,6 +205,71 @@ func _physics_process(delta):
 				$swing.stop()
 			if animationdone:
 				state = states.normal
+			if SInput.just_key_attack:
+				state = states.dropkick
+				animator.play("dropkick")
+				animator.speed_scale = 0.25
+				$swing.play()
+				vsp = -12
+				hsp = movedirection * 15
+				if move != 0:
+					spriteh = move
+		states.dash2:
+			createmachtrail()
+			animator.play("mach3")
+			animator.speed_scale = 0.3
+			if is_on_floor():
+				vsp = 0
+				hsp = spriteh * 22
+			if not is_on_floor():
+				vsp += grv
+			if is_on_wall():
+				state = states.bump
+				hsp = spriteh * -7
+				$bump.play()
+				$swing.stop()
+				$flashbulb.play()
+				vsp = -7
+				global.createobject("res://assets/objects/bangeffect.tscn", position)
+		states.freefallprep:
+			hsp = lerpf(hsp, 0, 5 * delta)
+			vsp += grv
+			if animationdone:
+				state = states.freefalling
+				$descend.play()
+				vsp = 25
+			if is_on_floor():
+				global.createobject("res://assets/objects/pounddust.tscn", position)
+				state = states.freefallland
+				$descend.stop()
+				$flashbulb.play()
+				$freefallland.play()
+				$step.play()
+				$freefallprep.stop()
+				animator.play("freefallland")
+				animator.speed_scale = 0.15
+				camera.camerashake(15, 1)
+		states.freefalling:
+			createothertrail()
+			move = -int(SInput.key_left) - -int(SInput.key_right)
+			hsp = lerpf(hsp, move * 8, 10 * delta)
+			vsp += grv
+			if is_on_floor():
+				global.createobject("res://assets/objects/pounddust.tscn", position)
+				state = states.freefallland
+				$descend.stop()
+				$flashbulb.play()
+				$freefallland.play()
+				$step.play()
+				animator.play("freefallland")
+				animator.speed_scale = 0.15
+				camera.camerashake(15, 1)
+		states.freefallland:
+			hsp = 0
+			vsp = 0
+			if animationdone:
+				state = states.normal
+				$pop.play()
 	grounded = is_on_floor()
 	if spriteh == 1:
 		animator.flip_h = false
@@ -208,8 +292,9 @@ func _physics_process(delta):
 		spriteangle = rad_to_deg(floornormal.angle() + deg_to_rad(90))
 	else:
 		spriteangle = 0
+	statesound()
 	animator.rotation_degrees = lerpf(animator.rotation_degrees, spriteangle, 15 * delta)
-	$CanvasLayer/Control/Label.text = str("(", hsp, ", ", vsp, ")", ", ", state, ", ", animator.animation, ", ", spriteangle)
+	$CanvasLayer/Control/Label.text = str("(", int(hsp), ", ", int(vsp), ")", ", ", state, ", ", animator.animation, ", ", spriteangle)
 	move_and_slide()
 	if global.rank < 6:
 		$CanvasLayer/Control/Control/rankometer.animation = "default"
@@ -218,8 +303,16 @@ func _physics_process(delta):
 	if global.rank == 6:
 		$CanvasLayer/Control/Control/rankometer.play("full")
 		$CanvasLayer/Control/Control/rankometer.speed_scale = 1
+	
 
-
+func statesound():
+	if state == states.dash2:
+		if !$dash2.playing:
+			$dash2.play()
+	else:
+		if $dash2.playing:
+			$dash2.stop()
+	
 func _on_animated_sprite_2d_frame_changed():
 	match(state):
 		states.normal:
@@ -245,7 +338,16 @@ func _on_animated_sprite_2d_animation_changed():
 func createothertrail():
 	if !$othertrailtimer1.time_left > 0:
 		$othertrailtimer1.start()
+		
+func createmachtrail():
+	if !$machtrail.time_left > 0:
+		$machtrail.start()
 
 func _on_othertrailtimer_1_timeout():
-	global.createtrail(self.position, animator, Color8(255,255,255,255), 1.5)
+	global.createtrail(self.position, animator, Color8(255,255,255,255), 2)
+	pass # Replace with function body.
+
+
+func _on_machtrail_timeout():
+	global.createtrail(self.position, animator, Color8(255,0,0,255), 1)
 	pass # Replace with function body.

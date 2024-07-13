@@ -39,7 +39,8 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == plr.name:
-		body.doorarrowcheck(true)
+		if body.state == body.states.normal:
+			body.doorarrowcheck(true)
 
 
 func _on_area_2d_body_exited(body):

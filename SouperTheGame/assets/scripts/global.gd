@@ -16,7 +16,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-	
+
+func approach(num, goal, i):
+	if num < goal:
+		return min(num+i, goal)
+	else:
+		return max(num-i, goal)
+
 func gotoroom(targetroom, selecteddoor):
 	print("ran gotoroom!: ", targetroom, ", ", "door", targetdoor)
 	targetdoor = selecteddoor

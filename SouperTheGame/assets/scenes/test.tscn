@@ -55,7 +55,7 @@ position = Vector2(256, -256)
 
 [node name="musicsetter" parent="." instance=ExtResource("9_rsqb2")]
 position = Vector2(256, 256)
-target_song = "res://assets/sounds/music/mus_house.ogg"
+target_song = "res://assets/sounds/music/mus_test.ogg"
 continue_after_last = true
 
 [node name="framedoor" parent="." instance=ExtResource("10_d7yn1")]
