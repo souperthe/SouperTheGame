@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var animator = $AnimatedSprite2D
-var grounded = false
+@onready var animator := $AnimatedSprite2D
+var grounded := false
 enum states {
 	normal,
 	jump,
@@ -17,19 +17,19 @@ enum states {
 	dash1,
 	dash2
 }
-var state = states.normal
-var wall = 0
-var hsp = 0
-var vsp = 0
-var grv = 0.6
-var spriteangle
-var spriteh = 1
-var lastfloor = Vector2()
-var laddering = false
-var animationdone = false
-var move = 0
-var movedirection = 0
-@onready var doorarrow = $arrow
+var state := states.normal
+var wall := Vector2()
+var hsp := 0.0
+var vsp := 0.0
+var grv := 0.6
+var spriteangle := 0.0
+var spriteh := 1
+var lastfloor := Vector2()
+var laddering := false
+var animationdone := false
+var move := 0
+var movedirection := 0
+@onready var doorarrow := $arrow
 
 func landdust():
 	var whiteflash = preload("res://assets/objects/landdust.tscn")
