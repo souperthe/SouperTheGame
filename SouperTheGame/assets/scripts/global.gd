@@ -1,12 +1,12 @@
 extends Node2D
 
-var escape = false
-var score = 0
-var combo = 0
-var targetdoor = "1"
-var targetscene = null
-var showdebug = true
-var rank = 1
+var escape := false
+var score := 0
+var combo := 0
+var targetdoor := "1"
+var targetscene := "scene"
+var showdebug := true
+var rank := 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
