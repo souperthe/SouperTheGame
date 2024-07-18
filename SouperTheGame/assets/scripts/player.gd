@@ -15,7 +15,8 @@ enum states {
 	bump,
 	punch,
 	dash1,
-	dash2
+	dash2,
+	dashturn
 }
 var state = states.normal
 var wall = 0
@@ -221,6 +222,10 @@ func _physics_process(delta):
 				if move != 0:
 					spriteh = move
 		states.dash2:
+			move = -int(SInput.key_left) - -int(SInput.key_right)
+			if move == -spriteh:
+				state = states.dashturn
+				$machcancle.play()
 			createmachtrail()
 			animator.play("mach3")
 			animator.speed_scale = 0.3
@@ -271,11 +276,22 @@ func _physics_process(delta):
 				animator.speed_scale = 0.15
 				camera.camerashake(15, 1)
 		states.freefallland:
+			move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = 0
 			vsp = 0
 			if animationdone:
 				state = states.normal
 				$pop.play()
+		states.dashturn:
+			move = -int(SInput.key_left) - -int(SInput.key_right)
+			hsp = global.approach(hsp, 0, 35 * delta)
+			if abs(hsp) == 0:
+				if move == -spriteh:
+					state = states.dash2
+					spriteh = -spriteh
+				else:
+					state = states.normal
+					spriteh = -spriteh
 	grounded = is_on_floor()
 	if spriteh == 1:
 		animator.flip_h = false
@@ -360,5 +376,5 @@ func _on_othertrailtimer_1_timeout():
 
 
 func _on_machtrail_timeout():
-	global.createmachtrail(self.position, animator, Color8(255,0,0,255), 2)
+	global.createmachtrail(self.position, animator, Color8(255,0,0,255), 1.5, self)
 	pass # Replace with function body.

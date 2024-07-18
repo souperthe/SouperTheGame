@@ -23,3 +23,7 @@ scale = Vector2(500, 1)
 position = Vector2(512, 256)
 target_song = "res://assets/sounds/music/mus_tut.ogg"
 continue_after_last = true
+
+[node name="CBox2" parent="." instance=ExtResource("3_b88ea")]
+position = Vector2(31744, 256)
+scale = Vector2(1, 4)

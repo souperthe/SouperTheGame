@@ -51,7 +51,7 @@ func createtrail(targetpos, targetanimator, color, fadespeed):
 	ghost.animator.modulate = color
 	ghost.animate.speed_scale = fadespeed
 	
-func createmachtrail(targetpos, targetanimator, color, fadespeed):
+func createmachtrail(targetpos, targetanimator, color, fadespeed, ownedby):
 	var whiteflash = preload("res://assets/objects/machtrail.tscn")
 	var ghost: Node2D = whiteflash.instantiate()
 	roomhandler.currentscene.add_child(ghost)
@@ -65,6 +65,7 @@ func createmachtrail(targetpos, targetanimator, color, fadespeed):
 	ghost.animator.rotation = targetanimator.rotation
 	ghost.animator.modulate = color
 	ghost.animate.speed_scale = fadespeed
+	ghost.target = ownedby
 	
 func startroom():
 	var door = roomhandler.currentscene.get_node(str("door", targetdoor))
