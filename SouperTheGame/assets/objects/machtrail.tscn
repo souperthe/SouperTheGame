@@ -55,11 +55,13 @@
 [ext_resource type="Texture2D" uid="uid://dr57k610fqg2m" path="res://assets/images/souper/souper_0027.png" id="53_xoqud"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_51kg6"]
+resource_local_to_scene = true
 shader = ExtResource("2_liypn")
 shader_parameter/difference_point = 0.2
-shader_parameter/default_color = Color(1, 1, 1, 0.752941)
-shader_parameter/first_color = Color(1, 0, 0, 1)
-shader_parameter/second_color = Color(0.721569, 0, 0, 1)
+shader_parameter/default_color = Color(1, 1, 1, 0)
+shader_parameter/real_color = Color(0.988235, 0, 0, 1)
+shader_parameter/first_color = Color(1, 1, 1, 1)
+shader_parameter/second_color = Color(0.560955, 0.560955, 0.560955, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cavn0"]
 animations = [{
@@ -302,7 +304,7 @@ tracks/3/path = NodePath("AnimatedSprite2D:material:shader_parameter/default_col
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.752941), Color(1, 1, 1, 0)]
@@ -314,6 +316,7 @@ _data = {
 }
 
 [node name="machtraileffect" type="Node2D"]
+modulate = Color(1, 1, 1, 0)
 script = ExtResource("1_vcbts")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

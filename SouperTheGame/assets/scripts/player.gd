@@ -16,9 +16,15 @@ enum states {
 	punch,
 	dash1,
 	dash2,
-	dashturn
+	dashturn,
+	dashjump,
+	grapple,
+	screw,
+	screwbounce
 }
 var state := states.normal
+var walled := false
+var wallspeed := 0.0
 var wall := Vector2()
 var hsp := 0.0
 var vsp := 0.0
@@ -32,22 +38,22 @@ var move := 0
 var movedirection := 0
 @onready var doorarrow := $arrow
 
-func landdust():
-	var whiteflash = preload("res://assets/objects/landdust.tscn")
+func landdust() -> void:
+	var whiteflash := preload("res://assets/objects/landdust.tscn")
 	var ghost: Node2D = whiteflash.instantiate()
 	roomhandler.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	
-func stepdust():
-	var whiteflash = preload("res://assets/objects/stepdust.tscn")
+func stepdust() -> void:
+	var whiteflash := preload("res://assets/objects/stepdust.tscn")
 	var ghost: Node2D = whiteflash.instantiate()
 	roomhandler.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
 	
-func rundust():
-	var whiteflash = preload("res://assets/objects/rundust.tscn")
+func rundust() -> void:
+	var whiteflash := preload("res://assets/objects/rundust.tscn")
 	var ghost: Node2D = whiteflash.instantiate()
 	roomhandler.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
@@ -56,16 +62,18 @@ func rundust():
 	ghost.z_index = self.z_index - 1
 
 
-func _ready():
+func _ready() -> void:
 	animator.play("idle")
 	animator.speed_scale = 0.15
 	floor_constant_speed = true
 	floor_snap_length = 64
 	
-var thing = false
+var thing := false
 	
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	wall = get_wall_normal()
+	grounded = is_on_floor()
+	walled = $frontstuff/wallcheck.is_colliding() and is_on_wall()
 	#createothertrail()
 	match(state):
 		states.normal:
@@ -174,6 +182,12 @@ func _physics_process(delta):
 				$flashbulb.play()
 				vsp = -7
 				global.createobject("res://assets/objects/bangeffect.tscn", position)
+			#if SInput.just_key_down:
+				#state = states.freefallprep
+				#animator.play("freefallprep")
+				#animator.speed_scale = 0.4
+				#vsp = -12
+				#$freefallprep.play()
 			if is_on_floor():
 				if SInput.key_dash:
 					state = states.dash2
@@ -203,15 +217,28 @@ func _physics_process(delta):
 					#vsp = 0
 		states.punch:
 			createothertrail()
-			hsp = lerpf(hsp, 0, 3 * delta)
+			hsp = lerpf(hsp, 0, 1.5 * delta)
 			vsp = 0
 			if is_on_wall():
 				hsp = -hsp
 				$swing.stop()
 				$flashbulb.play()
 				global.createobject("res://assets/objects/bangeffect.tscn", position)
+			if is_on_floor():
+				if SInput.just_key_jump:
+					state = states.dashjump
+					animator.play("freefallland")
+					animator.speed_scale = 0.15
+					$jump.play()
+					vsp = -12
 			if animationdone:
-				state = states.normal
+				if abs(hsp) > 18:
+					if SInput.key_dash:
+						state = states.dash2
+					else:
+						state = states.normal
+				else:
+					state = states.normal
 			if SInput.just_key_attack:
 				state = states.dropkick
 				animator.play("dropkick")
@@ -223,18 +250,35 @@ func _physics_process(delta):
 					spriteh = move
 		states.dash2:
 			move = -int(SInput.key_left) - -int(SInput.key_right)
-			if move == -spriteh:
-				state = states.dashturn
-				$machcancle.play()
 			createmachtrail()
 			animator.play("mach3")
 			animator.speed_scale = 0.3
 			if is_on_floor():
 				vsp = 0
-				hsp = spriteh * 22
+				hsp = spriteh * 20
+				if move == -spriteh:
+					state = states.dashturn
+					$machcancle.play()
+				if SInput.just_key_jump:
+					state = states.dashjump
+					animator.play("freefallland")
+					animator.speed_scale = 0.15
+					$jump.play()
+					vsp = -12
 			if not is_on_floor():
 				vsp += grv
-			if is_on_wall():
+			if SInput.just_key_attack:
+				state = states.punch
+				#hsp = spriteh * 18
+				$swang.play()
+				var rng = randi_range(1,2)
+				match(rng):
+					1:
+						animator.play("punch")
+					2:
+						animator.play("kick")
+				animator.speed_scale = 0.35
+			if walled:
 				state = states.bump
 				hsp = spriteh * -7
 				$bump.play()
@@ -243,7 +287,8 @@ func _physics_process(delta):
 				vsp = -7
 				global.createobject("res://assets/objects/bangeffect.tscn", position)
 		states.freefallprep:
-			hsp = lerpf(hsp, 0, 5 * delta)
+			move = -int(SInput.key_left) - -int(SInput.key_right)
+			hsp = lerpf(hsp, move * 8, 10 * delta)
 			vsp += grv
 			if animationdone:
 				state = states.freefalling
@@ -275,6 +320,16 @@ func _physics_process(delta):
 				animator.play("freefallland")
 				animator.speed_scale = 0.15
 				camera.camerashake(15, 1)
+			if SInput.just_key_attack:
+				state = states.dropkick
+				animator.play("dropkick")
+				animator.speed_scale = 0.25
+				$swing.play()
+				$descend.stop()
+				vsp = -12
+				hsp = movedirection * 15
+				if move != 0:
+					spriteh = move
 		states.freefallland:
 			move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = 0
@@ -285,18 +340,127 @@ func _physics_process(delta):
 		states.dashturn:
 			move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = global.approach(hsp, 0, 35 * delta)
-			if abs(hsp) == 0:
-				if move == -spriteh:
+			if !grounded:
+				vsp += grv
+			if grounded:
+				if abs(hsp) == 0:
+					if move == -spriteh:
+						state = states.dash2
+						spriteh = -spriteh
+					else:
+						state = states.normal
+						spriteh = -spriteh
+		states.dashjump:
+			createmachtrail()
+			vsp += grv
+			if !SInput.key_jump:
+				if vsp < 2:
+					vsp += 2
+			if is_on_floor():
+				state = states.dash2
+				landdust()
+			if is_on_wall():
+				wallspeed = -abs(hsp) / 8
+				$flashbulb.play()
+				state = states.grapple
+				animator.play("door")
+				animator.frame = 4
+				print("grabbed wall at: ", position)
+				#hsp = 0
+			if SInput.just_key_attack:
+				state = states.dropkick
+				animator.play("dropkick")
+				animator.speed_scale = 0.25
+				$swing.play()
+				vsp = -12
+				hsp = spriteh * 15
+			if SInput.just_key_down:
+				state = states.screw
+				animator.play("screwing")
+				animator.speed_scale = 0.4
+				vsp = 12
+				$swing.stop()
+				$swish.play()
+		states.grapple:
+			vsp = wallspeed
+			wallspeed += grv / 4
+			if SInput.just_key_jump:
+				animator.play("jump")
+				animator.frame = 0
+				$jump.play()
+				animator.speed_scale = 0.3
+				state = states.dashjump
+				spriteh = -spriteh
+				vsp = -15
+				hsp = spriteh * 17
+			if !is_on_wall():
+				state = states.jump
+				animator.play("fall")
+				animator.speed_scale = 0.2
+				hsp = 0
+			if SInput.just_key_down:
+				$pop.play()
+				spriteh = -spriteh
+				state = states.jump
+				animator.play("fall")
+				animator.speed_scale = 0.2
+			if is_on_floor():
+				state = states.normal
+		states.screw:
+			createothertrail()
+			move = -int(SInput.key_left) - -int(SInput.key_right)
+			hsp = lerpf(hsp, move * 8, 30 * delta)
+			vsp += grv * 4
+			if SInput.just_key_attack:
+				state = states.dropkick
+				animator.play("dropkick")
+				animator.speed_scale = 0.25
+				$swing.play()
+				vsp = -12
+				hsp = movedirection * 15
+				if move != 0:
+					spriteh = move
+			if is_on_floor():
+				landdust()
+				$flashbulb.play()
+				$boing.play()
+				state = states.screwbounce
+				vsp = -8
+				animator.play("jump")
+				animator.speed_scale = 0.5
+		states.screwbounce:
+			move = -int(SInput.key_left) - -int(SInput.key_right)
+			hsp = lerpf(hsp, move * 8, 5 * delta)
+			if SInput.just_key_attack:
+				state = states.dropkick
+				animator.play("dropkick")
+				animator.speed_scale = 0.25
+				$swing.play()
+				vsp = -12
+				hsp = movedirection * 15
+				if move != 0:
+					spriteh = move
+			vsp += grv
+			if is_on_floor():
+				if SInput.key_dash:
+					landdust()
+					if move != 0:
+						spriteh = move
 					state = states.dash2
-					spriteh = -spriteh
 				else:
+					landdust()
+					if move != 0:
+						spriteh = move
 					state = states.normal
-					spriteh = -spriteh
-	grounded = is_on_floor()
+					animator.play("land")
+					animator.speed_scale = 0.4
+					$step.play()
+					landdust()
 	if spriteh == 1:
 		animator.flip_h = false
 	if spriteh == -1:
 		animator.flip_h = true
+	$frontstuff.scale.x = spriteh
 	if move != 0:
 		movedirection = move
 	else:
@@ -327,7 +491,7 @@ func _physics_process(delta):
 		$CanvasLayer/Control/Control/rankometer.speed_scale = 1
 	
 
-func statesound():
+func statesound() -> void:
 	if state == states.dash2:
 		if !$dash2.playing:
 			$dash2.play()
@@ -335,7 +499,7 @@ func statesound():
 		if $dash2.playing:
 			$dash2.stop()
 	
-func _on_animated_sprite_2d_frame_changed():
+func _on_animated_sprite_2d_frame_changed() -> void:
 	match(state):
 		states.normal:
 			if animator.animation == "move":
@@ -349,32 +513,32 @@ func _on_animated_sprite_2d_frame_changed():
 						rundust()
 	pass # Replace with function body.
 	
-func doorarrowcheck(what):
+func doorarrowcheck(what) -> void:
 	$arrow.visible = what
 
 
-func _on_animated_sprite_2d_animation_finished():
+func _on_animated_sprite_2d_animation_finished() -> void:
 	animationdone = true
 	pass # Replace with function body.
 
 
-func _on_animated_sprite_2d_animation_changed():
+func _on_animated_sprite_2d_animation_changed() -> void:
 	animationdone = false
 	pass # Replace with function body.
 
-func createothertrail():
+func createothertrail() -> void:
 	if !$othertrailtimer1.time_left > 0:
 		$othertrailtimer1.start()
 		
-func createmachtrail():
+func createmachtrail() -> void:
 	if !$machtrail.time_left > 0:
 		$machtrail.start()
 
-func _on_othertrailtimer_1_timeout():
+func _on_othertrailtimer_1_timeout() -> void:
 	global.createtrail(self.position, animator, Color8(255,255,255,255), 2)
 	pass # Replace with function body.
 
 
-func _on_machtrail_timeout():
+func _on_machtrail_timeout() -> void:
 	global.createmachtrail(self.position, animator, Color8(255,0,0,255), 1.5, self)
 	pass # Replace with function body.

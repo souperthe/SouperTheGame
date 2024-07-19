@@ -7,8 +7,8 @@
 size = Vector2(64, 32)
 
 [node name="CPlatform" type="StaticBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 6
 script = ExtResource("1_qbuuy")
 
 [node name="BlankBlock" type="Sprite2D" parent="."]
@@ -24,6 +24,8 @@ one_way_collision = true
 one_way_collision_margin = 0.5
 
 [node name="playercollision" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playercollision"]
 position = Vector2(32, 16)

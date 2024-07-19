@@ -66,6 +66,7 @@ func createmachtrail(targetpos, targetanimator, color, fadespeed, ownedby):
 	ghost.animator.modulate = color
 	ghost.animate.speed_scale = fadespeed
 	ghost.target = ownedby
+	ghost.z_index = ownedby.z_index - 1
 	
 func startroom():
 	var door = roomhandler.currentscene.get_node(str("door", targetdoor))

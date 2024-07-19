@@ -30,6 +30,12 @@ window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/aspect="expand"
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="baddie"
+2d_physics/layer_3="collision"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

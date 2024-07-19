@@ -36,7 +36,7 @@ target_door = "2"
 position = Vector2(608, -128)
 
 [node name="CL_Right" parent="." instance=ExtResource("6_irtjc")]
-position = Vector2(960, 192)
+position = Vector2(1376, 4160)
 
 [node name="CL_Bottom" parent="." instance=ExtResource("7_47q11")]
 position = Vector2(608, 4320)
@@ -47,7 +47,7 @@ scale = Vector2(1, 64)
 
 [node name="CBox8" parent="." instance=ExtResource("1_obw6y")]
 position = Vector2(416, 4256)
-scale = Vector2(8, 1)
+scale = Vector2(15, 1)
 
 [node name="CPlatform" parent="." instance=ExtResource("8_xnr8u")]
 position = Vector2(448, 192)
@@ -55,7 +55,7 @@ scale = Vector2(2, 1)
 
 [node name="CBox10" parent="." instance=ExtResource("1_obw6y")]
 position = Vector2(768, 0)
-scale = Vector2(1, 7)
+scale = Vector2(1, 63)
 
 [node name="ladder" parent="." instance=ExtResource("9_v1yml")]
 position = Vector2(512, 160)

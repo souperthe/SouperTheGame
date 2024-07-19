@@ -58,6 +58,7 @@
 shader = ExtResource("2_f5sey")
 shader_parameter/difference_point = 0.3
 shader_parameter/default_color = Color(1, 1, 1, 1)
+shader_parameter/real_color = Color(1, 1, 1, 1)
 shader_parameter/first_color = Color(1, 0, 0, 1)
 shader_parameter/second_color = Color(0, 0, 0, 1)
 
