@@ -32,7 +32,7 @@ func gotoroom(targetroom, selecteddoor):
 	targetdoor = selecteddoor
 	roomhandler.scenegoto(targetroom)
 	
-func createobject(obj, pos, rotate = 0, size = Vector2(1,1)):
+func createobject(obj, pos, rotate = 0.0, size = Vector2(1,1)):
 	var whiteflash = load(obj)
 	var ghost = whiteflash.instantiate()
 	roomhandler.currentscene.add_child(ghost)
@@ -71,6 +71,29 @@ func createmachtrail(targetpos, targetanimator, color, fadespeed, ownedby):
 	ghost.animate.speed_scale = fadespeed
 	ghost.target = ownedby
 	ghost.z_index = ownedby.z_index - 1
+	
+func createdeadthing(targetpos, targetsprite, hsp, vsp := -12.0, rotateamount := 1.0, size = 1.0):
+	var whiteflash = preload("res://assets/objects/deadthing.tscn")
+	var ghost: CharacterBody2D = whiteflash.instantiate()
+	roomhandler.currentscene.add_child(ghost)
+	ghost.position = targetpos
+	ghost.sprite.texture = load(targetsprite)
+	ghost.vsp = vsp
+	ghost.hsp = hsp
+	ghost.rotateamount = rotateamount
+	ghost.sprite.scale.x = size
+	ghost.sprite.scale.y = size
+	
+	
+func oneshot_sfx(sound, pos, volume = 1):
+	var ghost := AudioStreamPlayer2D.new()
+	roomhandler.currentscene.add_child(ghost)
+	ghost.position = pos
+	ghost.stream = load(sound)
+	ghost.play()
+	ghost.volume_db = volume
+	ghost.bus = "SFX"
+	
 	
 func startroom():
 	var door = roomhandler.currentscene.get_node(str("door", targetdoor))

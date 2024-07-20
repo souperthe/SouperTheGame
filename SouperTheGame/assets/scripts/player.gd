@@ -38,6 +38,8 @@ var dash1 := 60
 var move := 0
 var currentframe := 0
 var movedirection := 0
+var scoreapproached := 0
+
 @onready var doorarrow := $arrow
 
 func landdust() -> void:
@@ -70,6 +72,9 @@ func _ready() -> void:
 	animator.speed_scale = 0.15
 	floor_constant_speed = true
 	floor_snap_length = 64
+	$frontstuff/charge.play("default")
+	$frontstuff/charge.visible = false
+	
 	
 var thing := false
 	
@@ -410,7 +415,9 @@ func _physics_process(delta) -> void:
 				animator.speed_scale = 0.25
 				$sounds/swing.play()
 				vsp = -12
-				hsp = spriteh * 15
+				hsp = movedirection * 15
+				if move != 0:
+					spriteh = move
 			if SInput.just_key_down:
 				state = states.screw
 				animator.play("screwing")
@@ -519,6 +526,8 @@ func _physics_process(delta) -> void:
 	statesound()
 	animator.rotation_degrees = lerpf(animator.rotation_degrees, spriteangle, 15 * delta)
 	$CanvasLayer/Control/Label.text = str("(", int(hsp), ", ", int(vsp), ")", ", ", state, ", ", animator.animation, ", ", spriteangle)
+	scoreapproached = global.approach(scoreapproached, global.score, 200 * delta)
+	$CanvasLayer/Control/score/RichTextLabel.text = str("[center]", int(scoreapproached))
 	move_and_slide()
 	if global.rank < 6:
 		$CanvasLayer/Control/Control/rankometer.animation = "default"
@@ -533,9 +542,11 @@ func statesound() -> void:
 	if state == states.dash2:
 		if !$sounds/dash2.playing:
 			$sounds/dash2.play()
+			$frontstuff/charge.visible = true
 	else:
 		if $sounds/dash2.playing:
 			$sounds/dash2.stop()
+			$frontstuff/charge.visible = false
 	if !state == states.dash1:
 		if $sounds/machstart.playing:
 			$sounds/machstart.stop()
@@ -585,4 +596,11 @@ func _on_othertrailtimer_1_timeout() -> void:
 
 func _on_machtrail_timeout() -> void:
 	global.createmachtrail(self.position, animator, Color8(255,0,0,255), 1.5, self)
+	pass # Replace with function body.
+
+
+func _on_frontdetect_body_entered(body):
+	if body is MetalBlock:
+		if state == states.dash2:
+			body.destroy()
 	pass # Replace with function body.

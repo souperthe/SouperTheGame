@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d04pgsqxnvn3h"]
+[gd_scene load_steps=6 format=3 uid="uid://d04pgsqxnvn3h"]
 
 [ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="1_phbjo"]
 [ext_resource type="PackedScene" uid="uid://dfl0o857rs3e6" path="res://assets/objects/framedoortscn.tscn" id="2_sgffd"]
 [ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="3_b88ea"]
 [ext_resource type="PackedScene" uid="uid://coy0538b8y6jd" path="res://assets/objects/musicsetter.tscn" id="4_gu360"]
+[ext_resource type="PackedScene" uid="uid://cqopgj5hvre4f" path="res://assets/objects/metalbox.tscn" id="5_p2kxu"]
 
 [node name="Othertest" type="Node2D"]
 
@@ -27,3 +28,9 @@ continue_after_last = true
 [node name="CBox2" parent="." instance=ExtResource("3_b88ea")]
 position = Vector2(31744, 256)
 scale = Vector2(1, 4)
+
+[node name="metalbox" parent="." instance=ExtResource("5_p2kxu")]
+position = Vector2(1024, 448)
+
+[node name="metalbox2" parent="." instance=ExtResource("5_p2kxu")]
+position = Vector2(1024, 384)

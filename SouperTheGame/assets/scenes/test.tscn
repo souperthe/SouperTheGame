@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bd6bosmg6u43g"]
+[gd_scene load_steps=13 format=3 uid="uid://bd6bosmg6u43g"]
 
 [ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="1_de4qj"]
 [ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="2_sn5kt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://coy0538b8y6jd" path="res://assets/objects/musicsetter.tscn" id="9_rsqb2"]
 [ext_resource type="PackedScene" uid="uid://dfl0o857rs3e6" path="res://assets/objects/framedoortscn.tscn" id="10_d7yn1"]
 [ext_resource type="PackedScene" uid="uid://cq74uu6e1spnb" path="res://assets/objects/ladder.tscn" id="11_5rkmn"]
+[ext_resource type="PackedScene" uid="uid://y300wr0h7yek" path="res://assets/objects/collectable.tscn" id="12_13jfi"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -88,3 +89,15 @@ scale = Vector2(1, 9)
 [node name="CPlatform3" parent="." instance=ExtResource("4_d5rl7")]
 position = Vector2(1280, -64)
 scale = Vector2(4, 1)
+
+[node name="collectable" parent="." instance=ExtResource("12_13jfi")]
+position = Vector2(1152, 160)
+
+[node name="collectable2" parent="." instance=ExtResource("12_13jfi")]
+position = Vector2(1216, 160)
+
+[node name="collectable3" parent="." instance=ExtResource("12_13jfi")]
+position = Vector2(1280, 160)
+
+[node name="collectable4" parent="." instance=ExtResource("12_13jfi")]
+position = Vector2(1344, 160)
