@@ -34,7 +34,9 @@ var spriteh := 1
 var lastfloor := Vector2()
 var laddering := false
 var animationdone := false
+var dash1 := 60
 var move := 0
+var currentframe := 0
 var movedirection := 0
 @onready var doorarrow := $arrow
 
@@ -51,6 +53,7 @@ func stepdust() -> void:
 	roomhandler.currentscene.add_child(ghost)
 	ghost.position.x = self.position.x
 	ghost.position.y = self.position.y
+	ghost.z_index = self.z_index - 1
 	
 func rundust() -> void:
 	var whiteflash := preload("res://assets/objects/rundust.tscn")
@@ -71,6 +74,7 @@ func _ready() -> void:
 var thing := false
 	
 func _physics_process(delta) -> void:
+	currentframe = animator.frame
 	wall = get_wall_normal()
 	grounded = is_on_floor()
 	walled = $frontstuff/wallcheck.is_colliding() and is_on_wall()
@@ -98,17 +102,22 @@ func _physics_process(delta) -> void:
 				if animator.animation == "land":
 					if animationdone:
 						animator.play("idle")
+			if SInput.key_dash:
+				state = states.dash1
+				animator.speed_scale = 0.2
+				dash1 = 60
+				$sounds/machstart.play()
 			if SInput.just_key_jump:
 				animator.play("jump")
 				animator.speed_scale = 0.3
 				state = states.jump
 				thing = false
-				$jump.play()
+				$sounds/jump.play()
 				vsp = -15
 			if SInput.just_key_attack:
 				state = states.punch
 				hsp = spriteh * 18
-				$swang.play()
+				$sounds/swang.play()
 				var rng = randi_range(1,2)
 				match(rng):
 					1:
@@ -128,7 +137,7 @@ func _physics_process(delta) -> void:
 				state = states.dropkick
 				animator.play("dropkick")
 				animator.speed_scale = 0.25
-				$swing.play()
+				$sounds/swing.play()
 				vsp = -12
 				hsp = movedirection * 15
 				if move != 0:
@@ -143,7 +152,7 @@ func _physics_process(delta) -> void:
 					state = states.normal
 					animator.play("land")
 					animator.speed_scale = 0.4
-					$step.play()
+					$sounds/step.play()
 					landdust()
 					vsp = 0
 			if SInput.just_key_down:
@@ -151,7 +160,7 @@ func _physics_process(delta) -> void:
 				animator.play("freefallprep")
 				animator.speed_scale = 0.4
 				vsp = -12
-				$freefallprep.play()
+				$sounds/freefallprep.play()
 		states.ladder:
 			if SInput.key_up:
 				vsp = -8
@@ -169,7 +178,7 @@ func _physics_process(delta) -> void:
 				animator.speed_scale = 0.3
 				state = states.jump
 				thing = false
-				$jump.play()
+				$sounds/jump.play()
 				vsp = -15
 		states.dropkick:
 			createothertrail()
@@ -177,9 +186,9 @@ func _physics_process(delta) -> void:
 			if is_on_wall():
 				state = states.bump
 				hsp = spriteh * -7
-				$bump.play()
-				$swing.stop()
-				$flashbulb.play()
+				$sounds/bump.play()
+				$sounds/swing.stop()
+				$sounds/flashbulb.play()
 				vsp = -7
 				global.createobject("res://assets/objects/bangeffect.tscn", position)
 			#if SInput.just_key_down:
@@ -193,13 +202,13 @@ func _physics_process(delta) -> void:
 					state = states.dash2
 					animator.play("land")
 					animator.speed_scale = 0.4
-					$step.play()
+					$sounds/step.play()
 					landdust()
 				else:
 					state = states.normal
 					animator.play("land")
 					animator.speed_scale = 0.4
-					$step.play()
+					$sounds/step.play()
 					landdust()
 					#vsp = 0
 		states.bump:
@@ -212,7 +221,7 @@ func _physics_process(delta) -> void:
 					state = states.normal
 					animator.play("land")
 					animator.speed_scale = 0.4
-					$step.play()
+					$sounds/step.play()
 					landdust()
 					#vsp = 0
 		states.punch:
@@ -221,15 +230,15 @@ func _physics_process(delta) -> void:
 			vsp = 0
 			if is_on_wall():
 				hsp = -hsp
-				$swing.stop()
-				$flashbulb.play()
+				$sounds/swing.stop()
+				$sounds/flashbulb.play()
 				global.createobject("res://assets/objects/bangeffect.tscn", position)
 			if is_on_floor():
 				if SInput.just_key_jump:
 					state = states.dashjump
 					animator.play("freefallland")
 					animator.speed_scale = 0.15
-					$jump.play()
+					$sounds/jump.play()
 					vsp = -12
 			if animationdone:
 				if abs(hsp) > 18:
@@ -240,14 +249,38 @@ func _physics_process(delta) -> void:
 				else:
 					state = states.normal
 			if SInput.just_key_attack:
-				state = states.dropkick
-				animator.play("dropkick")
-				animator.speed_scale = 0.25
-				$swing.play()
-				vsp = -12
-				hsp = movedirection * 15
-				if move != 0:
-					spriteh = move
+				if currentframe > 1:
+					state = states.dropkick
+					animator.play("dropkick")
+					animator.speed_scale = 0.25
+					$sounds/swing.play()
+					vsp = -12
+					hsp = movedirection * 15
+					#if move != 0:
+						#spriteh = move
+		states.dash1:
+			
+			hsp = lerpf(hsp, 0, 3 * delta)
+			move = -int(SInput.key_left) - -int(SInput.key_right)
+			if move != 0:
+				spriteh = move
+			createmachtrail()
+			animator.play("move")
+			animator.speed_scale += 0.02
+			dash1 -= 50 * delta
+			if !is_on_floor():
+				state = states.jump
+				#$sounds/machstart.stop()
+				animator.play("fall")
+				animator.speed_scale = 0.2
+			if !SInput.key_dash:
+				state = states.normal
+				#$sounds/machstart.stop()
+			if dash1 < 1:
+				state = states.dash2
+				#$sounds/machstart.stop()
+				$sounds/dash.play()
+				hsp = spriteh * 30
 		states.dash2:
 			move = -int(SInput.key_left) - -int(SInput.key_right)
 			createmachtrail()
@@ -255,22 +288,24 @@ func _physics_process(delta) -> void:
 			animator.speed_scale = 0.3
 			if is_on_floor():
 				vsp = 0
-				hsp = spriteh * 20
+				hsp = lerpf(hsp, spriteh * 20, 5 * delta)
 				if move == -spriteh:
 					state = states.dashturn
-					$machcancle.play()
+					animator.play("dashskid1")
+					animator.speed_scale = 0.3
+					$sounds/machcancle.play()
 				if SInput.just_key_jump:
 					state = states.dashjump
 					animator.play("freefallland")
 					animator.speed_scale = 0.15
-					$jump.play()
+					$sounds/jump.play()
 					vsp = -12
 			if not is_on_floor():
 				vsp += grv
 			if SInput.just_key_attack:
 				state = states.punch
 				#hsp = spriteh * 18
-				$swang.play()
+				$sounds/swang.play()
 				var rng = randi_range(1,2)
 				match(rng):
 					1:
@@ -281,9 +316,9 @@ func _physics_process(delta) -> void:
 			if walled:
 				state = states.bump
 				hsp = spriteh * -7
-				$bump.play()
-				$swing.stop()
-				$flashbulb.play()
+				$sounds/bump.play()
+				$sounds/swing.stop()
+				$sounds/flashbulb.play()
 				vsp = -7
 				global.createobject("res://assets/objects/bangeffect.tscn", position)
 		states.freefallprep:
@@ -292,15 +327,15 @@ func _physics_process(delta) -> void:
 			vsp += grv
 			if animationdone:
 				state = states.freefalling
-				$descend.play()
+				$sounds/descend.play()
 				vsp = 25
 			if is_on_floor():
 				state = states.freefallland
-				$descend.stop()
-				$flashbulb.play()
-				$freefallland.play()
-				$step.play()
-				$freefallprep.stop()
+				$sounds/descend.stop()
+				$sounds/flashbulb.play()
+				$sounds/freefallland.play()
+				$sounds/step.play()
+				$sounds/freefallprep.stop()
 				animator.play("freefallland")
 				animator.speed_scale = 0.15
 				camera.camerashake(15, 1)
@@ -313,10 +348,10 @@ func _physics_process(delta) -> void:
 			if is_on_floor():
 				global.createobject("res://assets/objects/pounddust.tscn", position)
 				state = states.freefallland
-				$descend.stop()
-				$flashbulb.play()
-				$freefallland.play()
-				$step.play()
+				$sounds/descend.stop()
+				$sounds/flashbulb.play()
+				$sounds/freefallland.play()
+				$sounds/step.play()
 				animator.play("freefallland")
 				animator.speed_scale = 0.15
 				camera.camerashake(15, 1)
@@ -324,8 +359,8 @@ func _physics_process(delta) -> void:
 				state = states.dropkick
 				animator.play("dropkick")
 				animator.speed_scale = 0.25
-				$swing.play()
-				$descend.stop()
+				$sounds/swing.play()
+				$sounds/descend.stop()
 				vsp = -12
 				hsp = movedirection * 15
 				if move != 0:
@@ -336,7 +371,7 @@ func _physics_process(delta) -> void:
 			vsp = 0
 			if animationdone:
 				state = states.normal
-				$pop.play()
+				$sounds/pop.play()
 		states.dashturn:
 			move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = global.approach(hsp, 0, 35 * delta)
@@ -347,6 +382,7 @@ func _physics_process(delta) -> void:
 					if move == -spriteh:
 						state = states.dash2
 						spriteh = -spriteh
+						hsp = spriteh * 20
 					else:
 						state = states.normal
 						spriteh = -spriteh
@@ -358,10 +394,11 @@ func _physics_process(delta) -> void:
 					vsp += 2
 			if is_on_floor():
 				state = states.dash2
+				hsp = spriteh * 20
 				landdust()
 			if is_on_wall():
 				wallspeed = -abs(hsp) / 8
-				$flashbulb.play()
+				$sounds/flashbulb.play()
 				state = states.grapple
 				animator.play("door")
 				animator.frame = 4
@@ -371,23 +408,23 @@ func _physics_process(delta) -> void:
 				state = states.dropkick
 				animator.play("dropkick")
 				animator.speed_scale = 0.25
-				$swing.play()
+				$sounds/swing.play()
 				vsp = -12
 				hsp = spriteh * 15
 			if SInput.just_key_down:
 				state = states.screw
 				animator.play("screwing")
-				animator.speed_scale = 0.4
+				animator.speed_scale = 0.2
 				vsp = 12
-				$swing.stop()
-				$swish.play()
+				$sounds/swing.stop()
+				$sounds/swish.play()
 		states.grapple:
 			vsp = wallspeed
 			wallspeed += grv / 4
 			if SInput.just_key_jump:
 				animator.play("jump")
 				animator.frame = 0
-				$jump.play()
+				$sounds/jump.play()
 				animator.speed_scale = 0.3
 				state = states.dashjump
 				spriteh = -spriteh
@@ -399,7 +436,7 @@ func _physics_process(delta) -> void:
 				animator.speed_scale = 0.2
 				hsp = 0
 			if SInput.just_key_down:
-				$pop.play()
+				$sounds/pop.play()
 				spriteh = -spriteh
 				state = states.jump
 				animator.play("fall")
@@ -415,15 +452,15 @@ func _physics_process(delta) -> void:
 				state = states.dropkick
 				animator.play("dropkick")
 				animator.speed_scale = 0.25
-				$swing.play()
+				$sounds/swing.play()
 				vsp = -12
 				hsp = movedirection * 15
 				if move != 0:
 					spriteh = move
 			if is_on_floor():
 				landdust()
-				$flashbulb.play()
-				$boing.play()
+				$sounds/flashbulb.play()
+				$sounds/boing.play()
 				state = states.screwbounce
 				vsp = -8
 				animator.play("jump")
@@ -435,7 +472,7 @@ func _physics_process(delta) -> void:
 				state = states.dropkick
 				animator.play("dropkick")
 				animator.speed_scale = 0.25
-				$swing.play()
+				$sounds/swing.play()
 				vsp = -12
 				hsp = movedirection * 15
 				if move != 0:
@@ -447,6 +484,7 @@ func _physics_process(delta) -> void:
 					if move != 0:
 						spriteh = move
 					state = states.dash2
+					hsp = spriteh * 20
 				else:
 					landdust()
 					if move != 0:
@@ -454,7 +492,7 @@ func _physics_process(delta) -> void:
 					state = states.normal
 					animator.play("land")
 					animator.speed_scale = 0.4
-					$step.play()
+					$sounds/step.play()
 					landdust()
 	if spriteh == 1:
 		animator.flip_h = false
@@ -493,24 +531,30 @@ func _physics_process(delta) -> void:
 
 func statesound() -> void:
 	if state == states.dash2:
-		if !$dash2.playing:
-			$dash2.play()
+		if !$sounds/dash2.playing:
+			$sounds/dash2.play()
 	else:
-		if $dash2.playing:
-			$dash2.stop()
+		if $sounds/dash2.playing:
+			$sounds/dash2.stop()
+	if !state == states.dash1:
+		if $sounds/machstart.playing:
+			$sounds/machstart.stop()
 	
 func _on_animated_sprite_2d_frame_changed() -> void:
 	match(state):
 		states.normal:
 			if animator.animation == "move":
 				if animator.frame == 2 or animator.frame == 8:
-					$step.play()
+					$sounds/step.play()
 					stepdust()
 		states.dash2:
 			if animator.animation == "mach3":
 				if animator.frame == 2:
 					if is_on_floor():
 						rundust()
+		states.dashturn:
+			if grounded:
+				stepdust()
 	pass # Replace with function body.
 	
 func doorarrowcheck(what) -> void:

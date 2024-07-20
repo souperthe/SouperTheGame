@@ -7,6 +7,7 @@ var targetdoor := "1"
 var targetscene := "scene"
 var showdebug := true
 var rank := 1
+var mute := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if SInput.just_key_pause:
+		mute = !mute
+		AudioServer.set_bus_mute(2, mute)
 	pass
 
 func approach(num, goal, i):

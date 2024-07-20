@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=139 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://c7fty2k6nl4rm" path="res://assets/images/souper/souper_0054.png" id="2_6rl3b"]
@@ -9,11 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://ctx7jurhhit2" path="res://assets/images/souper/souper_0055.png" id="3_ddb74"]
 [ext_resource type="Texture2D" uid="uid://sgqax34s801g" path="res://assets/images/souper/souper_0044.png" id="3_yqc3o"]
 [ext_resource type="Texture2D" uid="uid://u6ciauknbihc" path="res://assets/images/souper/souper_0003.png" id="4_eh5lg"]
+[ext_resource type="Texture2D" uid="uid://c2w7lsc2trc0" path="res://assets/images/souper/souper_0099.png" id="4_nnbq4"]
 [ext_resource type="Texture2D" uid="uid://63jgk8ynity3" path="res://assets/images/souper/souper_0045.png" id="4_pikmk"]
 [ext_resource type="Texture2D" uid="uid://d03si1bv3l16l" path="res://assets/images/souper/souper_0004.png" id="5_djraj"]
+[ext_resource type="Texture2D" uid="uid://byha0bqw4h1xy" path="res://assets/images/souper/souper_0100.png" id="5_j8xn8"]
 [ext_resource type="Texture2D" uid="uid://dc7hamtepa8a1" path="res://assets/images/souper/souper_0046.png" id="5_ybclw"]
+[ext_resource type="Texture2D" uid="uid://bg1b6v6fevi7i" path="res://assets/images/souper/souper_0101.png" id="6_hpc73"]
 [ext_resource type="Texture2D" uid="uid://bpqm7tr4kx7ch" path="res://assets/images/souper/souper_0047.png" id="6_l7gvm"]
 [ext_resource type="Texture2D" uid="uid://ftewk2pua6br" path="res://assets/images/souper/souper_0005.png" id="6_lan5y"]
+[ext_resource type="Texture2D" uid="uid://baqsj3msbgq84" path="res://assets/images/souper/souper_0102.png" id="7_10agv"]
 [ext_resource type="Texture2D" uid="uid://bsog8gjvx8rfc" path="res://assets/images/souper/souper_0006.png" id="7_lg6b6"]
 [ext_resource type="Texture2D" uid="uid://cw2t77yse11sp" path="res://assets/images/souper/souper_0007.png" id="8_g8uuc"]
 [ext_resource type="Texture2D" uid="uid://kqm05un3srk3" path="res://assets/images/souper/souper_0008.png" id="9_qrf2u"]
@@ -104,13 +108,18 @@
 [ext_resource type="AudioStream" uid="uid://c7iisje5r50qn" path="res://assets/sounds/sfx/sfx_grapple.wav" id="81_elg0p"]
 [ext_resource type="AudioStream" uid="uid://ccoc3ykcwseid" path="res://assets/sounds/sfx/sfx_swing.wav" id="82_r822q"]
 [ext_resource type="Texture2D" uid="uid://dbl4mdees5a0h" path="res://assets/images/souper/souper_0095.png" id="87_d5xw4"]
+[ext_resource type="Texture2D" uid="uid://dmow2576ib1ns" path="res://assets/images/souper/souper_0096.png" id="88_ox0xi"]
+[ext_resource type="Texture2D" uid="uid://vpk4my65o470" path="res://assets/images/souper/souper_0097.png" id="89_tm7pr"]
+[ext_resource type="Texture2D" uid="uid://msq03sjllp8n" path="res://assets/images/souper/souper_0098.png" id="90_40vqs"]
 [ext_resource type="AudioStream" uid="uid://bnc488yhfm2do" path="res://assets/sounds/sfx/sfx_mach3.wav" id="91_vgrdn"]
+[ext_resource type="AudioStream" uid="uid://csl7f57evbkl5" path="res://assets/sounds/sfx/sfx_machstart.wav" id="99_gy5q3"]
 [ext_resource type="AudioStream" uid="uid://bi1ttk6qnt6nf" path="res://assets/sounds/sfx/sfx_freefallprep.wav" id="101_2fw2n"]
 [ext_resource type="AudioStream" uid="uid://dgh6h7exdm4i2" path="res://assets/sounds/sfx/sfx_descend.wav" id="102_s4lht"]
 [ext_resource type="AudioStream" uid="uid://bud27jxlqc61x" path="res://assets/sounds/sfx/sfx_hitwall.wav" id="103_tupos"]
 [ext_resource type="AudioStream" uid="uid://c7x1keyrkppak" path="res://assets/sounds/sfx/sfx_pop.wav" id="108_rhv7t"]
 [ext_resource type="AudioStream" uid="uid://cu2oc3erwk6d1" path="res://assets/sounds/sfx/sfx_machcancle.wav" id="109_yx7k3"]
 [ext_resource type="AudioStream" uid="uid://cp5hatk171aai" path="res://assets/sounds/sfx/sfx_boing.wav" id="111_31vqt"]
+[ext_resource type="AudioStream" uid="uid://bloxlq6vqm3ej" path="res://assets/sounds/sfx/sfx_dash.wav" id="116_qiruh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32s0h"]
 animations = [{
@@ -123,6 +132,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"bump",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nnbq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j8xn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hpc73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_10agv")
+}],
+"loop": false,
+"name": &"dashskid1",
 "speed": 60.0
 }, {
 "frames": [{
@@ -455,8 +481,17 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("87_d5xw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_ox0xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_tm7pr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_40vqs")
 }],
-"loop": true,
+"loop": false,
 "name": &"screwing",
 "speed": 60.0
 }]
@@ -466,24 +501,6 @@ size = Vector2(20, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3e7hx"]
 size = Vector2(20, 30)
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ntr8f"]
-random_pitch = 1.1
-streams_count = 1
-stream_0/stream = ExtResource("17_folkk")
-stream_0/weight = 1.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_khe1f"]
-random_pitch = 1.1
-streams_count = 4
-stream_0/stream = ExtResource("18_bxa2v")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("19_jjp4p")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("20_hxjed")
-stream_2/weight = 1.0
-stream_3/stream = ExtResource("21_xaina")
-stream_3/weight = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pp6uq"]
 animations = [{
@@ -522,34 +539,10 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o6kba"]
-random_pitch = 1.2
-streams_count = 1
-stream_0/stream = ExtResource("65_sxogs")
-stream_0/weight = 1.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_muhuq"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m8p47"]
 random_pitch = 1.1
 streams_count = 1
-stream_0/stream = ExtResource("74_blkh8")
-stream_0/weight = 1.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n1jem"]
-random_pitch = 1.1
-streams_count = 1
-stream_0/stream = ExtResource("67_hique")
-stream_0/weight = 1.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ttyog"]
-random_pitch = 1.2
-streams_count = 1
-stream_0/stream = ExtResource("81_elg0p")
-stream_0/weight = 1.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5vhx1"]
-random_pitch = 1.1
-streams_count = 1
-stream_0/stream = ExtResource("82_r822q")
+stream_0/stream = ExtResource("111_31vqt")
 stream_0/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xtxb2"]
@@ -582,10 +575,58 @@ streams_count = 1
 stream_0/stream = ExtResource("109_yx7k3")
 stream_0/weight = 1.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m8p47"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o6kba"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("65_sxogs")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_muhuq"]
 random_pitch = 1.1
 streams_count = 1
-stream_0/stream = ExtResource("111_31vqt")
+stream_0/stream = ExtResource("74_blkh8")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n1jem"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("67_hique")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ttyog"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("81_elg0p")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5vhx1"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("82_r822q")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ntr8f"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("17_folkk")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_khe1f"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("18_bxa2v")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("19_jjp4p")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("20_hxjed")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("21_xaina")
+stream_3/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1brx8"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("116_qiruh")
 stream_0/weight = 1.0
 
 [node name="player" type="CharacterBody2D"]
@@ -594,8 +635,10 @@ script = ExtResource("1_qa05s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
-animation = &"idle"
-speed_scale = 0.2
+animation = &"dashskid1"
+frame = 3
+frame_progress = 1.0
+speed_scale = 0.1
 
 [node name="standing" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11.5)
@@ -607,15 +650,6 @@ position = Vector2(0, 30)
 shape = SubResource("RectangleShape2D_3e7hx")
 disabled = true
 debug_color = Color(0.964706, 0.427451, 0, 0.419608)
-
-[node name="jump" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_ntr8f")
-bus = &"SFX"
-
-[node name="step" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_khe1f")
-volume_db = 5.0
-bus = &"SFX"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -666,53 +700,9 @@ texture = ExtResource("53_qc4ql")
 wait_time = 0.08
 one_shot = true
 
-[node name="bump" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_o6kba")
-volume_db = -5.0
-
-[node name="swing" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_muhuq")
-volume_db = -5.0
-
-[node name="swish" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_n1jem")
-volume_db = -3.0
-
-[node name="flashbulb" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_ttyog")
-volume_db = 5.0
-
-[node name="swang" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_5vhx1")
-volume_db = -5.0
-
-[node name="dash2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("91_vgrdn")
-volume_db = 10.0
-
 [node name="machtrail" type="Timer" parent="."]
 wait_time = 0.08
 one_shot = true
-
-[node name="freefallprep" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_xtxb2")
-volume_db = 10.0
-
-[node name="descend" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_wgh87")
-volume_db = 1.0
-
-[node name="freefallland" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_iibob")
-volume_db = 2.0
-
-[node name="pop" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_mesdl")
-volume_db = 1.0
-
-[node name="machcancle" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_5gdyf")
-bus = &"SFX"
 
 [node name="frontstuff" type="Node2D" parent="."]
 
@@ -722,9 +712,73 @@ target_position = Vector2(20, 0)
 collision_mask = 4
 collide_with_areas = true
 
-[node name="boing" type="AudioStreamPlayer2D" parent="."]
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="boing" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_m8p47")
 bus = &"SFX"
+
+[node name="machstart" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("99_gy5q3")
+volume_db = 10.0
+bus = &"SFX"
+
+[node name="freefallprep" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_xtxb2")
+volume_db = 10.0
+
+[node name="descend" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_wgh87")
+volume_db = 1.0
+
+[node name="freefallland" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_iibob")
+volume_db = 2.0
+
+[node name="pop" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_mesdl")
+volume_db = 1.0
+
+[node name="machcancle" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_5gdyf")
+bus = &"SFX"
+
+[node name="bump" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_o6kba")
+volume_db = -5.0
+
+[node name="swing" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_muhuq")
+volume_db = -5.0
+
+[node name="swish" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_n1jem")
+volume_db = -3.0
+
+[node name="flashbulb" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_ttyog")
+volume_db = 5.0
+
+[node name="swang" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_5vhx1")
+volume_db = -5.0
+
+[node name="dash2" type="AudioStreamPlayer2D" parent="sounds"]
+stream = ExtResource("91_vgrdn")
+volume_db = 10.0
+
+[node name="jump" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_ntr8f")
+bus = &"SFX"
+
+[node name="step" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_khe1f")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="dash" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_1brx8")
+volume_db = -5.0
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
