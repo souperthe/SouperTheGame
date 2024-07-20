@@ -72,6 +72,25 @@ func _ready():
 	set_process_input(true)
 	pass # Replace with function body.
 
+func _process(_delta):
+	key_pause = Input.is_action_pressed("p_pause")
+	just_key_pause = Input.is_action_just_pressed("p_pause")
+	key_jump = Input.is_action_pressed("p_jump")
+	just_key_jump = Input.is_action_just_pressed("p_jump")
+	key_attack = Input.is_action_pressed("p_attack")
+	just_key_attack = Input.is_action_just_pressed("p_attack")
+	key_dash = Input.is_action_pressed("p_dash")
+	just_key_dash = Input.is_action_just_pressed("p_dash")
+	key_shoot = Input.is_action_pressed("p_shoot")
+	just_key_shoot = Input.is_action_just_pressed("p_shoot")
+	key_up = Input.is_action_pressed("p_up")
+	just_key_up = Input.is_action_just_pressed("p_up")
+	key_down = Input.is_action_pressed("p_down")
+	just_key_down = Input.is_action_just_pressed("p_down")
+	key_left = Input.is_action_pressed("p_left")
+	just_key_left = Input.is_action_just_pressed("p_left")
+	key_right = Input.is_action_pressed("p_right")
+	just_key_right = Input.is_action_just_pressed("p_right")
 
 func _oldprocess(_delta):
 	canpress_jump = bool(justpressedtime > 0 and not justpressedtime < 0)
@@ -83,7 +102,7 @@ func _oldprocess(_delta):
 		cando = false
 	pass
 	
-func _process(_elta):
+func _olderprocess(_elta):
 	input()
 	gamepaused = false
 	

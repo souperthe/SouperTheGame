@@ -761,7 +761,7 @@ collide_with_areas = true
 
 [node name="charge" type="AnimatedSprite2D" parent="frontstuff"]
 sprite_frames = SubResource("SpriteFrames_445jo")
-frame_progress = 0.849159
+frame_progress = 0.433333
 
 [node name="frontdetect" type="Area2D" parent="frontstuff"]
 collision_layer = 255
