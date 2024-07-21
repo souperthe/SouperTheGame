@@ -20,7 +20,8 @@ enum states {
 	dashjump,
 	grapple,
 	screw,
-	screwbounce
+	screwbounce,
+	skid
 }
 var state := states.normal
 var walled := false
@@ -294,17 +295,22 @@ func _physics_process(delta) -> void:
 			if is_on_floor():
 				vsp = 0
 				hsp = lerpf(hsp, spriteh * 20, 5 * delta)
+				if !SInput.key_dash:
+					state = states.skid
+					animator.play("skid")
+					animator.speed_scale = 0.2
+					$sounds/skid.play()
 				if move == -spriteh:
 					state = states.dashturn
 					animator.play("dashskid1")
-					animator.speed_scale = 0.3
+					animator.speed_scale = 0.2
 					$sounds/machcancle.play()
 				if SInput.just_key_jump:
 					state = states.dashjump
 					animator.play("freefallland")
 					animator.speed_scale = 0.15
 					$sounds/jump.play()
-					vsp = -12
+					vsp = -14
 			if not is_on_floor():
 				vsp += grv
 			if SInput.just_key_attack:
@@ -415,9 +421,9 @@ func _physics_process(delta) -> void:
 				animator.speed_scale = 0.25
 				$sounds/swing.play()
 				vsp = -12
-				hsp = movedirection * 15
-				if move != 0:
-					spriteh = move
+				hsp = spriteh * 15
+				#if move != 0:
+					#spriteh = move
 			if SInput.just_key_down:
 				state = states.screw
 				animator.play("screwing")
@@ -501,6 +507,21 @@ func _physics_process(delta) -> void:
 					animator.speed_scale = 0.4
 					$sounds/step.play()
 					landdust()
+		states.skid:
+			createothertrail()
+			move = -int(SInput.key_left) - -int(SInput.key_right)
+			hsp = global.approach(hsp, 0, 35 * delta)
+			if !grounded:
+				vsp += grv
+			if grounded:
+				if abs(hsp) == 0:
+					state = states.normal
+					$sounds/skid.stop()
+					#spriteh = -spriteh
+			if !grounded:
+				state = states.jump
+				animator.play("fall")
+				$sounds/skid.stop()
 	if spriteh == 1:
 		animator.flip_h = false
 	if spriteh == -1:
@@ -566,6 +587,9 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		states.dashturn:
 			if grounded:
 				stepdust()
+		states.skid:
+			if grounded:
+				stepdust()
 	pass # Replace with function body.
 	
 func doorarrowcheck(what) -> void:
@@ -601,6 +625,6 @@ func _on_machtrail_timeout() -> void:
 
 func _on_frontdetect_body_entered(body):
 	if body is MetalBlock:
-		if state == states.dash2:
+		if state == states.dash2 || state == states.dropkick:
 			body.destroy()
 	pass # Replace with function body.

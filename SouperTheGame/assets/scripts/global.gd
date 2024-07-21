@@ -8,6 +8,10 @@ var targetscene := "scene"
 var showdebug := true
 var rank := 1
 var mute := false
+var blockroom := []
+var baddieroom := []
+var escaperoom := []
+var collectroom := []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +32,7 @@ func approach(num, goal, i):
 		return max(num-i, goal)
 
 func gotoroom(targetroom, selecteddoor):
+	targetscene = targetroom
 	print("ran gotoroom!: ", targetroom, ", ", "door", targetdoor)
 	targetdoor = selecteddoor
 	roomhandler.scenegoto(targetroom)
@@ -85,9 +90,9 @@ func createdeadthing(targetpos, targetsprite, hsp, vsp := -12.0, rotateamount :=
 	ghost.sprite.scale.y = size
 	
 	
-func oneshot_sfx(sound, pos, volume = 1):
+func oneshot_sfx(sound, pos, volume = 1, parent = roomhandler.currentscene):
 	var ghost := AudioStreamPlayer2D.new()
-	roomhandler.currentscene.add_child(ghost)
+	parent.add_child(ghost)
 	ghost.position = pos
 	ghost.stream = load(sound)
 	ghost.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=151 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://c7fty2k6nl4rm" path="res://assets/images/souper/souper_0054.png" id="2_6rl3b"]
@@ -112,6 +112,8 @@
 [ext_resource type="Texture2D" uid="uid://vpk4my65o470" path="res://assets/images/souper/souper_0097.png" id="89_tm7pr"]
 [ext_resource type="Texture2D" uid="uid://msq03sjllp8n" path="res://assets/images/souper/souper_0098.png" id="90_40vqs"]
 [ext_resource type="AudioStream" uid="uid://bnc488yhfm2do" path="res://assets/sounds/sfx/sfx_mach3.wav" id="91_vgrdn"]
+[ext_resource type="Texture2D" uid="uid://daxyiptla7skx" path="res://assets/images/souper/souper_0104.png" id="95_j41cd"]
+[ext_resource type="Texture2D" uid="uid://cuy4km8cd5ilw" path="res://assets/images/souper/souper_0105.png" id="96_qg15q"]
 [ext_resource type="AudioStream" uid="uid://csl7f57evbkl5" path="res://assets/sounds/sfx/sfx_machstart.wav" id="99_gy5q3"]
 [ext_resource type="AudioStream" uid="uid://bi1ttk6qnt6nf" path="res://assets/sounds/sfx/sfx_freefallprep.wav" id="101_2fw2n"]
 [ext_resource type="Texture2D" uid="uid://dfpoiagfnisrs" path="res://assets/images/otheranimated/chargeeffect/chargeffect_0001.png" id="102_ht8my"]
@@ -126,6 +128,7 @@
 [ext_resource type="AudioStream" uid="uid://cu2oc3erwk6d1" path="res://assets/sounds/sfx/sfx_machcancle.wav" id="109_yx7k3"]
 [ext_resource type="AudioStream" uid="uid://cp5hatk171aai" path="res://assets/sounds/sfx/sfx_boing.wav" id="111_31vqt"]
 [ext_resource type="AudioStream" uid="uid://bloxlq6vqm3ej" path="res://assets/sounds/sfx/sfx_dash.wav" id="116_qiruh"]
+[ext_resource type="AudioStream" uid="uid://ll2huaxo8win" path="res://assets/sounds/sfx/sfx_brake.wav" id="129_bkvx5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32s0h"]
 animations = [{
@@ -500,6 +503,17 @@ animations = [{
 "loop": false,
 "name": &"screwing",
 "speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("95_j41cd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_qg15q")
+}],
+"loop": true,
+"name": &"skid",
+"speed": 60.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twd7b"]
@@ -664,14 +678,22 @@ streams_count = 1
 stream_0/stream = ExtResource("116_qiruh")
 stream_0/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4slvk"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("129_bkvx5")
+stream_0/weight = 1.0
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_qa05s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
-animation = &"mach3"
-speed_scale = 0.1
+animation = &"skid"
+frame = 1
+frame_progress = 0.265784
+speed_scale = 0.2
 
 [node name="standing" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11.5)
@@ -761,7 +783,7 @@ collide_with_areas = true
 
 [node name="charge" type="AnimatedSprite2D" parent="frontstuff"]
 sprite_frames = SubResource("SpriteFrames_445jo")
-frame_progress = 0.433333
+frame_progress = 0.413924
 
 [node name="frontdetect" type="Area2D" parent="frontstuff"]
 collision_layer = 255
@@ -838,6 +860,10 @@ bus = &"SFX"
 [node name="dash" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_1brx8")
 volume_db = -5.0
+
+[node name="skid" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_4slvk")
+bus = &"SFX"
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
