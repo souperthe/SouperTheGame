@@ -863,6 +863,7 @@ volume_db = -5.0
 
 [node name="skid" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_4slvk")
+volume_db = -5.0
 bus = &"SFX"
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

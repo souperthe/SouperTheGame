@@ -508,7 +508,7 @@ func _physics_process(delta) -> void:
 					$sounds/step.play()
 					landdust()
 		states.skid:
-			createothertrail()
+			#createothertrail()
 			move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = global.approach(hsp, 0, 35 * delta)
 			if !grounded:
