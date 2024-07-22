@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://1omh4qqxg03o"]
+
+[ext_resource type="AudioStream" uid="uid://lnxtxkdctoji" path="res://assets/sounds/sfx/sfx_cratebreak.wav" id="1_6hkrn"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("1_6hkrn")
+stream_0/weight = 1.0

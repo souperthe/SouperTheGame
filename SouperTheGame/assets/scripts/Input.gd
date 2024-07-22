@@ -42,6 +42,8 @@ var key_pause = false
 var just_key_pause = false
 var key_enter = false
 var just_key_enter = false
+var key_debug = false
+var just_key_debug = false
 
 
 var cando = false
@@ -91,6 +93,10 @@ func _process(_delta):
 	just_key_left = Input.is_action_just_pressed("p_left")
 	key_right = Input.is_action_pressed("p_right")
 	just_key_right = Input.is_action_just_pressed("p_right")
+	
+	
+	key_debug = Input.is_action_pressed("debug")
+	just_key_debug = Input.is_action_just_pressed("debug")
 
 func _oldprocess(_delta):
 	canpress_jump = bool(justpressedtime > 0 and not justpressedtime < 0)

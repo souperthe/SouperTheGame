@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://s75h0hhhjeth"]
+
+[ext_resource type="Script" path="res://assets/scripts/baddie.gd" id="1_882bl"]
+[ext_resource type="Texture2D" uid="uid://ds35807xtmjii" path="res://assets/images/otheranimated/testenemy/testenemy_0001.png" id="1_ve3if"]
+[ext_resource type="Texture2D" uid="uid://csye30to7c7ud" path="res://assets/images/otheranimated/testenemy/testenemy_0002.png" id="2_1vjeg"]
+[ext_resource type="PackedScene" uid="uid://c7oivcuooyaev" path="res://assets/objects/baddiestuff.tscn" id="4_tosbi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2m0xb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ve3if")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1vjeg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu3du"]
+size = Vector2(20, 47)
+
+[node name="Baddie" type="CharacterBody2D"]
+rotation = -0.00233926
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_882bl")
+
+[node name="animator" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -21)
+sprite_frames = SubResource("SpriteFrames_2m0xb")
+frame_progress = 0.399564
+speed_scale = 0.2
+
+[node name="collide" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_cu3du")
+debug_color = Color(0.964706, 0.427451, 0, 0.419608)
+
+[node name="baddiestuff" parent="." instance=ExtResource("4_tosbi")]

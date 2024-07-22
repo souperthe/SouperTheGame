@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://d04pgsqxnvn3h"]
+[gd_scene load_steps=12 format=3 uid="uid://d04pgsqxnvn3h"]
 
 [ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="1_phbjo"]
 [ext_resource type="PackedScene" uid="uid://dfl0o857rs3e6" path="res://assets/objects/framedoortscn.tscn" id="2_sgffd"]
 [ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="3_b88ea"]
 [ext_resource type="PackedScene" uid="uid://coy0538b8y6jd" path="res://assets/objects/musicsetter.tscn" id="4_gu360"]
 [ext_resource type="PackedScene" uid="uid://cqopgj5hvre4f" path="res://assets/objects/metalbox.tscn" id="5_p2kxu"]
+[ext_resource type="PackedScene" uid="uid://camw81jkecnlk" path="res://assets/objects/cl_left.tscn" id="6_i0gip"]
+[ext_resource type="PackedScene" uid="uid://cvarg6yntix2h" path="res://assets/objects/cl_bottom.tscn" id="7_82fsh"]
+[ext_resource type="PackedScene" uid="uid://cfpye3bth5qgu" path="res://assets/objects/cl_top.tscn" id="8_1ead2"]
+[ext_resource type="PackedScene" uid="uid://dseu1ycbuw7vc" path="res://assets/objects/cl_right.tscn" id="9_mtpgx"]
+[ext_resource type="PackedScene" uid="uid://s75h0hhhjeth" path="res://assets/objects/baddie.tscn" id="10_pll4d"]
+[ext_resource type="PackedScene" uid="uid://biv6tsf3h1xmk" path="res://assets/objects/grabbable.tscn" id="11_235yy"]
 
 [node name="Othertest" type="Node2D"]
 
@@ -17,7 +23,7 @@ target_scene = "res://assets/scenes/test.tscn"
 target_door = "2"
 
 [node name="CBox" parent="." instance=ExtResource("3_b88ea")]
-position = Vector2(256, 512)
+position = Vector2(0, 512)
 scale = Vector2(500, 1)
 
 [node name="musicsetter" parent="." instance=ExtResource("4_gu360")]
@@ -34,3 +40,82 @@ position = Vector2(1024, 448)
 
 [node name="metalbox2" parent="." instance=ExtResource("5_p2kxu")]
 position = Vector2(1024, 384)
+
+[node name="CBox3" parent="." instance=ExtResource("3_b88ea")]
+position = Vector2(-64, 0)
+scale = Vector2(1, 9)
+
+[node name="CL_Left" parent="." instance=ExtResource("6_i0gip")]
+position = Vector2(-32, 256)
+
+[node name="CL_Bottom" parent="." instance=ExtResource("7_82fsh")]
+position = Vector2(768, 544)
+
+[node name="CL_Top" parent="." instance=ExtResource("8_1ead2")]
+position = Vector2(1184, 0)
+
+[node name="CL_Right" parent="." instance=ExtResource("9_mtpgx")]
+position = Vector2(31776, 320)
+
+[node name="Baddie" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(1568, 480)
+
+[node name="Baddie2" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(1664, 480)
+
+[node name="Baddie3" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(1760, 480)
+
+[node name="Baddie4" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(1856, 480)
+
+[node name="Baddie5" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(1952, 480)
+
+[node name="Baddie6" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(2048, 480)
+
+[node name="Baddie7" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(2144, 480)
+
+[node name="Baddie8" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(2240, 480)
+
+[node name="Baddie9" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(2336, 480)
+
+[node name="Baddie10" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(2432, 480)
+
+[node name="Baddie11" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(2528, 480)
+
+[node name="Baddie12" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(2624, 480)
+
+[node name="Baddie13" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(2720, 480)
+
+[node name="Baddie14" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(2816, 480)
+
+[node name="Baddie15" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(2912, 480)
+
+[node name="Baddie16" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(3008, 480)
+
+[node name="Baddie17" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(3104, 480)
+
+[node name="Baddie18" parent="." instance=ExtResource("10_pll4d")]
+position = Vector2(3200, 480)
+
+[node name="grabbable" parent="." instance=ExtResource("11_235yy")]
+position = Vector2(288, 480)
+
+[node name="metalbox3" parent="." instance=ExtResource("5_p2kxu")]
+position = Vector2(1024, 320)
+
+[node name="metalbox4" parent="." instance=ExtResource("5_p2kxu")]
+position = Vector2(1024, 256)

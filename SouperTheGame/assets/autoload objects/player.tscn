@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=153 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://c7fty2k6nl4rm" path="res://assets/images/souper/souper_0054.png" id="2_6rl3b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://j2ha3scfntjc" path="res://assets/images/souper/souper_0041.png" id="3_22llm"]
 [ext_resource type="Texture2D" uid="uid://ctx7jurhhit2" path="res://assets/images/souper/souper_0055.png" id="3_ddb74"]
 [ext_resource type="Texture2D" uid="uid://sgqax34s801g" path="res://assets/images/souper/souper_0044.png" id="3_yqc3o"]
+[ext_resource type="Texture2D" uid="uid://tgxff58ks0rh" path="res://assets/images/souper/souper_0107.png" id="4_6jodn"]
 [ext_resource type="Texture2D" uid="uid://u6ciauknbihc" path="res://assets/images/souper/souper_0003.png" id="4_eh5lg"]
 [ext_resource type="Texture2D" uid="uid://c2w7lsc2trc0" path="res://assets/images/souper/souper_0099.png" id="4_nnbq4"]
 [ext_resource type="Texture2D" uid="uid://63jgk8ynity3" path="res://assets/images/souper/souper_0045.png" id="4_pikmk"]
@@ -142,6 +143,14 @@ animations = [{
 "loop": true,
 "name": &"bump",
 "speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6jodn")
+}],
+"loop": true,
+"name": &"carry",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -559,34 +568,11 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_445jo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("102_ht8my")
-}, {
-"duration": 1.0,
-"texture": ExtResource("103_1j00m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("104_16130")
-}, {
-"duration": 1.0,
-"texture": ExtResource("105_odw6f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("106_2xvu4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("107_1mgls")
-}],
-"loop": true,
-"name": &"default",
-"speed": 18.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqh4d"]
-size = Vector2(31, 67)
+size = Vector2(52, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hiy2q"]
+size = Vector2(31, 47)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m8p47"]
 random_pitch = 1.1
@@ -684,15 +670,40 @@ streams_count = 1
 stream_0/stream = ExtResource("129_bkvx5")
 stream_0/weight = 1.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_445jo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("102_ht8my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_1j00m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_16130")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_odw6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_2xvu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_1mgls")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}]
+
 [node name="player" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_qa05s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
-animation = &"skid"
-frame = 1
-frame_progress = 0.265784
+animation = &"carry"
 speed_scale = 0.2
 
 [node name="standing" type="CollisionShape2D" parent="."]
@@ -713,18 +724,28 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 816.0
+offset_top = 513.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_top = 512.0
-offset_right = 414.0
-offset_bottom = 540.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -309.0
+offset_top = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "sdasdas"
+horizontal_alignment = 2
 justification_flags = 235
 
-[node name="Control" type="Control" parent="CanvasLayer/Control"]
-layout_mode = 1
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -734,19 +755,20 @@ offset_bottom = 153.0
 grow_horizontal = 0
 scale = Vector2(1.15, 1.15)
 
-[node name="rankometer" type="AnimatedSprite2D" parent="CanvasLayer/Control/Control"]
+[node name="rankometer" type="AnimatedSprite2D" parent="CanvasLayer/Control2"]
 position = Vector2(3.47821, 8.69565)
 sprite_frames = SubResource("SpriteFrames_pp6uq")
 frame = 5
 frame_progress = 0.101999
 centered = false
 
-[node name="score" type="Control" parent="CanvasLayer/Control"]
+[node name="score" type="Control" parent="CanvasLayer"]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 240.0
 offset_bottom = 146.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/score"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/score"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 26.0
@@ -781,17 +803,21 @@ target_position = Vector2(20, 0)
 collision_mask = 4
 collide_with_areas = true
 
-[node name="charge" type="AnimatedSprite2D" parent="frontstuff"]
-sprite_frames = SubResource("SpriteFrames_445jo")
-frame_progress = 0.413924
-
 [node name="frontdetect" type="Area2D" parent="frontstuff"]
 collision_layer = 255
 collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="frontstuff/frontdetect"]
-position = Vector2(54.5, 10.5)
+position = Vector2(38, 11.5)
 shape = SubResource("RectangleShape2D_cqh4d")
+
+[node name="middledowndetect" type="Area2D" parent="frontstuff"]
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frontstuff/middledowndetect"]
+position = Vector2(0, 67.5)
+shape = SubResource("RectangleShape2D_hiy2q")
 
 [node name="sounds" type="Node2D" parent="."]
 
@@ -866,9 +892,15 @@ stream = SubResource("AudioStreamRandomizer_4slvk")
 volume_db = -5.0
 bus = &"SFX"
 
+[node name="charge" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_445jo")
+frame_progress = 0.413924
+metadata/_edit_lock_ = true
+
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="othertrailtimer1" to="." method="_on_othertrailtimer_1_timeout"]
 [connection signal="timeout" from="machtrail" to="." method="_on_machtrail_timeout"]
 [connection signal="body_entered" from="frontstuff/frontdetect" to="." method="_on_frontdetect_body_entered"]
+[connection signal="body_entered" from="frontstuff/middledowndetect" to="." method="_on_middledowndetect_body_entered"]

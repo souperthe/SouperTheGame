@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bd6bosmg6u43g"]
+[gd_scene load_steps=16 format=3 uid="uid://bd6bosmg6u43g"]
 
 [ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="1_de4qj"]
 [ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="2_sn5kt"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://y300wr0h7yek" path="res://assets/objects/collectable.tscn" id="12_13jfi"]
 [ext_resource type="PackedScene" uid="uid://cqopgj5hvre4f" path="res://assets/objects/metalbox.tscn" id="13_hbydf"]
 [ext_resource type="PackedScene" uid="uid://b0fmapexhgyc1" path="res://assets/objects/hallway.tscn" id="14_u4uf3"]
+[ext_resource type="PackedScene" uid="uid://s75h0hhhjeth" path="res://assets/objects/baddie.tscn" id="15_jygbj"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -123,7 +124,7 @@ position = Vector2(-1664, -192)
 scale = Vector2(20, 1)
 
 [node name="hallway" parent="." instance=ExtResource("14_u4uf3")]
-position = Vector2(-1056, -128)
+position = Vector2(-1152, -128)
 scale = Vector2(1, 4)
 target_scene = "res://assets/scenes/test2.tscn"
 target_door = "2"
@@ -131,3 +132,9 @@ target_door = "2"
 [node name="CBox8" parent="." instance=ExtResource("1_de4qj")]
 position = Vector2(1600, -384)
 scale = Vector2(1, 10)
+
+[node name="Baddie" parent="." instance=ExtResource("15_jygbj")]
+position = Vector2(800, 192)
+
+[node name="Baddie2" parent="." instance=ExtResource("15_jygbj")]
+position = Vector2(-704, -32)

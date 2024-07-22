@@ -13,17 +13,14 @@ var baddieroom := []
 var escaperoom := []
 var collectroom := []
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if SInput.just_key_pause:
-		mute = !mute
-		AudioServer.set_bus_mute(2, mute)
-	pass
+#func _process(_delta):
+	#if SInput.just_key_pause:
+		#mute = !mute
+		#AudioServer.set_bus_mute(2, mute)
+		#evaluate("queue_free()")
+	#pass
 
 func approach(num, goal, i):
 	if num < goal:
@@ -37,12 +34,12 @@ func gotoroom(targetroom, selecteddoor):
 	targetdoor = selecteddoor
 	roomhandler.scenegoto(targetroom)
 	
-func createobject(obj, pos, rotate = 0.0, size = Vector2(1,1)):
+func createobject(obj, pos, rot = 0.0, size = Vector2(1,1)):
 	var whiteflash = load(obj)
 	var ghost = whiteflash.instantiate()
 	roomhandler.currentscene.add_child(ghost)
 	ghost.position = pos
-	ghost.rotation_degrees = rotate
+	ghost.rotation_degrees = rot
 	ghost.scale = size
 	
 func createtrail(targetpos, targetanimator, color, fadespeed):
@@ -77,10 +74,11 @@ func createmachtrail(targetpos, targetanimator, color, fadespeed, ownedby):
 	ghost.target = ownedby
 	ghost.z_index = ownedby.z_index - 1
 	
-func createdeadthing(targetpos, targetsprite, hsp, vsp := -12.0, rotateamount := 1.0, size = 1.0):
+func createdeadthing(targetpos, targetsprite, hsp, vsp := -12.0, rotateamount := randf_range(-5.0,5.0), size = 1.0):
 	var whiteflash = preload("res://assets/objects/deadthing.tscn")
 	var ghost: CharacterBody2D = whiteflash.instantiate()
 	roomhandler.currentscene.add_child(ghost)
+	#ghost.call_deferred()
 	ghost.position = targetpos
 	ghost.sprite.texture = load(targetsprite)
 	ghost.vsp = vsp
@@ -90,14 +88,17 @@ func createdeadthing(targetpos, targetsprite, hsp, vsp := -12.0, rotateamount :=
 	ghost.sprite.scale.y = size
 	
 	
-func oneshot_sfx(sound, pos, volume = 1, parent = roomhandler.currentscene):
+func oneshot_sfx(sound, pos, volume := 1.0, parent = roomhandler.currentscene):
 	var ghost := AudioStreamPlayer2D.new()
 	parent.add_child(ghost)
 	ghost.position = pos
 	ghost.stream = load(sound)
 	ghost.play()
+	ghost.name = sound.get_file()
 	ghost.volume_db = volume
 	ghost.bus = "SFX"
+	await ghost.finished
+	ghost.queue_free()
 	
 	
 func startroom():
@@ -113,7 +114,7 @@ func startroom():
 	var cl_right = roomhandler.currentscene.get_node(str("CL_Right"))
 	var cl_bottom = roomhandler.currentscene.get_node(str("CL_Bottom"))
 	var cl_top = roomhandler.currentscene.get_node(str("CL_Top"))
-	if is_instance_valid(cl_left):
+	if is_instance_valid(cl_left) and is_instance_valid(cl_right) and is_instance_valid(cl_bottom) and is_instance_valid(cl_top):
 		print("camera limits found!: ", cl_bottom.position.y, ", ", cl_top.position.y, ", ", cl_right.position.x, ", ", cl_left.position.x)
 		camera.limit_bottom = cl_bottom.position.y
 		camera.limit_top = cl_top.position.y

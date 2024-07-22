@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://cotnkxmdvpcfv"]
+
+[ext_resource type="Script" path="res://assets/scripts/debug_console.gd" id="1_rxf3g"]
+[ext_resource type="AudioStream" uid="uid://covpfehh2y5xt" path="res://assets/sounds/sfx/sfx_type.wav" id="2_mtcry"]
+[ext_resource type="AudioStream" uid="uid://b8wdvskur6mb8" path="res://assets/sounds/sfx/sfx_button.wav" id="3_akgg6"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sggab"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("2_mtcry")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xw3oc"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("3_akgg6")
+stream_0/weight = 1.0
+
+[sub_resource type="Animation" id="Animation_cwfxu"]
+resource_name = "apear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -240)]
+}
+
+[sub_resource type="Animation" id="Animation_it44s"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(0, -240), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wtf8f"]
+_data = {
+"apear": SubResource("Animation_cwfxu"),
+"new_animation": SubResource("Animation_it44s")
+}
+
+[node name="DebugConsole" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+script = ExtResource("1_rxf3g")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 270.0
+offset_bottom = 240.0
+
+[node name="TextEdit" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 204.0
+offset_right = 272.0
+offset_bottom = 240.0
+placeholder_text = "type commands here"
+selecting_enabled = false
+caret_blink = true
+
+[node name="type" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_sggab")
+volume_db = -5.0
+
+[node name="bass" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_xw3oc")
+volume_db = -10.0
+
+[node name="yep" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wtf8f")
+}
+
+[connection signal="text_changed" from="Control/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="text_submitted" from="Control/TextEdit" to="." method="_on_text_edit_text_submitted"]

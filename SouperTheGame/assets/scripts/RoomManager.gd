@@ -2,8 +2,9 @@ extends Node
 
 @export var scene: PackedScene
 var currentscene:Node
-var m = 1
-var rng = RandomNumberGenerator.new()
+var m := 1
+var room_name := "idk"
+var rng := RandomNumberGenerator.new()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -53,6 +54,7 @@ func scenegoto(selectedscene):
 	#queue_free_children(self)
 	#free_children(self)
 	#add_child(scene)
+	room_name = currentscene.name
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -18,4 +18,7 @@ func play(id: String, continueafterlast: bool):
 	leveltheme.play()
 	if continueafterlast:
 		leveltheme.seek(float(temp))
+		
+func stop():
+	$leveltheme.stop()
 	

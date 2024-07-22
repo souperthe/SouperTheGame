@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/mus_house.ogg-a6b7fc56d59f50746d0041ef0bff9b2
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=120.0
 beat_count=0
 bar_beats=4

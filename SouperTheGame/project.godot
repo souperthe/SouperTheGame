@@ -23,12 +23,18 @@ plr="*res://assets/autoload objects/player.tscn"
 camera="*res://assets/autoload objects/camera.tscn"
 SInput="*res://assets/autoload objects/input.tscn"
 music_controller="*res://assets/autoload objects/musiccontroller.tscn"
+Console="*res://addons/console/Console.gd"
+GsomConsole="*res://addons/gsom_console/./gsom_console_autoload.gd"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/gsom_console/plugin.cfg")
 
 [input]
 
@@ -75,6 +81,11 @@ p_down={
 p_pause={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+debug={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194343,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 

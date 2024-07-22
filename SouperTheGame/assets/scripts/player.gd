@@ -21,7 +21,9 @@ enum states {
 	grapple,
 	screw,
 	screwbounce,
-	skid
+	skid,
+	carry,
+	throw
 }
 var state := states.normal
 var walled := false
@@ -39,7 +41,10 @@ var dash1 := 60
 var move := 0
 var currentframe := 0
 var movedirection := 0
-var scoreapproached := 0
+var scoreapproached := 0 
+var ctime := 0.0
+var skidbuffer := 0.0
+var holdingobj = null
 
 @onready var doorarrow := $arrow
 
@@ -73,8 +78,8 @@ func _ready() -> void:
 	animator.speed_scale = 0.15
 	floor_constant_speed = true
 	floor_snap_length = 64
-	$frontstuff/charge.play("default")
-	$frontstuff/charge.visible = false
+	$charge.play("default")
+	$charge.visible = false
 	
 	
 var thing := false
@@ -84,6 +89,10 @@ func _physics_process(delta) -> void:
 	wall = get_wall_normal()
 	grounded = is_on_floor()
 	walled = $frontstuff/wallcheck.is_colliding() and is_on_wall()
+	if grounded:
+		ctime = 10
+	if !grounded:
+		ctime -= 30 * delta
 	#createothertrail()
 	match(state):
 		states.normal:
@@ -139,6 +148,13 @@ func _physics_process(delta) -> void:
 			move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = lerpf(hsp, move * 8, 12 * delta)
 			vsp += grv
+			if SInput.just_key_jump and ctime > 0 and animator.animation == "fall":
+				animator.play("jump")
+				animator.speed_scale = 0.3
+				state = states.jump
+				thing = false
+				$sounds/jump.play()
+				vsp = -15
 			if SInput.just_key_attack:
 				state = states.dropkick
 				animator.play("dropkick")
@@ -204,19 +220,12 @@ func _physics_process(delta) -> void:
 				#vsp = -12
 				#$freefallprep.play()
 			if is_on_floor():
-				if SInput.key_dash:
-					state = states.dash2
-					animator.play("land")
-					animator.speed_scale = 0.4
-					$sounds/step.play()
-					landdust()
-				else:
-					state = states.normal
-					animator.play("land")
-					animator.speed_scale = 0.4
-					$sounds/step.play()
-					landdust()
-					#vsp = 0
+				state = states.dash2
+				animator.play("land")
+				animator.speed_scale = 0.4
+				$sounds/step.play()
+				landdust()
+				vsp = 0
 		states.bump:
 			if animator.animation != "bump":
 				animator.play("bump")
@@ -273,7 +282,7 @@ func _physics_process(delta) -> void:
 			createmachtrail()
 			animator.play("move")
 			animator.speed_scale += 0.02
-			dash1 -= 50 * delta
+			dash1 -= 80 * delta
 			if !is_on_floor():
 				state = states.jump
 				#$sounds/machstart.stop()
@@ -295,11 +304,15 @@ func _physics_process(delta) -> void:
 			if is_on_floor():
 				vsp = 0
 				hsp = lerpf(hsp, spriteh * 20, 5 * delta)
+				if SInput.key_dash:
+					skidbuffer = 6
 				if !SInput.key_dash:
-					state = states.skid
-					animator.play("skid")
-					animator.speed_scale = 0.2
-					$sounds/skid.play()
+					skidbuffer -= 28 * delta
+					if skidbuffer < 0:
+						state = states.skid
+						animator.play("skid")
+						animator.speed_scale = 0.2
+						$sounds/skid.play()
 				if move == -spriteh:
 					state = states.dashturn
 					animator.play("dashskid1")
@@ -413,7 +426,7 @@ func _physics_process(delta) -> void:
 				state = states.grapple
 				animator.play("door")
 				animator.frame = 4
-				print("grabbed wall at: ", position)
+				#print("grabbed wall at: ", position)
 				#hsp = 0
 			if SInput.just_key_attack:
 				state = states.dropkick
@@ -522,6 +535,51 @@ func _physics_process(delta) -> void:
 				state = states.jump
 				animator.play("fall")
 				$sounds/skid.stop()
+		states.carry:
+			move = -int(SInput.key_left) - -int(SInput.key_right)
+			hsp = move * 6
+			vsp = 0
+			holdingobj.position.x = position.x
+			holdingobj.position.y = position.y - 80
+			if move != 0:
+				spriteh = move
+				if animator.animation != "land":
+					animator.play("move")
+				if is_on_wall():
+					animator.speed_scale = 0.3
+				else:
+					animator.speed_scale = 0.2
+				if animator.animation == "land":
+					if animationdone:
+						animator.play("move")
+			else:
+				if animator.animation != "land":
+					animator.play("carry")
+					animator.speed_scale = 0.15
+				if animator.animation == "land":
+					if animationdone:
+						animator.play("carry")
+			if SInput.just_key_attack:
+				state = states.throw
+				#hsp = spriteh * 18
+				holdingobj.state = holdingobj.states.thrown
+				holdingobj.hsp = spriteh * 18
+				holdingobj.vsp = -5
+				$sounds/swang.play()
+				holdingobj.position.y = position.y - 32
+				animator.play("punch")
+				animator.speed_scale = 0.35
+				holdingobj = null
+			if SInput.just_key_down:
+				holdingobj.hsp = spriteh * 5
+				holdingobj.state = holdingobj.states.normal
+				holdingobj.position.y = position.y + 12
+				holdingobj = null
+				state = states.normal
+		states.throw:
+			hsp = global.approach(hsp, 0, 35 * delta)
+			if animationdone:
+				state = states.normal
 	if spriteh == 1:
 		animator.flip_h = false
 	if spriteh == -1:
@@ -548,12 +606,15 @@ func _physics_process(delta) -> void:
 	animator.rotation_degrees = lerpf(animator.rotation_degrees, spriteangle, 15 * delta)
 	$CanvasLayer/Control/Label.text = str("(", int(hsp), ", ", int(vsp), ")", ", ", state, ", ", animator.animation, ", ", spriteangle)
 	scoreapproached = global.approach(scoreapproached, global.score, 200 * delta)
-	$CanvasLayer/Control/score/RichTextLabel.text = str("[center]", int(scoreapproached))
+	$CanvasLayer/score/RichTextLabel.text = str("[center]", int(scoreapproached))
 	move_and_slide()
+	$charge.flip_h = animator.flip_h
+	$charge.rotation_degrees = animator.rotation_degrees
+	$CanvasLayer.visible = roomhandler.room_name != "title"
 	if global.rank < 6:
-		$CanvasLayer/Control/Control/rankometer.animation = "default"
-		$CanvasLayer/Control/Control/rankometer.speed_scale = 0
-		$CanvasLayer/Control/Control/rankometer.frame = global.rank
+		$CanvasLayer/Control2/rankometer.animation = "default"
+		$CanvasLayer/Control2/rankometer.speed_scale = 0
+		$CanvasLayer/Control2/rankometer.frame = global.rank
 	if global.rank == 6:
 		$CanvasLayer/Control/Control/rankometer.play("full")
 		$CanvasLayer/Control/Control/rankometer.speed_scale = 1
@@ -563,11 +624,11 @@ func statesound() -> void:
 	if state == states.dash2:
 		if !$sounds/dash2.playing:
 			$sounds/dash2.play()
-			$frontstuff/charge.visible = true
+			$charge.visible = true
 	else:
 		if $sounds/dash2.playing:
 			$sounds/dash2.stop()
-			$frontstuff/charge.visible = false
+			$charge.visible = false
 	if !state == states.dash1:
 		if $sounds/machstart.playing:
 			$sounds/machstart.stop()
@@ -590,6 +651,11 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		states.skid:
 			if grounded:
 				stepdust()
+		states.carry:
+			if animator.animation == "move":
+				if animator.frame == 2 or animator.frame == 8:
+					$sounds/step.play()
+					stepdust()
 	pass # Replace with function body.
 	
 func doorarrowcheck(what) -> void:
@@ -626,5 +692,28 @@ func _on_machtrail_timeout() -> void:
 func _on_frontdetect_body_entered(body):
 	if body is MetalBlock:
 		if state == states.dash2 || state == states.dropkick:
+			body.destroy()
+	if body is Grabbable:
+		if state == states.punch:
+			state = states.carry
+			holdingobj = body
+			$sounds/flashbulb.play()
+			holdingobj.state = holdingobj.states.hold
+		if state == states.dash2:
+			body.destroy()
+	if body is Baddie:
+		if state == states.dash2 || state == states.dropkick || state == states.punch:
+			var afsjkbasdjkbasdasdasdasd := velocity.normalized()
+			position.x += afsjkbasdjkbasdasdasdasd.x * -32
+			body.destroy(hsp, position)
+	pass # Replace with function body.
+
+
+func _on_middledowndetect_body_entered(body):
+	if body is Baddie:
+		if state == states.screw || state == states.freefalling:
+			body.destroy(0, position)
+	if body is Grabbable:
+		if state == states.freefalling:
 			body.destroy()
 	pass # Replace with function body.
