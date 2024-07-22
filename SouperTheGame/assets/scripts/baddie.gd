@@ -15,6 +15,7 @@ enum states {
 	attack
 }
 var state := states.normal
+var directipn := 1
 
 
 func particals():
@@ -26,6 +27,7 @@ func particals():
 		
 
 func _ready():
+	directipn = global.choose_randomly([1,-1])
 	if global.baddieroom.has(global.targetscene + name):
 		queue_free()
 		print(name, " removed", ", in: ", global.targetscene.get_file())
@@ -57,7 +59,29 @@ func yeah() -> void:
 
 
 func _physics_process(delta):
+	match(state):
+		states.normal:
+			if !is_on_floor():
+				vsp += grv
+			hsp = directipn * 3
+			turn()
+	$baddiestuff.scale.x = directipn
+	match(directipn):
+		1:
+			animator.flip_h = false
+		-1:
+			animator.flip_h = true
 	velocity.x = (hsp * 4000) * delta
 	velocity.y = (vsp * 4000) * delta
 	move_and_slide()
+	
+	
+func turn():
+	if $baddiestuff/wallcheck.is_colliding() or !$baddiestuff/floorcheck.is_colliding():
+		directipn = -directipn
+	
+	
+	
+	
+
 	

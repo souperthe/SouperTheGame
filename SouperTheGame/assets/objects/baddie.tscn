@@ -20,12 +20,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu3du"]
-size = Vector2(20, 47)
+size = Vector2(15, 47)
 
 [node name="Baddie" type="CharacterBody2D"]
 rotation = -0.00233926
 collision_layer = 2
 collision_mask = 2
+floor_snap_length = 64.0
 script = ExtResource("1_882bl")
 
 [node name="animator" type="AnimatedSprite2D" parent="."]

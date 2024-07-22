@@ -20,7 +20,7 @@ func createtransition():
 func _process(delta):
 	if $Area2D.overlaps_body(plr):
 		if plr.state == plr.states.normal:
-			if SInput.just_key_up:
+			if Input.is_action_just_pressed(plr.upkey):
 				$AudioStreamPlayer2D.play()
 				plr.state = plr.states.actor
 				plr.animator.play("door")

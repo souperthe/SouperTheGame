@@ -49,6 +49,10 @@ func roomgoto(roomname, door = 1):
 	var room := str("res://assets/scenes/", roomname)
 	global.gotoroom(room, str(door))
 	
+func scenegoto(roomname, door = 1):
+	var room := str("res://assets/scenes/", roomname)
+	global.gotoroom(room, str(door))
+	
 func screenshot():
 	var img := get_viewport().get_texture().get_image()
 	var tex := ImageTexture.create_from_image(img)
@@ -69,7 +73,7 @@ func set_cameralock(lock):
 	camera.locked = lock
 
 func _process(_delta):
-	if SInput.just_key_debug:
+	if Input.is_action_just_pressed("debug"):
 		enabled = !enabled
 		match(enabled):
 			false:

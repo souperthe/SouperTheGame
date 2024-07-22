@@ -10,7 +10,7 @@ func _ready():
 func _process(_delta):
 	if overlaps_body(plr):
 		if plr.state == plr.states.normal || plr.state == plr.states.jump:
-			if SInput.just_key_up:
+			if Input.is_action_just_pressed(plr.upkey):
 				plr.state = plr.states.ladder
 				plr.animator.play("door")
 				plr.animator.speed_scale = 0.3

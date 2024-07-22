@@ -41,6 +41,10 @@ func createobject(obj, pos, rot = 0.0, size = Vector2(1,1)):
 	ghost.position = pos
 	ghost.rotation_degrees = rot
 	ghost.scale = size
+	randomize()
+	var random_seed = randi()
+	seed(random_seed)
+	ghost.name = str("instance ", random_seed)
 	
 func createtrail(targetpos, targetanimator, color, fadespeed):
 	var whiteflash = preload("res://assets/objects/traileffect.tscn")
@@ -86,6 +90,9 @@ func createdeadthing(targetpos, targetsprite, hsp, vsp := -12.0, rotateamount :=
 	ghost.rotateamount = rotateamount
 	ghost.sprite.scale.x = size
 	ghost.sprite.scale.y = size
+	var random_seed = randi()
+	seed(random_seed)
+	ghost.name = str("deadthing ", random_seed)
 	
 	
 func oneshot_sfx(sound, pos, volume := 1.0, parent = roomhandler.currentscene):
@@ -99,6 +106,11 @@ func oneshot_sfx(sound, pos, volume := 1.0, parent = roomhandler.currentscene):
 	ghost.bus = "SFX"
 	await ghost.finished
 	ghost.queue_free()
+	
+	
+func choose_randomly(list_of_entries):
+	
+	return list_of_entries[randi() % list_of_entries.size()]
 	
 	
 func startroom():

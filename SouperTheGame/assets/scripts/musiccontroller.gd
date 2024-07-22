@@ -9,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if !leveltheme.stream == null:
+	if !leveltheme.stream == null and leveltheme.playing:
 		temp = leveltheme.get_playback_position()
 	pass
 	
@@ -21,4 +21,5 @@ func play(id: String, continueafterlast: bool):
 		
 func stop():
 	$leveltheme.stop()
+	temp = 0
 	
