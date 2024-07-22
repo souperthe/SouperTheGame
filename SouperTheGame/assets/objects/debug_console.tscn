@@ -6,7 +6,7 @@
 
 [sub_resource type="Animation" id="Animation_0vxy8"]
 resource_name = "screenshot"
-length = 5.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,10 +14,10 @@ tracks/0/path = NodePath("TextureRect:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 1.5, 2.8),
-"transitions": PackedFloat32Array(1, 1, 0.34151, 1),
+"times": PackedFloat32Array(0, 0.8, 1.9),
+"transitions": PackedFloat32Array(1, 0.34151, 1),
 "update": 0,
-"values": [Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1, 1), Vector2(0.2, 0.2)]
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.2, 0.2)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -26,10 +26,10 @@ tracks/1/path = NodePath("TextureRect:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-90, -590), Vector2(0, -540), Vector2(0, -540)]
+"values": [Vector2(0, -540), Vector2(0, -540)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n6nhu"]
@@ -107,7 +107,6 @@ offset_top = -540.0
 offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.2, 0.2)
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0

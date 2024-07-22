@@ -57,6 +57,8 @@ func screenshot():
 	var img := get_viewport().get_texture().get_image()
 	var tex := ImageTexture.create_from_image(img)
 	$TextureRect.set_texture(tex)
+	global.oneshot_sfx("res://assets/sounds/photorandomized.tres", camera.position, -5)
+	$AnimationPlayer.stop()
 	$AnimationPlayer.play('screenshot')
 
 func spawnobj(obj):

@@ -570,7 +570,7 @@ func _physics_process(delta) -> void:
 			else:
 				if animator.animation != "land":
 					animator.play("carry")
-					animator.speed_scale = 0.2
+					animator.speed_scale = 0.18
 				if animator.animation == "land":
 					if animationdone:
 						animator.play("carry")

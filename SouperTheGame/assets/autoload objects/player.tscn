@@ -1,4 +1,4 @@
-[gd_scene load_steps=183 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=186 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://c7fty2k6nl4rm" path="res://assets/images/souper/souper_0054.png" id="2_6rl3b"]
@@ -104,6 +104,9 @@
 [ext_resource type="Texture2D" uid="uid://dr57k610fqg2m" path="res://assets/images/souper/souper_0027.png" id="28_wuekh"]
 [ext_resource type="Texture2D" uid="uid://bm70r8of0mx58" path="res://assets/images/souper/souper_0133.png" id="29_kpgdj"]
 [ext_resource type="Texture2D" uid="uid://do1ftqk1y7c0d" path="res://assets/images/souper/souper_0134.png" id="30_5mcyk"]
+[ext_resource type="Texture2D" uid="uid://ciehco2ae0imy" path="res://assets/images/souper/souper_0135.png" id="31_p4n08"]
+[ext_resource type="Texture2D" uid="uid://blb3kyge2bw8d" path="res://assets/images/souper/souper_0136.png" id="32_dv8ls"]
+[ext_resource type="Texture2D" uid="uid://cc6k7x7vuk2b" path="res://assets/images/souper/souper_0137.png" id="33_8ytyp"]
 [ext_resource type="Texture2D" uid="uid://b2w0n48a3te1r" path="res://assets/images/souper/souper_0048.png" id="33_dckth"]
 [ext_resource type="Texture2D" uid="uid://4jhqj1w5yfql" path="res://assets/images/souper/souper_0049.png" id="34_omqqj"]
 [ext_resource type="Texture2D" uid="uid://c6pxclqgt5xml" path="res://assets/images/souper/souper_0050.png" id="35_w4ket"]
@@ -253,6 +256,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("30_5mcyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_p4n08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_dv8ls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_8ytyp")
 }],
 "loop": true,
 "name": &"carry",
@@ -822,8 +834,8 @@ script = ExtResource("1_qa05s")
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
 animation = &"carry"
-frame_progress = 0.327207
-speed_scale = 0.2
+frame_progress = 0.296637
+speed_scale = 0.18
 
 [node name="standing" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11.5)

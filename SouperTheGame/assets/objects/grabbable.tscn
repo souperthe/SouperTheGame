@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://biv6tsf3h1xmk"]
+[gd_scene load_steps=7 format=3 uid="uid://biv6tsf3h1xmk"]
 
 [ext_resource type="Script" path="res://assets/scripts/grabbable.gd" id="1_hij8v"]
 [ext_resource type="Texture2D" uid="uid://dkkhpcf581mnf" path="res://assets/images/crate.png" id="1_meekp"]
@@ -15,8 +15,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c43y"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3imt"]
 size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c43y"]
+size = Vector2(80, 80)
 
 [node name="grabbable" type="CharacterBody2D"]
 z_index = 1
@@ -28,7 +31,7 @@ script = ExtResource("1_hij8v")
 sprite_frames = SubResource("SpriteFrames_j2ov3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3c43y")
+shape = SubResource("RectangleShape2D_g3imt")
 
 [node name="thing" type="Area2D" parent="."]
 collision_layer = 255

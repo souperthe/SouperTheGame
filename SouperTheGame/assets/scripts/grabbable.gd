@@ -68,6 +68,9 @@ func _on_thing_body_entered(body):
 	if body is Baddie:
 		if state == states.thrown:
 			body.destroy(hsp, position)
+	if body is Grabbable:
+		if state == states.thrown:
+			body.destroy()
 	pass # Replace with function body.
 
 func createothertrail() -> void:
