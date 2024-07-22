@@ -12,7 +12,7 @@ func evaluate(command, variable_names = [], variable_values = []) -> void:
 	if error != OK:
 		#push_error(expression.get_error_text())
 		#$bass.play()
-		OS.alert("YOU'RE COMMAND IS INVALID.", "HEY")
+		OS.alert(str(expression.get_error_text()), "ERROR")
 		return
 	else:
 		$bass.play()
@@ -23,6 +23,10 @@ func evaluate(command, variable_names = [], variable_values = []) -> void:
 func set_timescale(speed):
 	Engine.time_scale = speed
 	print("timescale set to: ", speed)
+	
+func set_fps(fps):
+	Engine.max_fps = fps
+	print("fps set to: ", fps)
 	
 func set_playerstate(state):
 	plr.state = state
@@ -44,10 +48,16 @@ func gotoroom(roomname, door = 1):
 func roomgoto(roomname, door = 1):
 	var room := str("res://assets/scenes/", roomname)
 	global.gotoroom(room, str(door))
+	
+func screenshot():
+	var img := get_viewport().get_texture().get_image()
+	var tex := ImageTexture.create_from_image(img)
+	$TextureRect.set_texture(tex)
+	$AnimationPlayer.play('screenshot')
 
 func spawnobj(obj):
 	var selectedobj := str("res://assets/objects/", obj)
-	global.createobject(selectedobj, plr.position)
+	global.createobject(selectedobj, camera.position)
 	
 func disable_climits():
 	camera.limit_bottom = 10000000

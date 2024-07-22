@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	roomhandler.scenegoto("res://assets/scenes/test.tscn")
+	roomhandler.scenegoto("res://assets/scenes/title.tscn")
 	queue_free()
 	pass # Replace with function body.
 

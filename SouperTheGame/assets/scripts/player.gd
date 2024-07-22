@@ -23,7 +23,9 @@ enum states {
 	screwbounce,
 	skid,
 	carry,
-	throw
+	throw,
+	carryjump,
+	sideflip
 }
 var state := states.normal
 var walled := false
@@ -98,7 +100,7 @@ func _physics_process(delta) -> void:
 		states.normal:
 			move = -int(SInput.key_left) - -int(SInput.key_right)
 			hsp = move * 10
-			vsp = 0
+			#vsp = 0
 			if move != 0:
 				spriteh = move
 				if animator.animation != "land":
@@ -142,6 +144,7 @@ func _physics_process(delta) -> void:
 				animator.speed_scale = 0.35
 			if !is_on_floor():
 				state = states.jump
+				vsp = 0
 				animator.play("fall")
 				animator.speed_scale = 0.2
 		states.jump:
@@ -318,12 +321,12 @@ func _physics_process(delta) -> void:
 					animator.play("dashskid1")
 					animator.speed_scale = 0.2
 					$sounds/machcancle.play()
-				if SInput.just_key_jump:
-					state = states.dashjump
-					animator.play("freefallland")
-					animator.speed_scale = 0.15
-					$sounds/jump.play()
-					vsp = -14
+			if SInput.just_key_jump and ctime > 0:
+				state = states.dashjump
+				animator.play("freefallland")
+				animator.speed_scale = 0.15
+				$sounds/jump.play()
+				vsp = -14
 			if not is_on_floor():
 				vsp += grv
 			if SInput.just_key_attack:
@@ -540,7 +543,7 @@ func _physics_process(delta) -> void:
 			hsp = move * 6
 			vsp = 0
 			holdingobj.position.x = position.x
-			holdingobj.position.y = position.y - 80
+			holdingobj.position.y = position.y - 50
 			if move != 0:
 				spriteh = move
 				if animator.animation != "land":
@@ -555,7 +558,7 @@ func _physics_process(delta) -> void:
 			else:
 				if animator.animation != "land":
 					animator.play("carry")
-					animator.speed_scale = 0.15
+					animator.speed_scale = 0.2
 				if animator.animation == "land":
 					if animationdone:
 						animator.play("carry")
@@ -565,19 +568,70 @@ func _physics_process(delta) -> void:
 				holdingobj.state = holdingobj.states.thrown
 				holdingobj.hsp = spriteh * 18
 				holdingobj.vsp = -5
-				$sounds/swang.play()
+				$sounds/deepswang.play()
 				holdingobj.position.y = position.y - 32
 				animator.play("punch")
 				animator.speed_scale = 0.35
 				holdingobj = null
 			if SInput.just_key_down:
-				holdingobj.hsp = spriteh * 5
+				#holdingobj.hsp = spriteh * 5
 				holdingobj.state = holdingobj.states.normal
 				holdingobj.position.y = position.y + 12
+				$sounds/flashbulb.play()
 				holdingobj = null
 				state = states.normal
+			if SInput.just_key_jump:
+				animator.play("jump")
+				animator.speed_scale = 0.3
+				state = states.carryjump
+				thing = false
+				$sounds/jump.play()
+				vsp = -10
+			if !is_on_floor():
+				state = states.carryjump
+				animator.play("fall")
+				animator.speed_scale = 0.2
+		states.carryjump:
+			move = -int(SInput.key_left) - -int(SInput.key_right)
+			hsp = lerpf(hsp, move * 6, 12 * delta)
+			vsp += grv
+			holdingobj.position.x = position.x
+			holdingobj.position.y = position.y - 50
+			if SInput.just_key_attack:
+				vsp = -5
+				state = states.throw
+				#hsp = spriteh * 18
+				holdingobj.state = holdingobj.states.thrown
+				holdingobj.hsp = spriteh * 18
+				holdingobj.vsp = -5
+				$sounds/deepswang.play()
+				holdingobj.position.y = position.y
+				animator.play("punch")
+				animator.speed_scale = 0.35
+				holdingobj = null
+			if SInput.just_key_jump and ctime > 0 and animator.animation == "fall":
+				animator.play("jump")
+				animator.speed_scale = 0.3
+				state = states.carryjump
+				thing = false
+				$sounds/jump.play()
+				vsp = -15
+			if !SInput.key_jump:
+				if animator.animation == "jump":
+					if vsp < 2:
+						vsp += 2
+					#print("thing ", vsp)
+			if is_on_floor():
+				#if vsp > 1:
+					state = states.carry
+					animator.play("land")
+					animator.speed_scale = 0.4
+					$sounds/step.play()
+					landdust()
+					vsp = 0
 		states.throw:
 			hsp = global.approach(hsp, 0, 35 * delta)
+			vsp += grv
 			if animationdone:
 				state = states.normal
 	if spriteh == 1:
@@ -691,21 +745,27 @@ func _on_machtrail_timeout() -> void:
 
 func _on_frontdetect_body_entered(body):
 	if body is MetalBlock:
-		if state == states.dash2 || state == states.dropkick:
+		if state == states.dash2 || state == states.dashjump:
 			body.destroy()
 	if body is Grabbable:
 		if state == states.punch:
 			state = states.carry
 			holdingobj = body
-			$sounds/flashbulb.play()
-			holdingobj.state = holdingobj.states.hold
+			$sounds/swing.stop()
+			$sounds/swang.stop()
+			$sounds/swish.stop()
+			$sounds/kerplunk.play()
+			holdingobj.state = 1
 		if state == states.dash2:
 			body.destroy()
 	if body is Baddie:
-		if state == states.dash2 || state == states.dropkick || state == states.punch:
+		if state == states.dash2 || state == states.dashjump || state == states.dropkick || state == states.punch:
 			var afsjkbasdjkbasdasdasdasd := velocity.normalized()
 			position.x += afsjkbasdjkbasdasdasdasd.x * -32
 			body.destroy(hsp, position)
+			$sounds/swing.stop()
+			$sounds/swang.stop()
+			$sounds/swish.stop()
 	pass # Replace with function body.
 
 

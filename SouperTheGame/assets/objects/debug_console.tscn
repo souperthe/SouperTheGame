@@ -1,8 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://cotnkxmdvpcfv"]
+[gd_scene load_steps=11 format=3 uid="uid://cotnkxmdvpcfv"]
 
 [ext_resource type="Script" path="res://assets/scripts/debug_console.gd" id="1_rxf3g"]
 [ext_resource type="AudioStream" uid="uid://covpfehh2y5xt" path="res://assets/sounds/sfx/sfx_type.wav" id="2_mtcry"]
 [ext_resource type="AudioStream" uid="uid://b8wdvskur6mb8" path="res://assets/sounds/sfx/sfx_button.wav" id="3_akgg6"]
+
+[sub_resource type="Animation" id="Animation_0vxy8"]
+resource_name = "screenshot"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5, 2.8),
+"transitions": PackedFloat32Array(1, 1, 0.34151, 1),
+"update": 0,
+"values": [Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1, 1), Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-90, -590), Vector2(0, -540), Vector2(0, -540)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6nhu"]
+_data = {
+"screenshot": SubResource("Animation_0vxy8")
+}
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sggab"]
 random_pitch = 1.1
@@ -60,6 +93,22 @@ anchor_bottom = 1.0
 grow_vertical = 0
 script = ExtResource("1_rxf3g")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n6nhu")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -540.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 270.0
@@ -87,6 +136,12 @@ volume_db = -10.0
 libraries = {
 "": SubResource("AnimationLibrary_wtf8f")
 }
+
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 290.0
+offset_top = -130.0
+offset_right = 439.0
 
 [connection signal="text_changed" from="Control/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="text_submitted" from="Control/TextEdit" to="." method="_on_text_edit_text_submitted"]

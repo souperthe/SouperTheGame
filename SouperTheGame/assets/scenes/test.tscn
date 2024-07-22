@@ -138,3 +138,7 @@ position = Vector2(800, 192)
 
 [node name="Baddie2" parent="." instance=ExtResource("15_jygbj")]
 position = Vector2(-704, -32)
+
+[node name="CPlatform4" parent="." instance=ExtResource("4_d5rl7")]
+position = Vector2(-384, 0)
+scale = Vector2(4, 1)
