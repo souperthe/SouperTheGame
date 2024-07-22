@@ -96,6 +96,10 @@ p_enter={
 ]
 }
 
+[input_devices]
+
+compatibility/legacy_just_pressed_behavior=true
+
 [layer_names]
 
 2d_physics/layer_1="player"
