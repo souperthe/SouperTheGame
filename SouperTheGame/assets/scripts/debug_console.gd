@@ -4,8 +4,6 @@ var glb := global
 var player := plr
 var enabled := false
 
-# Eval a single function
-# Takes a string as a parameter.
 func evaluate(command, variable_names = [], variable_values = []) -> void:
 	var expression = Expression.new()
 	var error = expression.parse(command, variable_names)

@@ -52,7 +52,7 @@ position = Vector2(256, 640)
 position = Vector2(-1024, 384)
 
 [node name="CL_Right" parent="." instance=ExtResource("7_rpkr4")]
-position = Vector2(1632, 352)
+position = Vector2(1696, 352)
 
 [node name="CL_Top" parent="." instance=ExtResource("8_3lvr0")]
 position = Vector2(256, -256)
@@ -80,9 +80,10 @@ position = Vector2(896, 256)
 
 [node name="CSlope2" parent="." instance=ExtResource("3_omj8v")]
 position = Vector2(1024, 192)
+scale = Vector2(2, 1)
 
 [node name="CBox4" parent="." instance=ExtResource("1_de4qj")]
-position = Vector2(1088, 192)
+position = Vector2(1152, 192)
 scale = Vector2(8, 1)
 
 [node name="ladder" parent="." instance=ExtResource("11_5rkmn")]
@@ -94,16 +95,16 @@ position = Vector2(1280, -64)
 scale = Vector2(4, 1)
 
 [node name="collectable" parent="." instance=ExtResource("12_13jfi")]
-position = Vector2(1152, 160)
+position = Vector2(1184, 160)
 
 [node name="collectable2" parent="." instance=ExtResource("12_13jfi")]
-position = Vector2(1216, 160)
+position = Vector2(1248, 160)
 
 [node name="collectable3" parent="." instance=ExtResource("12_13jfi")]
-position = Vector2(1280, 160)
+position = Vector2(1312, 160)
 
 [node name="collectable4" parent="." instance=ExtResource("12_13jfi")]
-position = Vector2(1344, 160)
+position = Vector2(1376, 160)
 
 [node name="CBox5" parent="." instance=ExtResource("1_de4qj")]
 position = Vector2(-448, 0)
@@ -130,7 +131,7 @@ target_scene = "res://assets/scenes/test2.tscn"
 target_door = "2"
 
 [node name="CBox8" parent="." instance=ExtResource("1_de4qj")]
-position = Vector2(1600, -384)
+position = Vector2(1664, -384)
 scale = Vector2(1, 10)
 
 [node name="Baddie" parent="." instance=ExtResource("15_jygbj")]

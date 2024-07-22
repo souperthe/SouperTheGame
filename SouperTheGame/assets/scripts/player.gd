@@ -607,6 +607,7 @@ func _physics_process(delta) -> void:
 			move = -int(Input.is_action_pressed(leftkey)) - -int(Input.is_action_pressed(rightkey))
 			hsp = lerpf(hsp, move * 6, 12 * delta)
 			vsp += grv
+
 			holdingobj.position.x = position.x
 			holdingobj.position.y = position.y - 50
 			if Input.is_action_just_pressed(attackkey):
