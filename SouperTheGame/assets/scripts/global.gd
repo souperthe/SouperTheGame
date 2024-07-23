@@ -118,8 +118,8 @@ func startroom():
 	if is_instance_valid(door):
 		plr.position.x = door.position.x
 		plr.position.y = door.position.y - 45
-		if plr.state == plr.states.carry || plr.state == plr.states.carryjump:
-			plr.state = plr.states.normal
+		#if plr.state == plr.states.carry || plr.state == plr.states.carryjump:
+			#plr.state = plr.states.normal
 		camera.position = plr.position
 		print("target door found!: ", door.name, ", ", door.position)
 	else:
