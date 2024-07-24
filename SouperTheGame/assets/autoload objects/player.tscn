@@ -1,4 +1,4 @@
-[gd_scene load_steps=191 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=192 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_qa05s"]
 [ext_resource type="Texture2D" uid="uid://c7fty2k6nl4rm" path="res://assets/images/souper/souper_0054.png" id="2_6rl3b"]
@@ -113,6 +113,7 @@
 [ext_resource type="Texture2D" uid="uid://rr31k4oq543e" path="res://assets/images/souper/souper_0051.png" id="36_22dsm"]
 [ext_resource type="Texture2D" uid="uid://cayq8lqmmirxq" path="res://assets/images/souper/souper_0052.png" id="37_tfrj7"]
 [ext_resource type="Texture2D" uid="uid://15ljwpklamfe" path="res://assets/images/souper/souper_0142.png" id="38_m70bg"]
+[ext_resource type="Texture2D" uid="uid://c8rmh5hvpr32w" path="res://assets/images/souper/souper_0143.png" id="39_40ugr"]
 [ext_resource type="Texture2D" uid="uid://ccki4xekwqsqx" path="res://assets/images/souper/souper_0071.png" id="41_deu8d"]
 [ext_resource type="Texture2D" uid="uid://bfjoemwlxq66n" path="res://assets/images/souper/souper_0072.png" id="42_ejdj7"]
 [ext_resource type="Texture2D" uid="uid://dp6d5pp1qw0cn" path="res://assets/images/souper/souper_0073.png" id="43_oo7t0"]
@@ -295,6 +296,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("38_m70bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_40ugr")
 }],
 "loop": true,
 "name": &"dive",
@@ -668,7 +672,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twd7b"]
-size = Vector2(20, 67)
+size = Vector2(20, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3e7hx"]
 size = Vector2(20, 30)
@@ -858,10 +862,11 @@ script = ExtResource("1_qa05s")
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
 animation = &"dive"
+frame_progress = 0.0124463
 speed_scale = 0.2
 
 [node name="standing" type="CollisionShape2D" parent="."]
-position = Vector2(0, 11.5)
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_twd7b")
 debug_color = Color(0.964706, 0.427451, 0, 0.419608)
 
@@ -1066,6 +1071,10 @@ volume_db = -5.0
 sprite_frames = SubResource("SpriteFrames_445jo")
 frame_progress = 0.413924
 metadata/_edit_lock_ = true
+
+[node name="checkceil" type="RayCast2D" parent="."]
+position = Vector2(0, 15)
+target_position = Vector2(0, -10)
 
 [connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

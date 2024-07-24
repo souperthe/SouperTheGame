@@ -3,31 +3,31 @@ class_name Player
 
 @onready var animator := $AnimatedSprite2D
 var grounded := false
-enum states {
-	normal,
-	jump,
-	actor,
-	freefallprep,
-	freefalling,
-	freefallland,
-	ladder,
-	dropkick,
-	bump,
-	punch,
-	dash1,
-	dash2,
-	dashturn,
-	dashjump,
-	grapple,
-	screw,
-	screwbounce,
-	skid,
-	carry,
-	throw,
-	carryjump,
-	sideflip,
-	slide,
-	dive
+const states := {
+	normal = "normal",
+	jump = "jump",
+	actor = "actor",
+	freefallprep = "freefallprep",
+	freefalling = "freefalling",
+	freefallland = 'freefallland',
+	ladder = "ladder",
+	dropkick = "dropkick",
+	bump = "bump",
+	punch = "punch",
+	dash1 = "dash1",
+	dash2 = "dash2",
+	dashturn = "dashturn",
+	dashjump = "dashjump",
+	grapple = "grapple",
+	screw = "screw",
+	screwbounce = "screwbounce",
+	skid = "skid",
+	carry = "carry",
+	throw = "throw",
+	carryjump = "carryjump",
+	sideflip = "sideflip",
+	slide = "slide",
+	dive = "dive"
 }
 var state := states.normal
 var walled := false
@@ -109,6 +109,8 @@ func _physics_process(delta) -> void:
 		ctime = 10
 	if !grounded:
 		ctime -= 30 * delta
+	$standing.disabled = state == states.slide
+	$crouch.disabled = !(state == states.slide)
 	#createothertrail()
 	match(state):
 		states.normal:
@@ -589,6 +591,9 @@ func _physics_process(delta) -> void:
 					if animationdone:
 						animator.play("carry")
 			if Input.is_action_just_pressed(attackkey):
+				animator.frame = 0
+				animator.play("punch")
+				animator.speed_scale = 0.35
 				state = states.throw
 				#hsp = spriteh * 18
 				if is_instance_valid(holdingobj):
@@ -597,8 +602,6 @@ func _physics_process(delta) -> void:
 					holdingobj.vsp = -5
 					holdingobj.position.y = position.y - 12
 				$sounds/deepswang.play()
-				animator.play("punch")
-				animator.speed_scale = 0.35
 				holdingobj = null
 			if Input.is_action_pressed(downkey):
 				#holdingobj.hsp = spriteh * 5
@@ -618,8 +621,8 @@ func _physics_process(delta) -> void:
 				state = states.carryjump
 				animator.play("fall")
 				animator.speed_scale = 0.2
-			if !is_instance_valid(holdingobj):
-				state = states.normal
+			#if !is_instance_valid(holdingobj):
+				#state = states.normal
 		states.carryjump:
 			move = -int(Input.is_action_pressed(leftkey)) - -int(Input.is_action_pressed(rightkey))
 			hsp = lerpf(hsp, move * 6, 12 * delta)
@@ -629,7 +632,6 @@ func _physics_process(delta) -> void:
 				holdingobj.position.y = position.y - 50
 			if Input.is_action_just_pressed(attackkey):
 				vsp = -5
-				state = states.throw
 				#hsp = spriteh * 18
 				if is_instance_valid(holdingobj):
 					holdingobj.state = holdingobj.states.thrown
@@ -637,8 +639,10 @@ func _physics_process(delta) -> void:
 					holdingobj.vsp = -5
 					holdingobj.position.y = position.y - 12
 				$sounds/deepswang.play()
+				animator.frame = 0
 				animator.play("punch")
 				animator.speed_scale = 0.35
+				state = states.throw
 				holdingobj = null
 			if Input.is_action_just_pressed(jumpkey) and ctime > 0 and animator.animation == "fall":
 				animator.play("jump")
@@ -660,10 +664,10 @@ func _physics_process(delta) -> void:
 					$sounds/step.play()
 					landdust()
 					vsp = 0
-			if !is_instance_valid(holdingobj):
-				state = states.jump
-				animator.play("fall")
-				animator.speed_scale = 0.2
+			#if !is_instance_valid(holdingobj):
+				#state = states.jump
+				#animator.play("fall")
+				#animator.speed_scale = 0.2
 		states.throw:
 			hsp = global.approach(hsp, 0, 35 * delta)
 			vsp += grv
@@ -672,7 +676,7 @@ func _physics_process(delta) -> void:
 		states.slide:
 			createothertrail()
 			hsp = global.approach(hsp, 0, 2 * delta)
-			if !Input.is_action_pressed(downkey):
+			if !Input.is_action_pressed(downkey) and !$checkceil.is_colliding():
 				state = states.dash2
 			if abs(hsp) == 0:
 				state = states.normal
@@ -736,7 +740,7 @@ func _physics_process(delta) -> void:
 		spriteangle = 0
 	statesound()
 	animator.rotation_degrees = lerpf(animator.rotation_degrees, spriteangle, 15 * delta)
-	$CanvasLayer/Control/Label.text = str("(", int(hsp), ", ", int(vsp), ")", ", ", state, ", ", animator.animation, ", ", spriteangle)
+	$CanvasLayer/Control/Label.text = str("(", int(hsp), ", ", int(vsp), ")", ", ", state, ", ", animator.animation)
 	scoreapproached = global.approach(scoreapproached, global.score, 200 * delta)
 	$CanvasLayer/score/RichTextLabel.text = str("[center]", int(scoreapproached))
 	move_and_slide()
@@ -846,6 +850,12 @@ func _on_frontdetect_body_entered(body):
 		if state == states.dash2:
 			body.destroy()
 	if body is Baddie:
+		if state == states.slide:
+			if body.state != 2:
+				body.state = 2
+				body.hsp = hsp
+				body.yeah()
+				body.vsp = -17
 		if state == states.dash2 || state == states.dashjump || state == states.dropkick || state == states.punch:
 			var afsjkbasdjkbasdasdasdasd := velocity.normalized()
 			position.x += afsjkbasdjkbasdasdasdasd.x * -32

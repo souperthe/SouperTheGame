@@ -27,8 +27,8 @@ func set_fps(fps):
 	print("fps set to: ", fps)
 	
 func set_playerstate(state):
-	plr.state = state
-	print("player state set to: ", state)
+	plr.state = str(state)
+	print("player state set to: ", str(state))
 	
 func alert(message, title):
 	OS.alert(message, title)
