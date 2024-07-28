@@ -8,6 +8,8 @@ var vsp := 0.0
 var grv := 0.6
 var health := 1
 var dead := false
+var lastfloor := Vector2()
+var spriteangle := 0.0
 enum states {
 	normal,
 	inactive,
@@ -33,8 +35,8 @@ func _ready():
 	if global.baddieroom.has(global.targetscene + name):
 		queue_free()
 		print(name, " removed", ", in: ", global.targetscene.get_file())
-	floor_constant_speed = true
-	floor_snap_length = 64
+	#floor_constant_speed = true
+	#floor_snap_length = 64
 
 func destroy(velo, _killedfrom) -> void:
 	if !dead:
@@ -49,7 +51,6 @@ func destroy(velo, _killedfrom) -> void:
 func yeah() -> void:
 	var hvel := 15
 	global.createobject("res://assets/objects/bangeffect.tscn", position, 0, Vector2(2, 2))
-	global.oneshot_sfx("res://assets/sounds/punching.tres", position, -5)
 	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0001.png", randf_range(hvel,-hvel), randf_range(-17,-8))
 	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0002.png", randf_range(hvel,-hvel), randf_range(-17,-8))
 	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0003.png", randf_range(hvel,-hvel), randf_range(-17,-8))
@@ -58,9 +59,11 @@ func yeah() -> void:
 	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0006.png", randf_range(hvel,-hvel), randf_range(-17,-8))
 	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0007.png", randf_range(hvel,-hvel), randf_range(-17,-8))
 	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0008.png", randf_range(hvel,-hvel), randf_range(-17,-8))
-
-
 func _physics_process(delta):
+	if $baddiestuff.onscreen:
+		process(delta)
+
+func process(delta):
 	match(state):
 		#states.normal:
 			#if !is_on_floor():
@@ -89,6 +92,16 @@ func _physics_process(delta):
 	velocity.y = (vsp * 4000) * delta
 	move_and_slide()
 	
+	
+func getspriteangle(dlt):
+	if is_on_floor():
+		lastfloor = position
+		var floornormal = get_floor_normal()
+		#spriteangle = abs(rad_to_deg(get_floor_angle()))
+		spriteangle = rad_to_deg(floornormal.angle() + deg_to_rad(90))
+	else:
+		spriteangle = 0
+	animator.rotation_degrees = lerpf(animator.rotation_degrees, spriteangle, 15 * dlt)
 	
 func turn():
 	if $baddiestuff/wallcheck.is_colliding() or !$baddiestuff/floorcheck.is_colliding():

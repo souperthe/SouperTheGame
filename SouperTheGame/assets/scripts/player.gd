@@ -30,6 +30,7 @@ const states := {
 	dive = "dive"
 }
 var state := states.normal
+var character := "S"
 var walled := false
 var wallspeed := 0.0
 var wall := Vector2()
@@ -280,6 +281,11 @@ func _physics_process(delta) -> void:
 					animator.speed_scale = 0.15
 					$sounds/jump.play()
 					vsp = -12
+				if Input.is_action_pressed(downkey):
+					state = states.slide
+					animator.play("slide")
+					animator.speed_scale = 0.2
+					#$sounds/justslid.play()
 			if animationdone:
 				if abs(hsp) > 18:
 					if Input.is_action_pressed(dashkey):
@@ -569,6 +575,8 @@ func _physics_process(delta) -> void:
 			move = -int(Input.is_action_pressed(leftkey)) - -int(Input.is_action_pressed(rightkey))
 			hsp = move * 6
 			vsp = 0
+			if !is_instance_valid(holdingobj):
+				state = states.normal
 			if is_instance_valid(holdingobj):
 				holdingobj.position.x = position.x
 				holdingobj.position.y = position.y - 50
@@ -605,8 +613,9 @@ func _physics_process(delta) -> void:
 				holdingobj = null
 			if Input.is_action_pressed(downkey):
 				#holdingobj.hsp = spriteh * 5
-				holdingobj.state = holdingobj.states.normal
-				holdingobj.position.y = position.y + 12
+				if is_instance_valid(holdingobj):
+					holdingobj.state = holdingobj.states.normal
+					holdingobj.position.y = position.y + 12
 				$sounds/flashbulb.play()
 				holdingobj = null
 				state = states.normal
@@ -621,12 +630,12 @@ func _physics_process(delta) -> void:
 				state = states.carryjump
 				animator.play("fall")
 				animator.speed_scale = 0.2
-			#if !is_instance_valid(holdingobj):
-				#state = states.normal
 		states.carryjump:
 			move = -int(Input.is_action_pressed(leftkey)) - -int(Input.is_action_pressed(rightkey))
 			hsp = lerpf(hsp, move * 6, 12 * delta)
 			vsp += grv
+			if !is_instance_valid(holdingobj):
+				state = states.normal
 			if is_instance_valid(holdingobj):
 				holdingobj.position.x = position.x
 				holdingobj.position.y = position.y - 50
@@ -850,20 +859,24 @@ func _on_frontdetect_body_entered(body):
 		if state == states.dash2:
 			body.destroy()
 	if body is Baddie:
-		if state == states.slide:
-			if body.state != 2:
-				body.state = 2
-				body.hsp = hsp
-				body.yeah()
-				body.vsp = -17
+		#if state == states.slide:
+			#if body.state != 2:
+				#body.state = 2
+				#global.oneshot_sfx("res://assets/sounds/sfx/sfx_bump.wav", position, -5)
+				#body.hsp = hsp
+				#body.yeah()
+				#body.vsp = -17
+				#@body.stunstime = 60
 		if state == states.dash2 || state == states.dashjump || state == states.dropkick || state == states.punch:
 			var afsjkbasdjkbasdasdasdasd := velocity.normalized()
 			position.x += afsjkbasdjkbasdasdasdasd.x * -32
 			body.destroy(hsp, position)
+			global.oneshot_sfx("res://assets/sounds/punching.tres", position, -5)
 			$sounds/swing.stop()
 			$sounds/swang.stop()
 			$sounds/swish.stop()
 	pass # Replace with function body.
+
 
 
 func _on_middledowndetect_body_entered(body):

@@ -33,6 +33,9 @@ func set_playerstate(state):
 func alert(message, title):
 	OS.alert(message, title)
 	
+func escape(trueorfalse):
+	global.activateescape(trueorfalse)
+	
 func playsong(songname, yea = false):
 	music_controller.play(str("res://assets/sounds/music/", songname), yea)
 	

@@ -27,6 +27,11 @@ func approach(num, goal, i):
 		return min(num+i, goal)
 	else:
 		return max(num-i, goal)
+		
+func activateescape(trueorfalse):
+	if trueorfalse == true:
+		escape = true
+		music_controller.escapeplay()
 
 func gotoroom(targetroom, selecteddoor):
 	targetscene = targetroom

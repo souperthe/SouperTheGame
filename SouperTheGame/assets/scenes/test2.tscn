@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://btpoirjmb876p"]
+[gd_scene load_steps=12 format=3 uid="uid://btpoirjmb876p"]
 
 [ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="1_5apo6"]
 [ext_resource type="PackedScene" uid="uid://c85yqrg6ve0e3" path="res://assets/objects/c_slope.tscn" id="2_qvgh1"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cfpye3bth5qgu" path="res://assets/objects/cl_top.tscn" id="8_6e0le"]
 [ext_resource type="PackedScene" uid="uid://dseu1ycbuw7vc" path="res://assets/objects/cl_right.tscn" id="9_s86w2"]
 [ext_resource type="PackedScene" uid="uid://b0fmapexhgyc1" path="res://assets/objects/hallway.tscn" id="10_1segu"]
+[ext_resource type="PackedScene" uid="uid://jujls8ba5d3x" path="res://assets/objects/testicle.tscn" id="11_yrlhk"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -101,3 +102,6 @@ scale = Vector2(8, 1)
 
 [node name="door2" parent="." instance=ExtResource("3_njppx")]
 position = Vector2(1824, 0)
+
+[node name="Testicle" parent="." instance=ExtResource("11_yrlhk")]
+position = Vector2(928, 384)

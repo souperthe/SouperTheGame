@@ -15,7 +15,7 @@ collision_mask = 6
 
 [node name="floorcheck" type="RayCast2D" parent="."]
 position = Vector2(28, 0)
-target_position = Vector2(0, 100)
+target_position = Vector2(0, 200)
 collision_mask = 4
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
