@@ -977,18 +977,22 @@ bus = &"SFX"
 [node name="freefallprep" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_xtxb2")
 volume_db = 10.0
+bus = &"SFX"
 
 [node name="descend" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_wgh87")
 volume_db = 1.0
+bus = &"SFX"
 
 [node name="freefallland" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_iibob")
 volume_db = 2.0
+bus = &"SFX"
 
 [node name="pop" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_mesdl")
 volume_db = 1.0
+bus = &"SFX"
 
 [node name="machcancle" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_5gdyf")
@@ -997,26 +1001,32 @@ bus = &"SFX"
 [node name="bump" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_o6kba")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="swing" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_muhuq")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="swish" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_n1jem")
 volume_db = -3.0
+bus = &"SFX"
 
 [node name="flashbulb" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_ttyog")
 volume_db = 5.0
+bus = &"SFX"
 
 [node name="swang" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_5vhx1")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="dash2" type="AudioStreamPlayer2D" parent="sounds"]
 stream = ExtResource("91_vgrdn")
 volume_db = 10.0
+bus = &"SFX"
 
 [node name="jump" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_ntr8f")
@@ -1030,6 +1040,7 @@ bus = &"SFX"
 [node name="dash" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_1brx8")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="skid" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_4slvk")
@@ -1040,17 +1051,21 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_cuiuf")
 volume_db = 1.0
 pitch_scale = 0.8
+bus = &"SFX"
 
 [node name="kerplunk" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_0mm10")
+bus = &"SFX"
 
 [node name="justslid" type="AudioStreamPlayer2D" parent="sounds"]
 stream = ExtResource("158_2ebhc")
 volume_db = 1.0
+bus = &"SFX"
 
 [node name="slide" type="AudioStreamPlayer2D" parent="sounds"]
 stream = ExtResource("159_u8c81")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="charge" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_445jo")

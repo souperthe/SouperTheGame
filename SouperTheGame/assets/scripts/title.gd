@@ -6,7 +6,7 @@ func createtransition():
 	var whiteflash = preload("res://assets/objects/circletransistion.tscn")
 	var ghost: CanvasLayer = whiteflash.instantiate()
 	global.add_child(ghost)
-	ghost.targetroom = "res://assets/scenes/test.tscn"
+	ghost.targetroom = "res://assets/scenes/house/house_1.tscn"
 	ghost.targetdoor = "1"
 	#ghost.door = true
 	

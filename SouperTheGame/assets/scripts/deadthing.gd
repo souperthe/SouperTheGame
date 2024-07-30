@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name DeadThing
+#class_name DeadThing
 
 @onready var sprite := $sprite
 var hsp := 0.0

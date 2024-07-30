@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://drgwkk7do23n3" path="res://assets/objects/BIGcollectable.tscn" id="10_oe1gj"]
 [ext_resource type="PackedScene" uid="uid://y300wr0h7yek" path="res://assets/objects/collectable.tscn" id="11_jbd3m"]
 [ext_resource type="PackedScene" uid="uid://jujls8ba5d3x" path="res://assets/objects/testicle.tscn" id="12_m1qt8"]
-[ext_resource type="PackedScene" uid="uid://cqopgj5hvre4f" path="res://assets/objects/metalbox.tscn" id="13_coxvl"]
+[ext_resource type="PackedScene" uid="uid://cqopgj5hvre4f" path="res://assets/objects/metalbox.tscn" id="13_bq0dh"]
 
 [node name="House1" type="Node2D"]
 
@@ -57,7 +57,7 @@ position = Vector2(512, -32)
 position = Vector2(-288, 256)
 
 [node name="CL_Right" parent="." instance=ExtResource("8_p100x")]
-position = Vector2(4096, 256)
+position = Vector2(4992, 256)
 
 [node name="CBox3" parent="." instance=ExtResource("1_4doya")]
 position = Vector2(-320, 0)
@@ -85,7 +85,7 @@ scale = Vector2(8, 1)
 
 [node name="CBox6" parent="." instance=ExtResource("1_4doya")]
 position = Vector2(-320, -64)
-scale = Vector2(50, 1)
+scale = Vector2(90, 1)
 
 [node name="bigcollectable" parent="." instance=ExtResource("10_oe1gj")]
 position = Vector2(1792, 224)
@@ -114,9 +114,6 @@ position = Vector2(1376, 544)
 [node name="collectable8" parent="." instance=ExtResource("11_jbd3m")]
 position = Vector2(1472, 512)
 
-[node name="Testicle" parent="." instance=ExtResource("12_m1qt8")]
-position = Vector2(2176, 512)
-
 [node name="Testicle2" parent="." instance=ExtResource("12_m1qt8")]
 position = Vector2(1792, 160)
 
@@ -124,41 +121,99 @@ position = Vector2(1792, 160)
 position = Vector2(2560, 512)
 scale = Vector2(2, 1)
 
-[node name="CSlope6" parent="." instance=ExtResource("3_8vva1")]
-position = Vector2(2688, 448)
-scale = Vector2(2, 1)
-
 [node name="CBox7" parent="." instance=ExtResource("1_4doya")]
-position = Vector2(2816, 448)
-scale = Vector2(8, 1)
-
-[node name="metalbox" parent="." instance=ExtResource("13_coxvl")]
-position = Vector2(2880, 384)
-
-[node name="metalbox2" parent="." instance=ExtResource("13_coxvl")]
-position = Vector2(2880, 320)
+position = Vector2(2688, 512)
+scale = Vector2(10, 1)
 
 [node name="CBox8" parent="." instance=ExtResource("1_4doya")]
-position = Vector2(2880, -64)
+position = Vector2(2976, 0)
 scale = Vector2(1, 6)
 
 [node name="CBox9" parent="." instance=ExtResource("1_4doya")]
-position = Vector2(3264, 192)
-scale = Vector2(1, 4)
-
-[node name="collectable9" parent="." instance=ExtResource("11_jbd3m")]
-position = Vector2(3232, 384)
-
-[node name="collectable10" parent="." instance=ExtResource("11_jbd3m")]
-position = Vector2(2976, 256)
+position = Vector2(3296, 192)
+scale = Vector2(1, 5)
 
 [node name="bigcollectable2" parent="." instance=ExtResource("10_oe1gj")]
-position = Vector2(3264, 128)
-
-[node name="CSlope7" parent="." instance=ExtResource("3_8vva1")]
-position = Vector2(3456, 192)
-scale = Vector2(-2, 1)
+position = Vector2(3328, 64)
 
 [node name="CBox10" parent="." instance=ExtResource("1_4doya")]
-position = Vector2(3456, 256)
+position = Vector2(3328, 512)
 scale = Vector2(8, 1)
+
+[node name="collectable9" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(2112, 544)
+
+[node name="collectable10" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(2208, 512)
+
+[node name="collectable11" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(2304, 544)
+
+[node name="collectable12" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(2400, 512)
+
+[node name="metalbox" parent="." instance=ExtResource("13_bq0dh")]
+position = Vector2(2976, 384)
+
+[node name="metalbox2" parent="." instance=ExtResource("13_bq0dh")]
+position = Vector2(2976, 448)
+
+[node name="CSlope6" parent="." instance=ExtResource("3_8vva1")]
+position = Vector2(3712, 448)
+scale = Vector2(2, 1)
+
+[node name="CSlope7" parent="." instance=ExtResource("3_8vva1")]
+position = Vector2(4480, 448)
+scale = Vector2(-2, 1)
+
+[node name="CBox11" parent="." instance=ExtResource("1_4doya")]
+position = Vector2(3840, 448)
+scale = Vector2(8, 1)
+
+[node name="collectable13" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(3840, 416)
+
+[node name="collectable14" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(3936, 384)
+
+[node name="collectable15" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(4032, 416)
+
+[node name="collectable16" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(4128, 384)
+
+[node name="collectable17" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(4224, 416)
+
+[node name="collectable18" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(4320, 384)
+
+[node name="CBox12" parent="." instance=ExtResource("1_4doya")]
+position = Vector2(4480, 512)
+scale = Vector2(8, 1)
+
+[node name="CBox13" parent="." instance=ExtResource("1_4doya")]
+position = Vector2(3840, 192)
+scale = Vector2(8, 1)
+
+[node name="bigcollectable3" parent="." instance=ExtResource("10_oe1gj")]
+position = Vector2(4096, 160)
+
+[node name="bigcollectable4" parent="." instance=ExtResource("10_oe1gj")]
+position = Vector2(3968, 160)
+
+[node name="bigcollectable5" parent="." instance=ExtResource("10_oe1gj")]
+position = Vector2(4224, 160)
+
+[node name="metalbox3" parent="." instance=ExtResource("13_bq0dh")]
+position = Vector2(4288, 128)
+
+[node name="metalbox4" parent="." instance=ExtResource("13_bq0dh")]
+position = Vector2(4288, 64)
+
+[node name="CBox14" parent="." instance=ExtResource("1_4doya")]
+position = Vector2(4288, 0)
+
+[node name="CPlatform4" parent="." instance=ExtResource("9_7u44q")]
+position = Vector2(4352, 192)
+scale = Vector2(4, 1)
