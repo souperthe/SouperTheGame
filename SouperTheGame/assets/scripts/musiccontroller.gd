@@ -2,6 +2,7 @@ extends Node
 
 var temp = 0
 @onready var leveltheme = $leveltheme
+var currentsong = "idk"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -16,6 +17,7 @@ func _process(_delta):
 func play(id: String, continueafterlast: bool):
 	leveltheme.stream = load(id)
 	leveltheme.play()
+	currentsong = id
 	if continueafterlast:
 		leveltheme.seek(float(temp))
 		

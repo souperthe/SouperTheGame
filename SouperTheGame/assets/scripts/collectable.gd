@@ -13,4 +13,5 @@ func _on_collision_body_entered(body):
 		global.score += 25
 		global.collectroom.append(global.targetscene + name)
 		queue_free()
+		global.collectsfx(1)
 	pass # Replace with function body.

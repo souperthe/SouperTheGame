@@ -8,6 +8,8 @@ func createtransition():
 	global.add_child(ghost)
 	ghost.targetroom = "res://assets/scenes/house/house_1.tscn"
 	ghost.targetdoor = "1"
+	global.resetroom = "res://assets/scenes/house/house_1.tscn"
+	global.resetdoor = "1"
 	#ghost.door = true
 	
 

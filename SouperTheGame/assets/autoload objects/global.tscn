@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://coinjlyoo556j"]
+[gd_scene load_steps=7 format=3 uid="uid://coinjlyoo556j"]
 
 [ext_resource type="Script" path="res://assets/scripts/global.gd" id="1_tfpmb"]
 [ext_resource type="PackedScene" uid="uid://cotnkxmdvpcfv" path="res://assets/objects/debug_console.tscn" id="2_c8hy2"]
+[ext_resource type="AudioStream" uid="uid://wyyylh82qpse" path="res://assets/sounds/sfx/sfx_smallcollect.wav" id="3_po8si"]
+[ext_resource type="AudioStream" uid="uid://bjvtcba2jx38d" path="res://assets/sounds/sfx/sfx_bigcollect.wav" id="4_2gkb4"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uumpu"]
+random_pitch = 1.07
+streams_count = 1
+stream_0/stream = ExtResource("3_po8si")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_utxni"]
+random_pitch = 1.07
+streams_count = 1
+stream_0/stream = ExtResource("4_2gkb4")
+stream_0/weight = 1.0
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_tfpmb")
@@ -9,3 +23,13 @@ script = ExtResource("1_tfpmb")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DebugConsole" parent="CanvasLayer" instance=ExtResource("2_c8hy2")]
+
+[node name="small" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_uumpu")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="big" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_utxni")
+volume_db = -18.0
+bus = &"SFX"

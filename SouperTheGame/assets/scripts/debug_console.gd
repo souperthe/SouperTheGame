@@ -22,6 +22,11 @@ func set_timescale(speed):
 	Engine.time_scale = speed
 	print("timescale set to: ", speed)
 	
+func reset():
+	global.reset()
+
+func mutegame():
+	AudioServer.set_bus_mute(0, true)
 func set_fps(fps):
 	Engine.max_fps = fps
 	print("fps set to: ", fps)

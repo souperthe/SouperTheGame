@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4mbrir6obakn"]
+[gd_scene load_steps=15 format=3 uid="uid://b4mbrir6obakn"]
 
 [ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="1_4doya"]
 [ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="2_cp2q1"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://y300wr0h7yek" path="res://assets/objects/collectable.tscn" id="11_jbd3m"]
 [ext_resource type="PackedScene" uid="uid://jujls8ba5d3x" path="res://assets/objects/testicle.tscn" id="12_m1qt8"]
 [ext_resource type="PackedScene" uid="uid://cqopgj5hvre4f" path="res://assets/objects/metalbox.tscn" id="13_bq0dh"]
+[ext_resource type="PackedScene" uid="uid://b0fmapexhgyc1" path="res://assets/objects/hallway.tscn" id="14_yc81d"]
 
 [node name="House1" type="Node2D"]
 
@@ -45,7 +46,7 @@ scale = Vector2(29, 1)
 
 [node name="musicsetter" parent="." instance=ExtResource("4_ykli5")]
 position = Vector2(512, -64)
-target_song = "res://assets/sounds/music/mus_house.ogg"
+target_song = "res://assets/sounds/music/house.ogg"
 
 [node name="CL_Bottom" parent="." instance=ExtResource("5_v11ay")]
 position = Vector2(512, 640)
@@ -57,7 +58,7 @@ position = Vector2(512, -32)
 position = Vector2(-288, 256)
 
 [node name="CL_Right" parent="." instance=ExtResource("8_p100x")]
-position = Vector2(4992, 256)
+position = Vector2(6240, 256)
 
 [node name="CBox3" parent="." instance=ExtResource("1_4doya")]
 position = Vector2(-320, 0)
@@ -85,7 +86,7 @@ scale = Vector2(8, 1)
 
 [node name="CBox6" parent="." instance=ExtResource("1_4doya")]
 position = Vector2(-320, -64)
-scale = Vector2(90, 1)
+scale = Vector2(110, 1)
 
 [node name="bigcollectable" parent="." instance=ExtResource("10_oe1gj")]
 position = Vector2(1792, 224)
@@ -190,7 +191,7 @@ position = Vector2(4320, 384)
 
 [node name="CBox12" parent="." instance=ExtResource("1_4doya")]
 position = Vector2(4480, 512)
-scale = Vector2(8, 1)
+scale = Vector2(50, 1)
 
 [node name="CBox13" parent="." instance=ExtResource("1_4doya")]
 position = Vector2(3840, 192)
@@ -217,3 +218,47 @@ position = Vector2(4288, 0)
 [node name="CPlatform4" parent="." instance=ExtResource("9_7u44q")]
 position = Vector2(4352, 192)
 scale = Vector2(4, 1)
+
+[node name="CBox15" parent="." instance=ExtResource("1_4doya")]
+position = Vector2(4800, 384)
+scale = Vector2(9, 2)
+
+[node name="CSlope8" parent="." instance=ExtResource("3_8vva1")]
+position = Vector2(5504, 384)
+scale = Vector2(-2, 1)
+
+[node name="CSlope9" parent="." instance=ExtResource("3_8vva1")]
+position = Vector2(5632, 448)
+scale = Vector2(-2, 1)
+
+[node name="bigcollectable6" parent="." instance=ExtResource("10_oe1gj")]
+position = Vector2(4832, 352)
+
+[node name="collectable19" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(4928, 352)
+
+[node name="collectable20" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(5024, 352)
+
+[node name="collectable21" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(5120, 352)
+
+[node name="collectable22" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(5216, 352)
+
+[node name="CBox16" parent="." instance=ExtResource("1_4doya")]
+position = Vector2(5920, 320)
+scale = Vector2(20, 1)
+
+[node name="CBox17" parent="." instance=ExtResource("1_4doya")]
+position = Vector2(5920, 0)
+scale = Vector2(1, 5)
+
+[node name="hallway" parent="." instance=ExtResource("14_yc81d")]
+position = Vector2(6240, 384)
+scale = Vector2(1, 4)
+target_scene = "res://assets/scenes/house/house_2.tscn"
+target_door = "1"
+
+[node name="door2" parent="." instance=ExtResource("2_cp2q1")]
+position = Vector2(6176, 512)

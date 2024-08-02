@@ -168,6 +168,8 @@ func _physics_process(delta) -> void:
 			move = -int(Input.is_action_pressed(leftkey)) - -int(Input.is_action_pressed(rightkey))
 			hsp = lerpf(hsp, move * 8, 12 * delta)
 			vsp += grv
+			if is_on_ceiling():
+				vsp = 1
 			if Input.is_action_just_pressed(jumpkey) and ctime > 0 and animator.animation == "fall":
 				animator.play("jump")
 				animator.speed_scale = 0.3
@@ -225,6 +227,8 @@ func _physics_process(delta) -> void:
 		states.dropkick:
 			createothertrail()
 			vsp += grv
+			if is_on_ceiling():
+				vsp = 1
 			if is_on_wall():
 				state = states.bump
 				hsp = spriteh * -7
@@ -257,6 +261,8 @@ func _physics_process(delta) -> void:
 				animator.play("bump")
 				animator.speed_scale = 0.3
 			vsp += grv
+			if is_on_ceiling():
+				vsp = 1
 			if is_on_floor():
 				#if vsp > 1:
 					state = states.normal
@@ -281,10 +287,6 @@ func _physics_process(delta) -> void:
 					animator.speed_scale = 0.15
 					$sounds/jump.play()
 					vsp = -12
-				if Input.is_action_pressed(downkey):
-					state = states.slide
-					animator.play("slide")
-					animator.speed_scale = 0.2
 					#$sounds/justslid.play()
 			if animationdone:
 				if abs(hsp) > 18:
@@ -294,6 +296,10 @@ func _physics_process(delta) -> void:
 						state = states.normal
 				else:
 					state = states.normal
+			if Input.is_action_pressed(downkey):
+				state = states.slide
+				animator.play("slide")
+				animator.speed_scale = 0.2
 			if Input.is_action_just_pressed(attackkey):
 				if currentframe > 1:
 					state = states.dropkick
@@ -362,6 +368,12 @@ func _physics_process(delta) -> void:
 				vsp = -14
 			if not is_on_floor():
 				vsp += grv
+				if Input.is_action_pressed(downkey):
+					state = states.dive
+					vsp = abs(hsp)
+					$sounds/swish.play()
+					animator.play("dive")
+					animator.speed_scale = 0.2
 			if Input.is_action_just_pressed(attackkey):
 				state = states.punch
 				#hsp = spriteh * 18
@@ -434,7 +446,7 @@ func _physics_process(delta) -> void:
 				$sounds/pop.play()
 		states.dashturn:
 			move = -int(Input.is_action_pressed(leftkey)) - -int(Input.is_action_pressed(rightkey))
-			hsp = global.approach(hsp, 0, 35 * delta)
+			hsp = global.approach(hsp, 0, 44 * delta)
 			if !grounded:
 				vsp += grv
 			if grounded:
@@ -449,6 +461,8 @@ func _physics_process(delta) -> void:
 		states.dashjump:
 			createmachtrail()
 			vsp += grv
+			if is_on_ceiling():
+				vsp = 1
 			if !Input.is_action_pressed(jumpkey):
 				if vsp < 2:
 					vsp += 2
@@ -634,6 +648,8 @@ func _physics_process(delta) -> void:
 			move = -int(Input.is_action_pressed(leftkey)) - -int(Input.is_action_pressed(rightkey))
 			hsp = lerpf(hsp, move * 6, 12 * delta)
 			vsp += grv
+			if is_on_ceiling():
+				vsp = 1
 			if !is_instance_valid(holdingobj):
 				state = states.normal
 			if is_instance_valid(holdingobj):
@@ -736,8 +752,6 @@ func _physics_process(delta) -> void:
 		movedirection = spriteh
 	#if is_on_floor():
 		#vsp = 0
-	if is_on_ceiling():
-		vsp = 1
 	velocity.x = (hsp * 4000) * delta
 	velocity.y = (vsp * 4000) * delta
 	if is_on_floor():

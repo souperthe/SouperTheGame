@@ -914,12 +914,13 @@ offset_bottom = 146.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/score"]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 26.0
-offset_right = 205.0
-offset_bottom = 118.0
+offset_left = 21.0
+offset_top = 23.0
+offset_right = 82.0
+offset_bottom = 115.0
+scale = Vector2(2, 2)
 bbcode_enabled = true
-text = "[center]score amount"
+text = "[center]12343"
 
 [node name="arrow" type="Sprite2D" parent="."]
 visible = false
