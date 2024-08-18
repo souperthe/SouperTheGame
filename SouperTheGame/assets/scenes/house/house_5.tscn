@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0sxkaqa7e7to"]
+
+[ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="1_kdg86"]
+[ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="2_sh8r5"]
+[ext_resource type="PackedScene" uid="uid://b0fmapexhgyc1" path="res://assets/objects/hallway.tscn" id="3_wy234"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CBox8" parent="." instance=ExtResource("1_kdg86")]
+position = Vector2(-512, 480)
+scale = Vector2(12, 1)
+
+[node name="CBox12" parent="." instance=ExtResource("1_kdg86")]
+position = Vector2(-256, 288)
+scale = Vector2(8, 1)
+
+[node name="door1" parent="." instance=ExtResource("2_sh8r5")]
+position = Vector2(0, 448)
+
+[node name="hallway" parent="." instance=ExtResource("3_wy234")]
+position = Vector2(64, 352)
+scale = Vector2(1, 4)
+target_scene = "res://assets/scenes/house/house_4.tscn"
+target_door = "2"

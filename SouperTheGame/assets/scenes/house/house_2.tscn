@@ -110,6 +110,8 @@ scale = Vector2(15, 1)
 
 [node name="framedoor" parent="." instance=ExtResource("8_ahybt")]
 position = Vector2(2496, -64)
+target_scene = "res://assets/scenes/house/house_3.tscn"
+target_door = "1"
 
 [node name="CBox5" parent="." instance=ExtResource("1_s61kx")]
 position = Vector2(2368, -320)
@@ -230,3 +232,6 @@ position = Vector2(2400, -448)
 
 [node name="collectable20" parent="." instance=ExtResource("13_etbl5")]
 position = Vector2(2784, -448)
+
+[node name="door2" parent="." instance=ExtResource("2_cogox")]
+position = Vector2(2496, -64)

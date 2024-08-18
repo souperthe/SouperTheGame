@@ -197,14 +197,8 @@ scale = Vector2(50, 1)
 position = Vector2(3840, 192)
 scale = Vector2(8, 1)
 
-[node name="bigcollectable3" parent="." instance=ExtResource("10_oe1gj")]
-position = Vector2(4096, 160)
-
 [node name="bigcollectable4" parent="." instance=ExtResource("10_oe1gj")]
-position = Vector2(3968, 160)
-
-[node name="bigcollectable5" parent="." instance=ExtResource("10_oe1gj")]
-position = Vector2(4224, 160)
+position = Vector2(3936, 160)
 
 [node name="metalbox3" parent="." instance=ExtResource("13_bq0dh")]
 position = Vector2(4288, 128)
@@ -262,3 +256,9 @@ target_door = "1"
 
 [node name="door2" parent="." instance=ExtResource("2_cp2q1")]
 position = Vector2(6176, 512)
+
+[node name="collectable23" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(4096, 160)
+
+[node name="collectable24" parent="." instance=ExtResource("11_jbd3m")]
+position = Vector2(4224, 160)
