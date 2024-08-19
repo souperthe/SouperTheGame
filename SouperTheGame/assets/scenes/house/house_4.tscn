@@ -48,7 +48,7 @@ position = Vector2(832, 256)
 scale = Vector2(1, 5)
 
 [node name="CL_Bottom" parent="." instance=ExtResource("5_d1yra")]
-position = Vector2(896, 448)
+position = Vector2(1056, 448)
 
 [node name="CBox24" parent="." instance=ExtResource("1_bti1l")]
 position = Vector2(1280, 192)
@@ -155,7 +155,7 @@ position = Vector2(-256, -448)
 scale = Vector2(5, 1)
 
 [node name="door2" parent="." instance=ExtResource("2_xbmut")]
-position = Vector2(0, -288)
+position = Vector2(0, -256)
 
 [node name="hallway" parent="." instance=ExtResource("12_4o0cm")]
 position = Vector2(-128, -384)

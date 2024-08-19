@@ -17,52 +17,48 @@
 [node name="house" type="Node2D"]
 
 [node name="framedoor" parent="." instance=ExtResource("1_15cvh")]
+position = Vector2(448, 0)
 target_scene = "res://assets/scenes/house/house_2.tscn"
 target_door = "2"
 
 [node name="door1" parent="." instance=ExtResource("2_prjkv")]
+position = Vector2(448, 0)
 
 [node name="CBox" parent="." instance=ExtResource("3_8sgst")]
-position = Vector2(-256, 0)
+position = Vector2(192, 0)
 scale = Vector2(7, 1)
 
 [node name="CBox2" parent="." instance=ExtResource("3_8sgst")]
-position = Vector2(192, -320)
+position = Vector2(640, -320)
 scale = Vector2(1, 6)
 
 [node name="CSlope" parent="." instance=ExtResource("4_f5jad")]
-position = Vector2(-384, 0)
+position = Vector2(64, 0)
 scale = Vector2(2, 1)
 
 [node name="CSlope2" parent="." instance=ExtResource("4_f5jad")]
-position = Vector2(-512, 64)
+position = Vector2(-64, 64)
 scale = Vector2(2, 1)
 
 [node name="CBox3" parent="." instance=ExtResource("3_8sgst")]
-position = Vector2(-1024, 128)
+position = Vector2(-576, 128)
 scale = Vector2(8, 1)
 
 [node name="CSlope3" parent="." instance=ExtResource("4_f5jad")]
-position = Vector2(-1024, 64)
+position = Vector2(-576, 64)
 scale = Vector2(-2, 1)
 
 [node name="CSlope4" parent="." instance=ExtResource("4_f5jad")]
-position = Vector2(-1152, 0)
+position = Vector2(-704, 0)
 scale = Vector2(-2, 1)
 
 [node name="CPlatform" parent="." instance=ExtResource("5_0nkve")]
-position = Vector2(-896, 0)
+position = Vector2(-448, 0)
 scale = Vector2(4, 1)
 
 [node name="CBox4" parent="." instance=ExtResource("3_8sgst")]
-position = Vector2(-1536, 0)
+position = Vector2(-1088, 0)
 scale = Vector2(4, 1)
-
-[node name="metalbox" parent="." instance=ExtResource("6_db0tp")]
-position = Vector2(-1536, -64)
-
-[node name="metalbox2" parent="." instance=ExtResource("6_db0tp")]
-position = Vector2(-1536, -128)
 
 [node name="CBox5" parent="." instance=ExtResource("3_8sgst")]
 position = Vector2(-2944, 0)
@@ -79,19 +75,19 @@ position = Vector2(-2496, 64)
 scale = Vector2(1, 4)
 
 [node name="CBox7" parent="." instance=ExtResource("3_8sgst")]
-position = Vector2(-1536, 64)
+position = Vector2(-1088, 64)
 scale = Vector2(1, 4)
 
 [node name="CBox8" parent="." instance=ExtResource("3_8sgst")]
 position = Vector2(-2432, 320)
-scale = Vector2(14, 1)
+scale = Vector2(23, 1)
 
 [node name="CPlatform2" parent="." instance=ExtResource("5_0nkve")]
 position = Vector2(-2432, 0)
 scale = Vector2(4, 1)
 
 [node name="CPlatform3" parent="." instance=ExtResource("5_0nkve")]
-position = Vector2(-1664, 0)
+position = Vector2(-1216, 0)
 scale = Vector2(2, 1)
 
 [node name="bigcollectable" parent="." instance=ExtResource("7_wlpt3")]
@@ -116,22 +112,18 @@ position = Vector2(-2304, 288)
 position = Vector2(-1664, 288)
 
 [node name="collectable4" parent="." instance=ExtResource("8_taiqb")]
-position = Vector2(-1568, 288)
+position = Vector2(-1120, 288)
 
 [node name="CBox9" parent="." instance=ExtResource("3_8sgst")]
 position = Vector2(-2496, -256)
 scale = Vector2(1, 2)
 
-[node name="CBox10" parent="." instance=ExtResource("3_8sgst")]
-position = Vector2(-1536, -256)
-scale = Vector2(1, 2)
-
 [node name="CBox11" parent="." instance=ExtResource("3_8sgst")]
 position = Vector2(-2496, -320)
-scale = Vector2(42, 1)
+scale = Vector2(50, 1)
 
 [node name="ladder" parent="." instance=ExtResource("9_jqy81")]
-position = Vector2(-1632, 0)
+position = Vector2(-1184, 0)
 scale = Vector2(1, 10)
 
 [node name="CSlope5" parent="." instance=ExtResource("4_f5jad")]
@@ -169,7 +161,7 @@ position = Vector2(-1632, 384)
 position = Vector2(-3648, -224)
 
 [node name="CL_Right" parent="." instance=ExtResource("12_p3og0")]
-position = Vector2(256, -128)
+position = Vector2(704, -128)
 
 [node name="CL_Top" parent="." instance=ExtResource("13_gy5op")]
 position = Vector2(-2112, -1056)
