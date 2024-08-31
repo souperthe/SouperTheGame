@@ -122,6 +122,18 @@ func oneshot_sfx(sound, pos, volume := 1.0, parent = roomhandler.currentscene):
 	ghost.queue_free()
 	
 	
+func oneshot_sfx_global(sound, volume := 1.0, parent = roomhandler.currentscene):
+	var ghost := AudioStreamPlayer.new()
+	parent.add_child(ghost)
+	ghost.stream = load(sound)
+	ghost.play()
+	ghost.name = sound.get_file()
+	ghost.volume_db = volume
+	ghost.bus = "SFX"
+	await ghost.finished
+	ghost.queue_free()
+	
+	
 func choose_randomly(list_of_entries):
 	
 	return list_of_entries[randi() % list_of_entries.size()]

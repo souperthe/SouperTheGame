@@ -31,6 +31,9 @@ func set_fps(fps):
 	Engine.max_fps = fps
 	print("fps set to: ", fps)
 	
+func bptm():
+	plr.position = get_global_mouse_position()
+	
 func set_playerstate(state):
 	plr.state = str(state)
 	print("player state set to: ", str(state))

@@ -6,14 +6,14 @@ func createtransition():
 	var whiteflash = preload("res://assets/objects/circletransistion.tscn")
 	var ghost: CanvasLayer = whiteflash.instantiate()
 	global.add_child(ghost)
-	ghost.targetroom = "res://assets/scenes/house/house_1.tscn"
+	ghost.targetroom = "res://assets/scenes/start.tscn"
 	ghost.targetdoor = "1"
-	global.resetroom = "res://assets/scenes/house/house_1.tscn"
+	global.resetroom = "res://assets/scenes/start.tscn"
 	global.resetdoor = "1"
 	#ghost.door = true
 	
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed(plr.enterkey):
 		going = true
 		music_controller.stop()

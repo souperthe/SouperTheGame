@@ -27,7 +27,10 @@ const states := {
 	carryjump = "carryjump",
 	sideflip = "sideflip",
 	slide = "slide",
-	dive = "dive"
+	dive = "dive",
+	hub = "hub",
+	hubactor = "hubactor",
+	carried = "carried"
 }
 var state := states.normal
 var character := "S"
@@ -44,6 +47,7 @@ var laddering := false
 var animationdone := false
 var dash1 := 60
 var move := 0
+var move2 := 0
 var currentframe := 0
 var movedirection := 0
 var scoreapproached := 0 
@@ -99,6 +103,31 @@ func _ready() -> void:
 	$charge.visible = false
 	
 	
+func hubstate():
+	animator.play("hub")
+	animator.speed_scale = 0
+	move = -int(Input.is_action_pressed(leftkey)) - -int(Input.is_action_pressed(rightkey))
+	move2 = -int(Input.is_action_pressed(upkey)) - -int(Input.is_action_pressed(downkey))
+	hsp = move * 5.5
+	vsp = move2 * 5
+	if move != 0:
+		spriteh = move
+		if move2 != 0:
+			if move2 > 0:
+				animator.frame = 1
+			else:
+				animator.frame = 3
+		else:
+			animator.frame = 2
+	if move2 != 0:
+		if move2 > 0:
+			animator.frame = 0
+		else:
+			animator.frame = 4
+	
+	
+	
+	
 var thing := false
 	
 func _physics_process(delta) -> void:
@@ -110,8 +139,9 @@ func _physics_process(delta) -> void:
 		ctime = 10
 	if !grounded:
 		ctime -= 30 * delta
-	$standing.disabled = state == states.slide
+	$standing.disabled = state == states.slide || state == states.carried
 	$crouch.disabled = !(state == states.slide)
+	$Littleshadow.visible = state == states.hub || state == states.hubactor
 	#createothertrail()
 	match(state):
 		states.normal:
@@ -541,6 +571,8 @@ func _physics_process(delta) -> void:
 				vsp = -8
 				animator.play("jump")
 				animator.speed_scale = 0.5
+		states.hub:
+			hubstate()
 		states.screwbounce:
 			move = -int(Input.is_action_pressed(leftkey)) - -int(Input.is_action_pressed(rightkey))
 			hsp = lerpf(hsp, move * 8, 5 * delta)
@@ -619,7 +651,10 @@ func _physics_process(delta) -> void:
 				state = states.throw
 				#hsp = spriteh * 18
 				if is_instance_valid(holdingobj):
-					holdingobj.state = holdingobj.states.thrown
+					if holdingobj is Player:
+						holdingobj.state = states.jump
+					else:
+						holdingobj.state = holdingobj.states.thrown
 					holdingobj.hsp = spriteh * 18
 					holdingobj.vsp = -5
 					holdingobj.position.y = position.y - 12
@@ -769,7 +804,7 @@ func _physics_process(delta) -> void:
 	move_and_slide()
 	$charge.flip_h = animator.flip_h
 	$charge.rotation_degrees = animator.rotation_degrees
-	$CanvasLayer.visible = roomhandler.room_name != "title"
+	$CanvasLayer.visible = roomhandler.room_name != "title" and state != states.hub and state != states.hubactor
 	if global.rank < 6:
 		$CanvasLayer/Control2/rankometer.animation = "default"
 		$CanvasLayer/Control2/rankometer.speed_scale = 0
@@ -872,6 +907,17 @@ func _on_frontdetect_body_entered(body):
 			holdingobj.state = 1
 		if state == states.dash2:
 			body.destroy()
+	#if body is Player:
+	#	if state == states.punch:
+	#		state = states.carry
+	#		holdingobj = body
+	#		body.vsp = 0
+	#		body.hsp = 0
+	#		$sounds/swing.stop()
+	#		$sounds/swang.stop()
+	#		$sounds/swish.stop()
+	#		$sounds/kerplunk.play()
+	#		holdingobj.state = "carried"
 	if body is Baddie:
 		#if state == states.slide:
 			#if body.state != 2:

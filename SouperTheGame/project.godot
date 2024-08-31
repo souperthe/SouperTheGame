@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 global="*res://assets/autoload objects/global.tscn"
 roomhandler="*res://assets/autoload objects/room_manager.tscn"
-plr="*res://assets/autoload objects/player.tscn"
+plr="*res://assets/objects/player.tscn"
 camera="*res://assets/autoload objects/camera.tscn"
 SInput="*res://assets/autoload objects/input.tscn"
 music_controller="*res://assets/autoload objects/musiccontroller.tscn"
