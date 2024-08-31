@@ -805,6 +805,7 @@ func _physics_process(delta) -> void:
 	$charge.flip_h = animator.flip_h
 	$charge.rotation_degrees = animator.rotation_degrees
 	$CanvasLayer.visible = roomhandler.room_name != "title" and state != states.hub and state != states.hubactor
+	$pause.canpause = roomhandler.room_name != "title"
 	if global.rank < 6:
 		$CanvasLayer/Control2/rankometer.animation = "default"
 		$CanvasLayer/Control2/rankometer.speed_scale = 0

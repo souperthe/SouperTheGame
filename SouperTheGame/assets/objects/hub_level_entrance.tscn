@@ -59,7 +59,6 @@ _data = {
 }
 
 [node name="HubLevelEntrance" type="Node2D"]
-z_index = 2
 script = ExtResource("1_6vh2e")
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -83,7 +82,8 @@ scale = Vector2(1.5, 1.5)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-z_index = -2
+z_index = 2
+z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

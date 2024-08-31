@@ -26,4 +26,4 @@ func gotoroom():
 			
 			
 func dingdong():
-	global.oneshot_sfx_global("res://assets/sounds/sfx/sfx_elevate.wav")
+	global.oneshot_sfx_global("res://assets/sounds/sfx/sfx_elevate.wav", -5)

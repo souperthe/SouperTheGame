@@ -32,6 +32,7 @@ func _process(delta):
 				plr.state = plr.states.hubactor
 				$AnimationPlayer.play("new_animation")
 				music_controller.stop()
+				z_index = 3
 	else:
 		#$pressenter.position.y = 0
 		#$pressenter.position.x = 0
