@@ -45,7 +45,7 @@ func escape(trueorfalse):
 	global.activateescape(trueorfalse)
 	
 func playsong(songname, yea = false):
-	music_controller.play(str("res://assets/sounds/music/", songname), yea)
+	music_controller.play(str("res://assets/sounds/", songname), yea)
 	
 func stopmusic():
 	music_controller.stop()
@@ -70,7 +70,7 @@ func screenshot():
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play('screenshot')
 
-func spawnobj(obj):
+func spawnobj(obj, amount := 1):
 	var selectedobj := str("res://assets/objects/", obj)
 	global.createobject(selectedobj, camera.position)
 	

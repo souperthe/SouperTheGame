@@ -387,6 +387,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("58_7mhdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_7mhdh")
 }],
 "loop": false,
 "name": &"freefallland",
@@ -885,8 +888,8 @@ texture = ExtResource("2_t8xyg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 4
 sprite_frames = SubResource("SpriteFrames_32s0h")
-animation = &"hub"
-frame_progress = 0.867816
+animation = &"freefallland"
+frame = 3
 speed_scale = 0.2
 
 [node name="standing" type="CollisionShape2D" parent="."]
@@ -902,8 +905,8 @@ debug_color = Color(0.964706, 0.427451, 0, 0.419608)
 
 [node name="pause" type="CanvasLayer" parent="."]
 process_mode = 3
+process_priority = 2
 layer = 3
-visible = false
 script = ExtResource("137_mp5ry")
 
 [node name="Control" type="Control" parent="pause"]
@@ -921,7 +924,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.27451)
+color = Color(0, 0, 0, 0.498039)
+
+[node name="Souper0003" type="Sprite2D" parent="pause/Control"]
+position = Vector2(50, 490)
+texture = ExtResource("68_xfobb")
 
 [node name="pause" type="AudioStreamPlayer" parent="pause"]
 stream = SubResource("AudioStreamRandomizer_uobbq")

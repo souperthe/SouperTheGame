@@ -472,8 +472,9 @@ func _physics_process(delta) -> void:
 			hsp = 0
 			vsp = 0
 			if animationdone:
-				state = states.normal
-				$sounds/pop.play()
+				if not Input.is_action_pressed(downkey):
+					state = states.normal
+					$sounds/pop.play()
 		states.dashturn:
 			move = -int(Input.is_action_pressed(leftkey)) - -int(Input.is_action_pressed(rightkey))
 			hsp = global.approach(hsp, 0, 44 * delta)
@@ -804,8 +805,8 @@ func _physics_process(delta) -> void:
 	move_and_slide()
 	$charge.flip_h = animator.flip_h
 	$charge.rotation_degrees = animator.rotation_degrees
-	$CanvasLayer.visible = roomhandler.room_name != "title" and state != states.hub and state != states.hubactor
-	$pause.canpause = roomhandler.room_name != "title"
+	$CanvasLayer.visible = roomhandler.room_name != "title" and state != states.hub and state != states.hubactor and name == "plr"
+	$pause.canpause = roomhandler.room_name != "title" and name == "plr"
 	if global.rank < 6:
 		$CanvasLayer/Control2/rankometer.animation = "default"
 		$CanvasLayer/Control2/rankometer.speed_scale = 0
@@ -892,7 +893,7 @@ func _on_machtrail_timeout() -> void:
 	global.createmachtrail(self.position, animator, Color8(255,0,0,255), 1.5, self)
 	pass # Replace with function body.
 
-
+var me = self
 func _on_frontdetect_body_entered(body):
 	if body is MetalBlock:
 		if state == states.dash2 || state == states.dashjump:
@@ -909,16 +910,17 @@ func _on_frontdetect_body_entered(body):
 		if state == states.dash2:
 			body.destroy()
 	#if body is Player:
-	#	if state == states.punch:
-	#		state = states.carry
-	#		holdingobj = body
-	#		body.vsp = 0
-	#		body.hsp = 0
-	#		$sounds/swing.stop()
-	#		$sounds/swang.stop()
-	#		$sounds/swish.stop()
-	#		$sounds/kerplunk.play()
-	#		holdingobj.state = "carried"
+		#if body is me:
+			#if state == states.punch:
+				#state = states.carry
+				#holdingobj = body
+				#body.vsp = 0
+				#body.hsp = 0
+				#$sounds/swing.stop()
+				#$sounds/swang.stop()
+				#$sounds/swish.stop()
+				#$sounds/kerplunk.play()
+				#holdingobj.state = "carried"
 	if body is Baddie:
 		#if state == states.slide:
 			#if body.state != 2:
