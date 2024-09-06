@@ -11,6 +11,10 @@ func _process(delta):
 	match(paused):
 		true:
 			music_controller.mva = 5
+			if Input.is_action_just_pressed(plr.enterkey):
+				global.reset()
+				paused = false
+				get_tree().paused = false
 		false:
 			music_controller.mva = 1.5
 	#print(int(paused))

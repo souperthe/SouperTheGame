@@ -22,9 +22,7 @@ var stunstime := 60
 
 
 func particals():
-	#var hvel := 15
-	if $baddiestuff.onscreen:
-		camera.camerashake(10, 1)
+	#var hvel := 1
 	yeah()
 	yeah()
 		

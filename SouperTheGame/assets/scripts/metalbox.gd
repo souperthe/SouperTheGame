@@ -15,7 +15,7 @@ func destroy() -> void:
 	global.blockroom.append(global.targetscene + name)
 	global.createobject("res://assets/objects/bangeffect.tscn", postion, 0, Vector2(1.5, 1.5))
 	global.oneshot_sfx("res://assets/sounds/metalrandomized.tres", postion, -5)
-	camera.camerashake(15, 1)
+	camera.camerashake(30, 0.1)
 	global.createdeadthing(postion, "res://assets/images/otheranimated/metalpeices/metalpeice_1.png", randf_range(hvel,-hvel), randf_range(-10,-8))
 	global.createdeadthing(postion, "res://assets/images/otheranimated/metalpeices/metalpeice_2.png", randf_range(hvel,-hvel), randf_range(-10,-8))
 	global.createdeadthing(postion, "res://assets/images/otheranimated/metalpeices/metalpeice_3.png", randf_range(hvel,-hvel), randf_range(-10,-8))

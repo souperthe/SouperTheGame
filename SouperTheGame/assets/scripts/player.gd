@@ -938,6 +938,7 @@ func _on_frontdetect_body_entered(body):
 			$sounds/swing.stop()
 			$sounds/swang.stop()
 			$sounds/swish.stop()
+			camera.camerashake(30, 0.1)
 	pass # Replace with function body.
 
 

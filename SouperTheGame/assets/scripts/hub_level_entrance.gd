@@ -6,6 +6,7 @@ extends Node2D
 var entered := false
 
 func _ready():
+	z_index = 0
 	var texture := str("res://assets/images/hublevels/", spritename, ".png")
 	$sprite.texture = load(texture)
 	$pressenter.play("default")
@@ -22,7 +23,7 @@ func createtransition():
 
 func _process(delta):
 	if $Area2D.overlaps_body(plr):
-		$pressenter.position.y = plr.position.y - position.y - 45
+		$pressenter.position.y = plr.position.y - position.y - 50
 		$pressenter.position.x = plr.position.x - position.x
 		
 		$pressenter.visible = !entered
@@ -30,6 +31,8 @@ func _process(delta):
 			if Input.is_action_just_pressed(plr.enterkey):
 				entered = true
 				plr.state = plr.states.hubactor
+				global.resetroom = target_scene
+				global.resetdoor = target_door
 				$AnimationPlayer.play("new_animation")
 				music_controller.stop()
 				z_index = 3
