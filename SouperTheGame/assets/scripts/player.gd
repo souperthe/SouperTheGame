@@ -101,6 +101,7 @@ func _ready() -> void:
 	floor_snap_length = 64
 	$charge.play("default")
 	$charge.visible = false
+	print(states)
 	
 	
 func hubstate():
