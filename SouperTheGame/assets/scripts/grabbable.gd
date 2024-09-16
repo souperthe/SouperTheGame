@@ -14,13 +14,11 @@ var grv := 0.6
 func yeah():
 	var postion := position
 	var hvel := 16
-	global.createdeadthing(postion, "res://assets/images/otheranimated/cratepeices/cratepeices_1.png", randf_range(hvel,-hvel), randf_range(-12,-8))
-	global.createdeadthing(postion, "res://assets/images/otheranimated/cratepeices/cratepeices_2.png", randf_range(hvel,-hvel), randf_range(-12,-8))
-	global.createdeadthing(postion, "res://assets/images/otheranimated/cratepeices/cratepeices_3.png", randf_range(hvel,-hvel), randf_range(-12,-8))
-	global.createdeadthing(postion, "res://assets/images/otheranimated/cratepeices/cratepeices_4.png", randf_range(hvel,-hvel), randf_range(-12,-8))
-	global.createdeadthing(postion, "res://assets/images/otheranimated/cratepeices/cratepeices_5.png", randf_range(hvel,-hvel), randf_range(-12,-8))
-	global.createdeadthing(postion, "res://assets/images/otheranimated/cratepeices/cratepeices_6.png", randf_range(hvel,-hvel), randf_range(-12,-8))
-	global.createdeadthing(postion, "res://assets/images/otheranimated/cratepeices/cratepeices_7.png", randf_range(hvel,-hvel), randf_range(-12,-8))
+	for i in range(7):
+		var xvelo := randf_range(15,-15)
+		var yvelo := randf_range(-5,-15)
+		var sprite := str("res://assets/images/otheranimated/cratepeices/cratepeices_", i + 1, ".png")
+		global.createdeadthing(position, sprite, xvelo, yvelo)
 func destroy() -> void:
 	global.score += 5
 	var postion := position

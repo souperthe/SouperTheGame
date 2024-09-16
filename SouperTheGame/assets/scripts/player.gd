@@ -126,9 +126,6 @@ func hubstate():
 		else:
 			animator.frame = 4
 	
-	
-	
-	
 var thing := false
 	
 func _physics_process(delta) -> void:
@@ -939,7 +936,7 @@ func _on_frontdetect_body_entered(body):
 			$sounds/swing.stop()
 			$sounds/swang.stop()
 			$sounds/swish.stop()
-			camera.camerashake(30, 0.1)
+			camera.camerashake(25, 0.1)
 	pass # Replace with function body.
 
 

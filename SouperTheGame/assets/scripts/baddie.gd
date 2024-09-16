@@ -20,11 +20,6 @@ var state := states.normal
 var directipn := 1
 var stunstime := 60
 
-
-func particals():
-	#var hvel := 1
-	yeah()
-	yeah()
 		
 
 func _ready():
@@ -43,20 +38,18 @@ func destroy(velo, _killedfrom) -> void:
 		queue_free()
 		dead = true
 		global.score += 5
-		particals()
+		yeah()
+		yeah()
 		
 		
 func yeah() -> void:
 	var hvel := 15
 	global.createobject("res://assets/objects/bangeffect.tscn", position, 0, Vector2(2, 2))
-	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0001.png", randf_range(hvel,-hvel), randf_range(-17,-8))
-	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0002.png", randf_range(hvel,-hvel), randf_range(-17,-8))
-	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0003.png", randf_range(hvel,-hvel), randf_range(-17,-8))
-	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0004.png", randf_range(hvel,-hvel), randf_range(-17,-8))
-	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0005.png", randf_range(hvel,-hvel), randf_range(-17,-8))
-	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0006.png", randf_range(hvel,-hvel), randf_range(-17,-8))
-	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0007.png", randf_range(hvel,-hvel), randf_range(-17,-8))
-	global.createdeadthing(position, "res://assets/images/otheranimated/hurtpeices/hurtpeices_0008.png", randf_range(hvel,-hvel), randf_range(-17,-8))
+	for i in range(8):
+		var xvelo := randf_range(15,-15)
+		var yvelo := randf_range(-5,-15)
+		var sprite := str("res://assets/images/otheranimated/hurtpeices/hurtpeices_000", i + 1, ".png")
+		global.createdeadthing(position, sprite, xvelo, yvelo)
 func _physics_process(delta):
 	if $baddiestuff.onscreen:
 		process(delta)

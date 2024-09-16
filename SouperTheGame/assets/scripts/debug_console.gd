@@ -54,6 +54,13 @@ func gotoroom(roomname, door = 1):
 	var room := str("res://assets/scenes/", roomname)
 	global.gotoroom(room, str(door))
 	
+func funny():
+	for i in range(8):
+		var xvelo := randf_range(15,-15)
+		var yvelo := randf_range(-5,-15)
+		var sprite := str("res://assets/images/otheranimated/hurtpeices/hurtpeices_000", i + 1, ".png")
+		global.createdeadthing(plr.position, sprite, xvelo, yvelo)
+	
 func roomgoto(roomname, door = 1):
 	var room := str("res://assets/scenes/", roomname)
 	global.gotoroom(room, str(door))
