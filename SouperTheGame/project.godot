@@ -28,7 +28,9 @@ music_controller="*res://assets/autoload objects/musiccontroller.tscn"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
+window/size/extend_to_title=true
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
 [editor_plugins]
