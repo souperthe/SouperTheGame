@@ -31,21 +31,6 @@ scale = Vector2(1, 6)
 target_scene = "res://assets/scenes/house/house_5.tscn"
 target_door = "2"
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 288.0
-offset_top = 256.0
-offset_right = 448.0
-offset_bottom = 288.0
-text = "nothings here... yet"
-context_menu_enabled = false
-shortcut_keys_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-autowrap_mode = 1
-
 [node name="CPlatform" parent="." instance=ExtResource("4_e8o5y")]
 position = Vector2(-256, 384)
 scale = Vector2(8, 1)
@@ -173,4 +158,9 @@ position = Vector2(-1792, -320)
 scale = Vector2(12, 1)
 
 [node name="framedoor" parent="." instance=ExtResource("11_cc0er")]
+position = Vector2(-1280, -64)
+target_scene = "res://assets/scenes/house/house_7.tscn"
+target_door = "1"
+
+[node name="door2" parent="." instance=ExtResource("2_qnfcu")]
 position = Vector2(-1280, -64)

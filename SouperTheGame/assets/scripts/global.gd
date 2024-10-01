@@ -14,6 +14,7 @@ var escaperoom := []
 var collectroom := []
 var resetroom := "yea"
 var resetdoor := "1"
+var lastdoor:Node = null
 
 signal escapecall
 
@@ -147,6 +148,7 @@ func startroom():
 	if is_instance_valid(door):
 		plr.position.x = door.position.x
 		plr.position.y = door.position.y - 45
+		lastdoor = door
 		#if plr.state == plr.states.carry || plr.state == plr.states.carryjump:
 			#plr.state = plr.states.normal
 		camera.position = plr.position

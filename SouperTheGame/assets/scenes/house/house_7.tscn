@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://beiwab0inufvw"]
+
+[ext_resource type="PackedScene" uid="uid://dfl0o857rs3e6" path="res://assets/objects/framedoortscn.tscn" id="1_j7huu"]
+[ext_resource type="PackedScene" uid="uid://c3xij7vqld2kf" path="res://assets/objects/c_box.tscn" id="2_dq3xf"]
+[ext_resource type="PackedScene" uid="uid://c85yqrg6ve0e3" path="res://assets/objects/c_slope.tscn" id="3_thm8h"]
+[ext_resource type="PackedScene" uid="uid://b3mfka8apl8cu" path="res://assets/objects/door.tscn" id="4_07wt8"]
+[ext_resource type="PackedScene" uid="uid://buh8bwyjq2qat" path="res://assets/objects/c_platform.tscn" id="5_u4swe"]
+[ext_resource type="PackedScene" uid="uid://camw81jkecnlk" path="res://assets/objects/cl_left.tscn" id="6_dpf8y"]
+[ext_resource type="PackedScene" uid="uid://dseu1ycbuw7vc" path="res://assets/objects/cl_right.tscn" id="7_44qyb"]
+[ext_resource type="PackedScene" uid="uid://cvarg6yntix2h" path="res://assets/objects/cl_bottom.tscn" id="8_vwynr"]
+[ext_resource type="PackedScene" uid="uid://cfpye3bth5qgu" path="res://assets/objects/cl_top.tscn" id="9_5sntw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="framedoor" parent="." instance=ExtResource("1_j7huu")]
+target_scene = "res://assets/scenes/house/house_6.tscn"
+target_door = "2"
+
+[node name="CBox" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(-256, 0)
+scale = Vector2(8, 1)
+
+[node name="CSlope" parent="." instance=ExtResource("3_thm8h")]
+position = Vector2(256, -64)
+scale = Vector2(2, 1)
+
+[node name="CBox2" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(448, 0)
+scale = Vector2(9, 1)
+
+[node name="door1" parent="." instance=ExtResource("4_07wt8")]
+
+[node name="CBox3" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(-320, -256)
+scale = Vector2(1, 4)
+
+[node name="CBox4" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(384, -64)
+
+[node name="CSlope2" parent="." instance=ExtResource("3_thm8h")]
+position = Vector2(1024, -64)
+scale = Vector2(2, 1)
+
+[node name="CSlope3" parent="." instance=ExtResource("3_thm8h")]
+position = Vector2(1152, -128)
+scale = Vector2(2, 1)
+
+[node name="CSlope4" parent="." instance=ExtResource("3_thm8h")]
+position = Vector2(1280, -192)
+scale = Vector2(2, 1)
+
+[node name="CBox5" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(1536, -256)
+scale = Vector2(4, 1)
+
+[node name="CPlatform" parent="." instance=ExtResource("5_u4swe")]
+position = Vector2(896, -256)
+scale = Vector2(4, 1)
+
+[node name="CSlope5" parent="." instance=ExtResource("3_thm8h")]
+position = Vector2(1408, -256)
+scale = Vector2(2, 1)
+
+[node name="CBox6" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(-256, -256)
+scale = Vector2(18, 1)
+
+[node name="CBox7" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(1792, -512)
+scale = Vector2(1, 4)
+
+[node name="CBox8" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(256, -320)
+scale = Vector2(4, 1)
+
+[node name="CSlope6" parent="." instance=ExtResource("3_thm8h")]
+position = Vector2(-448, -256)
+scale = Vector2(2, 1)
+
+[node name="CBox9" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(-1024, -192)
+scale = Vector2(12, 1)
+
+[node name="CBox10" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(-832, -768)
+scale = Vector2(1, 6)
+
+[node name="CBox11" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(-1088, -512)
+scale = Vector2(1, 5)
+
+[node name="CBox12" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(-1536, -512)
+scale = Vector2(8, 1)
+
+[node name="CBox13" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(-768, -576)
+scale = Vector2(41, 1)
+
+[node name="CBox14" parent="." instance=ExtResource("2_dq3xf")]
+position = Vector2(-1536, -704)
+scale = Vector2(12, 1)
+
+[node name="CL_Left" parent="." instance=ExtResource("6_dpf8y")]
+position = Vector2(-1536, -576)
+
+[node name="CL_Right" parent="." instance=ExtResource("7_44qyb")]
+position = Vector2(1856, -416)
+
+[node name="CL_Bottom" parent="." instance=ExtResource("8_vwynr")]
+position = Vector2(192, 64)
+
+[node name="CL_Top" parent="." instance=ExtResource("9_5sntw")]
+position = Vector2(-928, -704)

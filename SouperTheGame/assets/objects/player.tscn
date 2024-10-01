@@ -1,4 +1,4 @@
-[gd_scene load_steps=197 format=3 uid="uid://bq4vdtbq4vdi7"]
+[gd_scene load_steps=201 format=3 uid="uid://bq4vdtbq4vdi7"]
 
 [ext_resource type="Script" path="res://assets/scripts/player.gd" id="1_ap5y1"]
 [ext_resource type="Texture2D" uid="uid://4wdlqr00plbi" path="res://assets/images/littleshadow.png" id="2_t8xyg"]
@@ -148,8 +148,11 @@
 [ext_resource type="AudioStream" uid="uid://cp5hatk171aai" path="res://assets/sounds/sfx/sfx_boing.wav" id="144_7vcf0"]
 [ext_resource type="AudioStream" uid="uid://csl7f57evbkl5" path="res://assets/sounds/sfx/sfx_machstart.wav" id="145_a5487"]
 [ext_resource type="AudioStream" uid="uid://bi1ttk6qnt6nf" path="res://assets/sounds/sfx/sfx_freefallprep.wav" id="146_mth63"]
+[ext_resource type="AudioStream" uid="uid://20ad5mc7lgw4" path="res://assets/sounds/sfx/negative1.wav" id="147_78clw"]
 [ext_resource type="AudioStream" uid="uid://dgh6h7exdm4i2" path="res://assets/sounds/sfx/sfx_descend.wav" id="147_d5xay"]
 [ext_resource type="AudioStream" uid="uid://bud27jxlqc61x" path="res://assets/sounds/sfx/sfx_hitwall.wav" id="148_2iljm"]
+[ext_resource type="AudioStream" uid="uid://xld4syipos80" path="res://assets/sounds/sfx/negative2.wav" id="148_lppgo"]
+[ext_resource type="AudioStream" uid="uid://c1n6yprf74nya" path="res://assets/sounds/sfx/negative3.wav" id="149_8mwdq"]
 [ext_resource type="AudioStream" uid="uid://c7x1keyrkppak" path="res://assets/sounds/sfx/sfx_pop.wav" id="149_efsrm"]
 [ext_resource type="AudioStream" uid="uid://cu2oc3erwk6d1" path="res://assets/sounds/sfx/sfx_machcancle.wav" id="150_qd4xn"]
 [ext_resource type="AudioStream" uid="uid://ccpvydybn3kue" path="res://assets/sounds/sfx/sfx_bump.wav" id="151_bdmxp"]
@@ -760,6 +763,16 @@ streams_count = 1
 stream_0/stream = ExtResource("144_7vcf0")
 stream_0/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cneo1"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("147_78clw")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("148_lppgo")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("149_8mwdq")
+stream_2/weight = 1.0
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xtxb2"]
 random_pitch = 1.1
 streams_count = 1
@@ -1041,6 +1054,10 @@ shape = SubResource("RectangleShape2D_hiy2q")
 
 [node name="boing" type="AudioStreamPlayer2D" parent="sounds"]
 stream = SubResource("AudioStreamRandomizer_m8p47")
+bus = &"SFX"
+
+[node name="voicenegative" type="AudioStreamPlayer2D" parent="sounds"]
+stream = SubResource("AudioStreamRandomizer_cneo1")
 bus = &"SFX"
 
 [node name="machstart" type="AudioStreamPlayer2D" parent="sounds"]
