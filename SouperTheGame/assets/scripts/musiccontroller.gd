@@ -24,6 +24,13 @@ func play(id: String, continueafterlast: bool):
 	if continueafterlast:
 		leveltheme.seek(float(temp))
 		
+		
+func escapeplay():
+	var id := "res://assets/sounds/music/mus_souper_escapenew.ogg"
+	leveltheme.stream = load(id)
+	leveltheme.play()
+	currentsong = id
+		
 func stop():
 	$leveltheme.stop()
 	temp = 0

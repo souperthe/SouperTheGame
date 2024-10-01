@@ -1010,7 +1010,7 @@ wait_time = 0.08
 one_shot = true
 
 [node name="machtrail" type="Timer" parent="."]
-wait_time = 0.08
+wait_time = 0.05
 one_shot = true
 
 [node name="frontstuff" type="Node2D" parent="."]

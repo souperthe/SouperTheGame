@@ -22,6 +22,7 @@ stream_0/weight = 1.0
 script = ExtResource("1_tfpmb")
 
 [node name="CustomBorder" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("2_llhon")
 
 [node name="Control" type="Control" parent="CustomBorder"]

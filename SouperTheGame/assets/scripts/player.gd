@@ -95,6 +95,7 @@ func rundust() -> void:
 
 
 func _ready() -> void:
+	global.escapecall.connect(escapetihng)
 	animator.play("idle")
 	animator.speed_scale = 0.15
 	floor_constant_speed = true
@@ -103,6 +104,9 @@ func _ready() -> void:
 	$charge.visible = false
 	print(states)
 	
+func escapetihng():
+	print("AAAHHHH!!!")
+
 	
 func hubstate():
 	animator.play("hub")
@@ -368,7 +372,7 @@ func _physics_process(delta) -> void:
 			animator.speed_scale = 0.3
 			if is_on_floor():
 				vsp = 0
-				hsp = lerpf(hsp, spriteh * 20, 5 * delta)
+				hsp = lerpf(hsp, spriteh * 23, 5 * delta)
 				if Input.is_action_pressed(downkey):
 					state = states.slide
 					animator.play("slide")

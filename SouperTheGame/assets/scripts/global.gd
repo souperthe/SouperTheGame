@@ -15,6 +15,8 @@ var collectroom := []
 var resetroom := "yea"
 var resetdoor := "1"
 
+signal escapecall
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(_delta):
@@ -32,6 +34,7 @@ func approach(num, goal, i):
 		
 func activateescape(trueorfalse):
 	if trueorfalse == true:
+		escapecall.emit()
 		escape = true
 		music_controller.escapeplay()
 
@@ -168,9 +171,10 @@ func startroom():
 		camera.limit_left = -10000000
 	var musicobj = roomhandler.currentscene.get_node(str("musicsetter"))
 	if is_instance_valid(musicobj):
-		print("music setter found!: ", musicobj.target_song, ", ", musicobj.continue_after_last)
-		if music_controller.currentsong != musicobj.target_song:
-			music_controller.play(musicobj.target_song, musicobj.continue_after_last)
+		if !escape:
+			print("music setter found!: ", musicobj.target_song, ", ", musicobj.continue_after_last)
+			if music_controller.currentsong != musicobj.target_song:
+				music_controller.play(musicobj.target_song, musicobj.continue_after_last)
 		
 		
 func collectsfx(num):
