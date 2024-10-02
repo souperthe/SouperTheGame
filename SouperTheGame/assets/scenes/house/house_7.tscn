@@ -69,10 +69,6 @@ scale = Vector2(18, 1)
 position = Vector2(1792, -512)
 scale = Vector2(1, 4)
 
-[node name="CBox8" parent="." instance=ExtResource("2_dq3xf")]
-position = Vector2(256, -320)
-scale = Vector2(4, 1)
-
 [node name="CSlope6" parent="." instance=ExtResource("3_thm8h")]
 position = Vector2(-448, -256)
 scale = Vector2(2, 1)

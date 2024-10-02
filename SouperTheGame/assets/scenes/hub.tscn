@@ -168,3 +168,9 @@ target_song = "res://assets/sounds/music/mus_hub1.ogg"
 position = Vector2(928, 480)
 target_scene = "res://assets/scenes/house/house_1.tscn"
 target_door = "1"
+
+[node name="HubLevelEntrance2" parent="." instance=ExtResource("9_mjj44")]
+position = Vector2(129, 320)
+spritename = "tut"
+target_scene = "res://assets/scenes/tutorial/tutorial_1.tscn"
+target_door = "1"
