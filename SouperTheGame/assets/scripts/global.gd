@@ -52,13 +52,16 @@ func reset():
 	escaperoom = []
 	collectroom = []
 	gotoroom(resetroom, resetdoor)
-func createobject(obj, pos, rot = 0.0, size = Vector2(1,1)):
+func createobject(obj, pos, rot = 0.0, size = Vector2(1,1), presistent=false):
 	var whiteflash = load(obj)
 	var ghost = whiteflash.instantiate()
 	var random_seed = randi()
 	seed(random_seed)
 	ghost.name = str("instance ", random_seed)
-	roomhandler.currentscene.add_child(ghost)
+	if presistent:
+		global.add_child(ghost)
+	else:
+		roomhandler.currentscene.add_child(ghost)
 	ghost.position = pos
 	ghost.rotation_degrees = rot
 	ghost.scale = size

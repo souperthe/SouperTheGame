@@ -12,6 +12,8 @@ func _process(delta):
 		true:
 			music_controller.mva = 5
 			if Input.is_action_just_pressed(plr.enterkey):
+				music_controller.currentsong = ""
+				music_controller.stop()
 				global.reset()
 				paused = false
 				get_tree().paused = false

@@ -77,9 +77,10 @@ func screenshot():
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play('screenshot')
 
-func spawnobj(obj, amount := 1):
+func spawnobj(obj, amount:int, presistent := false):
 	var selectedobj := str("res://assets/objects/", obj)
-	global.createobject(selectedobj, camera.position)
+	for i in range(amount):
+		global.createobject(selectedobj, camera.position)
 	
 func disable_climits():
 	camera.limit_bottom = 10000000

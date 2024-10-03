@@ -30,7 +30,8 @@ const states := {
 	dive = "dive",
 	hub = "hub",
 	hubactor = "hubactor",
-	carried = "carried"
+	carried = "carried",
+	fallen = "fallen"
 }
 var state := states.normal
 var character := "S"
@@ -133,6 +134,7 @@ func hubstate():
 var thing := false
 	
 func _physics_process(delta) -> void:
+	grv = Engine.time_scale * 0.6
 	currentframe = animator.frame
 	wall = get_wall_normal()
 	grounded = is_on_floor()
@@ -809,20 +811,35 @@ func _physics_process(delta) -> void:
 	$charge.rotation_degrees = animator.rotation_degrees
 	$CanvasLayer.visible = roomhandler.room_name != "title" and state != states.hub and state != states.hubactor and name == "plr"
 	$pause.canpause = roomhandler.room_name != "title" and name == "plr"
-	if position.y > camera.limit_bottom:
-		plr.position.x = global.lastdoor.position.x
-		plr.position.y = global.lastdoor.position.y - 46
-		global.oneshot_sfx("res://assets/sounds/metalrandomized.tres", position)
-		state = states.normal
-		print("fallen")
-		$sounds/voicenegative.play()
+	if position.y > camera.limit_bottom + 64:
+		if state != states.fallen:
+			print("fallen")
+			for i in range(8):
+				var xvelo := randf_range(15,-15)
+				var yvelo := randf_range(-20,-15)
+				var sprite := str("res://assets/images/otheranimated/hurtpeices/hurtpeices_000", i + 1, ".png")
+				global.createdeadthing(position, sprite, xvelo, yvelo)
+			camera.camerashake(25, 0.1)
+			global.oneshot_sfx("res://assets/sounds/metalrandomized.tres", position)
+			vsp = 0
+			hsp = 0
+			state = states.fallen
+			$sounds/voicenegative.play()
+			$sounds/descend.stop()
+			$respawntimer.start()
+		#plr.position.x = global.lastdoor.position.x
+		#plr.position.y = global.lastdoor.position.y - 46
+		#global.oneshot_sfx("res://assets/sounds/metalrandomized.tres", position)
+		#state = states.fallen
+		#print("fallen")
+		#$sounds/voicenegative.play()
 	if global.rank < 6:
 		$CanvasLayer/Control2/rankometer.animation = "default"
 		$CanvasLayer/Control2/rankometer.speed_scale = 0
 		$CanvasLayer/Control2/rankometer.frame = global.rank
 	if global.rank == 6:
-		$CanvasLayer/Control/Control/rankometer.play("full")
-		$CanvasLayer/Control/Control/rankometer.speed_scale = 1
+		$CanvasLayer/Control2/rankometer.play("full")
+		$CanvasLayer/Control2/rankometer.speed_scale = 1
 	
 
 func statesound() -> void:
@@ -959,4 +976,13 @@ func _on_middledowndetect_body_entered(body):
 	if body is Grabbable:
 		if state == states.freefalling:
 			body.destroy()
+	pass # Replace with function body.
+
+
+func _on_respawntimer_timeout():
+	if state == states.fallen:
+		plr.position.x = global.lastdoor.position.x
+		plr.position.y = global.lastdoor.position.y - 46
+		state = states.normal
+		
 	pass # Replace with function body.

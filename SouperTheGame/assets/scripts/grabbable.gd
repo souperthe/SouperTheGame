@@ -28,9 +28,8 @@ func destroy() -> void:
 	global.createobject("res://assets/objects/bangeffect.tscn", postion, 0, Vector2(1.5, 1.5))
 	global.oneshot_sfx("res://assets/sounds/craterandmized.tres", postion, -5)
 	#camera.camerashake(15, 1)
-	yeah()
-	yeah()
-	yeah()
+	for i in range(3):
+		yeah()
 	
 	queue_free()
 
