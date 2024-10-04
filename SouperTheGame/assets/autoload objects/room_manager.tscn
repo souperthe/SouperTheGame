@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgytsgbe1rhem"]
-
-[ext_resource type="Script" path="res://assets/scripts/RoomManager.gd" id="1_n6h8j"]
-
-[node name="RoomManager" type="Node"]
-script = ExtResource("1_n6h8j")
