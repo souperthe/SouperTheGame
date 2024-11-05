@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://cixg020giuqym"]
+
+[ext_resource type="AudioStream" uid="uid://dqru86rrtobp7" path="res://assets/sounds/sfx/sfx_photo.wav" id="1_71avq"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("1_71avq")
+stream_0/weight = 1.0

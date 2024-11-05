@@ -1,0 +1,24 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=7 format=3 uid="uid://baqa5mcav2oe"]
+
+[ext_resource type="AudioStream" uid="uid://dw6r172in8kw8" path="res://assets/sounds/sfx/sfx_punch1.wav" id="1_2ah4t"]
+[ext_resource type="AudioStream" uid="uid://qfucjdwiyqlk" path="res://assets/sounds/sfx/sfx_punch2.wav" id="2_8mghi"]
+[ext_resource type="AudioStream" uid="uid://1qq0wdb16vq0" path="res://assets/sounds/sfx/sfx_punch3.wav" id="3_wyk2n"]
+[ext_resource type="AudioStream" uid="uid://vkqhgl2setmh" path="res://assets/sounds/sfx/sfx_punch4.wav" id="4_dtayo"]
+[ext_resource type="AudioStream" uid="uid://dor8k1pxikw6p" path="res://assets/sounds/sfx/sfx_punch6.wav" id="5_q7oxi"]
+[ext_resource type="AudioStream" uid="uid://dnb20m78jxkg1" path="res://assets/sounds/sfx/sfx_punch5.wav" id="6_hm87p"]
+
+[resource]
+random_pitch = 1.1
+streams_count = 6
+stream_0/stream = ExtResource("1_2ah4t")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_8mghi")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_wyk2n")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_dtayo")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_q7oxi")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_hm87p")
+stream_5/weight = 1.0
